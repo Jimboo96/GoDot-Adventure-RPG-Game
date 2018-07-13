@@ -13,7 +13,7 @@ func _input(event):
 	if(switchState):
 		if event.is_action_pressed("interact"):
 			# Area1 switches
-			if(get_tree().get_current_scene().get_name() == "area1"):
+			if(global.current_area == "area1"):
 				# Set switchState to false so action can only be done once per entering area.
 				switchState = false
 				if self.get_name() == "SwitchArea1":
@@ -24,7 +24,7 @@ func _input(event):
 						global.area1Switch = true
 						print("You hear something large moving somewhere in the forest....")
 			# House1 switches
-			elif(get_tree().get_current_scene().get_name() == "house1"):
+			elif(global.current_area == "house1"):
 				# Door 1. Opens and closes it.
 				if self.get_name() == "SwitchArea1":
 					if walls.get_cell(6,-11) == 22:
@@ -54,7 +54,7 @@ func _input(event):
 						#get_parent().get_parent().get_node("Sound/LockedDoor").play()
 						get_tree().get_root().get_child(1).get_node("Sound/LockedDoor").play()
 			# Secret area switches.
-			elif(get_tree().get_current_scene().get_name() == "secretArea"):
+			elif(global.current_area == "secretArea"):
 				# Set switchState to false so action can only be done once per entering area.
 				switchState = false
 				if self.get_name() == "SwitchArea1":

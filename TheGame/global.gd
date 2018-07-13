@@ -2,7 +2,7 @@ extends Node
 
 var current_scene = null
 var player
-var current_area 
+var current_area #area name from main
 
 # area1 variables
 var area1Chest1Found

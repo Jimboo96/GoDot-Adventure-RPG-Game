@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
 	if !playerPosReseted:
 		#reset_player_pos(get_tree().current_scene.get_name())
-		reset_player_pos(get_tree().current_scene.area_name) #Main.area_name
+		reset_player_pos(global.current_area) #Main.area_name
 
 func _input(event):
 	if(doorOpenable):

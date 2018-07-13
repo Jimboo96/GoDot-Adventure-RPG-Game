@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://particles/SwitchArea/SwitchArea.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="SwitchArea" type="Area2D"]
+
+position = Vector2( 154.537, 110.155 )
+scale = Vector2( 5.82927, 4.44236 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 18.0955, -13.2169 )
+scale = Vector2( 2.39196, 2.01668 )
+shape = SubResource( 1 )
+
+

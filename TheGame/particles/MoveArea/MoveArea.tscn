@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="MoveArea" type="Area2D"]
+
+position = Vector2( 134.75, 7.50001 )
+scale = Vector2( 5.21094, 4.03125 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollissionArea" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -12.75, -11.75 )
+scale = Vector2( 1.98077, 1.90385 )
+shape = SubResource( 1 )
+
+

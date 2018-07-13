@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_open_chest.wav-4a5077eedd7de8a43b4496c517c99d16.sample"
+
+[deps]
+
+source_file="res://sfx/sfx_open_chest.wav"
+source_md5="6d0049c1c8625442d3bd1a105dd6e9b1"
+
+dest_files=[ "res://.import/sfx_open_chest.wav-4a5077eedd7de8a43b4496c517c99d16.sample" ]
+dest_md5="164dc1ddafa8d2d7f0fec90cd2726ac5"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

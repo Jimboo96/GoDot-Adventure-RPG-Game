@@ -1,9 +1,9 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://ForestTiles128x128/ForestTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://particles/chests/Chests.gd" type="Script" id=2]
-[ext_resource path="res://particles/chests/chest1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Chests.gd" type="Script" id=2]
+[ext_resource path="res://chest1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sfx/sfx_open_door.wav" type="AudioStream" id=5]
 [ext_resource path="res://sfx/sfx_close_door.wav" type="AudioStream" id=6]
 [ext_resource path="res://sfx/sfx_coin_flip.wav" type="AudioStream" id=7]
@@ -15,10 +15,10 @@
 [ext_resource path="res://sfx/sfx_open_chest.wav" type="AudioStream" id=13]
 [ext_resource path="res://sfx/sfx_locked.wav" type="AudioStream" id=14]
 [ext_resource path="res://sfx/sfx_pick_up.wav" type="AudioStream" id=15]
-[ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=16]
-[ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=17]
-[ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=18]
-[ext_resource path="res://SceneManager.tscn" type="PackedScene" id=19]
+[ext_resource path="res://MoveArea.gd" type="Script" id=16]
+[ext_resource path="res://MoveArea.tscn" type="PackedScene" id=17]
+[ext_resource path="res://SwitchArea.tscn" type="PackedScene" id=18]
+[ext_resource path="res://SceneManager.gd" type="Script" id=19]
 
 [node name="area1" type="Node2D"]
 
@@ -55,6 +55,7 @@ position = Vector2( 283.939, -71.748 )
 
 [node name="walls" type="TileMap" parent="." index="2"]
 
+editor/display_folded = true
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
@@ -235,7 +236,9 @@ position = Vector2( 45.1122, -8.20224 )
 position = Vector2( -269.356, 149.704 )
 scale = Vector2( 1.48338, 2.02124 )
 
-[node name="SceneManager" parent="." index="6" instance=ExtResource( 19 )]
+[node name="SceneManager" type="Node" parent="." index="6"]
+
+script = ExtResource( 19 )
 
 [connection signal="body_shape_entered" from="Chests/chest1" to="Chests" method="_on_chest1_body_shape_entered"]
 
@@ -245,9 +248,13 @@ scale = Vector2( 1.48338, 2.02124 )
 
 [connection signal="body_shape_entered" from="MoveAreas/MoveArea" to="MoveAreas" method="_on_MoveArea_body_shape_entered"]
 
+[connection signal="timeout" from="MoveAreas/MoveArea/MoveTimer" to="SceneManager" method="_on_MoveTimer_timeout"]
+
 [connection signal="body_shape_entered" from="MoveAreas/DoorArea" to="MoveAreas" method="_on_DoorArea_body_shape_entered"]
 
 [connection signal="body_shape_exited" from="MoveAreas/DoorArea" to="MoveAreas" method="_on_DoorArea_body_shape_exited"]
+
+[connection signal="timeout" from="MoveAreas/DoorArea/DoorTimer" to="SceneManager" method="_on_DoorTimer_timeout"]
 
 [connection signal="body_shape_entered" from="SwitchAreas/SwitchArea1" to="SwitchAreas/SwitchArea1" method="_on_SwitchArea_body_shape_entered"]
 

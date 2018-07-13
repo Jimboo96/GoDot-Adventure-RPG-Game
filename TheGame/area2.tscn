@@ -1,11 +1,11 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ForestTiles128x128/ForestTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://particles/chests/Chests.gd" type="Script" id=2]
-[ext_resource path="res://particles/chests/trump.tscn" type="PackedScene" id=3]
-[ext_resource path="res://particles/chests/chest1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://particles/chests/chest2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Chests.gd" type="Script" id=2]
+[ext_resource path="res://trump.tscn" type="PackedScene" id=3]
+[ext_resource path="res://chest1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://chest2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sfx/sfx_open_door.wav" type="AudioStream" id=7]
 [ext_resource path="res://sfx/sfx_close_door.wav" type="AudioStream" id=8]
 [ext_resource path="res://sfx/sfx_coin_flip.wav" type="AudioStream" id=9]
@@ -16,12 +16,12 @@
 [ext_resource path="res://sfx/sfx_open_chest.wav" type="AudioStream" id=14]
 [ext_resource path="res://sfx/sfx_locked.wav" type="AudioStream" id=15]
 [ext_resource path="res://sfx/sfx_pick_up.wav" type="AudioStream" id=16]
-[ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=17]
-[ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=18]
-[ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=19]
+[ext_resource path="res://MoveArea.gd" type="Script" id=17]
+[ext_resource path="res://MoveArea.tscn" type="PackedScene" id=18]
+[ext_resource path="res://SwitchArea.tscn" type="PackedScene" id=19]
 [ext_resource path="res://SceneManager.gd" type="Script" id=20]
 
-[node name="area2" type="Node2D"]
+[node name="area2" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -52,6 +52,8 @@ script = ExtResource( 2 )
 
 [node name="chest1" parent="Chests" index="0" instance=ExtResource( 3 )]
 
+position = Vector2( -187.161, -209.029 )
+
 [node name="chest2" parent="Chests" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 294.707, 544.835 )
@@ -62,6 +64,7 @@ position = Vector2( 613.902, 631.202 )
 
 [node name="walls" type="TileMap" parent="." index="2"]
 
+editor/display_folded = true
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
@@ -194,6 +197,7 @@ area_mask = 1
 
 [node name="MoveAreas" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="MoveArea" parent="MoveAreas" index="0" instance=ExtResource( 18 )]
@@ -221,14 +225,14 @@ autostart = false
 
 [node name="SwitchAreas" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 45.1122, -8.20224 )
 
-[node name="SwitchArea" parent="SwitchAreas" index="0" instance=ExtResource( 19 )]
+[node name="SwitchArea1" parent="SwitchAreas" index="0" instance=ExtResource( 19 )]
 
 position = Vector2( 507.728, 762.452 )
 scale = Vector2( 2.45302, 2.5708 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="SceneManager" type="Node" parent="." index="6"]
 
@@ -253,5 +257,9 @@ script = ExtResource( 20 )
 [connection signal="body_shape_entered" from="MoveAreas/MoveArea2" to="MoveAreas" method="_on_MoveArea2_body_shape_entered"]
 
 [connection signal="timeout" from="MoveAreas/MoveArea2/MoveTimer2" to="SceneManager" method="_on_MoveTimer2_timeout"]
+
+[connection signal="body_shape_entered" from="SwitchAreas/SwitchArea1" to="SwitchAreas/SwitchArea1" method="_on_SwitchArea_body_shape_entered"]
+
+[connection signal="body_shape_exited" from="SwitchAreas/SwitchArea1" to="SwitchAreas/SwitchArea1" method="_on_SwitchArea_body_shape_exited"]
 
 

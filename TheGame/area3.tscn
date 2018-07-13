@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ForestTiles128x128/ForestTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://particles/chests/Chests.gd" type="Script" id=2]
-[ext_resource path="res://particles/chests/chest1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://particles/chests/chest2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Chests.gd" type="Script" id=2]
+[ext_resource path="res://chest1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://chest2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sfx/sfx_open_door.wav" type="AudioStream" id=6]
 [ext_resource path="res://sfx/sfx_close_door.wav" type="AudioStream" id=7]
 [ext_resource path="res://sfx/sfx_coin_flip.wav" type="AudioStream" id=8]
@@ -16,12 +16,12 @@
 [ext_resource path="res://sfx/sfx_open_chest.wav" type="AudioStream" id=14]
 [ext_resource path="res://sfx/sfx_locked.wav" type="AudioStream" id=15]
 [ext_resource path="res://sfx/sfx_pick_up.wav" type="AudioStream" id=16]
-[ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=17]
-[ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=18]
-[ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=19]
+[ext_resource path="res://MoveArea.gd" type="Script" id=17]
+[ext_resource path="res://MoveArea.tscn" type="PackedScene" id=18]
+[ext_resource path="res://SwitchArea.tscn" type="PackedScene" id=19]
 [ext_resource path="res://SceneManager.gd" type="Script" id=20]
 
-[node name="area3" type="Node2D" index="0"]
+[node name="area3" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Visibility" ]
 

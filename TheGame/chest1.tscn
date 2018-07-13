@@ -1,16 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://resources/chestTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://chestTiles.tres" type="TileSet" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 36.3133, 12.3092 )
+extents = Vector2( 34.8222, 9.0256 )
 
-[node name="chest1" type="Area2D"]
+[node name="Area2D" type="Area2D"]
 
-editor/display_folded = true
-position = Vector2( -187.161, -209.029 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -22,7 +20,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( -3.81086, 77.4771 )
+position = Vector2( 12.4794, 80.7351 )
 scale = Vector2( 1.69991, 5.45606 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -45,7 +43,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 5, 0 )
+tile_data = PoolIntArray( 0, 2, 0 )
 _sections_unfolded = [ "Cell" ]
 
 

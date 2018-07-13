@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Dead (8).png-a1cf9b9647e14d12d672ee56d27c0b91.stex"
+
+[deps]
+
+source_file="res://assets/characters/zoombie/Dead (8).png"
+source_md5="4952eec03c4ca94a9932a5403ffb783c"
+
+dest_files=[ "res://.import/Dead (8).png-a1cf9b9647e14d12d672ee56d27c0b91.stex" ]
+dest_md5="b588a19ad61f92c4eab2ec5c4675fcff"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

@@ -1,0 +1,308 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://particles/HUD/HUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/GUI/font/Atarian/SF Atarian System Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://particles/Bars/LevelBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://particles/Bars/HPBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://particles/Counter/CoinCounter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/GUI/font/Atarian/SF Atarian System Italic.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/GUI/texture/button_skills.png" type="Texture" id=7]
+[ext_resource path="res://assets/GUI/texture/button_skills_blue.png" type="Texture" id=8]
+[ext_resource path="res://assets/GUI/texture/button_skills_violet.png" type="Texture" id=9]
+[ext_resource path="res://assets/GUI/texture/skill_menu_bg.png" type="Texture" id=10]
+[ext_resource path="res://assets/GUI/texture/button_select-skill.png" type="Texture" id=11]
+[ext_resource path="res://assets/GUI/texture/button_cancel.png" type="Texture" id=12]
+[ext_resource path="res://assets/GUI/texture/button_skill1.png" type="Texture" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 64
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 25
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 25
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="HUD" type="CanvasLayer"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 1 )
+enemies = 3
+
+[node name="LevelUp" type="Label" parent="." index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -32.5
+margin_right = 102.5
+margin_bottom = 32.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "LEVEL UP"
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="InfoContainer" type="MarginContainer" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 10.0
+margin_right = 1020.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MainBox" type="HBoxContainer" parent="InfoContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 1020.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="LevelBar" parent="InfoContainer/MainBox" index="0" instance=ExtResource( 3 )]
+
+margin_right = 448.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
+
+[node name="HPBar" parent="InfoContainer/MainBox" index="1" instance=ExtResource( 4 )]
+
+margin_left = 452.0
+margin_right = 900.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
+
+[node name="CoinCounter" parent="InfoContainer/MainBox" index="2" instance=ExtResource( 5 )]
+
+margin_left = 904.0
+margin_right = 1012.0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect" ]
+
+[node name="TextDisappearTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="EnemiesLeft" type="Label" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 910.0
+margin_top = 580.0
+margin_right = 996.0
+margin_bottom = 601.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Enemies left:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="NumOfEnemies" type="Label" parent="EnemiesLeft" index="0"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = -27.0
+margin_right = 28.0
+margin_bottom = -1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.945313, 0.059082, 0.287563, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+
+[node name="InstructionNewRound" type="Label" parent="." index="4"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -260.0
+margin_top = -26.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Find the door to enter new area"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="SkillButton" type="TextureButton" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_top = -41.0
+margin_right = 110.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="SkillMenu" type="PopupMenu" parent="." index="6"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+items = [  ]
+hide_on_state_item_selection = false
+_sections_unfolded = [ "Focus", "Grow Direction", "Rect", "Size Flags", "custom_styles" ]
+
+[node name="BG" type="Sprite" parent="SkillMenu" index="1"]
+
+texture = ExtResource( 10 )
+
+[node name="SkillTitle" type="Sprite" parent="SkillMenu" index="2"]
+
+position = Vector2( -1.10803, -118.56 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Cancel" type="TextureButton" parent="SkillMenu" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -48.0
+margin_top = 100.0
+margin_right = 52.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 12 )
+_sections_unfolded = [ "Textures", "Transform" ]
+
+[node name="Skill1" type="Sprite" parent="SkillMenu" index="4"]
+
+position = Vector2( 2.21606, -37.6731 )
+texture = ExtResource( 13 )
+
+[node name="Skill2" type="Sprite" parent="SkillMenu" index="5"]
+
+position = Vector2( 1.10803, 18.8365 )
+texture = ExtResource( 13 )
+
+

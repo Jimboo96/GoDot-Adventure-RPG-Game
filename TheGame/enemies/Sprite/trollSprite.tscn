@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://animated characters/troll.tres" type="SpriteFrames" id=1]
+
+[node name="trollSprite" type="AnimatedSprite"]
+
+scale = Vector2( 0.2, 0.2 )
+frames = ExtResource( 1 )
+animation = "walk"
+frame = 2
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+

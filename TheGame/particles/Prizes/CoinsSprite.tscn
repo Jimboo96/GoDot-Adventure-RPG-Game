@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://resources/particles/coin.tres" type="SpriteFrames" id=1]
+
+[node name="CoinsSprite" type="AnimatedSprite" index="0"]
+
+rotation = 1.5708
+frames = ExtResource( 1 )
+animation = "default"
+frame = 3
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+

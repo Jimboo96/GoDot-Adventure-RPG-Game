@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://enemies/enemy_lv1.gd" type="Script" id=1]
+[ext_resource path="res://enemies/enemyHP.tscn" type="PackedScene" id=2]
+[ext_resource path="res://particles/Prizes/prize.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 30.0
+height = 25.0
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 200.0
+
+[node name="enemy_level1" type="KinematicBody2D"]
+
+position = Vector2( 131.722, 92.8038 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 3
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="." index="1"]
+
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="detectZone" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="FlipTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="lifeBarContainer" parent="." index="3" instance=ExtResource( 2 )]
+
+margin_left = -36.0
+margin_top = -55.0
+margin_right = 4.0
+margin_bottom = -15.0
+rect_scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="HurtTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="DeadTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="prize" parent="." index="6" instance=ExtResource( 3 )]
+
+position = Vector2( -0.0643616, -0.242477 )
+
+

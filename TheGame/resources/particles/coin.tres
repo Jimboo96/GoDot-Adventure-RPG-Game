@@ -1,0 +1,20 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=2]
+
+[ext_resource path="res://assets/GUI/particles/coins0.png" type="Texture" id=1]
+[ext_resource path="res://assets/GUI/particles/coins1.png" type="Texture" id=2]
+[ext_resource path="res://assets/GUI/particles/coins2.png" type="Texture" id=3]
+[ext_resource path="res://assets/GUI/particles/coins3.png" type="Texture" id=4]
+[ext_resource path="res://assets/GUI/particles/coins4.png" type="Texture" id=5]
+[ext_resource path="res://assets/GUI/particles/coins5.png" type="Texture" id=6]
+[ext_resource path="res://assets/GUI/particles/coins6.png" type="Texture" id=7]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 14.0
+} ]
+_sections_unfolded = [ "Resource" ]
+

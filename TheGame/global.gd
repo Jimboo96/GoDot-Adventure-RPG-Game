@@ -52,3 +52,12 @@ func _deferred_goto_scene(path):
 	#get child 1 - Main | get_parent -> root
 	get_parent().get_child(1).goto_area(path)
 	pass
+	
+# math func
+func cartesian_to_isometric(cartesian):
+	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y)/2)
+	
+func get_global_pos_of(x):
+	var pos =  to_global( x.position ) 
+	#print("%s, %s" % [x.get_name(), pos])
+	return pos

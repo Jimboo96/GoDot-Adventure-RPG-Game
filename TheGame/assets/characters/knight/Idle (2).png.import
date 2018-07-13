@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Idle (2).png-584be42c3dd49e703f5e212fd3b49886.stex"
+
+[deps]
+
+source_file="res://assets/characters/knight/Idle (2).png"
+source_md5="d1906ebee9f52b77e6f7eb23fbd44b0d"
+
+dest_files=[ "res://.import/Idle (2).png-584be42c3dd49e703f5e212fd3b49886.stex" ]
+dest_md5="4122cf269cc30791084fb4f303e4b9fa"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

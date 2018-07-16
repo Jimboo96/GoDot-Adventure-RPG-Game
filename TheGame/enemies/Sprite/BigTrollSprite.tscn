@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://resources/animated characters/BigTrollSprite.tres" type="SpriteFrames" id=1]
+
+[node name="BigTrollSprite" type="AnimatedSprite" index="0"]
+
+position = Vector2( 20, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = ExtResource( 1 )
+animation = "idle"
+_sections_unfolded = [ "Transform" ]
+
+

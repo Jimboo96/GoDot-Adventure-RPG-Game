@@ -1,0 +1,62 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/robot/Idle (1).png" type="Texture" id=1]
+[ext_resource path="res://assets/robot/Idle (2).png" type="Texture" id=2]
+[ext_resource path="res://assets/robot/Idle (3).png" type="Texture" id=3]
+[ext_resource path="res://assets/robot/Idle (4).png" type="Texture" id=4]
+[ext_resource path="res://assets/robot/Idle (5).png" type="Texture" id=5]
+[ext_resource path="res://assets/robot/Idle (6).png" type="Texture" id=6]
+[ext_resource path="res://assets/robot/Idle (7).png" type="Texture" id=7]
+[ext_resource path="res://assets/robot/Idle (8).png" type="Texture" id=8]
+[ext_resource path="res://assets/robot/Idle (9).png" type="Texture" id=9]
+[ext_resource path="res://assets/robot/Idle (10).png" type="Texture" id=10]
+[ext_resource path="res://assets/robot/Run (1).png" type="Texture" id=11]
+[ext_resource path="res://assets/robot/Run (2).png" type="Texture" id=12]
+[ext_resource path="res://assets/robot/Run (4).png" type="Texture" id=13]
+[ext_resource path="res://assets/robot/Run (5).png" type="Texture" id=14]
+[ext_resource path="res://assets/robot/Run (6).png" type="Texture" id=15]
+[ext_resource path="res://assets/robot/Run (7).png" type="Texture" id=16]
+[ext_resource path="res://assets/robot/Run (8).png" type="Texture" id=17]
+[ext_resource path="res://assets/robot/Dead (1).png" type="Texture" id=18]
+[ext_resource path="res://assets/robot/Dead (2).png" type="Texture" id=19]
+[ext_resource path="res://assets/robot/Dead (3).png" type="Texture" id=20]
+[ext_resource path="res://assets/robot/Dead (4).png" type="Texture" id=21]
+[ext_resource path="res://assets/robot/Dead (5).png" type="Texture" id=22]
+[ext_resource path="res://assets/robot/Dead (6).png" type="Texture" id=23]
+[ext_resource path="res://assets/robot/Dead (7).png" type="Texture" id=24]
+[ext_resource path="res://assets/robot/Dead (8).png" type="Texture" id=25]
+[ext_resource path="res://assets/robot/Dead (9).png" type="Texture" id=26]
+[ext_resource path="res://assets/robot/Dead (10).png" type="Texture" id=27]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "die",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 19 ), ExtResource( 3 ), ExtResource( 20 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 5.0
+} ]
+
+[node name="robotSprite" type="AnimatedSprite" index="0"]
+
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+animation = "idle"
+_sections_unfolded = [ "Transform" ]
+
+

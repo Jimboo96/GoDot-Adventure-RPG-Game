@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Walk (8).png-4a72f2d4a5a6efa998d795548656284e.stex"
+
+[deps]
+
+source_file="res://assets/characters/zoombie/Walk (8).png"
+source_md5="0507b3f3aa7a656b860f1ef02ac5e123"
+
+dest_files=[ "res://.import/Walk (8).png-4a72f2d4a5a6efa998d795548656284e.stex" ]
+dest_md5="9f71c749a7c903d466db7d7c1fd967ba"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Jump (1).png-328cc3c0342851259793d08bb4b425ef.stex"
+
+[deps]
+
+source_file="res://assets/characters/knight/Jump (1).png"
+source_md5="ddde96c3ffe766ef9e8f27760118f39f"
+
+dest_files=[ "res://.import/Jump (1).png-328cc3c0342851259793d08bb4b425ef.stex" ]
+dest_md5="c73fc0375358e101c2e1150eb2f4c829"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

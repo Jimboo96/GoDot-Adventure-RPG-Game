@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Run (2).png-1810c33aa9ff949fa674d5bdb2b3ad4a.stex"
+
+[deps]
+
+source_file="res://assets/characters/robot/Run (2).png"
+source_md5="e4bfbb22de7ff06264173b0c67ea9f0a"
+
+dest_files=[ "res://.import/Run (2).png-1810c33aa9ff949fa674d5bdb2b3ad4a.stex" ]
+dest_md5="778f85a7bba0adf8a42f260af86bf491"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

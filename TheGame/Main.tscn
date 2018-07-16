@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://sfx/sfx_open_door.wav" type="AudioStream" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://sfx/sfx_locked.wav" type="AudioStream" id=10]
 [ext_resource path="res://sfx/sfx_pick_up.wav" type="AudioStream" id=11]
 [ext_resource path="res://SceneManager.gd" type="Script" id=12]
+[ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=13]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=14]
 
 [node name="Main" type="Node"]
 
@@ -19,10 +21,11 @@ script = ExtResource( 1 )
 
 [node name="Area" type="Node2D" parent="." index="0"]
 
+_sections_unfolded = [ "Transform" ]
+
 [node name="Sound" type="Node2D" parent="." index="1"]
 
 editor/display_folded = true
-visible = false
 
 [node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
 
@@ -129,5 +132,11 @@ area_mask = 1
 [node name="SceneManager" type="Node" parent="." index="2"]
 
 script = ExtResource( 12 )
+
+[node name="HUD" parent="." index="3" instance=ExtResource( 13 )]
+
+[node name="player" parent="." index="4" instance=ExtResource( 14 )]
+
+position = Vector2( -481.026, 406.628 )
 
 

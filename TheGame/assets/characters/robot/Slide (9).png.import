@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Slide (9).png-1b734d672d1a43a17a8c1170b8a5e35c.stex"
+
+[deps]
+
+source_file="res://assets/characters/robot/Slide (9).png"
+source_md5="b9153718f0bc47eb3dadff6490beea56"
+
+dest_files=[ "res://.import/Slide (9).png-1b734d672d1a43a17a8c1170b8a5e35c.stex" ]
+dest_md5="427494a470993a2dd20092d44a703777"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

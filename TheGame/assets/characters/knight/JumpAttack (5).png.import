@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/JumpAttack (5).png-b5b4afb05ab800f274c5e021a1f7ad24.stex"
+
+[deps]
+
+source_file="res://assets/characters/knight/JumpAttack (5).png"
+source_md5="84ccd434c79653bfc27a1808d4539159"
+
+dest_files=[ "res://.import/JumpAttack (5).png-b5b4afb05ab800f274c5e021a1f7ad24.stex" ]
+dest_md5="a30bea4a01a42775001269d9bdf1fb97"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

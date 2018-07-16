@@ -5,7 +5,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="MoveArea" type="Area2D" index="0"]
+[node name="MoveArea" type="Area2D"]
 
 position = Vector2( 134.75, 7.50001 )
 scale = Vector2( 5.21094, 4.03125 )

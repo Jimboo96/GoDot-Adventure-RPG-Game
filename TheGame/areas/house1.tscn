@@ -1,20 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://HouseTiles128x128/HouseTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://particles/chests/Chests.gd" type="Script" id=2]
-[ext_resource path="res://particles/chests/chest1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=4]
-[ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=5]
-[ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=6]
+[ext_resource path="res://areas/house1.gd" type="Script" id=1]
+[ext_resource path="res://HouseTiles128x128/HouseTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://particles/chests/Chests.gd" type="Script" id=3]
+[ext_resource path="res://particles/chests/chest1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=5]
+[ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=6]
+[ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=7]
 
 [node name="house1" type="Node2D"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="floor" type="TileMap" parent="." index="0"]
 
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -35,28 +37,28 @@ _sections_unfolded = [ "Cell" ]
 [node name="Chests" type="Node2D" parent="." index="1"]
 
 editor/display_folded = true
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
-[node name="chest1" parent="Chests" index="0" instance=ExtResource( 3 )]
+[node name="chest1" parent="Chests" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 1804.32, -146.505 )
 
-[node name="chest2" parent="Chests" index="1" instance=ExtResource( 3 )]
+[node name="chest2" parent="Chests" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 1963.32, -56.8481 )
 
-[node name="chest3" parent="Chests" index="2" instance=ExtResource( 3 )]
+[node name="chest3" parent="Chests" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 1792.94, 24.6385 )
 
-[node name="chest4" parent="Chests" index="3" instance=ExtResource( 3 )]
+[node name="chest4" parent="Chests" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 1632.92, -79.0891 )
 
 [node name="walls" type="TileMap" parent="." index="2"]
 
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -77,7 +79,7 @@ _sections_unfolded = [ "Cell" ]
 [node name="fill" type="TileMap" parent="." index="3"]
 
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -97,11 +99,10 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="MoveAreas" type="Node2D" parent="." index="4"]
 
-visible = false
 position = Vector2( 14.3539, -4.1011 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
-[node name="DoorArea" parent="MoveAreas" index="0" instance=ExtResource( 5 )]
+[node name="DoorArea" parent="MoveAreas" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 931.982, 215.869 )
 
@@ -116,12 +117,12 @@ autostart = false
 
 position = Vector2( 45.1122, -8.20224 )
 
-[node name="SwitchArea1" parent="SwitchAreas" index="0" instance=ExtResource( 6 )]
+[node name="SwitchArea1" parent="SwitchAreas" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 1053.16, -65.1013 )
 scale = Vector2( 1.48338, 2.02124 )
 
-[node name="SwitchArea2" parent="SwitchAreas" index="1" instance=ExtResource( 6 )]
+[node name="SwitchArea2" parent="SwitchAreas" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 1489.27, -68.8916 )
 scale = Vector2( 1.48338, 2.02124 )

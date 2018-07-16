@@ -21,6 +21,8 @@ script = ExtResource( 1 )
 
 [node name="Area" type="Node2D" parent="." index="0"]
 
+_sections_unfolded = [ "Transform" ]
+
 [node name="Sound" type="Node2D" parent="." index="1"]
 
 editor/display_folded = true
@@ -134,5 +136,7 @@ script = ExtResource( 12 )
 [node name="HUD" parent="." index="3" instance=ExtResource( 13 )]
 
 [node name="player" parent="." index="4" instance=ExtResource( 14 )]
+
+position = Vector2( -481.026, 406.628 )
 
 

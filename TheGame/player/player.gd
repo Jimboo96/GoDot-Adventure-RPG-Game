@@ -77,7 +77,7 @@ func move_and_animation(delta):
 			$Sprite.flip_h = false
 			$playerRayCast.set("cast_to", Vector2(cast_length,0))
 			
-		elif Input.is_action_pressed("ui_select"):
+		elif Input.is_action_pressed("attack"):
 			$Sprite.animation = "attack"
 			
 		else:

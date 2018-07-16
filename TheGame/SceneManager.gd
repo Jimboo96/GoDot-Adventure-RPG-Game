@@ -6,10 +6,9 @@ onready var global = get_node("/root/global")
 var player
 var current_area
 # onready var player = get_parent().get_node("walls/player")
-
 #First passageway in a room. Saves player position into a global variable.
-
 func _on_MoveTimer_timeout():
+	print("Move timer timeout")
 	player = global.player
 	player.playerMovable = true
 	if(global.current_area == "area1"):
@@ -31,6 +30,7 @@ func _on_MoveTimer_timeout():
 
 #Second passageway in room. Saves player position into a global variable.
 func _on_MoveTimer2_timeout():
+	print("Move timer 2 timeout")
 	player = global.player
 	player.playerMovable = true
 	if(global.current_area == "area2"): #get_tree().get_current_scene().get_name()
@@ -44,6 +44,7 @@ func _on_MoveTimer2_timeout():
 
 # Door passageways. Saves player position to global variables.
 func _on_DoorTimer_timeout():
+	print("Door timer timeout")
 	player = global.player
 	player.playerMovable = true
 	if(global.current_area == "house1"):

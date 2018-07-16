@@ -147,14 +147,12 @@ autostart = false
 
 [node name="EnemiesLeft" type="Label" parent="." index="3"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 910.0
-margin_top = 580.0
-margin_right = 996.0
-margin_bottom = 601.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -116.0
+margin_top = -21.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -166,7 +164,7 @@ text = "Enemies left:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "custom_fonts" ]
 
 [node name="NumOfEnemies" type="Label" parent="EnemiesLeft" index="0"]
 
@@ -174,10 +172,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 9.0
-margin_top = -27.0
-margin_right = 28.0
-margin_bottom = -1.0
+margin_left = -19.0
+margin_top = -26.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -193,6 +189,7 @@ _sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="InstructionNewRound" type="Label" parent="." index="4"]
 
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

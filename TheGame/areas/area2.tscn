@@ -1,32 +1,34 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://ForestTiles128x128/ForestTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://particles/chests/Chests.gd" type="Script" id=2]
-[ext_resource path="res://particles/chests/trump.tscn" type="PackedScene" id=3]
-[ext_resource path="res://particles/chests/chest1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://particles/chests/chest2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sfx/sfx_open_door.wav" type="AudioStream" id=6]
-[ext_resource path="res://sfx/sfx_close_door.wav" type="AudioStream" id=7]
-[ext_resource path="res://sfx/sfx_coin_flip.wav" type="AudioStream" id=8]
-[ext_resource path="res://sfx/sfx_switch.wav" type="AudioStream" id=9]
-[ext_resource path="res://sfx/sfx_move_block.wav" type="AudioStream" id=10]
-[ext_resource path="res://sfx/sfx_chop_wood.wav" type="AudioStream" id=11]
-[ext_resource path="res://sfx/sfx_item_found.wav" type="AudioStream" id=12]
-[ext_resource path="res://sfx/sfx_open_chest.wav" type="AudioStream" id=13]
-[ext_resource path="res://sfx/sfx_locked.wav" type="AudioStream" id=14]
-[ext_resource path="res://sfx/sfx_pick_up.wav" type="AudioStream" id=15]
-[ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=16]
-[ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=17]
-[ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=18]
+[ext_resource path="res://areas/area2.gd" type="Script" id=1]
+[ext_resource path="res://ForestTiles128x128/ForestTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://particles/chests/Chests.gd" type="Script" id=3]
+[ext_resource path="res://particles/chests/trump.tscn" type="PackedScene" id=4]
+[ext_resource path="res://particles/chests/chest1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://particles/chests/chest2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sfx/sfx_open_door.wav" type="AudioStream" id=7]
+[ext_resource path="res://sfx/sfx_close_door.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/sfx_coin_flip.wav" type="AudioStream" id=9]
+[ext_resource path="res://sfx/sfx_switch.wav" type="AudioStream" id=10]
+[ext_resource path="res://sfx/sfx_move_block.wav" type="AudioStream" id=11]
+[ext_resource path="res://sfx/sfx_chop_wood.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/sfx_item_found.wav" type="AudioStream" id=13]
+[ext_resource path="res://sfx/sfx_open_chest.wav" type="AudioStream" id=14]
+[ext_resource path="res://sfx/sfx_locked.wav" type="AudioStream" id=15]
+[ext_resource path="res://sfx/sfx_pick_up.wav" type="AudioStream" id=16]
+[ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=17]
+[ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=18]
+[ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=19]
 
 [node name="area2" type="Node2D"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="floor" type="TileMap" parent="." index="0"]
 
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -46,22 +48,22 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="Chests" type="Node2D" parent="." index="1"]
 
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
-[node name="chest1" parent="Chests" index="0" instance=ExtResource( 3 )]
+[node name="chest1" parent="Chests" index="0" instance=ExtResource( 4 )]
 
-[node name="chest2" parent="Chests" index="1" instance=ExtResource( 4 )]
+[node name="chest2" parent="Chests" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 294.707, 544.835 )
 
-[node name="chest3" parent="Chests" index="2" instance=ExtResource( 5 )]
+[node name="chest3" parent="Chests" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 613.902, 631.202 )
 
 [node name="walls" type="TileMap" parent="." index="2"]
 
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -85,7 +87,7 @@ visible = false
 
 [node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -95,7 +97,7 @@ area_mask = 1
 
 [node name="CloseDoor" type="AudioStreamPlayer2D" parent="Sound" index="1"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -105,7 +107,7 @@ area_mask = 1
 
 [node name="CoinFlip" type="AudioStreamPlayer2D" parent="Sound" index="2"]
 
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -116,7 +118,7 @@ area_mask = 1
 [node name="Switch" type="AudioStreamPlayer2D" parent="Sound" index="3"]
 
 position = Vector2( 389.605, 139.438 )
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -127,7 +129,7 @@ area_mask = 1
 [node name="MoveBlock" type="AudioStreamPlayer2D" parent="Sound" index="4"]
 
 position = Vector2( 606.964, 110.73 )
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -137,7 +139,7 @@ area_mask = 1
 
 [node name="ChopWood" type="AudioStreamPlayer2D" parent="Sound" index="5"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -147,7 +149,7 @@ area_mask = 1
 
 [node name="ItemFound" type="AudioStreamPlayer2D" parent="Sound" index="6"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -157,7 +159,7 @@ area_mask = 1
 
 [node name="OpenChest" type="AudioStreamPlayer2D" parent="Sound" index="7"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -167,7 +169,7 @@ area_mask = 1
 
 [node name="LockedDoor" type="AudioStreamPlayer2D" parent="Sound" index="8"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -177,7 +179,7 @@ area_mask = 1
 
 [node name="PickUp" type="AudioStreamPlayer2D" parent="Sound" index="9"]
 
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -187,9 +189,9 @@ area_mask = 1
 
 [node name="MoveAreas" type="Node2D" parent="." index="4"]
 
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 
-[node name="MoveArea" parent="MoveAreas" index="0" instance=ExtResource( 17 )]
+[node name="MoveArea" parent="MoveAreas" index="0" instance=ExtResource( 18 )]
 
 position = Vector2( -556.845, 548.198 )
 
@@ -200,7 +202,7 @@ wait_time = 0.01
 one_shot = false
 autostart = false
 
-[node name="MoveArea2" parent="MoveAreas" index="1" instance=ExtResource( 17 )]
+[node name="MoveArea2" parent="MoveAreas" index="1" instance=ExtResource( 18 )]
 
 position = Vector2( -416.616, -535.202 )
 
@@ -213,10 +215,9 @@ autostart = false
 
 [node name="SwitchAreas" type="Node2D" parent="." index="5"]
 
-visible = false
 position = Vector2( 45.1122, -8.20224 )
 
-[node name="SwitchArea" parent="SwitchAreas" index="0" instance=ExtResource( 18 )]
+[node name="SwitchArea" parent="SwitchAreas" index="0" instance=ExtResource( 19 )]
 
 position = Vector2( 507.728, 762.452 )
 scale = Vector2( 2.45302, 2.5708 )

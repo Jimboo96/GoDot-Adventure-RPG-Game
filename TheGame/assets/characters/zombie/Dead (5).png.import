@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Dead (5).png-23427ee9cf1a43cc8ca9d73e99f5dffe.stex"
+
+[deps]
+
+source_file="res://assets/characters/zombie/Dead (5).png"
+source_md5="3ca98fbacaa3d304c4cdc1a6603d5fcd"
+
+dest_files=[ "res://.import/Dead (5).png-23427ee9cf1a43cc8ca9d73e99f5dffe.stex" ]
+dest_md5="3b4dc27cfe6a9c6a2fe95bcaee485191"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

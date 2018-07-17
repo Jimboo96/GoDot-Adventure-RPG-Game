@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	if !playerPosReseted:
-		reset_player_pos(global.current_area) #Main.area_name
+		reset_player_pos(global.current_area) #Main.areaName
 		pass
 
 func _input(event):
@@ -52,15 +52,10 @@ func reset_player_pos(var current_scene):
 	elif current_scene == "area2":
 		if global.area2Position == Vector2():
 			if global.last_area:
-				print(global.current_scene.get_name())
-				print( "move area: %s" % global.last_area)
-				print("init pos new")
 				if global.last_area == "area1":
 					global.area2Position = Vector2(-480, 410)
-					print(global.area2Position)
 				if global.last_area == "area3":
 					global.area2Position = Vector2(-333, -500)
-					print(global.area2Position)
 		global.player.position = global.area2Position
 		
 	elif current_scene == "area3":
@@ -89,7 +84,7 @@ func reset_player_pos(var current_scene):
 
 func _on_DoorArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
-		print("door opened")
+		print("door can be opened")
 		doorOpenable = true
 
 func _on_DoorArea_body_shape_exited(body_id, body, body_shape, area_shape):

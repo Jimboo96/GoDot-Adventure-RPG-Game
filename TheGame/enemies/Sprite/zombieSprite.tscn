@@ -2,12 +2,12 @@
 
 [ext_resource path="res://resources/animated characters/zoombie.tres" type="SpriteFrames" id=1]
 
-[node name="Sprite" type="AnimatedSprite" index="0"]
+[node name="Sprite" type="AnimatedSprite"]
 
 scale = Vector2( 0.2, 0.2 )
 frames = ExtResource( 1 )
-animation = "idle"
-frame = 3
+animation = "hurt"
+frame = 5
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 

@@ -9,6 +9,7 @@
 custom_solver_bias = 0.0
 radius = 30.0
 height = 25.0
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -17,33 +18,36 @@ radius = 200.0
 
 [node name="enemy_level1" type="KinematicBody2D"]
 
-position = Vector2( 131.722, 92.8038 )
+light_mask = 2
 input_pickable = false
 collision_layer = 4
 collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "collision" ]
+_sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
+light_mask = 2
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
-visible = false
+light_mask = 2
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 collision_layer = 4
+collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
 
 [node name="detectZone" type="CollisionShape2D" parent="Area2D" index="0"]
 
@@ -82,5 +86,14 @@ autostart = false
 [node name="prize" parent="." index="6" instance=ExtResource( 3 )]
 
 position = Vector2( -0.0643616, -0.242477 )
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="7"]
+
+visible = false
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 1000, 0 )
+collision_mask = 2
+_sections_unfolded = [ "Material" ]
 
 

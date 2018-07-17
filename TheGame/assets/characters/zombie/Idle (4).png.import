@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Idle (4).png-5fc243e3e2eaeb170448845c1dbcbc50.stex"
+
+[deps]
+
+source_file="res://assets/characters/zombie/Idle (4).png"
+source_md5="97604a7f613fffea295f4bd4102d1b9d"
+
+dest_files=[ "res://.import/Idle (4).png-5fc243e3e2eaeb170448845c1dbcbc50.stex" ]
+dest_md5="42d7f78e64eeabe32a2cf8a02c82c6a8"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

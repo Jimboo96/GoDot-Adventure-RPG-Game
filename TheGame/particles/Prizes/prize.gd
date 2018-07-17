@@ -18,7 +18,7 @@ func _ready():
 	set_prize_type()
 	#print(type)
 	hide()
-	appear()	
+	#appear()	
 	$hideTimer.connect("timeout", self, "disappear")
 	$CollisionShape2D.disabled = true
 	
@@ -26,7 +26,7 @@ func set_prize_type():
 	var random_index = floor(rand_range(0, 2))
 	#print(random_index)
 	type = prize_type[random_index]
-	print(type)
+	#print(type)
 	match(type):
 		"COIN":
 			value = 5

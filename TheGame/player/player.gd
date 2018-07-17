@@ -25,10 +25,12 @@ func _ready():
 	set_process_input(true)
 	#init
 	playerMovable = true
-	cast_length = 40
+	cast_length = 60
 	dame = 60
 	#connect signals
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
+	$AttackRay.connect("body_entered", self, "enemy_in_zone")
+	$AttackRay.connect("body_exited", self, "enemy_out_zone")
 	
 func appear(): #appear when added to area
 	show()
@@ -39,15 +41,14 @@ func _input(event):
 		
 	if Input.is_action_pressed("attack"):
 		if can_attack == true and detected_target:
-			print("player attacks")
+			print("player attacks %s" % detected_target.get_name())
 			detected_target.attacked(dame)
+			
 
 func _physics_process(delta):
 	update()
 	#moving
 	move_and_animation(delta)
-	#check if can attack
-	_detect_enemy()
 	
 func move_and_animation(delta):
 	var motion = Vector2()
@@ -57,25 +58,29 @@ func move_and_animation(delta):
 			motion += Vector2(0, -1)
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = false
-			$playerRayCast.set("cast_to", Vector2(cast_length,0))
+			#$playerRayCast.set("cast_to", Vector2(cast_length,0))
+			$AttackRay.position = Vector2(30,0)
 			
 		elif Input.is_action_pressed("move_bottom"):
 			motion += Vector2(0, 1)
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = true
-			$playerRayCast.set("cast_to", Vector2(cast_length * (-1) ,0))
+			#$playerRayCast.set("cast_to", Vector2(cast_length * (-1) ,0))
+			$AttackRay.position = Vector2(-30,0)
 			
 		elif Input.is_action_pressed("move_left"):
 			motion += Vector2(-1, 0)
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = true
-			$playerRayCast.set("cast_to", Vector2(cast_length * (-1),0))
+			#$playerRayCast.set("cast_to", Vector2(cast_length * (-1),0))
+			$AttackRay.position = Vector2(-30,0)
 			
 		elif Input.is_action_pressed("move_right"): 
 			motion += Vector2(1, 0)
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = false
-			$playerRayCast.set("cast_to", Vector2(cast_length,0))
+			#$playerRayCast.set("cast_to", Vector2(cast_length,0))
+			$AttackRay.position = Vector2(30,0)
 			
 		elif Input.is_action_pressed("attack"):
 			$Sprite.animation = "attack"
@@ -91,25 +96,14 @@ func move_and_animation(delta):
 	motion = global.cartesian_to_isometric(motion)
 	move_and_slide(motion)
 
-func _detect_enemy():
-	if $playerRayCast.is_colliding():
-		#for enemy in get_tree().get_nodes_in_group("enemies"):
-		#	if $playerRayCast.get_collider() == enemy:
-				#print("interact with monster")
-		#		can_attack = true
-		#		detected_target = enemy
-		#		emit_signal("interact", true)
-				#print(detected_target.get_name())
-		var collider_name = $playerRayCast.get_collider().get_name()
-		var collider_obj = $playerRayCast.get_collider()
-		print(collider_name)
-		if "enemy" in str(collider_name):
-			#print("interact with monster")
-			can_attack = true
-			detected_target = collider_obj
-			
-	else:
-		#print("out of interact with monster")
+func enemy_in_zone(body):
+	if "enemy" in body.get_name():
+		detected_target = body
+		can_attack = true
+		
+func enemy_out_zone(body):
+	if "enemy" in body.get_name():
+		detected_target = null
 		can_attack = false
 		
 # Flips a coin.
@@ -131,7 +125,7 @@ func get_player_pos():
 	
 #attacked by enemy
 func attacked(damage):
-	SAnim = "hurt"
+	$Sprite.animation = "hurt"
 	print("player is attacked")
 	var damage_received = damage - def
 	if damage_received > 0:
@@ -139,7 +133,7 @@ func attacked(damage):
 		
 func player_dead():
 	$disappearTimer.start()
-	$playerSprite.animation = "dead"
+	$Sprite.animation = "dead"
 
 func _on_disappearTimer_timeout():
 	queue_free()

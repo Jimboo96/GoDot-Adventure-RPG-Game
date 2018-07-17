@@ -19,7 +19,7 @@ func conn_signals():
 	$SkillButton.connect("pressed", self, "open_popup")
 	$SkillMenu/Cancel.connect("pressed", self, "close_popup")
 
-func gain_exp(EXP): #called when an enemy killed, from World
+func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
 	enemy_killed()
 	print("gain exp")
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)

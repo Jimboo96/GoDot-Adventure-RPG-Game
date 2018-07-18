@@ -34,6 +34,8 @@ func enemy_killed():
 		$InstructionNewRound.show()
 	pass
 	
+func attacked(dame):
+	$InfoContainer/MainBox/HPBar.attacked(dame)
 #Level up
 func level_up():
 	$LevelUp.show()
@@ -48,7 +50,7 @@ func get_prize(type, value):
 		"COIN":
 			var cur_coins = int($InfoContainer/MainBox/CoinCounter/Background/Number.text)
 			cur_coins = cur_coins + value
-			print(" cur coins : %s " % [cur_coins])
+			#print(" cur coins : %s " % [cur_coins])
 			$InfoContainer/MainBox/CoinCounter/Background/Number.set("text", String(cur_coins))
 		_:
 			pass

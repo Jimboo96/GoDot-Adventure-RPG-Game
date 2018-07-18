@@ -4,15 +4,8 @@ signal attacked
 signal dead
 signal prize
 
-#load sprite
-#var trollSprite = load("res://enemies/Sprite/BigTrollSprite.tscn")
-#var elfSprite = load("res://enemies/Sprite/elfSprite.tscn")
-#var zombieSprite = load("res://enemies/Sprite/zombieSprite.tscn")
-#var zombie = zombieSprite.instance()
-
 var enemies_type = ["trollBrown", "troll", "zombie"]
 var type 
-var movable = false
 var attackable = false
 var enemySprite
 var target
@@ -20,15 +13,16 @@ var target
 var HP
 var DAME
 var DEF
+var SPEED
 
 var attacked = false
 var dead = false
 
-var detectDistance = 200
+var detectDistance = 350
 var attackDistance = 80
 
 var canAttack = true
-
+var playerInZone = false
 const EXP = 60
 
 func _ready():
@@ -50,8 +44,8 @@ func init():
 			trollBrown.set_name("enemySprite")
 			HP = 100
 			DEF = 5
-			DAME = 15
-			movable = false
+			DAME = 20
+			SPEED = 140
 			attackable = true
 			#enemySprite = troll
 			pass
@@ -61,8 +55,8 @@ func init():
 			troll.set_name("enemySprite")
 			HP = 100
 			DEF = 0
-			DAME = 20
-			movable = false
+			DAME = 30
+			SPEED = 180
 			attackable = true
 			#enemySprite = elf
 			pass
@@ -72,9 +66,9 @@ func init():
 			zombie.set_name("enemySprite")
 			HP = 100
 			DEF = 5
-			DAME = 0
-			movable = false
-			attackable = false
+			DAME = 15
+			SPEED = 100
+			attackable = true
 			#enemySprite = zombie #set name for sprite
 			pass
 	pass
@@ -108,6 +102,7 @@ func target_enter(body):
 		$FlipTimer.set_paused(true)
 		$lifeBarContainer.show_bar()
 		aim(target)
+		playerInZone = true
 		#print(target.get_parent().get_name())
 		#print(self.get_parent().get_name())
 		
@@ -120,6 +115,7 @@ func target_exit(body):
 		
 		if $FlipTimer.is_paused():
 			$FlipTimer.set_paused(false)
+		playerInZone = false
 		
 func _physics_process(delta):
 	update()
@@ -137,7 +133,8 @@ func aim(target):
 	var dir_vec = get_global_pos_of(target) - get_global_pos_of(self)
 	#print("%s vec: %s dis: %s"%[self.get_name(), dir_vec, target.position.distance_to(self.position)])
 	var self_facing = get_view_direction( get_global_pos_of( self ) )
-	$RayCast2D2.set_cast_to(dir_vec)
+	$RayCast2D2.set_cast_to(self_facing)
+	$RayCast2D.set_cast_to(dir_vec)
 	var angle = rad2deg(acos(direction_vector.dot(self_facing.normalized())))
 	if angle > 90: #if player is in FOV, if not flip side till player come near.
 		if $enemySprite.flip_h == true:
@@ -152,6 +149,8 @@ func aim(target):
 					attack(target)
 					$AttackWaitTime.start()
 					canAttack = false
+		else:
+			move_to_target(direction_vector)
 	pass
 		
 func FlipTimer_timeout():
@@ -160,8 +159,6 @@ func FlipTimer_timeout():
 	else:
 		$enemySprite.flip_h = true
 	pass
-	var self_facing = get_view_direction( get_global_pos_of( self ) )
-	$RayCast2D.set_cast_to(self_facing)
 	
 func AttackTimer_timeout():
 	canAttack = true
@@ -173,6 +170,8 @@ func idle():
 		$enemySprite.stop()
 		$prize.appear()
 		enemy_disable()
+	if playerInZone == false:
+		$enemySprite.animation = "idle"
 	pass
 
 func attack(target):
@@ -180,6 +179,12 @@ func attack(target):
 		$enemySprite.animation = "attack"
 		#print("attack player")
 		target.attacked(DAME)
+		
+func move_to_target(direction):
+	var motion = direction * SPEED
+	motion = global.cartesian_to_isometric(motion) #convert into isometric mode
+	move_and_slide(motion)
+	$enemySprite.animation = "walk"
 	
 func dead():
 	dead = true

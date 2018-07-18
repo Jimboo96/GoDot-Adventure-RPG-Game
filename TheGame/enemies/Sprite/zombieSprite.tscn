@@ -6,8 +6,7 @@
 
 scale = Vector2( 0.2, 0.2 )
 frames = ExtResource( 1 )
-animation = "hurt"
-frame = 5
+animation = "walk"
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 

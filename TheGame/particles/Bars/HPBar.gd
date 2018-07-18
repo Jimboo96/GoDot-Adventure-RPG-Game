@@ -1,7 +1,7 @@
 #this is the HP bar of player
 extends Container
 
-signal current_HP 
+signal updateHP 
 
 var currentHP #get value from WorldUpgraded
 
@@ -12,4 +12,4 @@ func _ready():
 func attacked(damage):
 	currentHP = currentHP - damage
 	$Gauge.set_value( currentHP )
-	emit_signal("current_HP", currentHP)
+	emit_signal("updateHP", currentHP)

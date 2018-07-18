@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
 signal attack 
-signal player_attacked
+signal attacked
 
 export (int) var HP = 100
 export (int) var def = 10
 export (int) var dame = 60
+
+var maxHP = 100
 
 const WALK_SPEED = 400 # Pixels/second
 
@@ -129,7 +131,7 @@ func attacked(damage):
 	print("player is attacked")
 	var damage_received = damage - def
 	if damage_received > 0:
-		emit_signal("player_attacked", damage_received)
+		emit_signal("attacked", damage_received)
 		
 func player_dead():
 	$disappearTimer.start()
@@ -144,6 +146,6 @@ func updateHP(newHP):
 	
 #called when level up
 func levelup():
-	HP = HP * 3/2
+	HP = maxHP * 3/2
 	def = def * 3/2
 	dame = dame + 10

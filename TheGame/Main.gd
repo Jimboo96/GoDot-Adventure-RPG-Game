@@ -5,13 +5,13 @@ var areaName #name from node when added to tree
 var player
 var walls
 
-var enemiesInArea = 0
+var enemiesIndex = 0
 var enemies = Array()
 var maxEnemies = 5
 
 var addedFirstArea = false #if first scene loaded (when start game)
 
-var s = preload("res://areas/area1.tscn")
+var s = preload("res://areas/area2.tscn")
 
 func _enter_tree(): #first enter
 	add_new_scene(s)
@@ -21,7 +21,11 @@ func _enter_tree(): #first enter
 func _ready():
 	randomize()
 	add_player_to_current_scene()
-	addedFirstArea = true	
+	addedFirstArea = true
+	#connect signal for player
+	player.connect("attacked", $HUD, "attacked")
+	$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
+	$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
 	
 func conn_scenes_signals():
 	if $Area/area/MoveAreas.is_inside_tree():
@@ -36,13 +40,9 @@ func conn_scenes_signals():
 			var timerPath = get_node("Area/area/MoveAreas/" + moveAreaName + "/" + timerName) # path to timer
 			#print(timerPath)
 			if timerPath.is_connected("timeout", $SceneManager, "_on_" + timerName + "_timeout"):
-				#print("connected %s timer" % timerName)
 				timerPath.disconnect("timeout", $SceneManager, "_on_" + timerName + "_timeout") #call when changing scene
 			else:
-				timerPath.connect("timeout", $SceneManager, "_on_" + timerName + "_timeout")
-				#print("connect %s timer" % timerName)
-			#print("_on_" + timerName + "_timeout")
-			
+				timerPath.connect("timeout", $SceneManager, "_on_" + timerName + "_timeout")			
 		#add signal connection from MoveArea.gd, SwitchAreas.gd to player and remove when change scene.
 		if MoveAreas.is_connected("halt_player", player, "_on_MoveAreas_halt_player"):
 			MoveAreas.disconnect("halt_player", player, "_on_MoveAreas_halt_player")
@@ -78,17 +78,19 @@ func add_new_scene(s):
 	#set global area (name)
 	global.current_area = areaName
 	walls = $Area/area/walls/YSort
-	#print("added new scenes")
 	#add player to this scene
 	if addedFirstArea == true:
 		add_player_to_current_scene()
 	pass
 	#reset when go to new scene:
-	enemiesInArea = 0
+	enemiesIndex = 0
 	enemies = Array()
-	print("from add new scene %s" % [areaName])
 	if areaName == "area1":
-		maxEnemies = 5
+		maxEnemies = 4
+		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
+		enemies_spawning()
+	if areaName == "area2":
+		maxEnemies = 2
 		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
 		enemies_spawning()
 	
@@ -106,6 +108,7 @@ func add_player_to_current_scene():
 	call_deferred("conn_scenes_signals")
 	#reset player stage that player can move
 	player.playerMovable = true 
+	print(player.is_connected("attacked", $HUD, "attacked"))
 	
 func remove_player_from_current_scene():
 	#set the pos of current scene before player exits
@@ -118,44 +121,40 @@ func remove_player_from_current_scene():
 	
 #connect signals from enemies to HUD
 func enemies_spawning():
-	var enemyPos = false # to check if 2 enemies appear near together
-	if areaName == "area1":
+	var enemySetPos = false # to check if 2 enemies appear near together
+	if areaName == "area1" or areaName == "area2":
+	#if "area" in areaName:
 		if enemies.size() < maxEnemies:
 			var enemy
 			enemy = $Area/area.ENEMIES.instance()
-			enemy.set_name("enemy" + str(enemiesInArea))
-			print("spawn %s"%enemy.get_name())
+			enemy.set_name("enemy" + str(enemiesIndex))
 			walls.add_child(enemy)
 			enemy.appear()
 			#set location
 			#TODO (set pos of enemies to far from each)
-			"""while enemyPos == false:
+			while enemySetPos == false:
 				$Area/area/EnemiesPath/EnemiesLocation.set_offset(randi())
 				enemy.position = $Area/area/EnemiesPath/EnemiesLocation.position
-				if enemies.size() > 1:
-					for i in range(0, enemies.size() - 2):
-						if enemy.distance_to(enemies[i]) > 100:
-							enemyPos = true
+				if enemies.size() > 0:
+					for i in range(0, enemies.size() ):
+						if enemy.position.distance_to(enemies[i].position) > 100:
+							enemySetPos = true
 						else:
-							enemyPos = false
+							enemySetPos = false
 							break
 				else:
-					break"""
-			$Area/area/EnemiesPath/EnemiesLocation.set_offset(randi())
-			enemy.position = $Area/area/EnemiesPath/EnemiesLocation.position
+					break
 			#connect signals for each enemy
 			enemy.connect("dead", self, "enemies_dead")
 			enemy.connect("dead", $HUD, "gain_exp")
 			enemy.connect("prize", $HUD, "get_prize")
 			enemies.push_back(enemy)
-			pass
-		enemiesInArea += 1
+			enemiesIndex = enemiesIndex + 1
 			
 func enemies_dead(EXP, enemy_id):
-	enemiesInArea -= 1
-	print("dead %s" % enemy_id.get_name())
 	#remove dead enemy from array
-	for i in range(0, enemies.size() - 1):
+	for i in range(0, enemies.size()):
 		if (enemy_id.get_name() in enemies[i].get_name()) or (enemies[i].get_name() in enemy_id.get_name()):
+			#print("%s removed" % [enemy_id.get_name()])
 			enemies.remove(i)
 			break

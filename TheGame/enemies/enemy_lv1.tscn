@@ -22,7 +22,7 @@ render_priority = 0
 blend_mode = 4
 light_mode = 0
 
-[node name="enemy_level1" type="KinematicBody2D" index="0"]
+[node name="enemy_level1" type="KinematicBody2D"]
 
 light_mask = 2
 input_pickable = false

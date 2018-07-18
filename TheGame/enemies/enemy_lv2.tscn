@@ -82,6 +82,7 @@ position = Vector2( -0.0643616, -0.242477 )
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="5"]
 
+visible = false
 enabled = false
 exclude_parent = true
 cast_to = Vector2( 1000, 0 )
@@ -97,6 +98,7 @@ autostart = false
 
 [node name="RayCast2D2" type="RayCast2D" parent="." index="7"]
 
+visible = false
 material = SubResource( 3 )
 enabled = false
 exclude_parent = true

@@ -20,6 +20,7 @@ var target
 var HP
 var DAME
 var DEF
+var SPEED
 
 var attacked = false
 var dead = false
@@ -28,6 +29,7 @@ var detectDistance = 200
 var attackDistance = 80
 
 var canAttack = true
+var playerInZone = false
 
 const EXP = 60
 
@@ -51,6 +53,7 @@ func init():
 			HP = 100
 			DEF = 5
 			DAME = 15
+			SPEED = 190
 			movable = false
 			attackable = true
 			#enemySprite = troll
@@ -62,6 +65,7 @@ func init():
 			HP = 100
 			DEF = 0
 			DAME = 20
+			SPEED = 200
 			movable = false
 			attackable = true
 			#enemySprite = elf
@@ -73,7 +77,8 @@ func init():
 			HP = 100
 			DEF = 5
 			DAME = 0
-			movable = false
+			SPEED = 160
+			movable = true
 			attackable = false
 			#enemySprite = zombie #set name for sprite
 			pass
@@ -108,14 +113,13 @@ func target_enter(body):
 		$FlipTimer.set_paused(true)
 		$lifeBarContainer.show_bar()
 		aim(target)
-		#print(target.get_parent().get_name())
-		#print(self.get_parent().get_name())
+		playerInZone = true
 		
 func target_exit(body):
 	if "player" in body.get_name():
 		#print("%s out from %s" % [body.get_name(), self.get_name()])
 		target = null
-		
+		playerInZone = false
 		$lifeBarContainer.hide_bar()
 		
 		if $FlipTimer.is_paused():
@@ -134,10 +138,10 @@ func aim(target):
 		return
 		
 	var direction_vector = (get_global_pos_of(target) - get_global_pos_of(self)).normalized()
-	var dir_vec = get_global_pos_of(target) - get_global_pos_of(self)
+	#var dir_vec = get_global_pos_of(target) - get_global_pos_of(self)
 	#print("%s vec: %s dis: %s"%[self.get_name(), dir_vec, target.position.distance_to(self.position)])
 	var self_facing = get_view_direction( get_global_pos_of( self ) )
-	$RayCast2D2.set_cast_to(dir_vec)
+	#$RayCast2D2.set_cast_to(dir_vec)
 	var angle = rad2deg(acos(direction_vector.dot(self_facing.normalized())))
 	if angle > 90: #if player is in FOV, if not flip side till player come near.
 		if $enemySprite.flip_h == true:
@@ -152,6 +156,9 @@ func aim(target):
 					attack(target)
 					$AttackWaitTime.start()
 					canAttack = false
+		else:
+			if movable == true:
+				move_to_target(direction_vector)
 	pass
 		
 func FlipTimer_timeout():
@@ -160,8 +167,6 @@ func FlipTimer_timeout():
 	else:
 		$enemySprite.flip_h = true
 	pass
-	var self_facing = get_view_direction( get_global_pos_of( self ) )
-	$RayCast2D.set_cast_to(self_facing)
 	
 func AttackTimer_timeout():
 	canAttack = true
@@ -173,6 +178,8 @@ func idle():
 		$enemySprite.stop()
 		$prize.appear()
 		enemy_disable()
+	if playerInZone == false:
+		$enemySprite.animation = "idle"
 	pass
 
 func attack(target):
@@ -180,6 +187,12 @@ func attack(target):
 		$enemySprite.animation = "attack"
 		#print("attack player")
 		target.attacked(DAME)
+		
+func move_to_target(direction):
+	var motion = direction * SPEED
+	motion = global.cartesian_to_isometric(motion) #convert into isometric mode
+	move_and_slide(motion)
+	$enemySprite.animation = "walk"
 	
 func dead():
 	dead = true

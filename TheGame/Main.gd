@@ -11,7 +11,7 @@ var maxEnemies = 5
 
 var addedFirstArea = false #if first scene loaded (when start game)
 
-var s = preload("res://areas/area2.tscn")
+var s = preload("res://areas/area1.tscn")
 
 func _enter_tree(): #first enter
 	add_new_scene(s)
@@ -86,11 +86,15 @@ func add_new_scene(s):
 	enemiesIndex = 0
 	enemies = Array()
 	if areaName == "area1":
-		maxEnemies = 4
+		maxEnemies = 3
 		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
 		enemies_spawning()
 	if areaName == "area2":
 		maxEnemies = 2
+		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
+		enemies_spawning()
+	if areaName == "area3":
+		maxEnemies = 4
 		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
 		enemies_spawning()
 	
@@ -122,8 +126,8 @@ func remove_player_from_current_scene():
 #connect signals from enemies to HUD
 func enemies_spawning():
 	var enemySetPos = false # to check if 2 enemies appear near together
-	if areaName == "area1" or areaName == "area2":
-	#if "area" in areaName:
+	#if areaName == "area1" or areaName == "area2":
+	if "area" in areaName:
 		if enemies.size() < maxEnemies:
 			var enemy
 			enemy = $Area/area.ENEMIES.instance()

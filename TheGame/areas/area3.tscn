@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://areas/area3.gd" type="Script" id=1]
 [ext_resource path="res://ForestTiles128x128/ForestTileset.tres" type="TileSet" id=2]
@@ -19,6 +19,13 @@
 [ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=17]
 [ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=18]
 [ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=19]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 119.969, -801.52, 0, 0, 0, 0, -102.642, -863.167, 0, 0, 0, 0, -154.014, -667.954, 0, 0, 0, 0, -225.934, -527.538, 0, 0, 0, 0, -318.403, -455.617, 0, 0, 0, 0, -465.669, -534.387, 0, 0, 0, 0, -691.705, -623.432, 0, 0, 0, 0, -756.776, -407.67, 0, 0, 0, 0, -743.077, -253.555, 0, 0, 0, 0, -712.254, -75.4657, 0, 0, 0, 0, -640.333, 30.7026, 0, 0, 0, 0, -472.519, 3.30444, 0, 0, 0, 0, -291.005, -113.138, 0, 0, 0, 0, -167.713, -212.457, 0, 0, 0, 0, -17.0221, -164.51, 0, 0, 0, 0, 75.4473, -99.4392, 0, 0, 0, 0, 209.014, -27.5187, 0, 0, 0, 0, 363.129, -3.54517, 0, 0, 0, 0, 534.369, -96.0144, 0, 0, 0, 0, 770.679, -44.6426, 0, 0, 0, 0, 897.396, -54.917, 0, 0, 0, 0, 979.591, -229.581, 0, 0, 0, 0, 900.821, -270.679, 0, 0, 0, 0, 760.405, -222.732, 0, 0, 0, 0, 561.767, -181.634, 0, 0, 0, 0, 448.749, -270.679, 0, 0, 0, 0, 301.483, -260.404, 0, 0, 0, 0, 161.067, -322.05, 0, 0, 0, 0, 92.571, -452.192, 0, 0, 0, 0, 3.52661, -558.361, 0, 0, 0, 0, -27.2964, -674.803, 0, 0, 0, 0, 106.27, -794.671 )
+}
 
 [node name="area3" type="Node2D"]
 
@@ -234,6 +241,22 @@ position = Vector2( 45.1122, -8.20224 )
 
 position = Vector2( 1103.22, -148.288 )
 scale = Vector2( 3.80758, 3.23464 )
+
+[node name="EnemiesPath" type="Path2D" parent="." index="6"]
+
+curve = SubResource( 1 )
+
+[node name="EnemiesLocation" type="PathFollow2D" parent="EnemiesPath" index="0"]
+
+position = Vector2( 119.969, -801.52 )
+rotation = -2.87145
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
 
 [connection signal="body_shape_entered" from="Chests/chest1" to="Chests" method="_on_chest1_body_shape_entered"]
 

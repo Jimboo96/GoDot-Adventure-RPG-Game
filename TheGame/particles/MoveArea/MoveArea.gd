@@ -27,15 +27,12 @@ func _on_MoveArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
 		emit_signal("halt_player")
 		get_node("MoveArea/MoveTimer").start()
-		print("%s player at %s" % [global.current_area, body.position])
-		#print("player enters move area")
 
 func _on_MoveArea2_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
 		emit_signal("halt_player")
 		get_node("MoveArea2/MoveTimer2").start()
-		print("%s player at %s" % [global.current_area, body.position])
-		#print("player enters move area")
+		
 
 # Resets players position according to the coordinates that are saved in global variables.
 #set init pos if null
@@ -46,7 +43,10 @@ func reset_player_pos(var current_scene):
 			get_tree().get_root().get_child(1).get_node("Sound/CloseDoor").play() #
 			global.house1Exited = false
 		if global.area1Position == Vector2():
-			global.area1Position = Vector2(210, 380)
+			if global.last_area == "area2":
+				global.area1Position = Vector2(700, -120)
+			else:
+				global.area1Position = Vector2(210, 380)
 		global.player.position = global.area1Position
 		
 	elif current_scene == "area2":
@@ -56,6 +56,8 @@ func reset_player_pos(var current_scene):
 					global.area2Position = Vector2(-480, 410)
 				if global.last_area == "area3":
 					global.area2Position = Vector2(-333, -500)
+				else:
+					global.area2Position = Vector2(-480, 410)
 		global.player.position = global.area2Position
 		
 	elif current_scene == "area3":
@@ -64,6 +66,8 @@ func reset_player_pos(var current_scene):
 				global.area3Position = Vector2(790, 37)
 			if global.last_area == "secretArea":
 				global.area3Position = Vector2(-775, -780)
+			else:
+				global.area3Position = Vector2(790, 37)
 		global.player.position = global.area3Position
 		#Remove the tree blocking the secret way.
 		if global.area1Switch:

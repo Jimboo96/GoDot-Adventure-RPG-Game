@@ -23,7 +23,7 @@ var attackDistance = 80
 
 var canAttack = true
 var playerInZone = false
-const EXP = 60
+const EXP = 100
 
 func _ready():
 	randomize() # for random choosing sprite
@@ -133,8 +133,8 @@ func aim(target):
 	var dir_vec = get_global_pos_of(target) - get_global_pos_of(self)
 	#print("%s vec: %s dis: %s"%[self.get_name(), dir_vec, target.position.distance_to(self.position)])
 	var self_facing = get_view_direction( get_global_pos_of( self ) )
-	$RayCast2D2.set_cast_to(self_facing)
-	$RayCast2D.set_cast_to(dir_vec)
+	#$RayCast2D2.set_cast_to(self_facing)
+	#$RayCast2D.set_cast_to(dir_vec)
 	var angle = rad2deg(acos(direction_vector.dot(self_facing.normalized())))
 	if angle > 90: #if player is in FOV, if not flip side till player come near.
 		if $enemySprite.flip_h == true:

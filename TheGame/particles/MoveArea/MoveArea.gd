@@ -75,7 +75,7 @@ func reset_player_pos(var current_scene):
 			
 	elif current_scene == "secretArea":
 		if global.secretAreaPosition == Vector2():
-			global.secretAreaPosition = Vector2(600, 400)
+			global.secretAreaPosition = Vector2(480, 400)
 		global.player.position = global.secretAreaPosition
 		
 	elif current_scene == "house1":

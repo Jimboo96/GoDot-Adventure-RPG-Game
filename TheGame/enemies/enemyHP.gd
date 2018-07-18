@@ -28,8 +28,8 @@ func _process(delta):
 	$lifeBar.set_value(HP)
 	pass
 
-func show_bar(body):
+func show_bar():
 	show()
 
-func hide_bar(body):
+func hide_bar():
 	hide()

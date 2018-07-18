@@ -1,4 +1,3 @@
 extends Node2D
 
-func _ready():
-	print("area2")
+var ENEMIES = preload("res://enemies/enemy_lv2.tscn")

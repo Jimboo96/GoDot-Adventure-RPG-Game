@@ -15,7 +15,7 @@
 [ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=13]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=14]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -137,6 +137,13 @@ script = ExtResource( 12 )
 
 [node name="player" parent="." index="4" instance=ExtResource( 14 )]
 
-position = Vector2( -481.026, 406.628 )
+position = Vector2( 700, -120 )
+
+[node name="WaitTimeTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = false
 
 

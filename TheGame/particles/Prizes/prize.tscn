@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 radius = 29.219
 
-[node name="prize" type="Area2D" index="0"]
+[node name="prize" type="Area2D"]
 
 light_mask = 2
 rotation = 1.5708

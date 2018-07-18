@@ -19,7 +19,7 @@ func conn_signals():
 	$SkillButton.connect("pressed", self, "open_popup")
 	$SkillMenu/Cancel.connect("pressed", self, "close_popup")
 
-func gain_exp(EXP): #called when an enemy killed, from World
+func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
 	enemy_killed()
 	print("gain exp")
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)
@@ -34,6 +34,8 @@ func enemy_killed():
 		$InstructionNewRound.show()
 	pass
 	
+func attacked(dame):
+	$InfoContainer/MainBox/HPBar.attacked(dame)
 #Level up
 func level_up():
 	$LevelUp.show()
@@ -48,7 +50,7 @@ func get_prize(type, value):
 		"COIN":
 			var cur_coins = int($InfoContainer/MainBox/CoinCounter/Background/Number.text)
 			cur_coins = cur_coins + value
-			print(" cur coins : %s " % [cur_coins])
+			#print(" cur coins : %s " % [cur_coins])
 			$InfoContainer/MainBox/CoinCounter/Background/Number.set("text", String(cur_coins))
 		_:
 			pass

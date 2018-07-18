@@ -21,7 +21,7 @@ func _process(delta):
 		reset_chests()
 
 func _input(event):
-	#print(get_tree().current_scene.area_name)
+	#print(get_tree().current_scene.areaName)
 	if(chestOpenable):
 		if event.is_action_pressed("interact"):
 			# Set horizontal closed chest sprite to open.
@@ -47,7 +47,7 @@ func reset_chests():
 	#If there are chests that have been opened, this sets them to open when entering room.
 	for i in range(MIN_CHEST_NUMBER,MAX_CHEST_NUMBER):
 		#var globalVarName = get_tree().current_scene.get_name() + "Chest" + str(i) + "Found"
-		var globalVarName = get_tree().current_scene.area_name + "Chest" + str(i) + "Found"
+		var globalVarName = get_tree().current_scene.areaName + "Chest" + str(i) + "Found"
 		if global.get(globalVarName):
 			if get_node("chest" + str(i) + "/TileMap").get_cell(0,0) == 2:
 				get_node("chest" + str(i) + "/TileMap").set_cell(0,0,0)
@@ -60,14 +60,14 @@ func reset_chests():
 func get_reward():
 	# TODO: Reward system, after opening a chest.
 	#var currentScene = get_tree().current_scene.get_name()
-	var currentScene = get_tree().current_scene.area_name #name of current area
+	var currentScene = get_tree().current_scene.areaName #name of current area
 	if(currentScene != null && chestNum != null):
 		print("TODO Rewards go into inventory")
 		
 func save_chest_states():
 	# Saves chest states into their corresponding global variables.
 	#var globalVarName = get_tree().current_scene.get_name() + "Chest" + str(chestNum) + "Found"
-	var globalVarName = get_tree().current_scene.area_name + "Chest" + str(chestNum) + "Found"
+	var globalVarName = get_tree().current_scene.areaName + "Chest" + str(chestNum) + "Found"
 	if globalVarName in global:
 		global.set(globalVarName, true)
 

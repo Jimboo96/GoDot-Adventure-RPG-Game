@@ -16,11 +16,13 @@ var area2Chest1Found
 var area2Chest2Found
 var area2Chest3Found
 var area2Position = Vector2()
+var area2Enemies = 3
 
 # area3 variables
 var area3Chest1Found
 var area3Chest2Found
 var area3Position = Vector2()
+var area3Enemies = 3
 
 # house1 variables
 var house1Chest1Found
@@ -41,7 +43,6 @@ func _ready():
     current_scene = root.get_child( root.get_child_count() -1 )
 
 func goto_scene(path):
-	print("global goto_scene")
 	call_deferred("_deferred_goto_scene",path)
 
 func _deferred_goto_scene(path):
@@ -52,7 +53,3 @@ func _deferred_goto_scene(path):
 func cartesian_to_isometric(cartesian):
 	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y)/2)
 	
-func get_global_pos_of(x):
-	var pos =  to_global( x.position ) 
-	#print("%s, %s" % [x.get_name(), pos])
-	return pos

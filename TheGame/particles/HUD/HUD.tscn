@@ -147,6 +147,7 @@ autostart = false
 
 [node name="EnemiesLeft" type="Label" parent="." index="3"]
 
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

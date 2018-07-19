@@ -22,10 +22,11 @@ func update_HP(cur_HP, HP):
 		emit_signal("monster_dead")
 		HP = 0
 	#TODO with animation
-	tween.interpolate_property($lifeBar, "value", cur_HP, HP, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.interpolate_property($lifeBar, "value", cur_HP, HP, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.start()
 		
 func _process(delta):
-	$lifeBar.set_value(HP)
+	#$lifeBar.set_value(HP)
 	pass
 
 func show_bar():

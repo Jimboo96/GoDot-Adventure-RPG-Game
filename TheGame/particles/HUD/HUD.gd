@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal gainEXP
+signal levelup
 
 export (int) var enemies = 3
 
@@ -21,7 +22,7 @@ func conn_signals():
 
 func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
 	enemy_killed()
-	print("gain exp")
+	#print("gain exp")
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)
 	pass
 	
@@ -40,6 +41,9 @@ func attacked(dame):
 func level_up():
 	$LevelUp.show()
 	$TextDisappearTimer.start()
+	emit_signal("levelup")
+	#for HP Bar
+	$InfoContainer/MainBox/HPBar
 
 func hide_text():
 	if $LevelUp.is_visible_in_tree():

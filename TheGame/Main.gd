@@ -24,8 +24,10 @@ func _ready():
 	addedFirstArea = true
 	#connect signal for player
 	player.connect("attacked", $HUD, "attacked")
+	#connect player w HUD
 	$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
 	$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
+	$HUD.connect("levelup", player, "levelup")
 	
 func conn_scenes_signals():
 	if $Area/area/MoveAreas.is_inside_tree():

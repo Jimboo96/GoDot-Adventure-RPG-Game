@@ -10,6 +10,8 @@ func _ready():
 	pass
 
 func attacked(damage):
+	$Tween.interpolate_property($Gauge, "value", currentHP, currentHP - damage, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.start()
 	currentHP = currentHP - damage
-	$Gauge.set_value( currentHP )
+	#$Gauge.set_value( currentHP )
 	emit_signal("updateHP", currentHP)

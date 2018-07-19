@@ -43,7 +43,7 @@ func _input(event):
 		
 	if Input.is_action_pressed("attack"):
 		if can_attack == true and detected_target:
-			print("player attacks %s" % detected_target.get_name())
+			#print("player attacks %s" % detected_target.get_name())
 			detected_target.attacked(dame)
 			
 
@@ -128,7 +128,7 @@ func get_player_pos():
 #attacked by enemy
 func attacked(damage):
 	$Sprite.animation = "hurt"
-	print("player is attacked")
+	#print("player is attacked")
 	var damage_received = damage - def
 	if damage_received > 0:
 		emit_signal("attacked", damage_received)

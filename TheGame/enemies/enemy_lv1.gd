@@ -197,8 +197,8 @@ func move_to_target(direction):
 func dead():
 	dead = true
 	$enemySprite.animation = "die"
-	$CollisionShape2D.queue_free()
-	$Area2D/detectZone.queue_free()
+	if has_node("Area2D/detectZone"):
+		$Area2D/detectZone.queue_free()
 	emit_signal("dead", EXP, self)
 	pass
 	

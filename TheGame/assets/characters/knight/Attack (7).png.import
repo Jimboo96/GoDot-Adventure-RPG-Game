@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Attack (7).png-953507d18250ea55a6f8ed5b8a008f8b.stex"
+
+[deps]
+
+source_file="res://assets/characters/knight/Attack (7).png"
+source_md5="6448f8c7999fc768be2d23974081af15"
+
+dest_files=[ "res://.import/Attack (7).png-953507d18250ea55a6f8ed5b8a008f8b.stex" ]
+dest_md5="95252da5fc7cf8906c32b3035c7419c1"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

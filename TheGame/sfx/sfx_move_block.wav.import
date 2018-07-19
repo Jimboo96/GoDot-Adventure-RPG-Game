@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_move_block.wav-4bc0c6643aab28537d2c6194aeda70a3.sample"
+
+[deps]
+
+source_file="res://sfx/sfx_move_block.wav"
+source_md5="071561e18d8a0eaa7563cd13ed22d245"
+
+dest_files=[ "res://.import/sfx_move_block.wav-4bc0c6643aab28537d2c6194aeda70a3.sample" ]
+dest_md5="76cfffc69c04a50e9d452c47b9352de2"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

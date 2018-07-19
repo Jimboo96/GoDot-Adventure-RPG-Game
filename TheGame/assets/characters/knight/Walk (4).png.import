@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Walk (4).png-cea4cd9b34ba0f2bfcd79a4d95a6f4a0.stex"
+
+[deps]
+
+source_file="res://assets/characters/knight/Walk (4).png"
+source_md5="c15913ee8ae84d82671eb8d005cee93a"
+
+dest_files=[ "res://.import/Walk (4).png-cea4cd9b34ba0f2bfcd79a4d95a6f4a0.stex" ]
+dest_md5="44d58729f507267d74d21e4dfc0f53a4"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

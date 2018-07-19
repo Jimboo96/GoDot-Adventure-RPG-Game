@@ -2,7 +2,6 @@
 
 [ext_resource path="res://resources/chestTiles.tres" type="TileSet" id=1]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -15,9 +14,10 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/SF Atarian System Sample.jpg-ed713eb6b83c1e8ba547849e97ba4a80.stex"
+
+[deps]
+
+source_file="res://assets/GUI/font/Atarian/SF Atarian System Sample.jpg"
+source_md5="57298de5d1642b75927af19613e0eff6"
+
+dest_files=[ "res://.import/SF Atarian System Sample.jpg-ed713eb6b83c1e8ba547849e97ba4a80.stex" ]
+dest_md5="21f51f91d0212645c52ce28a69e18803"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

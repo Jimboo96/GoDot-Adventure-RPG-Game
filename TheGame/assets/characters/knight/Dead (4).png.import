@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Dead (4).png-8dbe7940239b1c046d8770edc2771ff7.stex"
+
+[deps]
+
+source_file="res://assets/characters/knight/Dead (4).png"
+source_md5="8e5053b33a2903579d2738ddf2c7815c"
+
+dest_files=[ "res://.import/Dead (4).png-8dbe7940239b1c046d8770edc2771ff7.stex" ]
+dest_md5="5c4cd3ac28cecac105dbc3ad23389525"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

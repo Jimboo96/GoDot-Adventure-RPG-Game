@@ -2575,6 +2575,7 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="treeFill" type="Sprite" parent="." index="125"]
 
+position = Vector2( 0, 1 )
 texture = ExtResource( 6 )
 centered = false
 offset = Vector2( -50, -290 )
@@ -2603,6 +2604,33 @@ bounce = 0.0
 _sections_unfolded = [ "Transform" ]
 
 [node name="collission" type="CollisionPolygon2D" parent="rocks0/body" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 20, 10, 60, 0, 70, 10, 70, 40, 50, 40, 50, 60, 30, 60, 20, 40, 6.07558, 33.0378, 4.23386, 25.7661 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="127"]
+
+editor/display_folded = true
+visible = false
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 289, 888, 83, 61 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="body" type="StaticBody2D" parent="Sprite" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="collission" type="CollisionPolygon2D" parent="Sprite/body" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( 20, 10, 60, 0, 70, 10, 70, 40, 50, 40, 50, 60, 30, 60, 20, 40, 6.07558, 33.0378, 4.23386, 25.7661 )

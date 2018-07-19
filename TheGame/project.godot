@@ -11,12 +11,12 @@ config_version=3
 [application]
 
 config/name="Isometric Game"
-run/main_scene="res://testArea.tscn"
+run/main_scene="res://areas/testArea.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-global="*res://scripts/global.gd"
+global="*res://global.gd"
 
 [editor_plugins]
 

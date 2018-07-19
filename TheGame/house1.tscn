@@ -1,0 +1,327 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://HouseTiles128x128/HouseTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/Chests.gd" type="Script" id=2]
+[ext_resource path="res://chest1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://NPC.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/MusicHandler.gd" type="Script" id=6]
+[ext_resource path="res://sfx/sfx_open_door.wav" type="AudioStream" id=7]
+[ext_resource path="res://sfx/sfx_close_door.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/sfx_coin_flip.wav" type="AudioStream" id=9]
+[ext_resource path="res://sfx/sfx_switch.wav" type="AudioStream" id=10]
+[ext_resource path="res://sfx/sfx_move_block.wav" type="AudioStream" id=11]
+[ext_resource path="res://sfx/sfx_chop_wood.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/sfx_falling_ree.wav" type="AudioStream" id=13]
+[ext_resource path="res://sfx/sfx_item_found.wav" type="AudioStream" id=14]
+[ext_resource path="res://sfx/sfx_open_chest.wav" type="AudioStream" id=15]
+[ext_resource path="res://sfx/sfx_locked.wav" type="AudioStream" id=16]
+[ext_resource path="res://sfx/sfx_pick_up.wav" type="AudioStream" id=17]
+[ext_resource path="res://sfx/town_music.ogg" type="AudioStream" id=18]
+[ext_resource path="res://scripts/MoveArea.gd" type="Script" id=19]
+[ext_resource path="res://MoveArea.tscn" type="PackedScene" id=20]
+[ext_resource path="res://SwitchArea.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scripts/SceneManager.gd" type="Script" id=22]
+
+[node name="house1" type="Node2D"]
+
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="floor" type="TileMap" parent="." index="0"]
+
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -1245167, 36, 0, -1179631, 36, 0, -1179630, 36, 0, -1114107, 6, 0, -1114106, 6, 0, -1114105, 6, 0, -1114104, 6, 0, -1114103, 6, 0, -1114102, 6, 0, -1114101, 6, 0, -1114100, 6, 0, -1114099, 6, 0, -1114098, 6, 0, -1114097, 6, 0, -1048571, 6, 0, -1048570, 6, 0, -1048569, 6, 0, -1048568, 6, 0, -1048567, 6, 0, -1048566, 6, 0, -1048565, 6, 0, -1048564, 6, 0, -1048563, 6, 0, -1048562, 6, 0, -1048561, 6, 0, -1048559, 6, 0, -983036, 6, 0, -983035, 6, 0, -983034, 6, 0, -983033, 6, 0, -983032, 6, 0, -983031, 6, 0, -983030, 6, 0, -983029, 6, 0, -983028, 6, 0, -983027, 6, 0, -983026, 6, 0, -983025, 6, 0, -983024, 6, 0, -983023, 6, 0, -983022, 6, 0, -917499, 6, 0, -917498, 6, 0, -917497, 6, 0, -917496, 6, 0, -917495, 6, 0, -917494, 6, 0, -917493, 6, 0, -917492, 6, 0, -917491, 6, 0, -917490, 6, 0, -917489, 6, 0, -917488, 6, 0, -917487, 6, 0, -917486, 6, 0, -851963, 6, 0, -851962, 6, 0, -851961, 6, 0, -851960, 6, 0, -851959, 6, 0, -851958, 6, 0, -851957, 6, 0, -851956, 6, 0, -851955, 6, 0, -851954, 6, 0, -851953, 6, 0, -851952, 6, 0, -851951, 6, 0, -851950, 6, 0, -786427, 6, 0, -786426, 6, 0, -786425, 6, 0, -786424, 6, 0, -786423, 6, 0, -786422, 6, 0, -786421, 6, 0, -786420, 6, 0, -786414, 6, 0, -720891, 6, 0, -720890, 6, 0, -720889, 6, 0, -720888, 6, 0, -720887, 6, 0, -655355, 6, 0, -655354, 6, 0, -655353, 6, 0, -655352, 6, 0, -655351, 6, 0, -589819, 6, 0, -589818, 6, 0, -589817, 6, 0, -589816, 6, 0, -589815, 6, 0, -524283, 6, 0, -524282, 6, 0, -524281, 6, 0, -524280, 6, 0, -524279, 6, 0, -458748, 6, 0, -458747, 6, 0, -458746, 6, 0, -458745, 6, 0, -458744, 6, 0, -458743, 6, 0, -393212, 34, 0, -393211, 6, 0, -393210, 6, 0, -393209, 6, 0, -393208, 6, 0, -393207, 6, 0, -327675, 6, 0, -327674, 6, 0, -327673, 6, 0, -327672, 6, 0, -327671, 6, 0, -262139, 6, 0, -262138, 6, 0, -262137, 6, 0, -262136, 6, 0, -262135, 6, 0, -196604, 36, 0, -196603, 6, 0, -196602, 6, 0, -196601, 6, 0, -196600, 6, 0, -196599, 6, 0, -131068, 36, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Chests" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+script = ExtResource( 2 )
+
+[node name="chest1" parent="Chests" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 1804.32, -146.505 )
+
+[node name="chest2" parent="Chests" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 1963.32, -56.8481 )
+
+[node name="chest3" parent="Chests" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 1792.94, 24.6385 )
+
+[node name="chest4" parent="Chests" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 1632.92, -79.0891 )
+
+[node name="walls" type="TileMap" parent="." index="2"]
+
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = true
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -1179644, 13, 0, -1179643, 20, 0, -1179642, 23, 0, -1179641, 20, 0, -1179640, 20, 0, -1179639, 20, 0, -1179638, 13, 0, -1179637, 20, 0, -1179636, 20, 0, -1179635, 23, 0, -1179634, 20, 0, -1179633, 20, 0, -1179632, 20, 0, -1179631, 24, 0, -1114108, 24, 0, -1114102, 24, 0, -1114095, 24, 0, -1048572, 24, 0, -1048571, 30, 0, -1048570, 28, 0, -1048569, 29, 0, -1048566, 24, 0, -1048559, 24, 0, -983036, 27, 0, -983035, 30, 0, -983034, 28, 0, -983033, 29, 0, -983030, 26, 0, -983023, 24, 0, -917500, 24, 0, -917494, 24, 0, -917487, 24, 0, -851964, 24, 0, -851958, 24, 0, -851951, 24, 0, -786428, 24, 0, -786422, 24, 0, -786416, 5, 0, -720892, 13, 0, -720891, 20, 0, -720890, 22, 0, -720889, 20, 0, -720888, 20, 0, -720887, 20, 0, -720886, 13, 0, -720885, 20, 0, -720884, 20, 0, -720883, 20, 0, -720882, 20, 0, -720881, 20, 0, -655356, 24, 0, -655350, 24, 0, -589820, 24, 0, -589814, 27, 0, -524284, 24, 0, -524283, 30, 0, -524282, 28, 0, -524281, 29, 0, -524278, 27, 0, -458748, 27, 0, -458747, 30, 0, -458746, 28, 0, -458745, 29, 0, -458742, 24, 0, -393212, 24, 0, -393206, 24, 0, -327676, 24, 0, -327670, 26, 0, -262140, 24, 0, -262134, 24, 0, -196604, 24, 0, -196599, 5, 0, -131068, 20, 0, -131067, 20, 0, -131066, 23, 0, -131065, 23, 0, -131064, 20, 0, -131063, 20, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="player" parent="walls" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 879.575, 194.03 )
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+
+[node name="fill" type="TileMap" parent="." index="3"]
+
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -2228226, 39, 0, -2293758, 39, 0, -2228211, 39, 0, -2097145, 39, 0, -2097133, 39, 0, -1966086, 39, 0, -2031616, 39, 0, -2031613, 39, 0, -1966071, 39, 0, -1966065, 39, 0, -1835022, 39, 0, -1835017, 39, 0, -1900522, 39, 0, -1834991, 39, 0, -1703939, 39, 0, -1638407, 39, 0, -1703928, 39, 0, -1572874, 39, 0, -1638399, 39, 0, -1638394, 39, 0, -1638389, 39, 0, -1638388, 39, 0, -1638379, 39, 0, -1507341, 39, 0, -1572862, 39, 0, -1572860, 39, 0, -1572856, 39, 0, -1572855, 39, 0, -1572839, 39, 0, -1441794, 39, 0, -1376272, 39, 0, -1441776, 39, 0, -1441765, 39, 0, -1310730, 39, 0, -1310726, 39, 0, -1376252, 36, 0, -1376248, 36, 0, -1376247, 36, 0, -1376246, 36, 0, -1376243, 36, 0, -1376242, 36, 0, -1376241, 36, 0, -1376240, 36, 0, -1310717, 36, 0, -1310716, 36, 0, -1310715, 36, 0, -1310714, 36, 0, -1310713, 36, 0, -1310712, 36, 0, -1310711, 36, 0, -1310710, 36, 0, -1310709, 36, 0, -1310708, 36, 0, -1310707, 36, 0, -1310706, 36, 0, -1310705, 36, 0, -1310704, 36, 0, -1310703, 36, 0, -1310702, 36, 0, -1179653, 39, 0, -1245181, 36, 0, -1245180, 36, 0, -1245179, 36, 0, -1245178, 36, 0, -1245177, 36, 0, -1245176, 36, 0, -1245175, 36, 0, -1245174, 36, 0, -1245173, 36, 0, -1245172, 36, 0, -1245171, 36, 0, -1245170, 36, 0, -1245169, 36, 0, -1245168, 36, 0, -1245167, 36, 0, -1245166, 36, 0, -1245162, 39, 0, -1114125, 39, 0, -1114117, 39, 0, -1179645, 36, 0, -1179630, 39, 0, -1179626, 39, 0, -1179618, 39, 0, -1114110, 36, 0, -1114109, 36, 0, -1114094, 36, 0, -983056, 39, 0, -983045, 39, 0, -1048574, 36, 0, -1048573, 36, 0, -1048558, 36, 0, -1048557, 39, 0, -1048545, 39, 0, -917514, 39, 0, -983038, 36, 0, -983037, 36, 0, -983022, 36, 0, -983021, 39, 0, -851973, 39, 0, -917502, 36, 0, -917501, 36, 0, -917486, 36, 0, -917485, 39, 0, -917478, 39, 0, -786437, 39, 0, -851965, 36, 0, -851950, 36, 0, -851949, 39, 0, -720914, 39, 0, -720909, 39, 0, -720904, 39, 0, -720901, 39, 0, -786429, 36, 0, -786414, 36, 0, -786413, 39, 0, -786407, 39, 0, -786400, 39, 0, -655368, 39, 0, -655365, 39, 0, -720893, 36, 0, -720878, 36, 0, -720877, 39, 0, -589831, 39, 0, -655358, 36, 0, -655357, 36, 0, -655349, 36, 0, -655348, 36, 0, -655347, 36, 0, -655346, 36, 0, -655345, 36, 0, -655344, 36, 0, -655343, 36, 0, -655342, 36, 0, -655341, 39, 0, -655340, 39, 0, -655333, 39, 0, -524303, 39, 0, -524299, 39, 0, -524293, 39, 0, -589821, 36, 0, -589813, 36, 0, -589812, 36, 0, -589811, 36, 0, -589810, 36, 0, -589809, 36, 0, -589808, 36, 0, -589807, 36, 0, -589806, 36, 0, -458757, 39, 0, -524285, 36, 0, -524277, 36, 0, -524276, 36, 0, -524275, 36, 0, -524274, 36, 0, -524273, 36, 0, -524272, 36, 0, -524271, 36, 0, -524270, 36, 0, -524269, 36, 0, -524256, 39, 0, -393221, 39, 0, -458749, 36, 0, -458741, 36, 0, -458740, 36, 0, -458735, 39, 0, -327688, 39, 0, -393214, 36, 0, -393213, 36, 0, -393205, 36, 0, -393204, 39, 0, -393203, 39, 0, -393193, 39, 0, -393188, 39, 0, -262157, 39, 0, -262149, 39, 0, -327677, 36, 0, -327669, 36, 0, -327668, 36, 0, -327659, 39, 0, -262142, 36, 0, -262141, 36, 0, -262133, 36, 0, -262132, 36, 0, -131077, 39, 0, -196605, 36, 0, -196597, 36, 0, -196596, 39, 0, -196584, 39, 0, -196578, 39, 0, -65544, 39, 0, -131069, 36, 0, -131068, 2, 0, -131067, 2, 0, -131066, 2, 0, -131065, 2, 0, -131064, 2, 0, -131063, 2, 0, -131061, 36, 0, -131060, 39, 0, -131055, 39, 0, -14, 39, 0, -65533, 36, 0, -65532, 36, 0, -65531, 36, 0, -65530, 36, 0, -65529, 36, 0, -65528, 36, 0, -65527, 36, 0, -65526, 36, 0, -65525, 36, 0, -65524, 36, 0, -65507, 39, 0, 65528, 39, 0, 22, 39, 0, 131070, 39, 0, 65563, 39, 0, 196599, 39, 0, 131081, 39, 0, 131088, 39, 0, 196609, 39, 0, 196611, 39, 0, 196613, 39, 0, 196615, 39, 0, 327669, 39, 0, 262150, 39, 0, 262151, 39, 0, 262161, 39, 0, 262172, 39, 0, 393211, 39, 0, 393215, 39, 0, 327692, 39, 0, 327702, 39, 0, 458743, 39, 0, 393239, 39, 0, 589817, 39, 0, 524290, 39, 0, 524306, 39, 0, 655357, 39, 0, 589833, 39, 0, 589850, 39, 0, 720904, 39, 0, 720908, 36, 0, 720909, 39, 0, 720918, 39, 0, 786434, 39, 0, 786444, 36, 0, 786445, 36, 0, 851982, 36, 0, 851986, 39, 0, 917519, 36, 0, 917522, 36, 0, 983048, 39, 0, 983058, 39, 0, 983059, 36, 0, 1048596, 36, 0, 1114125, 39, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="NPCs" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="NPC" parent="NPCs" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 1300.97, -150.24 )
+
+[node name="Sound" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 452.816, -156.09 )
+script = ExtResource( 6 )
+
+[node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="CloseDoor" type="AudioStreamPlayer2D" parent="Sound" index="1"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="CoinFlip" type="AudioStreamPlayer2D" parent="Sound" index="2"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Switch" type="AudioStreamPlayer2D" parent="Sound" index="3"]
+
+position = Vector2( 389.605, 139.438 )
+stream = ExtResource( 10 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="MoveBlock" type="AudioStreamPlayer2D" parent="Sound" index="4"]
+
+position = Vector2( 606.964, 110.73 )
+stream = ExtResource( 11 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="ChopWood" type="AudioStreamPlayer2D" parent="Sound" index="5"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="FallenTree" type="AudioStreamPlayer2D" parent="Sound" index="6"]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="ItemFound" type="AudioStreamPlayer2D" parent="Sound" index="7"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="OpenChest" type="AudioStreamPlayer2D" parent="Sound" index="8"]
+
+stream = ExtResource( 15 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="LockedDoor" type="AudioStreamPlayer2D" parent="Sound" index="9"]
+
+position = Vector2( 722.722, -65.685 )
+stream = ExtResource( 16 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="PickUp" type="AudioStreamPlayer2D" parent="Sound" index="10"]
+
+position = Vector2( 675.475, -203.022 )
+stream = ExtResource( 17 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="TownMusic" type="AudioStreamPlayer2D" parent="Sound" index="11"]
+
+stream = ExtResource( 18 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="MoveAreas" type="Node2D" parent="." index="6"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 14.3539, -4.1011 )
+script = ExtResource( 19 )
+
+[node name="DoorArea" parent="MoveAreas" index="0" instance=ExtResource( 20 )]
+
+position = Vector2( 931.982, 215.869 )
+
+[node name="DoorTimer" type="Timer" parent="MoveAreas/DoorArea" index="1"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[node name="SwitchAreas" type="Node2D" parent="." index="7"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 45.1122, -8.20224 )
+
+[node name="SwitchArea1" parent="SwitchAreas" index="0" instance=ExtResource( 21 )]
+
+visible = false
+position = Vector2( 1053.16, -65.1013 )
+scale = Vector2( 1.48338, 2.02124 )
+
+[node name="SwitchArea2" parent="SwitchAreas" index="1" instance=ExtResource( 21 )]
+
+position = Vector2( 1489.27, -68.8916 )
+scale = Vector2( 1.48338, 2.02124 )
+
+[node name="SceneManager" type="Node" parent="." index="8"]
+
+script = ExtResource( 22 )
+
+[connection signal="body_shape_entered" from="Chests/chest1" to="Chests" method="_on_chest1_body_shape_entered"]
+
+[connection signal="body_shape_exited" from="Chests/chest1" to="Chests" method="_on_chest1_body_shape_exited"]
+
+[connection signal="body_shape_entered" from="Chests/chest2" to="Chests" method="_on_chest2_body_shape_entered"]
+
+[connection signal="body_shape_exited" from="Chests/chest2" to="Chests" method="_on_chest2_body_shape_exited"]
+
+[connection signal="body_shape_entered" from="Chests/chest3" to="Chests" method="_on_chest3_body_shape_entered"]
+
+[connection signal="body_shape_exited" from="Chests/chest3" to="Chests" method="_on_chest3_body_shape_exited"]
+
+[connection signal="body_shape_entered" from="Chests/chest4" to="Chests" method="_on_chest4_body_shape_entered"]
+
+[connection signal="body_shape_exited" from="Chests/chest4" to="Chests" method="_on_chest4_body_shape_exited"]
+
+[connection signal="body_shape_entered" from="MoveAreas/DoorArea" to="MoveAreas" method="_on_DoorArea_body_shape_entered"]
+
+[connection signal="body_shape_exited" from="MoveAreas/DoorArea" to="MoveAreas" method="_on_DoorArea_body_shape_exited"]
+
+[connection signal="timeout" from="MoveAreas/DoorArea/DoorTimer" to="SceneManager" method="_on_DoorTimer_timeout"]
+
+[connection signal="body_shape_entered" from="SwitchAreas/SwitchArea1" to="SwitchAreas/SwitchArea1" method="_on_SwitchArea_body_shape_entered"]
+
+[connection signal="body_shape_exited" from="SwitchAreas/SwitchArea1" to="SwitchAreas/SwitchArea1" method="_on_SwitchArea_body_shape_exited"]
+
+[connection signal="body_shape_entered" from="SwitchAreas/SwitchArea2" to="SwitchAreas/SwitchArea2" method="_on_SwitchArea_body_shape_entered"]
+
+[connection signal="body_shape_exited" from="SwitchAreas/SwitchArea2" to="SwitchAreas/SwitchArea2" method="_on_SwitchArea_body_shape_exited"]
+
+

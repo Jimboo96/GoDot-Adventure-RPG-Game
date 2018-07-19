@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://HouseTiles128x128/iso-128x128-building.png" type="Texture" id=1]
 [ext_resource path="res://HouseTiles128x128/fill.png" type="Texture" id=2]
+[ext_resource path="res://HouseTiles128x128/bigFill.png" type="Texture" id=3]
 
 [node name="InsideHouse" type="Node2D"]
 
@@ -778,6 +779,13 @@ _sections_unfolded = [ "Region" ]
 visible = false
 texture = ExtResource( 2 )
 region_enabled = true
+region_rect = Rect2( 0, 32, 128, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="bigFill" type="Sprite" parent="." index="39"]
+
+visible = false
+texture = ExtResource( 3 )
 region_rect = Rect2( 0, 32, 128, 64 )
 _sections_unfolded = [ "Region" ]
 

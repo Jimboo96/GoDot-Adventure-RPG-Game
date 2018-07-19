@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_femalevoice12.wav-0214a15f24cb21d28947c83cffa182a3.sample"
+
+[deps]
+
+source_file="res://sfx/NPC_voice/sfx_femalevoice12.wav"
+source_md5="fb6b04fabc6b6f70d614a8062c669742"
+
+dest_files=[ "res://.import/sfx_femalevoice12.wav-0214a15f24cb21d28947c83cffa182a3.sample" ]
+dest_md5="b88c2b99c2e2e900e6323bd8bb00f5ea"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

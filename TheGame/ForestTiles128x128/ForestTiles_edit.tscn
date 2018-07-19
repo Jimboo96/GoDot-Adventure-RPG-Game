@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ForestTiles128x128/iso-128x128-outside.png" type="Texture" id=1]
 [ext_resource path="res://ForestTiles128x128/isometric128x64.png" type="Texture" id=2]
 [ext_resource path="res://ForestTiles128x128/house1.png" type="Texture" id=3]
 [ext_resource path="res://ForestTiles128x128/house2.png" type="Texture" id=4]
 [ext_resource path="res://ForestTiles128x128/house3.png" type="Texture" id=5]
+[ext_resource path="res://ForestTiles128x128/forestfill.png" type="Texture" id=6]
 
 [node name="ForestTiles_edit" type="Node2D"]
 
@@ -983,6 +984,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="treeStump2" type="Sprite" parent="." index="53"]
 
+editor/display_folded = true
 visible = false
 texture = ExtResource( 2 )
 centered = false
@@ -1038,6 +1040,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="campfire" type="Sprite" parent="." index="55"]
 
+editor/display_folded = true
 visible = false
 texture = ExtResource( 2 )
 centered = false
@@ -1065,6 +1068,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="logs" type="Sprite" parent="." index="56"]
 
+editor/display_folded = true
 visible = false
 texture = ExtResource( 2 )
 centered = false
@@ -1092,6 +1096,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="logs2" type="Sprite" parent="." index="57"]
 
+editor/display_folded = true
 visible = false
 texture = ExtResource( 2 )
 centered = false
@@ -2177,6 +2182,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="house3" type="Sprite" parent="." index="109"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 10, 10 )
 texture = ExtResource( 5 )
@@ -2420,6 +2426,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="tree5" type="Sprite" parent="." index="119"]
 
+editor/display_folded = true
 visible = false
 texture = ExtResource( 1 )
 centered = false
@@ -2447,6 +2454,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="tree6" type="Sprite" parent="." index="120"]
 
+editor/display_folded = true
 visible = false
 texture = ExtResource( 2 )
 centered = false
@@ -2457,7 +2465,6 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="body" type="StaticBody2D" parent="tree6" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -2475,6 +2482,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="tree7" type="Sprite" parent="." index="121"]
 
+editor/display_folded = true
 visible = false
 texture = ExtResource( 2 )
 centered = false
@@ -2502,6 +2510,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="tree8" type="Sprite" parent="." index="122"]
 
+editor/display_folded = true
 visible = false
 texture = ExtResource( 2 )
 centered = false
@@ -2539,7 +2548,6 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="body" type="StaticBody2D" parent="treeBorder" index="0"]
 
-visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -2551,7 +2559,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="collission" type="CollisionPolygon2D" parent="treeBorder/body" index="0"]
 
-visible = false
 build_mode = 0
 polygon = PoolVector2Array( -40, 20, -40, -120, 50, -220, 150, -120, 160, 10, 60, 60, 50, 60 )
 _sections_unfolded = [ "Transform" ]
@@ -2566,8 +2573,17 @@ region_enabled = true
 region_rect = Rect2( 800, 2332, 228, 336 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
-[node name="rocks0" type="Sprite" parent="." index="125"]
+[node name="treeFill" type="Sprite" parent="." index="125"]
 
+texture = ExtResource( 6 )
+centered = false
+offset = Vector2( -50, -290 )
+region_rect = Rect2( 800, 2332, 228, 336 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="rocks0" type="Sprite" parent="." index="126"]
+
+editor/display_folded = true
 visible = false
 texture = ExtResource( 2 )
 centered = false

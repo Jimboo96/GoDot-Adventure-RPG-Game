@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_malevoice6.wav-6c5dd7180f68949e87a8262d12ae733f.sample"
+
+[deps]
+
+source_file="res://sfx/NPC_voice/sfx_malevoice6.wav"
+source_md5="7c249dbe6c6c2c2667dd324b0d42785b"
+
+dest_files=[ "res://.import/sfx_malevoice6.wav-6c5dd7180f68949e87a8262d12ae733f.sample" ]
+dest_md5="5a2f86026c4dac9616c36b69367741e6"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

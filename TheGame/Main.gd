@@ -24,8 +24,10 @@ func _ready():
 	addedFirstArea = true
 	#connect signal for player
 	player.connect("attacked", $HUD, "attacked")
+	#connect player w HUD
 	$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
 	$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
+	$HUD.connect("levelup", player, "levelup")
 	
 func conn_scenes_signals():
 	if $Area/area/MoveAreas.is_inside_tree():
@@ -72,7 +74,8 @@ func add_new_scene(s):
 	global.current_scene = currentArea
 	currentArea.set_name("area")
 	#add new area
-	
+	#add signals sent to HUD
+	currentArea.connect("notify", $HUD, "notify")
 	if $Area.get_child_count() == 0:
 		$Area.add_child(currentArea)
 	#set global area (name)

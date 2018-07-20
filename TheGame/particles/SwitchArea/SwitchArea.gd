@@ -21,6 +21,7 @@ func _input(event):
 						get_tree().get_root().get_child(1).get_node("Sound/MoveBlock").play()
 						global.area1Switch = true
 						print("You hear something large moving somewhere in the forest....")
+						get_parent().get_parent().emit_signal("notify", "hearASound")
 			# House1 switches
 			elif(global.current_area == "house1"):
 				# Door 1. Opens and closes it.
@@ -51,6 +52,7 @@ func _input(event):
 					if !global.secretAreaKeyFound:
 						get_tree().get_root().get_child(1).get_node("Sound/PickUp").play()
 						global.secretAreaKeyFound = true
+						get_parent().get_parent().emit_signal("notify", "findAKey")
 						print("You find a key buried under the flower!")
 					
 func _on_SwitchArea_body_shape_entered(body_id, body, body_shape, area_shape):

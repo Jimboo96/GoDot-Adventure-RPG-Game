@@ -1,13 +1,12 @@
 extends CanvasLayer
 
 signal gainEXP
+signal levelup
 
 export (int) var enemies = 3
 
 func _ready():
-	$EnemiesLeft/NumOfEnemies.set("text", String(enemies))	
 	#label text
-	$InstructionNewRound.hide()
 	$LevelUp.hide()
 	#connect signals
 	conn_signals()
@@ -20,30 +19,38 @@ func conn_signals():
 	$SkillMenu/Cancel.connect("pressed", self, "close_popup")
 
 func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
-	enemy_killed()
-	print("gain exp")
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)
 	pass
 	
-func enemy_killed():
-	enemies = enemies - 1
-	if enemies > 0:
-		$EnemiesLeft/NumOfEnemies.set("text", String(enemies))
-	else:
-		$EnemiesLeft.hide()
-		$InstructionNewRound.show()
+func notify(opt):
+	match opt:
+		"hearASound":
+			$Notification.set_text("You hear something large moving somewhere in the forest....")
+		"findAKey":
+			$Notification.set_text("You find a key buried under the flower!")
+		_:
+			pass
+	$TextDisappearTimer.set("wait_time", 2)
+	$TextDisappearTimer.start()
 	pass
 	
 func attacked(dame):
 	$InfoContainer/MainBox/HPBar.attacked(dame)
+	
 #Level up
 func level_up():
 	$LevelUp.show()
+	$TextDisappearTimer.set("wait_time", 1)
 	$TextDisappearTimer.start()
+	emit_signal("levelup")
+	#for HP Bar
+	$InfoContainer/MainBox/HPBar
 
 func hide_text():
 	if $LevelUp.is_visible_in_tree():
 		$LevelUp.hide()
+	if $Notification.is_visible_in_tree():
+		$Notification.hide()
 		
 func get_prize(type, value):
 	match type:

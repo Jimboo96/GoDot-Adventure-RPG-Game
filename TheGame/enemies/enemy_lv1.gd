@@ -197,8 +197,8 @@ func move_to_target(direction):
 func dead():
 	dead = true
 	$enemySprite.animation = "die"
-	$CollisionShape2D.queue_free()
-	$Area2D/detectZone.queue_free()
+	if has_node("Area2D/detectZone"):
+		$Area2D/detectZone.queue_free()
 	emit_signal("dead", EXP, self)
 	pass
 	
@@ -216,6 +216,7 @@ func attacked(dame):
 	if dame_received <= 0: 
 		return
 	#emit only when dame_received > 0
+	get_tree().get_root().get_child(1).get_node("Sound/Stream").play()
 	attacked = true
 	$lifeBarContainer.attacked(dame_received)
 	pass

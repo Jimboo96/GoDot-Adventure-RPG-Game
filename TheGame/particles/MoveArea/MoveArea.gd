@@ -27,13 +27,14 @@ func _on_MoveArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
 		emit_signal("halt_player")
 		get_node("MoveArea/MoveTimer").start()
+		get_tree().get_root().get_child(1).get_node("Sound/WalkingOnLeaves").play(6)
 
 func _on_MoveArea2_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
 		emit_signal("halt_player")
 		get_node("MoveArea2/MoveTimer2").start()
+		get_tree().get_root().get_child(1).get_node("Sound/WalkingOnLeaves").play(6)
 		
-
 # Resets players position according to the coordinates that are saved in global variables.
 #set init pos if null
 func reset_player_pos(var current_scene):
@@ -85,6 +86,7 @@ func reset_player_pos(var current_scene):
 		global.player.position = global.house1Position
 			
 	playerPosReseted = true
+	#get_tree().get_root().get_child(1).get_node("Sound/WalkingOnLeaves").stop()
 
 func _on_DoorArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":

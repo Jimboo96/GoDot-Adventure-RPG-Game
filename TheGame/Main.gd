@@ -104,8 +104,12 @@ func add_player_to_current_scene():
 	walls.add_child(player)
 	#walls.set_owner(player)
 	player.appear()
-	#set new NodePath for player
-	player = get_tree().get_root().get_child(1).get_node("Area/area/walls/YSort/player")
+	
+	player = global.find_node_by_name(get_tree().get_root(), "player")
+	if(player): printt(player, player.get_name(), "####################")
+	
+	#set new NodePath for player, get_child(i) i = global scripts + 1
+	#player = get_tree().get_root().get_child(4).get_node("Area/area/walls/YSort/player") # deprecated
 	#save to global
 	global.player = player
 	#connect timer and move areas' signals

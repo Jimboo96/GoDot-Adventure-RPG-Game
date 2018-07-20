@@ -19,6 +19,8 @@ var detected_target
 var SAnim 
 var Sflip
 
+var inventoryScene
+
 func _enter_tree():
 	hide() #hide when enter tree
 	pass
@@ -33,7 +35,8 @@ func _ready():
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
 	$AttackRay.connect("body_exited", self, "enemy_out_zone")
-	
+
+
 func appear(): #appear when added to area
 	show()
 	
@@ -46,6 +49,13 @@ func _input(event):
 			print("player attacks %s" % detected_target.get_name())
 			detected_target.attacked(dame)
 			
+	if(event.is_action_pressed("inv_key")):
+		get_tree().call_group("room","inventory_open")
+		if playerMovable:
+			playerMovable = false
+		elif !playerMovable:
+			playerMovable = true
+
 
 func _physics_process(delta):
 	update()
@@ -149,3 +159,5 @@ func levelup():
 	HP = maxHP * 3/2
 	def = def * 3/2
 	dame = dame + 10
+
+

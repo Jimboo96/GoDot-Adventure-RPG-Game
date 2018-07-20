@@ -4,6 +4,8 @@ var current_scene = null
 var last_area # previous area
 var player
 var current_area #area name from main
+var damageFromWeapons = 0
+var armorFromArmor = 0
 
 # area1 variables
 var area1Chest1Found
@@ -37,19 +39,66 @@ var house1Exited
 var secretAreaChest1Found
 var secretAreaKeyFound
 var secretAreaPosition = Vector2()
+var root
 
 func _ready():
-    var root = get_tree().get_root()
-    current_scene = root.get_child( root.get_child_count() -1 )
+	root = get_tree().get_root()
+	current_scene = root.get_child( root.get_child_count() -1 )
+	print("get_children @_ready() ",root.get_children())
 
 func goto_scene(path):
 	call_deferred("_deferred_goto_scene",path)
 
 func _deferred_goto_scene(path):
-	get_parent().get_child(1).goto_area(path)
+	get_parent().get_child(4).goto_area(path)
 	pass
+
+func goto_main(path):
+	call_deferred("_deferred_main", path)
+
+
+func _deferred_main(path):
+	print("path: ", path)
+	current_scene.free()
+	var s = ResourceLoader.load(path)
+	current_scene = s.instance()
+	 # Add it to the active scene, as child of root
+
+	print("root children: ",root.get_children())
+	print("current scene: ",current_scene.get_name())
 	
+	root.add_child(current_scene)
+	current_scene = root.get_child(4)
+	get_tree().set_current_scene( current_scene )
+	print("get_children @end of _deferred_main() ) ",root.get_children())
+	
+
 # math func
 func cartesian_to_isometric(cartesian):
 	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y)/2)
+
+
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		Global_Player.save_data()
+		get_tree().quit() # default behavior
+
+
+func update_gear_attributes(dmgUpdate,armorUpdate):
+	damageFromWeapons = dmgUpdate
+	armorFromArmor = armorUpdate
+	print(damageFromWeapons)
+	print(armorFromArmor)
+
+
+func find_node_by_name(root, name):
+	if(root.get_name() == name): return root
 	
+	for child in root.get_children():
+		if(child.get_name() == name):
+			return child
+		
+		var found = find_node_by_name(child, name)
+		
+		if(found): return found
+	return null

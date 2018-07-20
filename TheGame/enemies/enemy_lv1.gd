@@ -229,7 +229,7 @@ func get_view_direction(dir = Vector2()):
 	var c = a - b
 	if $enemySprite.flip_h == false:
 		if dir.x < 0:
-			return c
+	      		return c
 		else:
 			return  -c
 	else:

@@ -1,0 +1,327 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://inventory/Script_PlayerInventory.gd" type="Script" id=1]
+[ext_resource path="res://inventory/WindowDialog_AddItemWindow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://inventory/WindowDialog_ItemMenu.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxTexture" id=4]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+margin_left = 0.0
+margin_right = 0.0
+margin_top = 0.0
+margin_bottom = 0.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[node name="Node" type="Control"]
+
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -2.0
+margin_right = -2.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Hint", "Pause" ]
+
+[node name="Panel" type="Panel" parent="." index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -250.0
+margin_right = 450.0
+margin_bottom = 250.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Popup", "Rect", "Visibility" ]
+
+[node name="Sprite_DraggedItem" type="Sprite" parent="Panel" index="0"]
+
+z_index = 1
+z_as_relative = false
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="ItemList" type="ItemList" parent="Panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 281.0
+margin_top = 31.0
+margin_right = 881.0
+margin_bottom = 481.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/selected_focus = SubResource( 1 )
+custom_styles/bg_focus = SubResource( 2 )
+custom_styles/cursor_unfocused = SubResource( 3 )
+custom_styles/selected = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+custom_colors/guide_color = Color( 0, 0, 0, 0 )
+custom_constants/vseparation = 10
+custom_constants/hseparation = 15
+items = [  ]
+select_mode = 0
+allow_reselect = false
+auto_height = true
+max_columns = 0
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2( 48, 48 )
+_sections_unfolded = [ "Columns", "Icon", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_styles" ]
+
+[node name="GearList" type="ItemList" parent="Panel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_top = 200.0
+margin_right = 260.0
+margin_bottom = 480.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/selected_focus = SubResource( 1 )
+custom_styles/bg_focus = SubResource( 2 )
+custom_styles/cursor_unfocused = SubResource( 3 )
+custom_styles/selected = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+custom_colors/guide_color = Color( 0, 0, 0, 0 )
+custom_constants/vseparation = 10
+custom_constants/hseparation = 15
+items = [  ]
+select_mode = 0
+allow_reselect = false
+auto_height = true
+max_columns = 0
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2( 48, 48 )
+_sections_unfolded = [ "Columns", "Icon", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_styles" ]
+
+[node name="Button_Save" type="Button" parent="Panel" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 110.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Save"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button_AddItem" type="Button" parent="Panel" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 100.0
+margin_right = 110.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Add Item"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button_AddGear" type="Button" parent="Panel" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 100.0
+margin_right = 210.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Add Gear"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button_Exit" type="Button" parent="Panel" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 30.0
+margin_right = 210.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Exit"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="WindowDialog_AddItemWindow" parent="Panel" index="7" instance=ExtResource( 2 )]
+
+editor/display_folded = true
+visible = false
+
+[node name="WindowDialog_AddGearWindow" parent="Panel" index="8" instance=ExtResource( 2 )]
+
+editor/display_folded = true
+visible = false
+
+[node name="WindowDialog_ItemMenu" parent="Panel" index="9" instance=ExtResource( 3 )]
+
+[node name="WindowDialog_GearMenu" parent="Panel" index="10" instance=ExtResource( 3 )]
+
+[node name="ItemMenu_Button_UseItem" parent="Panel/WindowDialog_GearMenu" index="4"]
+
+text = "Remove"
+
+[connection signal="item_rmb_selected" from="Panel/ItemList" to="." method="_on_ItemList_item_rmb_selected"]
+
+[connection signal="mouse_entered" from="Panel/ItemList" to="." method="_on_ItemList_mouse_entered"]
+
+[connection signal="mouse_exited" from="Panel/ItemList" to="." method="_on_ItemList_mouse_exited"]
+
+[connection signal="item_rmb_selected" from="Panel/GearList" to="." method="_on_GearList_item_rmb_selected"]
+
+[connection signal="mouse_entered" from="Panel/GearList" to="." method="_on_GearList_mouse_entered"]
+
+[connection signal="mouse_exited" from="Panel/GearList" to="." method="_on_GearList_mouse_exited"]
+
+[connection signal="pressed" from="Panel/Button_Save" to="." method="_on_Button_Save_pressed"]
+
+[connection signal="pressed" from="Panel/Button_AddItem" to="." method="_on_Button_AddItem_pressed"]
+
+[connection signal="pressed" from="Panel/Button_AddGear" to="." method="_on_Button_AddGear_pressed"]
+
+[connection signal="pressed" from="Panel/Button_Exit" to="." method="_on_Button_Exit_pressed"]
+
+[connection signal="pressed" from="Panel/WindowDialog_AddItemWindow/AddItemWindow_Button_AddItem" to="." method="_on_AddItemWindow_Button_AddItem_pressed"]
+
+[connection signal="pressed" from="Panel/WindowDialog_AddItemWindow/AddItemWindow_Button_Close" to="." method="_on_AddItemWindow_Button_Close_pressed"]
+
+[connection signal="pressed" from="Panel/WindowDialog_AddGearWindow/AddItemWindow_Button_AddItem" to="." method="_on_AddItemWindow_Button_AddGear_pressed"]
+
+[connection signal="pressed" from="Panel/WindowDialog_AddGearWindow/AddItemWindow_Button_Close" to="." method="_on_AddItemWindow_Button_Close_Gear_pressed"]
+
+[connection signal="pressed" from="Panel/WindowDialog_ItemMenu/ItemMenu_Button_DropItem" to="." method="_on_ItemMenu_Button_DropItem_pressed"]
+
+[connection signal="pressed" from="Panel/WindowDialog_ItemMenu/ItemMenu_Button_UseItem" to="." method="_on_ItemMenu_Button_UseItem_pressed"]
+
+[connection signal="pressed" from="Panel/WindowDialog_GearMenu/ItemMenu_Button_DropItem" to="." method="_on_GearMenu_Button_DropGear_pressed"]
+
+[connection signal="pressed" from="Panel/WindowDialog_GearMenu/ItemMenu_Button_UseItem" to="." method="_on_GearMenu_Button_RemoveGear_pressed"]
+
+
+[editable path="Panel/WindowDialog_AddItemWindow"]
+[editable path="Panel/WindowDialog_AddGearWindow"]
+[editable path="Panel/WindowDialog_ItemMenu"]
+[editable path="Panel/WindowDialog_GearMenu"]

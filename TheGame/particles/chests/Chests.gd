@@ -10,15 +10,27 @@ var chestsReseted
 # Minimum and maximum number of chests per room.
 const MIN_CHEST_NUMBER = 1
 const MAX_CHEST_NUMBER = 5
+var chestSound
+var axeSound
 
 func _ready():
 	chestsReseted = false
 	chestOpenable = false
 	chestNum = 0
+	
+	#wow such nice recursive function wow
+	var sound = global.find_node_by_name(get_tree().get_root(), "Sound")
+	if(sound): printt(sound, sound.get_name())
+	
+	#now you can do this
+	chestSound = sound.get_node("OpenChest")
+	axeSound = sound.get_node("PickUp")
+
 
 func _process(delta):
 	if !chestsReseted:
 		reset_chests()
+
 
 func _input(event):
 	#print(get_tree().current_scene.areaName)
@@ -28,18 +40,18 @@ func _input(event):
 			if get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 2:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,0)
 				#print(get_tree().get_root().get_child(1).get_name())
-				get_tree().get_root().get_child(1).get_node("Sound/OpenChest").play()
+				chestSound.play()
 				get_reward()
 			# Set vertical closed chest sprite to open.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 3:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,1)
-				get_tree().get_root().get_child(1).get_node("Sound/OpenChest").play()
+				chestSound.play()
 				get_reward()
 			# Set tree stump with axe in it to a normal tree stump.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 5:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,4)
 				#get_parent().get_node("Sound/PickUp").play()
-				get_tree().get_root().get_child(1).get_node("Sound/PickUp").play()
+				axeSound.play()
 				get_reward()
 			save_chest_states()
 

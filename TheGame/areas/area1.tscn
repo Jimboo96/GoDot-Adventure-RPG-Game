@@ -249,7 +249,7 @@ curve = SubResource( 1 )
 [node name="EnemiesLocation" type="PathFollow2D" parent="EnemiesPath" index="0"]
 
 position = Vector2( 393.888, -171.018 )
-rotation = 0.571318
+rotation = 0.571325
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0

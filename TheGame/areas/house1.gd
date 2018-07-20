@@ -1,4 +1,4 @@
-extends Node2D
+extends "room.gd"
 
 # class member variables go here, for example:
 # var a = 2

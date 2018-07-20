@@ -1,0 +1,297 @@
+{
+	"0": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot.png",
+		"type": "empty",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"1": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot_gloves.png",
+		"type": "gloves",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"2": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot_head.png",
+		"type": "head",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"3": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot_quiver.png",
+		"type": "quiver",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"4": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot_weapon.png",
+		"type": "weapon",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"5": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot_chest.png",
+		"type": "chest",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"6": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot_shield.png",
+		"type": "shield",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"7": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot_ring.png",
+		"type": "ring",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"8": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot_boots.png",
+		"type": "boots",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"9": {
+		"name": "",
+		"icon": "res://inventory/textures/Item_Icons/empty_slot_ring2.png",
+		"type": "ring",
+		"weight": 0.0,
+		"stackable": false,
+		"description": "",
+		"sell_price": 0
+	},
+
+	"10": {
+		"name": "Key",
+		"icon": "res://inventory/textures/Item_Icons/genericItem_color_155.png",
+		"type": "quest",
+		"weight": "1",
+		"stackable": false,
+		"description": "It's used to open stuff",
+		"sell_price": 10
+	},
+	
+	"11": {
+		"name": "Arrow",
+		"icon": "res://inventory/textures/Items/arrow.png",
+		"type": "quiver",
+		"weight": 0.5,
+		"stackable": false,
+		"description": "Magic arrow that always returns to you",
+		"sell_price": 7,
+		"damage": 1
+	},
+	
+	"12": {
+		"name": "Book of Wisdom",
+		"icon": "res://inventory/textures/Item_Icons/genericItem_color_035.png",
+		"type": "consumable",
+		"weight": 0.87,
+		"stackable": true,
+		"description": "A book with an orange hard cover. The title reads as 'The Meaning of Life' by Gregory McDuckleberry",
+		"sell_price": 17
+	},
+		
+	"13": {
+		"name": "Bandage",
+		"icon": "res://inventory/textures/Item_Icons/genericItem_color_100.png",
+		"type": "consumable",
+		"weight": 0.1,
+		"stackable": true,
+		"description": "Restores a tiny amount of HP.",
+		"sell_price": 3,
+		"heal": 10
+	},
+
+	"14": {
+		"name": "Coffee Pot",
+		"icon": "res://inventory/textures/Item_Icons/genericItem_color_124.png",
+		"type": "consumable",
+		"weight": "3",
+		"stackable": false,
+		"description": "It's a magical pot full of hot coffee",
+		"sell_price": 24,
+		"heal": 100
+	},
+
+	"15": {
+		"name": "Fork",
+		"icon": "res://inventory/textures/Item_Icons/genericItem_color_129.png",
+		"type": "weapon",
+		"weight": "4",
+		"stackable": false,
+		"description": "Can be used for eating or stabbing things",
+		"sell_price": 3.50,
+		"damage": 3
+	},
+
+	"16": {
+		"name": "Weapon of mass destruction",
+		"icon": "res://inventory/textures/Item_Icons/genericItem_color_140.png",
+		"type": "weapon",
+		"weight": "3",
+		"stackable": false,
+		"description": "can also be used for baking",
+		"sell_price": 350,
+		"damage": 500
+	},
+
+	"17": {
+		"name": "Sword",
+		"icon": "res://inventory/textures/items/sword_iron.png",
+		"type": "weapon",
+		"weight": "5",
+		"stackable": false,
+		"description": "It's made of iron. It's sharp",
+		"sell_price": 150,
+		"damage": 10
+	},
+
+	"18": {
+		"name": "Shovel",
+		"icon": "res://inventory/textures/items/shovel_iron.png",
+		"type": "weapon",
+		"weight": "5",
+		"stackable": false,
+		"description": "It's made of iron. It can be used for digging",
+		"sell_price": 50,
+		"damage": 7
+	},
+
+	"19": {
+		"name": "Diamond Pickaxe",
+		"icon": "res://inventory/textures/items/pick_diamond.png",
+		"type": "weapon",
+		"weight": "8",
+		"stackable": false,
+		"description": "It's a pickaxe made of diamond. Who would make such a thing?",
+		"sell_price": 5000,
+		"damage": 85
+	},
+
+	"20": {
+		"name": "Frying pan",
+		"icon": "res://inventory/textures/Item_Icons/genericItem_color_116.png",
+		"type": "shield",
+		"weight": "3",
+		"stackable": false,
+		"description": "You can make food with this",
+		"sell_price": 24,
+		"defence": 20
+	},
+
+	"21": {
+		"name": "Iron axe",
+		"icon": "res://inventory/textures/items/axe_iron.png",
+		"type": "weapon",
+		"weight": "6",
+		"stackable": false,
+		"description": "It's an iron axe. You can kill trees with it.",
+		"sell_price": 85,
+		"damage": 9
+	},
+
+	"22": {
+		"name": "sandals",
+		"icon": "res://inventory/textures/armor/armor_0_4.png",
+		"type": "boots",
+		"weight": "6",
+		"stackable": false,
+		"description": "these are better than nothing",
+		"sell_price": 15,
+		"defence": 3
+	},
+
+	"23": {
+		"name": "Nice armor",
+		"icon": "res://inventory/textures/armor/armor_4_1.png",
+		"type": "chest",
+		"weight": "28",
+		"stackable": false,
+		"description": "Nice armor, duude",
+		"sell_price": 999,
+		"defence": 35
+	},
+
+	"24": {
+		"name": "Hood",
+		"icon": "res://inventory/textures/armor/armor_1_0.png",
+		"type": "head",
+		"weight": "2",
+		"stackable": false,
+		"description": "a hood",
+		"sell_price": 20,
+		"defence": 5
+	},
+
+	"25": {
+		"name": "Leather gloves",
+		"icon": "res://inventory/textures/armor/armor_2_2.png",
+		"type": "gloves",
+		"weight": "3",
+		"stackable": false,
+		"description": "Gloves made of leather",
+		"sell_price": 50,
+		"defence": 6
+	},
+
+	"26": {
+		"name": "Armoured gloves",
+		"icon": "res://inventory/textures/armor/armor_4_2.png",
+		"type": "gloves",
+		"weight": "7",
+		"stackable": false,
+		"description": "Heavy gloves, that are pretty good",
+		"sell_price": 125,
+		"defence": 12
+	},
+
+	"27": {
+		"name": "Helmet",
+		"icon": "res://inventory/textures/armor/armor_4_0.png",
+		"type": "head",
+		"weight": "11",
+		"stackable": false,
+		"description": "A steel helmet, it's sturdy but limits your vision",
+		"sell_price": 210,
+		"defence": 15
+	}
+}

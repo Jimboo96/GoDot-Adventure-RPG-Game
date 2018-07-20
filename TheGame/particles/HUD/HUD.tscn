@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://particles/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/GUI/font/Atarian/SF Atarian System Bold.ttf" type="DynamicFontData" id=2]
@@ -24,29 +24,13 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 20
+size = 16
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
-
-size = 25
-use_mipmaps = false
-use_filter = true
-font_data = ExtResource( 6 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[sub_resource type="DynamicFont" id=4]
-
-size = 25
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 6 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -145,15 +129,15 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="EnemiesLeft" type="Label" parent="." index="3"]
+[node name="Notification" type="Label" parent="." index="3"]
 
-visible = false
-anchor_left = 1.0
+anchor_left = 0.0
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.0
 anchor_bottom = 1.0
-margin_left = -116.0
 margin_top = -21.0
+margin_right = 300.0
+rect_min_size = Vector2( 300, 20 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -161,63 +145,19 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "Enemies left:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect", "custom_fonts" ]
 
-[node name="NumOfEnemies" type="Label" parent="EnemiesLeft" index="0"]
+[node name="SkillButton" type="TextureButton" parent="." index="4"]
 
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -19.0
-margin_top = -26.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.945313, 0.059082, 0.287563, 1 )
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
-
-[node name="InstructionNewRound" type="Label" parent="." index="4"]
-
-visible = false
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -260.0
-margin_top = -26.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
-text = "Find the door to enter new area"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="SkillButton" type="TextureButton" parent="." index="5"]
-
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
+margin_left = -110.0
 margin_top = -41.0
-margin_right = 110.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -234,7 +174,7 @@ texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 9 )
 _sections_unfolded = [ "Textures" ]
 
-[node name="SkillMenu" type="PopupMenu" parent="." index="6"]
+[node name="SkillMenu" type="PopupMenu" parent="." index="5"]
 
 editor/display_folded = true
 visible = false

@@ -15,11 +15,9 @@ func _ready():
 	$"Gauge/Bar Value/Value".set_text(String(currentEXP))
 
 func update_exp(EXP):
-	print("update exp")
 	var newEXP = currentEXP + int(EXP)
 	#set values
 	if (newEXP >= maxEXP):
-		print("norm lvp")
 		#anim to max
 		$Tween.interpolate_property($Gauge, "value", currentEXP, maxEXP, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		$Tween.start()
@@ -37,7 +35,6 @@ func update_exp(EXP):
 		$Level.set_text(String(currentLV))
 		emit_signal("levelup")
 	else:
-		print("norm")
 		$Tween.interpolate_property($Gauge, "value", currentEXP, newEXP, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		$Tween.start()
 		currentEXP = newEXP

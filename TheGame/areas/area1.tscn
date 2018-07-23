@@ -233,7 +233,6 @@ autostart = false
 
 [node name="SwitchAreas" type="Node2D" parent="." index="5"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( 45.1122, -8.20224 )
 
@@ -249,7 +248,7 @@ curve = SubResource( 1 )
 [node name="EnemiesLocation" type="PathFollow2D" parent="EnemiesPath" index="0"]
 
 position = Vector2( 393.888, -171.018 )
-rotation = 0.571318
+rotation = 0.571325
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0

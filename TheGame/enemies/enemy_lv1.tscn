@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://enemies/enemy_lv1.gd" type="Script" id=1]
 [ext_resource path="res://enemies/enemyHP.tscn" type="PackedScene" id=2]
@@ -15,12 +15,6 @@ _sections_unfolded = [ "Resource" ]
 
 custom_solver_bias = 0.0
 radius = 200.0
-
-[sub_resource type="CanvasItemMaterial" id=3]
-
-render_priority = 0
-blend_mode = 4
-light_mode = 0
 
 [node name="enemy_level1" type="KinematicBody2D"]
 
@@ -79,27 +73,11 @@ _sections_unfolded = [ "Rect" ]
 
 position = Vector2( -0.0643616, -0.242477 )
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="5"]
-
-material = SubResource( 3 )
-enabled = false
-exclude_parent = true
-cast_to = Vector2( 1000, 0 )
-collision_mask = 2
-_sections_unfolded = [ "Material" ]
-
-[node name="AttackWaitTime" type="Timer" parent="." index="6"]
+[node name="AttackWaitTime" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 3.0
 one_shot = false
 autostart = false
-
-[node name="RayCast2D2" type="RayCast2D" parent="." index="7"]
-
-enabled = false
-exclude_parent = true
-cast_to = Vector2( 0, 50 )
-collision_mask = 1
 
 

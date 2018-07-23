@@ -95,7 +95,6 @@ func move_and_animation(delta):
 		$Sprite.animation = "idle"
 	
 	motion = motion.normalized() * WALK_SPEED
-	motion = global.cartesian_to_isometric(motion)
 	move_and_slide(motion)
 
 func enemy_in_zone(body):

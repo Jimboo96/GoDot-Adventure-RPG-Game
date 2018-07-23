@@ -40,7 +40,6 @@ func conn_scenes_signals():
 			var moveAreaTimer = childOfMoveAreas[i].get_child(1) # return timer
 			var timerName = moveAreaTimer.get_name()
 			var timerPath = get_node("Area/area/MoveAreas/" + moveAreaName + "/" + timerName) # path to timer
-			#print(timerPath)
 			if timerPath.is_connected("timeout", $SceneManager, "_on_" + timerName + "_timeout"):
 				timerPath.disconnect("timeout", $SceneManager, "_on_" + timerName + "_timeout") #call when changing scene
 			else:
@@ -55,9 +54,9 @@ func goto_area(path):
 	$WaitTimeTimer.stop() #called when changing scene
 	conn_scenes_signals() #disconnect signals from old area
 	remove_player_from_current_scene()
-	call_deferred("deferred_goto_scene", path)
+	call_deferred("deferred_goto_area", path)
 	
-func deferred_goto_scene(path):
+func deferred_goto_area(path):
 	global.last_area = global.current_area
 	#load scene
 	s = ResourceLoader.load(path)
@@ -79,12 +78,12 @@ func add_new_scene(s):
 	if $Area.get_child_count() == 0:
 		$Area.add_child(currentArea)
 	#set global area (name)
-	global.current_area = areaName
-	walls = $Area/area/walls/YSort
+	global.current_area = areaName	
+	walls = currentArea.get_child(2).get_child(0) #/walls/YSort
 	#add player to this scene
 	if addedFirstArea == true:
 		add_player_to_current_scene()
-	pass
+	pass	
 	#reset when go to new scene:
 	enemiesIndex = 0
 	enemies = Array()
@@ -100,8 +99,10 @@ func add_new_scene(s):
 		maxEnemies = 4
 		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
 		enemies_spawning()
+		
 	
 func add_player_to_current_scene():
+	print("add player")
 	player = $player
 	self.remove_child(player)
 	walls.add_child(player)
@@ -129,7 +130,6 @@ func remove_player_from_current_scene():
 #connect signals from enemies to HUD
 func enemies_spawning():
 	var enemySetPos = false # to check if 2 enemies appear near together
-	#if areaName == "area1" or areaName == "area2":
 	if "area" in areaName:
 		if enemies.size() < maxEnemies:
 			var enemy
@@ -162,6 +162,5 @@ func enemies_dead(EXP, enemy_id):
 	#remove dead enemy from array
 	for i in range(0, enemies.size()):
 		if (enemy_id.get_name() in enemies[i].get_name()) or (enemies[i].get_name() in enemy_id.get_name()):
-			#print("%s removed" % [enemy_id.get_name()])
 			enemies.remove(i)
 			break

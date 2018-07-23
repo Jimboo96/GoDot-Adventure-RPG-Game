@@ -4,12 +4,6 @@ signal attacked
 signal dead
 signal prize
 
-#load sprite
-#var trollSprite = load("res://enemies/Sprite/BigTrollSprite.tscn")
-#var elfSprite = load("res://enemies/Sprite/elfSprite.tscn")
-#var zombieSprite = load("res://enemies/Sprite/zombieSprite.tscn")
-#var zombie = zombieSprite.instance()
-
 var enemies_type = ["trollBrown", "troll", "zombie"]
 var type 
 var movable = false
@@ -138,10 +132,7 @@ func aim(target):
 		return
 		
 	var direction_vector = (get_global_pos_of(target) - get_global_pos_of(self)).normalized()
-	#var dir_vec = get_global_pos_of(target) - get_global_pos_of(self)
-	#print("%s vec: %s dis: %s"%[self.get_name(), dir_vec, target.position.distance_to(self.position)])
 	var self_facing = get_view_direction( get_global_pos_of( self ) )
-	#$RayCast2D2.set_cast_to(dir_vec)
 	var angle = rad2deg(acos(direction_vector.dot(self_facing.normalized())))
 	if angle > 90: #if player is in FOV, if not flip side till player come near.
 		if $enemySprite.flip_h == true:
@@ -190,20 +181,24 @@ func attack(target):
 		
 func move_to_target(direction):
 	var motion = direction * SPEED
-	motion = global.cartesian_to_isometric(motion) #convert into isometric mode
+	#motion = global.cartesian_to_isometric(motion) #convert into isometric mode
 	move_and_slide(motion)
 	$enemySprite.animation = "walk"
 	
 func dead():
 	dead = true
+	$FlipTimer.stop()
 	$enemySprite.animation = "die"
 	if has_node("Area2D/detectZone"):
 		$Area2D/detectZone.queue_free()
+	if has_node("CollisionShape2D"):
+		$CollisionShape2D.queue_free()
 	emit_signal("dead", EXP, self)
 	pass
 	
 func enemy_disable():
-	$enemySprite.hide()
+	if $enemySprite.is_inside_tree():
+		$enemySprite.hide()
 	$lifeBarContainer.hide()
 	pass
 	
@@ -242,5 +237,4 @@ func get_view_direction(dir = Vector2()):
 	
 func get_global_pos_of(x):
 	var pos = ( x.position ) 
-	#print("%s, %s" % [x.get_name(), pos])
 	return pos

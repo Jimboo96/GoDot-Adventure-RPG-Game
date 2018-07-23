@@ -10,6 +10,7 @@ func _ready():
 	$LevelUp.hide()
 	#connect signals
 	conn_signals()
+	$Notification.hide()
 	
 func conn_signals():
 	$TextDisappearTimer.connect("timeout", self, "hide_text")
@@ -30,6 +31,7 @@ func notify(opt):
 			$Notification.set_text("You find a key buried under the flower!")
 		_:
 			pass
+	$Notification.show()
 	$TextDisappearTimer.set("wait_time", 2)
 	$TextDisappearTimer.start()
 	pass

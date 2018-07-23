@@ -75,7 +75,7 @@ func get_prize(type, value):
 			var cur_coins = int($InfoContainer/CoinCounter/Background/Number.text)
 			cur_coins = cur_coins + value
 			#print(" cur coins : %s " % [cur_coins])
-			$InfoContainer/MainBox/CoinCounter/Background/Number.set("text", String(cur_coins))
+			$InfoContainer/CoinCounter/Background/Number.set("text", String(cur_coins))
 		_:
 			pass
 			

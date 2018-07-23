@@ -48,6 +48,13 @@ func _input(event):
 func _physics_process(delta):
 	update()
 	move_and_animation(delta)
+	var overlap = $AttackRay.get_overlapping_bodies()
+	if overlap.size() > 0:
+		for i in overlap.size():
+			if "enemy" in overlap[i].get_name():
+				detected_target = overlap[i]
+				can_attack = true
+				return
 	
 func move_and_animation(delta):
 	var motion = Vector2()
@@ -92,13 +99,27 @@ func move_and_animation(delta):
 
 func enemy_in_zone(body):
 	if "enemy" in body.get_name():
-		detected_target = body
-		can_attack = true
+		var overlap = $AttackRay.get_overlapping_bodies()
+		if overlap.size() > 0:
+			for i in overlap.size():
+				if "enemy" in overlap[i].get_name():
+					detected_target = overlap[i]
+					can_attack = true
+					return
+					
 		
 func enemy_out_zone(body):
+	var e = 0
 	if "enemy" in body.get_name():
-		detected_target = null
-		can_attack = false
+		var overlap = $AttackRay.get_overlapping_bodies()
+		if overlap.size() > 0:
+			for i in overlap.size():
+				if "enemy" in overlap[i].get_name():
+					e = e + 1
+		if e == 0:
+			detected_target = null
+			can_attack = false
+			print("no enemies")
 		
 # Flips a coin.
 func flip_coin():
@@ -122,7 +143,8 @@ func attacked(damage):
 	$Sprite.animation = "hurt"
 	var damage_received = damage - def
 	if damage_received > 0:
-		emit_signal("attacked", damage_received)
+		#emit_signal("attacked", damage_received)
+		pass
 		
 func player_dead():
 	$disappearTimer.start()

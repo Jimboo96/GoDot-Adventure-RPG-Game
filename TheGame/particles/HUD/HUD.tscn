@@ -30,7 +30,7 @@ use_filter = true
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[node name="HUD" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -86,6 +86,7 @@ __meta__ = {
 
 [node name="MainBox" type="HBoxContainer" parent="InfoContainer" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -116,22 +117,23 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
 
-[node name="CoinCounter" parent="." index="2" instance=ExtResource( 5 )]
+[node name="CoinCounter" parent="InfoContainer" index="1" instance=ExtResource( 5 )]
 
 margin_left = 912.0
-margin_top = 10.0
 margin_right = 1020.0
-margin_bottom = 50.0
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect" ]
+rect_min_size = Vector2( 40, 40 )
+size_flags_horizontal = 8
+size_flags_vertical = 9
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect", "Size Flags" ]
 
-[node name="TextDisappearTimer" type="Timer" parent="." index="3"]
+[node name="TextDisappearTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="Notification" type="Label" parent="." index="4"]
+[node name="Notification" type="Label" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 1.0
@@ -152,7 +154,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect", "custom_fonts" ]
 
-[node name="SkillButton" type="TextureButton" parent="." index="5"]
+[node name="SkillButton" type="TextureButton" parent="." index="4"]
 
 anchor_left = 1.0
 anchor_top = 1.0
@@ -176,7 +178,7 @@ texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 9 )
 _sections_unfolded = [ "Textures" ]
 
-[node name="SkillMenu" type="PopupMenu" parent="." index="6"]
+[node name="SkillMenu" type="PopupMenu" parent="." index="5"]
 
 editor/display_folded = true
 visible = false
@@ -245,7 +247,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1.10803, 18.8365 )
 texture = ExtResource( 13 )
 
-[node name="WaitTimer" type="Timer" parent="." index="7"]
+[node name="WaitTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 1.5

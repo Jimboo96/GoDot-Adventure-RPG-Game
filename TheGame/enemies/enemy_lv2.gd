@@ -186,7 +186,7 @@ func dead():
 	
 func enemy_disable():
 	if $enemySprite.is_inside_tree():
-		$enemySprite.queue_free()
+		$enemySprite.hide()
 	$lifeBarContainer.hide()
 	pass
 	
@@ -201,7 +201,7 @@ func attacked(dame):
 	#emit only when dame_received > 0
 	attacked = true
 	$lifeBarContainer.attacked(dame_received)
-	get_tree().get_root().get_child(1).get_node("Sound/Stream").play()
+	get_tree().get_root().get_child(1).get_node("Sound/Scream").play()
 	pass
 
 func prize(prize_type, value):

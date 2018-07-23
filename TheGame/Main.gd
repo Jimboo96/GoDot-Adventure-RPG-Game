@@ -24,6 +24,8 @@ func _ready():
 	addedFirstArea = true
 	#connect signal for player
 	player.connect("attacked", $HUD, "attacked")
+	$HUD.connect("player_dead", player, "player_dead")
+	$HUD.connect("levelup", player, "levelup")
 	#connect player w HUD
 	$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
 	$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
@@ -106,7 +108,6 @@ func add_player_to_current_scene():
 	player = $player
 	self.remove_child(player)
 	walls.add_child(player)
-	#walls.set_owner(player)
 	player.appear()
 	#set new NodePath for player
 	player = get_tree().get_root().get_child(1).get_node("Area/area/walls/YSort/player")
@@ -116,10 +117,8 @@ func add_player_to_current_scene():
 	call_deferred("conn_scenes_signals")
 	#reset player stage that player can move
 	player.playerMovable = true 
-	print(player.is_connected("attacked", $HUD, "attacked"))
 	
 func remove_player_from_current_scene():
-	#set the pos of current scene before player exits
 	#reparent player
 	walls.remove_child(player)
 	self.add_child(player)
@@ -138,7 +137,6 @@ func enemies_spawning():
 			walls.add_child(enemy)
 			enemy.appear()
 			#set location
-			#TODO (set pos of enemies to far from each)
 			while enemySetPos == false:
 				$Area/area/EnemiesPath/EnemiesLocation.set_offset(randi())
 				enemy.position = $Area/area/EnemiesPath/EnemiesLocation.position

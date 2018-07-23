@@ -102,7 +102,6 @@ func conn_signals():
 	
 func target_enter(body):
 	if "player" in body.get_name():
-		#print("%s enters from %s" % [body.get_name(), self.get_name()])
 		target = body
 		$FlipTimer.set_paused(true)
 		$lifeBarContainer.show_bar()
@@ -111,7 +110,6 @@ func target_enter(body):
 		
 func target_exit(body):
 	if "player" in body.get_name():
-		#print("%s out from %s" % [body.get_name(), self.get_name()])
 		target = null
 		playerInZone = false
 		$lifeBarContainer.hide_bar()
@@ -127,8 +125,7 @@ func _physics_process(delta):
 	pass
 	
 func aim(target):
-	#print(x)
-	if dead == true or attacked == true:
+	if dead == true:
 		return
 		
 	var direction_vector = (get_global_pos_of(target) - get_global_pos_of(self)).normalized()
@@ -176,12 +173,10 @@ func idle():
 func attack(target):
 	if target:
 		$enemySprite.animation = "attack"
-		#print("attack player")
 		target.attacked(DAME)
 		
 func move_to_target(direction):
 	var motion = direction * SPEED
-	#motion = global.cartesian_to_isometric(motion) #convert into isometric mode
 	move_and_slide(motion)
 	$enemySprite.animation = "walk"
 	

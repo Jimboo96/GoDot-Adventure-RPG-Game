@@ -43,13 +43,10 @@ func _input(event):
 		
 	if Input.is_action_pressed("attack"):
 		if can_attack == true and detected_target:
-			#print("player attacks %s" % detected_target.get_name())
 			detected_target.attacked(dame)
 			
-
 func _physics_process(delta):
 	update()
-	#moving
 	move_and_animation(delta)
 	
 func move_and_animation(delta):
@@ -60,28 +57,24 @@ func move_and_animation(delta):
 			motion += Vector2(0, -1)
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = false
-			#$playerRayCast.set("cast_to", Vector2(cast_length,0))
 			$AttackRay.position = Vector2(30,0)
 			
 		elif Input.is_action_pressed("move_bottom"):
 			motion += Vector2(0, 1)
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = true
-			#$playerRayCast.set("cast_to", Vector2(cast_length * (-1) ,0))
 			$AttackRay.position = Vector2(-30,0)
 			
 		elif Input.is_action_pressed("move_left"):
 			motion += Vector2(-1, 0)
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = true
-			#$playerRayCast.set("cast_to", Vector2(cast_length * (-1),0))
 			$AttackRay.position = Vector2(-30,0)
 			
 		elif Input.is_action_pressed("move_right"): 
 			motion += Vector2(1, 0)
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = false
-			#$playerRayCast.set("cast_to", Vector2(cast_length,0))
 			$AttackRay.position = Vector2(30,0)
 			
 		elif Input.is_action_pressed("attack"):
@@ -115,11 +108,11 @@ func flip_coin():
 		print("Kruuna")
 	elif(coinSide == 1):
 		print("Klaava")
-
+		
 # Stops player from moving when transistioning between areas.
 func _on_MoveAreas_halt_player():
 	playerMovable = false
-
+	
 # Return player position.
 func get_player_pos():
 	return position
@@ -127,14 +120,13 @@ func get_player_pos():
 #attacked by enemy
 func attacked(damage):
 	$Sprite.animation = "hurt"
-	#print("player is attacked")
 	var damage_received = damage - def
 	if damage_received > 0:
 		emit_signal("attacked", damage_received)
 		
 func player_dead():
 	$disappearTimer.start()
-	$Sprite.animation = "dead"
+	$Sprite.animation = "die"
 
 func _on_disappearTimer_timeout():
 	queue_free()

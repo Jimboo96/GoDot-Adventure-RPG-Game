@@ -24,13 +24,13 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 16
+size = 20
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[node name="HUD" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -40,7 +40,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
 enemies = 3
 
-[node name="LevelUp" type="Label" parent="." index="0"]
+[node name="MainText" type="Label" parent="." index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -57,7 +57,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "LEVEL UP"
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -242,5 +241,12 @@ texture = ExtResource( 13 )
 
 position = Vector2( 1.10803, 18.8365 )
 texture = ExtResource( 13 )
+
+[node name="WaitTimer" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = true
+autostart = false
 
 

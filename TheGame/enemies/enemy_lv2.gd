@@ -97,22 +97,16 @@ func conn_signals():
 	
 func target_enter(body):
 	if "player" in body.get_name():
-		#print("%s enters from %s" % [body.get_name(), self.get_name()])
 		target = body
 		$FlipTimer.set_paused(true)
 		$lifeBarContainer.show_bar()
 		aim(target)
 		playerInZone = true
-		#print(target.get_parent().get_name())
-		#print(self.get_parent().get_name())
 		
 func target_exit(body):
 	if "player" in body.get_name():
-		#print("%s out from %s" % [body.get_name(), self.get_name()])
-		target = null
-		
-		$lifeBarContainer.hide_bar()
-		
+		target = null		
+		$lifeBarContainer.hide_bar()		
 		if $FlipTimer.is_paused():
 			$FlipTimer.set_paused(false)
 		playerInZone = false
@@ -126,15 +120,13 @@ func _physics_process(delta):
 	
 func aim(target):
 	#print(x)
-	if dead == true or attacked == true:
+	if dead == true:
 		return
 		
 	var direction_vector = (get_global_pos_of(target) - get_global_pos_of(self)).normalized()
 	var dir_vec = get_global_pos_of(target) - get_global_pos_of(self)
 	#print("%s vec: %s dis: %s"%[self.get_name(), dir_vec, target.position.distance_to(self.position)])
-	var self_facing = get_view_direction( get_global_pos_of( self ) )
-	#$RayCast2D2.set_cast_to(self_facing)
-	#$RayCast2D.set_cast_to(dir_vec)
+	var self_facing = get_view_direction( get_global_pos_of(self) )
 	var angle = rad2deg(acos(direction_vector.dot(self_facing.normalized())))
 	if angle > 90: #if player is in FOV, if not flip side till player come near.
 		if $enemySprite.flip_h == true:
@@ -177,25 +169,25 @@ func idle():
 func attack(target):
 	if target:
 		$enemySprite.animation = "attack"
-		#print("attack player")
 		target.attacked(DAME)
 		
 func move_to_target(direction):
 	var motion = direction * SPEED
-	motion = global.cartesian_to_isometric(motion) #convert into isometric mode
 	move_and_slide(motion)
 	$enemySprite.animation = "walk"
 	
 func dead():
 	dead = true
+	$FlipTimer.stop()
 	$enemySprite.animation = "die"
-	$CollisionShape2D.queue_free()
-	$Area2D/detectZone.queue_free()
+	if has_node("Area2D/detectZone"):
+		$Area2D/detectZone.queue_free()
 	emit_signal("dead", EXP, self)
 	pass
 	
 func enemy_disable():
-	$enemySprite.hide()
+	if $enemySprite.is_inside_tree():
+		$enemySprite.queue_free()
 	$lifeBarContainer.hide()
 	pass
 	
@@ -234,5 +226,4 @@ func get_view_direction(dir = Vector2()):
 	
 func get_global_pos_of(x):
 	var pos = ( x.position ) 
-	#print("%s, %s" % [x.get_name(), pos])
 	return pos

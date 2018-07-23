@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://sfx/sfx_open_door.wav" type="AudioStream" id=2]
@@ -11,11 +11,12 @@
 [ext_resource path="res://sfx/sfx_open_chest.wav" type="AudioStream" id=9]
 [ext_resource path="res://sfx/sfx_locked.wav" type="AudioStream" id=10]
 [ext_resource path="res://sfx/sfx_pick_up.wav" type="AudioStream" id=11]
-[ext_resource path="res://sfx/sfx_scream.wav" type="AudioStream" id=12]
-[ext_resource path="res://sfx/walking-through-leaves.wav" type="AudioStream" id=13]
-[ext_resource path="res://SceneManager.gd" type="Script" id=14]
-[ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=15]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://sound/sfx/sfx_scream.wav" type="AudioStream" id=12]
+[ext_resource path="res://sound/sfx/walking-through-leaves.wav" type="AudioStream" id=13]
+[ext_resource path="res://sound/sfx/punch_or_whack_-Vladimir-403040765.wav" type="AudioStream" id=14]
+[ext_resource path="res://SceneManager.gd" type="Script" id=15]
+[ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=16]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 
 [node name="Main" type="Node"]
 
@@ -151,13 +152,21 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
+[node name="Punch" type="AudioStreamPlayer" parent="Sound" index="12"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [node name="SceneManager" type="Node" parent="." index="2"]
 
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 15 )]
+[node name="HUD" parent="." index="3" instance=ExtResource( 16 )]
 
-[node name="player" parent="." index="4" instance=ExtResource( 16 )]
+[node name="player" parent="." index="4" instance=ExtResource( 17 )]
 
 position = Vector2( 400, 400 )
 

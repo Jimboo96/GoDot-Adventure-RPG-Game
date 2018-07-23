@@ -5,9 +5,6 @@
 [ext_resource path="res://sound/NPC_voice/sfx_malevoice1.wav" type="AudioStream" id=3]
 [ext_resource path="res://particles/Dialogue/Dialogue.tscn" type="PackedScene" id=4]
 
-
-
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "down"

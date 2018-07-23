@@ -119,7 +119,6 @@ func _physics_process(delta):
 	pass
 	
 func aim(target):
-	#print(x)
 	if dead == true:
 		return
 		

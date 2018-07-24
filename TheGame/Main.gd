@@ -20,16 +20,6 @@ func _enter_tree(): #first enter
 	
 func _ready():
 	randomize()
-	add_player_to_current_scene()
-	addedFirstArea = true
-	#connect signal for player
-	player.connect("attacked", $HUD, "attacked")
-	$HUD.connect("player_dead", player, "player_dead")
-	$HUD.connect("levelup", player, "levelup")
-	#connect player w HUD
-	$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
-	$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
-	$HUD.connect("levelup", player, "levelup")
 	
 func conn_scenes_signals():
 	if $Area/area/MoveAreas.is_inside_tree():
@@ -78,12 +68,10 @@ func add_new_scene(s):
 	if $Area.get_child_count() == 0:
 		$Area.add_child(currentArea)
 	#set global area (name)
-	global.current_area = areaName	
-	walls = currentArea.get_child(2).get_child(0) #/walls/YSort
-	#add player to this scene
-	if addedFirstArea == true:
-		add_player_to_current_scene()
-	pass	
+	global.current_area = areaName
+	walls = currentArea.get_child(2).get_child(0)
+	#reparent player
+	add_player_to_current_scene()
 	#reset when go to new scene:
 	enemiesIndex = 0
 	enemies = Array()
@@ -102,7 +90,6 @@ func add_new_scene(s):
 		
 	
 func add_player_to_current_scene():
-	print("add player")
 	player = $player
 	self.remove_child(player)
 	walls.add_child(player)
@@ -115,6 +102,15 @@ func add_player_to_current_scene():
 	call_deferred("conn_scenes_signals")
 	#reset player stage that player can move
 	player.playerMovable = true 
+	if addedFirstArea == false:
+		addedFirstArea = true
+		#connect signal for player
+		player.connect("attacked", $HUD, "attacked")
+		$HUD.connect("player_dead", player, "player_dead")
+		$HUD.connect("levelup", player, "levelup")
+		#connect player w HUD
+		$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
+		$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
 	
 func remove_player_from_current_scene():
 	#reparent player

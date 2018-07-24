@@ -29,7 +29,6 @@ func _ready():
 	randomize() # for random choosing sprite
 	set_physics_process(true)
 	init()
-	#appear()
 	conn_signals()
 	pass
 	
@@ -180,7 +179,9 @@ func dead():
 	$FlipTimer.stop()
 	$enemySprite.animation = "die"
 	if has_node("Area2D/detectZone"):
-		$Area2D/detectZone.queue_free()
+		$Area2D/detectZone.disabled = true
+	if has_node("CollisionShape2D"):
+		$CollisionShape2D.disabled = true
 	emit_signal("dead", EXP, self)
 	pass
 	

@@ -75,8 +75,6 @@ func add_new_scene(s):
 	global.current_scene = currentArea
 	currentArea.set_name("area")
 	#add new area
-	#add signals sent to HUD
-	currentArea.connect("notify", $HUD, "notify")
 	if $Area.get_child_count() == 0:
 		$Area.add_child(currentArea)
 	#set global area (name)

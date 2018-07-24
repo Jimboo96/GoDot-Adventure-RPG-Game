@@ -129,7 +129,7 @@ radius = 10.0
 custom_solver_bias = 0.0
 extents = Vector2( 30, 45 )
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 light_mask = 29
 input_pickable = false
@@ -145,7 +145,7 @@ dame = 60
 [node name="Sprite" parent="." index="0" instance=ExtResource( 2 )]
 
 frames = SubResource( 1 )
-frame = 7
+frame = 8
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]

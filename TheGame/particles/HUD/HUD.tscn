@@ -1,18 +1,17 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://particles/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/GUI/font/videophreak/VIDEOPHREAK.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://particles/Bars/LevelBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://particles/Bars/HPBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://particles/Counter/CoinCounter.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/GUI/font/alphabetized-cassette-tapes/alphabetized cassette tapes.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://assets/GUI/texture/button_skills.png" type="Texture" id=7]
-[ext_resource path="res://assets/GUI/texture/button_skills_blue.png" type="Texture" id=8]
-[ext_resource path="res://assets/GUI/texture/button_skills_violet.png" type="Texture" id=9]
-[ext_resource path="res://assets/GUI/texture/skill_menu_bg.png" type="Texture" id=10]
-[ext_resource path="res://assets/GUI/texture/button_select-skill.png" type="Texture" id=11]
-[ext_resource path="res://assets/GUI/texture/button_cancel.png" type="Texture" id=12]
-[ext_resource path="res://assets/GUI/texture/button_skill1.png" type="Texture" id=13]
+[ext_resource path="res://assets/GUI/texture/button_skills.png" type="Texture" id=6]
+[ext_resource path="res://assets/GUI/texture/button_skills_blue.png" type="Texture" id=7]
+[ext_resource path="res://assets/GUI/texture/button_skills_violet.png" type="Texture" id=8]
+[ext_resource path="res://assets/GUI/texture/skill_menu_bg.png" type="Texture" id=9]
+[ext_resource path="res://assets/GUI/texture/button_select-skill.png" type="Texture" id=10]
+[ext_resource path="res://assets/GUI/texture/button_cancel.png" type="Texture" id=11]
+[ext_resource path="res://assets/GUI/texture/button_skill1.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -22,15 +21,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
-
-size = 30
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 6 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -80,6 +71,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Size Flags" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -117,42 +109,23 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
 
-[node name="CoinCounter" parent="InfoContainer" index="1" instance=ExtResource( 5 )]
+[node name="CoinCounter" parent="." index="2" instance=ExtResource( 5 )]
 
-margin_left = 912.0
-margin_right = 1020.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -108.0
+margin_right = 0.0
 rect_min_size = Vector2( 40, 40 )
 size_flags_horizontal = 8
 size_flags_vertical = 9
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect", "Size Flags" ]
 
-[node name="TextDisappearTimer" type="Timer" parent="." index="2"]
+[node name="TextDisappearTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
-
-[node name="Notification" type="Label" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-margin_top = -31.0
-margin_right = 300.0
-rect_min_size = Vector2( 300, 20 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "custom_fonts" ]
 
 [node name="SkillButton" type="TextureButton" parent="." index="4"]
 
@@ -173,9 +146,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="SkillMenu" type="PopupMenu" parent="." index="5"]
@@ -204,13 +177,13 @@ _sections_unfolded = [ "Focus", "Grow Direction", "Rect", "Size Flags", "custom_
 
 [node name="BG" type="Sprite" parent="SkillMenu" index="1"]
 
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="SkillTitle" type="Sprite" parent="SkillMenu" index="2"]
 
 position = Vector2( -1.10803, -118.56 )
 scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Cancel" type="TextureButton" parent="SkillMenu" index="3"]
@@ -234,18 +207,18 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 12 )
+texture_normal = ExtResource( 11 )
 _sections_unfolded = [ "Textures", "Transform" ]
 
 [node name="Skill1" type="Sprite" parent="SkillMenu" index="4"]
 
 position = Vector2( 2.21606, -37.6731 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="Skill2" type="Sprite" parent="SkillMenu" index="5"]
 
 position = Vector2( 1.10803, 18.8365 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="WaitTimer" type="Timer" parent="." index="6"]
 

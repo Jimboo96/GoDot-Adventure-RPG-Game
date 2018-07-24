@@ -206,7 +206,7 @@ func attacked(dame):
 	if dame_received <= 0: 
 		return
 	#emit only when dame_received > 0
-	get_tree().get_root().get_child(1).get_node("Sound/Stream").play()
+	get_tree().get_root().get_child(1).get_node("Sound/Scream").play()
 	attacked = true
 	$lifeBarContainer.attacked(dame_received)
 	pass

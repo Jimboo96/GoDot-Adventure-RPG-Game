@@ -3,11 +3,11 @@
 [ext_resource path="res://particles/Bars/Bar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://particles/Bars/LevelBar.gd" type="Script" id=2]
 [ext_resource path="res://assets/GUI/font/alphabetized-cassette-tapes/alphabetized cassette tapes.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/GUI/font/subjectivity/Subjectivity-MediumSlanted.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/GUI/font/videophreak/VIDEOPHREAK.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 40
+size = 50
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -23,14 +23,17 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="LevelBar" instance=ExtResource( 1 )]
 
-rect_min_size = Vector2( 230, 35 )
+margin_right = 250.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 250, 35 )
 script = ExtResource( 2 )
 
 [node name="BarTitle" parent="." index="0"]
 
-margin_left = 3.0
-margin_bottom = 0.0
+margin_left = 5.0
+margin_bottom = 51.0
 custom_fonts/font = SubResource( 1 )
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
 [node name="Level" type="Label" parent="." index="1"]
 
@@ -38,10 +41,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 51.0
-margin_top = 7.0
+margin_left = 60.0
 margin_right = 74.0
-margin_bottom = 37.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -66,9 +67,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = -158.0
-margin_top = -17.5
+margin_top = -13.0
 margin_right = 0.0
-margin_bottom = 17.5
+margin_bottom = 13.0
 value = 0.0
 
 [node name="Bar Value" parent="Gauge" index="0"]

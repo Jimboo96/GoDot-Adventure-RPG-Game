@@ -14,11 +14,12 @@ var addedFirstArea = false #if first scene loaded (when start game)
 var s = preload("res://areas/area1.tscn")
 
 func _enter_tree(): #first enter
-	add_new_scene(s)
+	
 	$WaitTimeTimer.connect("timeout", self, "enemies_spawning")
 	#init signal (player and HUD)
 	
 func _ready():
+	add_new_scene(s)
 	randomize()
 	
 func conn_scenes_signals():
@@ -43,6 +44,7 @@ func conn_scenes_signals():
 			MoveAreas.connect("halt_player", player, "_on_MoveAreas_halt_player")
 		
 func goto_area(path):
+	#$HUD/Transition.fade()
 	$WaitTimeTimer.stop() #called when changing scene
 	conn_scenes_signals() #disconnect signals from old area
 	remove_player_from_current_scene()
@@ -71,7 +73,7 @@ func add_new_scene(s):
 	global.current_area = areaName
 	walls = currentArea.get_child(2).get_child(0)
 	#reparent player
-	add_player_to_current_scene()
+	call_deferred("add_player_to_current_scene")
 	#reset when go to new scene:
 	enemiesIndex = 0
 	enemies = Array()
@@ -88,20 +90,18 @@ func add_new_scene(s):
 		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
 		enemies_spawning()
 		
-	
 func add_player_to_current_scene():
 	player = $player
 	self.remove_child(player)
 	walls.add_child(player)
 	player.appear()
 	#set new NodePath for player
-	player = get_tree().get_root().get_child(1).get_node("Area/area/walls/YSort/player")
+	player = get_tree().get_root().get_child(2).get_node("Area/area/walls/YSort/player")
 	#save to global
 	global.player = player
 	#connect timer and move areas' signals
 	call_deferred("conn_scenes_signals")
 	#reset player stage that player can move
-	player.playerMovable = true 
 	if addedFirstArea == false:
 		addedFirstArea = true
 		#connect signal for player

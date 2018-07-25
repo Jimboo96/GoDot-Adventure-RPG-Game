@@ -17,7 +17,7 @@
 [ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=15]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -61,7 +61,6 @@ area_mask = 1
 
 [node name="Switch" type="AudioStreamPlayer2D" parent="Sound" index="3"]
 
-position = Vector2( 389.605, 139.438 )
 stream = ExtResource( 5 )
 volume_db = 0.0
 autoplay = false
@@ -69,6 +68,7 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 [node name="MoveBlock" type="AudioStreamPlayer2D" parent="Sound" index="4"]
 
@@ -159,7 +159,7 @@ script = ExtResource( 14 )
 
 [node name="player" parent="." index="4" instance=ExtResource( 16 )]
 
-position = Vector2( 400, 400 )
+position = Vector2( 514.558, 299.008 )
 
 [node name="WaitTimeTimer" type="Timer" parent="." index="5"]
 

@@ -129,15 +129,19 @@ radius = 10.0
 custom_solver_bias = 0.0
 extents = Vector2( 30, 45 )
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 light_mask = 29
+position = Vector2( 512.621, 301.651 )
 input_pickable = false
 collision_layer = 2
 collision_mask = 29
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
 HP = 100
 def = 10
 dame = 60
@@ -145,7 +149,7 @@ dame = 60
 [node name="Sprite" parent="." index="0" instance=ExtResource( 2 )]
 
 frames = SubResource( 1 )
-frame = 5
+frame = 6
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]

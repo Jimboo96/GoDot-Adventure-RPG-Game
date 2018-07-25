@@ -24,6 +24,7 @@ func _enter_tree():
 	
 func _ready():
 	set_process_input(true)
+	set_process(true)
 	#init
 	playerMovable = true
 	cast_length = 60
@@ -44,6 +45,7 @@ func _input(event):
 		if can_attack == true and detected_target:
 			detected_target.attacked(dame)
 			
+	
 func _physics_process(delta):
 	update()
 	move_and_animation(delta)
@@ -108,7 +110,7 @@ func enemy_out_zone(body):
 		
 # Flips a coin.
 func flip_coin():
-	get_tree().get_root().get_child(1).get_node("Sound/CoinFlip").play()
+	get_tree().get_root().get_child(2).get_node("Sound/CoinFlip").play()
 	var coinSide = randi()%2
 	if(coinSide == 0):
 		print("Kruuna")

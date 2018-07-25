@@ -202,7 +202,7 @@ func attacked(dame):
 	#emit only when dame_received > 0
 	attacked = true
 	$lifeBarContainer.attacked(dame_received)
-	get_tree().get_root().get_child(1).get_node("Sound/Scream").play()
+	get_tree().get_root().get_child(2).get_node("Sound/Scream").play()
 	pass
 
 func prize(prize_type, value):

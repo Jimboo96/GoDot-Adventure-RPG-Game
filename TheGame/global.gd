@@ -4,6 +4,7 @@ var current_scene = null
 var last_area # previous area
 var player
 var current_area #area name from main
+var playerPosSet = false
 
 # area1 variables
 var area1Chest1Found
@@ -43,7 +44,12 @@ func _ready():
     current_scene = root.get_child( root.get_child_count() -1 )
 
 func goto_scene(path):
-	get_parent().get_child(1).goto_area(path)
+	get_parent().get_child(2).get_node("HUD/Transition").fade()
+	call_deferred("deferred_goto_scene", path)
+	
+func deferred_goto_scene(path):
+	playerPosSet = false
+	get_parent().get_child(2).goto_area(path)
 	pass
 	
 # math func

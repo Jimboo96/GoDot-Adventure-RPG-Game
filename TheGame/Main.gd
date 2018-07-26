@@ -14,22 +14,11 @@ var addedFirstArea = false #if first scene loaded (when start game)
 var s = preload("res://areas/area1.tscn")
 
 func _enter_tree(): #first enter
-	add_new_scene(s)
 	$WaitTimeTimer.connect("timeout", self, "enemies_spawning")
-	#init signal (player and HUD)
 	
 func _ready():
+	add_new_scene(s)
 	randomize()
-	add_player_to_current_scene()
-	addedFirstArea = true
-	#connect signal for player
-	player.connect("attacked", $HUD, "attacked")
-	$HUD.connect("player_dead", player, "player_dead")
-	$HUD.connect("levelup", player, "levelup")
-	#connect player w HUD
-	$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
-	$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
-	$HUD.connect("levelup", player, "levelup")
 	
 func conn_scenes_signals():
 	if $Area/area/MoveAreas.is_inside_tree():
@@ -78,12 +67,10 @@ func add_new_scene(s):
 	if $Area.get_child_count() == 0:
 		$Area.add_child(currentArea)
 	#set global area (name)
-	global.current_area = areaName	
-	walls = currentArea.get_child(2).get_child(0) #/walls/YSort
-	#add player to this scene
-	if addedFirstArea == true:
-		add_player_to_current_scene()
-	pass	
+	global.current_area = areaName
+	walls = currentArea.get_child(2).get_child(0)
+	#reparent player
+	call_deferred("add_player_to_current_scene")
 	#reset when go to new scene:
 	enemiesIndex = 0
 	enemies = Array()
@@ -100,21 +87,26 @@ func add_new_scene(s):
 		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
 		enemies_spawning()
 		
-	
 func add_player_to_current_scene():
-	print("add player")
 	player = $player
 	self.remove_child(player)
 	walls.add_child(player)
-	player.appear()
 	#set new NodePath for player
 	player = get_tree().get_root().get_child(1).get_node("Area/area/walls/YSort/player")
-	#save to global
 	global.player = player
 	#connect timer and move areas' signals
 	call_deferred("conn_scenes_signals")
-	#reset player stage that player can move
-	player.playerMovable = true 
+	if addedFirstArea == false:
+		addedFirstArea = true
+		#connect signal for player
+		player.connect("attacked", $HUD, "attacked")
+		$HUD.connect("player_dead", player, "player_dead")
+		$HUD.connect("levelup", player, "levelup")
+		$HUD/Transition/TransitionEffect.connect("animation_finished", player, "appear")
+		#connect player w HUD
+		$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
+		$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
+		print("1st %s"%$HUD/Transition/TransitionEffect.is_connected("animation_finished", player, "appear"))
 	
 func remove_player_from_current_scene():
 	#reparent player

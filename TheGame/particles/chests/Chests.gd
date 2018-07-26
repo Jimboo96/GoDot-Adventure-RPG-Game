@@ -27,7 +27,6 @@ func _input(event):
 			# Set horizontal closed chest sprite to open.
 			if get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 2:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,0)
-				#print(get_tree().get_root().get_child(1).get_name())
 				get_tree().get_root().get_child(1).get_node("Sound/OpenChest").play()
 				get_reward()
 			# Set vertical closed chest sprite to open.
@@ -38,7 +37,6 @@ func _input(event):
 			# Set tree stump with axe in it to a normal tree stump.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 5:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,4)
-				#get_parent().get_node("Sound/PickUp").play()
 				get_tree().get_root().get_child(1).get_node("Sound/PickUp").play()
 				get_reward()
 			save_chest_states()

@@ -20,11 +20,11 @@ var SAnim
 var Sflip
 
 func _enter_tree():
-	hide() #hide when enter tree
 	pass
 	
 func _ready():
 	set_process_input(true)
+	set_process(true)
 	#init
 	playerMovable = true
 	cast_length = 60
@@ -34,8 +34,10 @@ func _ready():
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
 	$AttackRay.connect("body_exited", self, "enemy_out_zone")
 	
-func appear(): #appear when added to area
+func appear(anim): #appear when added to area
+	print("appear")
 	show()
+	playerMovable = true
 	
 func _input(event):
 	if event.is_action_pressed("space"):
@@ -45,16 +47,10 @@ func _input(event):
 		if can_attack == true and detected_target:
 			detected_target.attacked(dame)
 			
+	
 func _physics_process(delta):
 	update()
 	move_and_animation(delta)
-	var overlap = $AttackRay.get_overlapping_bodies()
-	if overlap.size() > 0:
-		for i in overlap.size():
-			if "enemy" in overlap[i].get_name():
-				detected_target = overlap[i]
-				can_attack = true
-				return
 	
 func move_and_animation(delta):
 	var motion = Vector2()
@@ -86,6 +82,7 @@ func move_and_animation(delta):
 			
 		elif Input.is_action_pressed("attack"):
 			$Sprite.animation = "attack"
+			get_tree().get_root().get_child(1).get_node("Sound/SwordSwing").play()
 			
 		else:
 			$Sprite.animation = "idle"
@@ -111,15 +108,8 @@ func enemy_in_zone(body):
 func enemy_out_zone(body):
 	var e = 0
 	if "enemy" in body.get_name():
-		var overlap = $AttackRay.get_overlapping_bodies()
-		if overlap.size() > 0:
-			for i in overlap.size():
-				if "enemy" in overlap[i].get_name():
-					e = e + 1
-		if e == 0:
-			detected_target = null
-			can_attack = false
-			print("no enemies")
+		detected_target = null
+		can_attack = false
 		
 # Flips a coin.
 func flip_coin():
@@ -143,7 +133,7 @@ func attacked(damage):
 	$Sprite.animation = "hurt"
 	var damage_received = damage - def
 	if damage_received > 0:
-		#emit_signal("attacked", damage_received)
+		emit_signal("attacked", damage_received)
 		pass
 		
 func player_dead():

@@ -86,7 +86,7 @@ func reset_player_pos(var current_scene):
 		global.player.position = global.house1Position
 			
 	playerPosReseted = true
-	#get_tree().get_root().get_child(1).get_node("Sound/WalkingOnLeaves").stop()
+	global.playerPosSet = true
 
 func _on_DoorArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":

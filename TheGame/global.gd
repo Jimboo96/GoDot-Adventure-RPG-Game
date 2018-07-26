@@ -44,13 +44,8 @@ func _ready():
     current_scene = root.get_child( root.get_child_count() -1 )
 
 func goto_scene(path):
-	get_parent().get_child(2).get_node("HUD/Transition").fade()
-	call_deferred("deferred_goto_scene", path)
-	
-func deferred_goto_scene(path):
+	get_parent().get_child(1).get_node("HUD/Transition").fade(path)
 	playerPosSet = false
-	get_parent().get_child(2).goto_area(path)
-	pass
 	
 # math func
 func cartesian_to_isometric(cartesian):

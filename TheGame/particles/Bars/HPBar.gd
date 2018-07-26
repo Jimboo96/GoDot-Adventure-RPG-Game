@@ -23,3 +23,4 @@ func levelup():
 	maxHP = maxHP * 3/2
 	$Tween.interpolate_property($Gauge, "value", currentHP, maxHP, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
+	currentHP = maxHP

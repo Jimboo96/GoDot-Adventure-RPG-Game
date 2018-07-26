@@ -4,6 +4,7 @@ signal gainEXP
 signal levelup
 signal player_dead
 
+
 export (int) var enemies = 3
 
 func _ready():

@@ -34,8 +34,10 @@ func _ready():
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
 	$AttackRay.connect("body_exited", self, "enemy_out_zone")
 	
-func appear(): #appear when added to area
+func appear(anim): #appear when added to area
+	print("appear")
 	show()
+	playerMovable = true
 	
 func _input(event):
 	if event.is_action_pressed("space"):
@@ -80,6 +82,7 @@ func move_and_animation(delta):
 			
 		elif Input.is_action_pressed("attack"):
 			$Sprite.animation = "attack"
+			get_tree().get_root().get_child(1).get_node("Sound/SwordSwing").play()
 			
 		else:
 			$Sprite.animation = "idle"
@@ -110,7 +113,7 @@ func enemy_out_zone(body):
 		
 # Flips a coin.
 func flip_coin():
-	get_tree().get_root().get_child(2).get_node("Sound/CoinFlip").play()
+	get_tree().get_root().get_child(1).get_node("Sound/CoinFlip").play()
 	var coinSide = randi()%2
 	if(coinSide == 0):
 		print("Kruuna")

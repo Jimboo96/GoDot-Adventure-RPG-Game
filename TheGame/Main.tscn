@@ -28,10 +28,12 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sound" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
+
 [node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
 
 stream = ExtResource( 2 )
-volume_db = 0.0
+volume_db = 10.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -153,7 +155,7 @@ area_mask = 1
 [node name="SwordSwing" type="AudioStreamPlayer" parent="Sound" index="12"]
 
 stream = ExtResource( 14 )
-volume_db = 0.0
+volume_db = 24.0
 autoplay = false
 mix_target = 0
 bus = "Master"
@@ -167,6 +169,8 @@ script = ExtResource( 15 )
 [node name="player" parent="." index="4" instance=ExtResource( 17 )]
 
 position = Vector2( 514.558, 299.008 )
+DEF = 10
+DAME = 60
 
 [node name="WaitTimeTimer" type="Timer" parent="." index="5"]
 

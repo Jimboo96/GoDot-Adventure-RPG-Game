@@ -44,7 +44,7 @@ func _ready():
     current_scene = root.get_child( root.get_child_count() -1 )
 
 func goto_scene(path):
-	get_parent().get_child(1).get_node("HUD/Transition").fade(path)
+	get_parent().get_node("Main/HUD/Transition").fade(path)
 	playerPosSet = false
 	
 # math func

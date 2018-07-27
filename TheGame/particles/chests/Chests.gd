@@ -27,17 +27,17 @@ func _input(event):
 			# Set horizontal closed chest sprite to open.
 			if get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 2:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,0)
-				get_tree().get_root().get_child(1).get_node("Sound/OpenChest").play()
+				get_tree().get_root().get_node("Main/Sound/OpenChest").play()
 				get_reward()
 			# Set vertical closed chest sprite to open.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 3:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,1)
-				get_tree().get_root().get_child(1).get_node("Sound/OpenChest").play()
+				get_tree().get_root().get_node("Main/Sound/OpenChest").play()
 				get_reward()
 			# Set tree stump with axe in it to a normal tree stump.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 5:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,4)
-				get_tree().get_root().get_child(1).get_node("Sound/PickUp").play()
+				get_tree().get_root().get_node("Main/Sound/PickUp").play()
 				get_reward()
 			save_chest_states()
 
@@ -60,6 +60,7 @@ func get_reward():
 	#var currentScene = get_tree().current_scene.get_name()
 	var currentScene = get_tree().current_scene.areaName #name of current area
 	if(currentScene != null && chestNum != null):
+		get_tree().get_root().get_node("Main/HUD").gain_exp(60, null)
 		print("TODO Rewards go into inventory")
 		
 func save_chest_states():

@@ -23,10 +23,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.33, 1.5, 1.51 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( -0.01, 0, 1.33, 1.5, 1.51 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, -0.25 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0.812157 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.917647, 0.917647, 0.917647, 0.827451 ), Color( 1, 1, 1, 0.812157 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:modulate")
@@ -41,7 +41,7 @@ tracks/1/keys = {
 "values": [ Color( 0.190477, 0.277344, 0.0650024, 0.944784 ), Color( 0.190477, 0.277344, 0.0650024, 0.966863 ), Color( 0.190477, 0.277344, 0.0650024, 1 ), Color( 0.190477, 0.277344, 0.0650024, 0.922667 ), Color( 0.190477, 0.277344, 0.0650024, 0 ) ]
 }
 
-[node name="Transition" type="Control"]
+[node name="Transition" type="Control" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -68,7 +68,7 @@ scale = Vector2( 0.1, 0.1 )
 z_index = 1
 frames = ExtResource( 2 )
 animation = "run"
-frame = 4
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 

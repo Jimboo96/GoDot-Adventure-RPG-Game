@@ -40,6 +40,7 @@ func conn_scenes_signals():
 			MoveAreas.disconnect("halt_player", player, "_on_MoveAreas_halt_player")
 		else:
 			MoveAreas.connect("halt_player", player, "_on_MoveAreas_halt_player")
+		#TODO disconnect signal from move area when player enter
 		
 func goto_area(path):
 	$WaitTimeTimer.stop() #called when changing scene
@@ -92,11 +93,12 @@ func add_player_to_current_scene():
 	self.remove_child(player)
 	walls.add_child(player)
 	#set new NodePath for player
-	player = get_tree().get_root().get_child(1).get_node("Area/area/walls/YSort/player")
+	player = get_tree().get_root().get_node("Main/Area/area/walls/YSort/player")
 	global.player = player
 	#connect timer and move areas' signals
 	call_deferred("conn_scenes_signals")
 	if addedFirstArea == false:
+		player.appear(null)
 		addedFirstArea = true
 		#connect signal for player
 		player.connect("attacked", $HUD, "attacked")
@@ -106,7 +108,6 @@ func add_player_to_current_scene():
 		#connect player w HUD
 		$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
 		$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
-		print("1st %s"%$HUD/Transition/TransitionEffect.is_connected("animation_finished", player, "appear"))
 	
 func remove_player_from_current_scene():
 	#reparent player

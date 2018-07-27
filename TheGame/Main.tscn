@@ -1,24 +1,23 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://sfx/sfx_open_door.wav" type="AudioStream" id=2]
-[ext_resource path="res://sfx/sfx_close_door.wav" type="AudioStream" id=3]
-[ext_resource path="res://sfx/sfx_coin_flip.wav" type="AudioStream" id=4]
-[ext_resource path="res://sfx/sfx_switch.wav" type="AudioStream" id=5]
-[ext_resource path="res://sfx/sfx_move_block.wav" type="AudioStream" id=6]
-[ext_resource path="res://sfx/sfx_chop_wood.wav" type="AudioStream" id=7]
-[ext_resource path="res://sfx/sfx_item_found.wav" type="AudioStream" id=8]
-[ext_resource path="res://sfx/sfx_open_chest.wav" type="AudioStream" id=9]
-[ext_resource path="res://sfx/sfx_locked.wav" type="AudioStream" id=10]
-[ext_resource path="res://sfx/sfx_pick_up.wav" type="AudioStream" id=11]
-[ext_resource path="res://sound/sfx/sfx_scream.wav" type="AudioStream" id=12]
-[ext_resource path="res://sound/sfx/walking-through-leaves.wav" type="AudioStream" id=13]
-[ext_resource path="res://sound/sfx/swords_sound.wav" type="AudioStream" id=14]
-[ext_resource path="res://SceneManager.gd" type="Script" id=15]
-[ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=16]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://sound/sfx/sfx_open_door.wav" type="AudioStream" id=2]
+[ext_resource path="res://sound/sfx/sfx_close_door.wav" type="AudioStream" id=3]
+[ext_resource path="res://sound/sfx/sfx_coin_flip.wav" type="AudioStream" id=4]
+[ext_resource path="res://sound/sfx/sfx_switch.wav" type="AudioStream" id=5]
+[ext_resource path="res://sound/sfx/sfx_move_block.wav" type="AudioStream" id=6]
+[ext_resource path="res://sound/sfx/sfx_chop_wood.wav" type="AudioStream" id=7]
+[ext_resource path="res://sound/sfx/sfx_pick_up.wav" type="AudioStream" id=8]
+[ext_resource path="res://sound/sfx/sfx_open_chest.wav" type="AudioStream" id=9]
+[ext_resource path="res://sound/sfx/sfx_locked.wav" type="AudioStream" id=10]
+[ext_resource path="res://sound/sfx/sfx_scream.wav" type="AudioStream" id=11]
+[ext_resource path="res://sound/sfx/walking-through-leaves.wav" type="AudioStream" id=12]
+[ext_resource path="res://sound/sfx/swords_sound.wav" type="AudioStream" id=13]
+[ext_resource path="res://SceneManager.gd" type="Script" id=14]
+[ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=15]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -124,7 +123,7 @@ area_mask = 1
 
 [node name="PickUp" type="AudioStreamPlayer2D" parent="Sound" index="9"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 8 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -134,7 +133,7 @@ area_mask = 1
 
 [node name="Scream" type="AudioStreamPlayer2D" parent="Sound" index="10"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 11 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -144,7 +143,7 @@ area_mask = 1
 
 [node name="WalkingOnLeaves" type="AudioStreamPlayer2D" parent="Sound" index="11"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 12 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -154,7 +153,7 @@ area_mask = 1
 
 [node name="SwordSwing" type="AudioStreamPlayer" parent="Sound" index="12"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -162,11 +161,11 @@ bus = "Master"
 
 [node name="SceneManager" type="Node" parent="." index="2"]
 
-script = ExtResource( 15 )
+script = ExtResource( 14 )
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 16 )]
+[node name="HUD" parent="." index="3" instance=ExtResource( 15 )]
 
-[node name="player" parent="." index="4" instance=ExtResource( 17 )]
+[node name="player" parent="." index="4" instance=ExtResource( 16 )]
 
 position = Vector2( 514.558, 299.008 )
 

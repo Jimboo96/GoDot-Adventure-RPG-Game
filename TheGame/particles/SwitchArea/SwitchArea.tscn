@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://particles/SwitchArea/SwitchArea.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/doorOpenableSprite.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -9,8 +10,7 @@ extents = Vector2( 10, 10 )
 
 [node name="SwitchArea" type="Area2D"]
 
-position = Vector2( 154.537, 110.155 )
-scale = Vector2( 5.82927, 4.44236 )
+position = Vector2( 141.414, 120.245 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -20,12 +20,20 @@ collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( 18.0955, -13.2169 )
-scale = Vector2( 2.39196, 2.01668 )
+position = Vector2( 44.5899, -35.6097 )
+scale = Vector2( 3.03803, 2.72252 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="IconSprite" type="Sprite" parent="." index="1"]
+
+position = Vector2( 44.2193, -72.6 )
+scale = Vector2( 0.25, 0.15 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://NPC/NPC.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/npc_male1/npc_male1.png" type="Texture" id=2]
 [ext_resource path="res://sound/NPC_voice/sfx_malevoice1.wav" type="AudioStream" id=3]
 [ext_resource path="res://particles/Dialogue/Dialogue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/icons/bubbleSprite.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -117,6 +118,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="NPCSprite" type="Sprite" parent="." index="0"]
 
@@ -206,6 +208,13 @@ margin_left = -76.0
 margin_top = -128.0
 margin_right = 83.0
 margin_bottom = -37.0
+
+[node name="BubbleSprite" type="Sprite" parent="." index="7"]
+
+position = Vector2( 0.650085, -48.6369 )
+scale = Vector2( 0.269361, 0.287425 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="end_dialogue" from="." to="Dialogue" method="_on_NPC_end_dialogue"]
 

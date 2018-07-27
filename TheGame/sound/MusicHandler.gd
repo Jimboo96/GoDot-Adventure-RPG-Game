@@ -2,15 +2,12 @@ extends Node2D
 
 var musicIsPlaying = false
 
-func _ready():
-	pass
-
+# Here we can set the music to play in each area.
 func _process(delta):
-	if get_tree().get_current_scene().get_name() == "house1":
+	if global.current_area == "house1":
 		if !musicIsPlaying:
 			$TownMusic.play()
 			musicIsPlaying = true
-	#elif get_tree().get_current_scene().get_name() == "area1":
-		#if !musicIsPlaying:
-			#$ForestAmbience.play()
-			#musicIsPlaying = true
+	else:
+		$TownMusic.stop()
+		musicIsPlaying = false

@@ -1,40 +1,34 @@
 extends Node2D
-signal halt_player
 
-var doorOpenable
-var playerPosReseted
+var doorOpenable = false
+var playerPosReseted  = false
 var player
-
-func _ready():
-	doorOpenable = false
-	playerPosReseted = false
 
 func _process(delta):
 	if !playerPosReseted:
 		reset_player_pos(global.current_area) #Main.areaName
-		pass
 
 func _input(event):
-	if(doorOpenable):
+	if(doorOpenable && !global.playerIsInteracting):
 		if event.is_action_pressed("interact"):
 			doorOpenable = false
 			get_tree().get_root().get_child(1).get_node("Sound/OpenDoor").play()
-			emit_signal("halt_player")
-			get_node("DoorArea/DoorTimer").start()
+			global.playerMovable = false
+			$DoorArea/DoorTimer.start()
 
 # Normal movement between areas. Move automatically to next scene after a brief delay.
 func _on_MoveArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
-		emit_signal("halt_player")
-		get_node("MoveArea/MoveTimer").start()
+		global.playerMovable = false
+		$MoveArea/MoveTimer.start()
 		get_tree().get_root().get_child(1).get_node("Sound/WalkingOnLeaves").play(6)
 
 func _on_MoveArea2_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
-		emit_signal("halt_player")
-		get_node("MoveArea2/MoveTimer2").start()
+		global.playerMovable = false
+		$MoveArea2/MoveTimer2.start()
 		get_tree().get_root().get_child(1).get_node("Sound/WalkingOnLeaves").play(6)
-		
+
 # Resets players position according to the coordinates that are saved in global variables.
 #set init pos if null
 func reset_player_pos(var current_scene):
@@ -90,7 +84,6 @@ func reset_player_pos(var current_scene):
 
 func _on_DoorArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
-		print("door can be opened")
 		doorOpenable = true
 
 func _on_DoorArea_body_shape_exited(body_id, body, body_shape, area_shape):

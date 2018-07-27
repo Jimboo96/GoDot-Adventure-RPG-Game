@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://particles/Dialogue/Dialogue.gd" type="Script" id=1]
-
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -41,17 +40,7 @@ height = 1.0
 ascent = 0.0
 distance_field = false
 
-[sub_resource type="BitmapFont" id=3]
-
-textures = [  ]
-chars = PoolIntArray(  )
-kernings = PoolIntArray(  )
-height = 1.0
-ascent = 0.0
-distance_field = false
-fallback = SubResource( 2 )
-
-[node name="Dialogue" type="RichTextLabel"]
+[node name="Dialogue" type="RichTextLabel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -68,7 +57,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/normal = SubResource( 1 )
-custom_fonts/mono_font = SubResource( 3 )
+custom_fonts/mono_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "Test"
 visible_characters = -1
@@ -82,5 +71,14 @@ selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "BBCode", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="DisappearTimer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_DisappearTimer_timeout"]
 
 

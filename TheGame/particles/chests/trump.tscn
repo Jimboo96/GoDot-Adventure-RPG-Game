@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/chestTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://particles/Dialogue/Dialogue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/icons/chestOpenableSprite.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 36.3133, 12.3092 )
 
-[node name="chest1" type="Area2D"]
+[node name="chest1" type="Area2D" index="0"]
 
 position = Vector2( -187.161, -209.029 )
 input_pickable = true
@@ -47,5 +49,19 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 0, 5, 0 )
 _sections_unfolded = [ "Cell" ]
+
+[node name="Dialogue" parent="." index="2" instance=ExtResource( 2 )]
+
+margin_left = -56.0
+margin_top = -5.0
+margin_right = 73.0
+margin_bottom = 48.0
+
+[node name="ChestIcon" type="Sprite" parent="." index="3"]
+
+position = Vector2( 1.31761, 10.0138 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 

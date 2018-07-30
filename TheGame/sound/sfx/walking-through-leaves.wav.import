@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/walking-through-leaves.wav-2226a96ede46e2c6557af6aae67f10a9.sample"
+
+[deps]
+
+source_file="res://sound/sfx/walking-through-leaves.wav"
+source_md5="ee8f18d668a599acc4dff6594ba15fb8"
+
+dest_files=[ "res://.import/walking-through-leaves.wav-2226a96ede46e2c6557af6aae67f10a9.sample" ]
+dest_md5="fc674d6542f2ea4cb5b5998cba55e2ef"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

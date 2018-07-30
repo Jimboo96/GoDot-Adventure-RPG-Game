@@ -1,57 +1,65 @@
 extends CanvasLayer
 
 signal gainEXP
+signal levelup
+signal player_dead
+
 
 export (int) var enemies = 3
 
 func _ready():
-	$EnemiesLeft/NumOfEnemies.set("text", String(enemies))	
 	#label text
-	$InstructionNewRound.hide()
-	$LevelUp.hide()
+	$MainText.hide()
 	#connect signals
 	conn_signals()
 	
 func conn_signals():
 	$TextDisappearTimer.connect("timeout", self, "hide_text")
 	$InfoContainer/MainBox/LevelBar.connect("levelup", self, "level_up")
+	$InfoContainer/MainBox/HPBar.connect("player_dead", self, "player_dead")
+	$WaitTimer.connect("timeout", self, "game_over")
 	#skill menu
 	$SkillButton.connect("pressed", self, "open_popup")
 	$SkillMenu/Cancel.connect("pressed", self, "close_popup")
 
 func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
-	enemy_killed()
-	print("gain exp")
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)
-	pass
-	
-func enemy_killed():
-	enemies = enemies - 1
-	if enemies > 0:
-		$EnemiesLeft/NumOfEnemies.set("text", String(enemies))
-	else:
-		$EnemiesLeft.hide()
-		$InstructionNewRound.show()
 	pass
 	
 func attacked(dame):
 	$InfoContainer/MainBox/HPBar.attacked(dame)
+	
 #Level up
 func level_up():
-	$LevelUp.show()
+	$MainText.set_text("LEVEL UP")
+	$MainText.show()
+	$TextDisappearTimer.set("wait_time", 1)
 	$TextDisappearTimer.start()
+	emit_signal("levelup")
+	#reset HP for HP Bar
+	$InfoContainer/MainBox/HPBar.levelup()
+	
+func player_dead():
+	emit_signal("player_dead")
+	$WaitTimer.start()
+	
+func game_over():	
+	$MainText.set_text("GAME OVER")
+	$MainText.show()
+	$TextDisappearTimer.set("wait_time", 1)
+	$TextDisappearTimer.start()
+	pass
 
 func hide_text():
-	if $LevelUp.is_visible_in_tree():
-		$LevelUp.hide()
+	if $MainText.is_visible_in_tree():
+		$MainText.hide()
 		
 func get_prize(type, value):
 	match type:
 		"COIN":
-			var cur_coins = int($InfoContainer/MainBox/CoinCounter/Background/Number.text)
+			var cur_coins = int($CoinCounter/Background/Number.text)
 			cur_coins = cur_coins + value
-			#print(" cur coins : %s " % [cur_coins])
-			$InfoContainer/MainBox/CoinCounter/Background/Number.set("text", String(cur_coins))
+			$CoinCounter/Background/Number.set("text", String(cur_coins))
 		_:
 			pass
 			

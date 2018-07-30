@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_scream.wav-cf7e12de57490dd4b31c26aca28ff22a.sample"
+
+[deps]
+
+source_file="res://sound/sfx/sfx_scream.wav"
+source_md5="a5c7dbdb454bfbf1939cb02cff54265f"
+
+dest_files=[ "res://.import/sfx_scream.wav-cf7e12de57490dd4b31c26aca28ff22a.sample" ]
+dest_md5="0174655c7e14aca73da658f3038d5f53"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

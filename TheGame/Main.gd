@@ -14,18 +14,11 @@ var addedFirstArea = false #if first scene loaded (when start game)
 var s = preload("res://areas/area1.tscn")
 
 func _enter_tree(): #first enter
-	add_new_scene(s)
 	$WaitTimeTimer.connect("timeout", self, "enemies_spawning")
-	#init signal (player and HUD)
 	
 func _ready():
+	add_new_scene(s)
 	randomize()
-	add_player_to_current_scene()
-	addedFirstArea = true
-	#connect signal for player
-	player.connect("attacked", $HUD, "attacked")
-	$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
-	$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
 	
 func conn_scenes_signals():
 	if $Area/area/MoveAreas.is_inside_tree():
@@ -38,24 +31,18 @@ func conn_scenes_signals():
 			var moveAreaTimer = childOfMoveAreas[i].get_child(1) # return timer
 			var timerName = moveAreaTimer.get_name()
 			var timerPath = get_node("Area/area/MoveAreas/" + moveAreaName + "/" + timerName) # path to timer
-			#print(timerPath)
 			if timerPath.is_connected("timeout", $SceneManager, "_on_" + timerName + "_timeout"):
 				timerPath.disconnect("timeout", $SceneManager, "_on_" + timerName + "_timeout") #call when changing scene
 			else:
 				timerPath.connect("timeout", $SceneManager, "_on_" + timerName + "_timeout")			
-		#add signal connection from MoveArea.gd, SwitchAreas.gd to player and remove when change scene.
-		if MoveAreas.is_connected("halt_player", player, "_on_MoveAreas_halt_player"):
-			MoveAreas.disconnect("halt_player", player, "_on_MoveAreas_halt_player")
-		else:
-			MoveAreas.connect("halt_player", player, "_on_MoveAreas_halt_player")
-		
+
 func goto_area(path):
 	$WaitTimeTimer.stop() #called when changing scene
 	conn_scenes_signals() #disconnect signals from old area
 	remove_player_from_current_scene()
-	call_deferred("deferred_goto_scene", path)
+	call_deferred("deferred_goto_area", path)
 	
-func deferred_goto_scene(path):
+func deferred_goto_area(path):
 	global.last_area = global.current_area
 	#load scene
 	s = ResourceLoader.load(path)
@@ -72,16 +59,13 @@ func add_new_scene(s):
 	global.current_scene = currentArea
 	currentArea.set_name("area")
 	#add new area
-	
 	if $Area.get_child_count() == 0:
 		$Area.add_child(currentArea)
 	#set global area (name)
 	global.current_area = areaName
-	walls = $Area/area/walls/YSort
-	#add player to this scene
-	if addedFirstArea == true:
-		add_player_to_current_scene()
-	pass
+	walls = currentArea.get_child(1).get_child(0)
+	#reparent player
+	call_deferred("add_player_to_current_scene")
 	#reset when go to new scene:
 	enemiesIndex = 0
 	enemies = Array()
@@ -97,11 +81,12 @@ func add_new_scene(s):
 		maxEnemies = 4
 		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
 		enemies_spawning()
-	
+		
 func add_player_to_current_scene():
 	player = $player
 	self.remove_child(player)
 	walls.add_child(player)
+<<<<<<< HEAD
 	#walls.set_owner(player)
 	player.appear()
 	
@@ -111,15 +96,26 @@ func add_player_to_current_scene():
 	#set new NodePath for player, get_child(i) i = global scripts + 1
 	#player = get_tree().get_root().get_child(4).get_node("Area/area/walls/YSort/player") # deprecated
 	#save to global
+=======
+	#set new NodePath for player
+	player = get_tree().get_root().get_child(1).get_node("Area/area/walls/YSort/player")
+>>>>>>> master
 	global.player = player
 	#connect timer and move areas' signals
 	call_deferred("conn_scenes_signals")
-	#reset player stage that player can move
-	player.playerMovable = true 
-	print(player.is_connected("attacked", $HUD, "attacked"))
+	if addedFirstArea == false:
+		addedFirstArea = true
+		#connect signal for player
+		player.connect("attacked", $HUD, "attacked")
+		$HUD.connect("player_dead", player, "player_dead")
+		$HUD.connect("levelup", player, "levelup")
+		$HUD/Transition/TransitionEffect.connect("animation_finished", player, "appear")
+		#connect player w HUD
+		$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
+		$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
+		print("1st %s"%$HUD/Transition/TransitionEffect.is_connected("animation_finished", player, "appear"))
 	
 func remove_player_from_current_scene():
-	#set the pos of current scene before player exits
 	#reparent player
 	walls.remove_child(player)
 	self.add_child(player)
@@ -130,7 +126,6 @@ func remove_player_from_current_scene():
 #connect signals from enemies to HUD
 func enemies_spawning():
 	var enemySetPos = false # to check if 2 enemies appear near together
-	#if areaName == "area1" or areaName == "area2":
 	if "area" in areaName:
 		if enemies.size() < maxEnemies:
 			var enemy
@@ -139,7 +134,6 @@ func enemies_spawning():
 			walls.add_child(enemy)
 			enemy.appear()
 			#set location
-			#TODO (set pos of enemies to far from each)
 			while enemySetPos == false:
 				$Area/area/EnemiesPath/EnemiesLocation.set_offset(randi())
 				enemy.position = $Area/area/EnemiesPath/EnemiesLocation.position
@@ -163,6 +157,5 @@ func enemies_dead(EXP, enemy_id):
 	#remove dead enemy from array
 	for i in range(0, enemies.size()):
 		if (enemy_id.get_name() in enemies[i].get_name()) or (enemies[i].get_name() in enemy_id.get_name()):
-			#print("%s removed" % [enemy_id.get_name()])
 			enemies.remove(i)
 			break

@@ -15,7 +15,7 @@ func _ready():
 
 
 func _on_StartButton_pressed():
-	get_node("/root/global").goto_main("res://main.tscn") 
+	get_node("/root/global").goto_main() 
 
 
 func _on_ExitButton_pressed():

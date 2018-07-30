@@ -17,10 +17,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-global="*res://global.gd"
 Global_DataParser="*res://inventory/Global_DataParser.gd"
 Global_ItemDatabase="*res://inventory/Global_ItemDatabase.gd"
 Global_Player="*res://inventory/Global_Player.gd"
+global="*res://global.gd"
 
 [display]
 

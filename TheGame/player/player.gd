@@ -30,7 +30,8 @@ func _ready():
 	#init
 	playerMovable = true
 	cast_length = 60
-	dame = 60
+	dame = 60 
+	update_stats()
 	#connect signals
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
@@ -156,8 +157,22 @@ func updateHP(newHP):
 	
 #called when level up
 func levelup():
+	print("lvlup!!!")
+	update_stats()
 	HP = maxHP * 3/2
 	def = def * 3/2
 	dame = dame + 10
 
+
+func update_stats():
+	get_armor_armor()
+	get_weapon_dmg()
+	printt("damage and armor are", dame, def)
+
+func get_weapon_dmg():
+	dame += global.damageFromWeapons
+
+
+func get_armor_armor():
+	def += global.armorFromArmor
 

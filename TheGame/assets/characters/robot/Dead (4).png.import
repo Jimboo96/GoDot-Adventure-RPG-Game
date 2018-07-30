@@ -7,10 +7,7 @@ path="res://.import/Dead (4).png-2d327bbbab565a71fd62568e2e129349.stex"
 [deps]
 
 source_file="res://assets/characters/robot/Dead (4).png"
-source_md5="38679369beabf9e81aecee84561d1933"
-
 dest_files=[ "res://.import/Dead (4).png-2d327bbbab565a71fd62568e2e129349.stex" ]
-dest_md5="4a288f3f734362bf15b35dc8df5b9922"
 
 [params]
 

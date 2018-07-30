@@ -7,10 +7,7 @@ path="res://.import/faceon_gold_coin.png-df854ecf971e94c680f5c7a59a1f6f3b.stex"
 [deps]
 
 source_file="res://assets/GUI/particles/faceon_gold_coin.png"
-source_md5="a8af4d8f0da30d8361e29d048ba2b847"
-
 dest_files=[ "res://.import/faceon_gold_coin.png-df854ecf971e94c680f5c7a59a1f6f3b.stex" ]
-dest_md5="6c6ded14545f931f4aa0bd26d3cd5e7c"
 
 [params]
 

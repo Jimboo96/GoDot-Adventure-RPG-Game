@@ -7,10 +7,7 @@ path="res://.import/npc_female2.png-1bad60822d62c338fc5cdab252bdaaec.stex"
 [deps]
 
 source_file="res://assets/characters/npc_female2/npc_female2.png"
-source_md5="75c23482e7b2024c00fb154cce739073"
-
 dest_files=[ "res://.import/npc_female2.png-1bad60822d62c338fc5cdab252bdaaec.stex" ]
-dest_md5="80844c303d5f6daece70f3dd6ae8e83e"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/npc_female4.png-3d244d78aaa52b4848335bf479e4a69a.stex"
 [deps]
 
 source_file="res://assets/characters/npc_female4/npc_female4.png"
-source_md5="a7adbea4eca89782417a04e2732cc0a4"
-
 dest_files=[ "res://.import/npc_female4.png-3d244d78aaa52b4848335bf479e4a69a.stex" ]
-dest_md5="d4f353fcfc00f4cb07b9f65e179eba4c"
 
 [params]
 

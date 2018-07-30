@@ -7,10 +7,7 @@ path="res://.import/Slide (6).png-947dc4bcb5bab5264c209a963db169d9.stex"
 [deps]
 
 source_file="res://assets/characters/robot/Slide (6).png"
-source_md5="69248d9017963da34116661fbfc116f1"
-
 dest_files=[ "res://.import/Slide (6).png-947dc4bcb5bab5264c209a963db169d9.stex" ]
-dest_md5="915ec144928c5de5f33afeee4cc144bd"
 
 [params]
 

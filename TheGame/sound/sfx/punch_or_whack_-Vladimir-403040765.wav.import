@@ -7,10 +7,7 @@ path="res://.import/punch_or_whack_-Vladimir-403040765.wav-718ba960e0da68894a3b5
 [deps]
 
 source_file="res://sound/sfx/punch_or_whack_-Vladimir-403040765.wav"
-source_md5="37fcf5ced84125a1088b74aa4b889d99"
-
 dest_files=[ "res://.import/punch_or_whack_-Vladimir-403040765.wav-718ba960e0da68894a3b53ed8a82649a.sample" ]
-dest_md5="a12b55f5d23dcf108d6293a80c8894ac"
 
 [params]
 

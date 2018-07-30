@@ -3,13 +3,14 @@ extends KinematicBody2D
 signal attack 
 signal attacked
 
-export (int) var HP = 100
-export (int) var def = 10
-export (int) var dame = 60
+var HP = 100
+var def = 10
+var dmg = 60
+
 
 var maxHP = 100
 
-const WALK_SPEED = 400 # Pixels/second
+var WALK_SPEED = 400 # Pixels/second
 
 var can_attack = false
 var playerMovable
@@ -19,16 +20,23 @@ var detected_target
 var SAnim 
 var Sflip
 
+#stat vars
+var Str
+var Agi
+var constitution
+var Wc
+var Lvl
+
 func _enter_tree():
 	pass
 	
 func _ready():
 	set_process_input(true)
 	set_process(true)
+	_load_stats()
 	#init
 	playerMovable = true
 	cast_length = 60
-	dame = 60
 	#connect signals
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
@@ -45,8 +53,8 @@ func _input(event):
 		
 	if Input.is_action_pressed("attack"):
 		if can_attack == true and detected_target:
-			detected_target.attacked(dame)
-			
+			detected_target.attacked(dmg)
+			print("enemy atteacked for: ", dmg, " damge")
 	
 func _physics_process(delta):
 	update()
@@ -114,6 +122,7 @@ func enemy_out_zone(body):
 # Flips a coin.
 func flip_coin():
 	get_tree().get_root().get_child(1).get_node("Sound/CoinFlip").play()
+	_load_stats()
 	var coinSide = randi()%2
 	if(coinSide == 0):
 		print("Kruuna")
@@ -134,8 +143,8 @@ func attacked(damage):
 	var damage_received = damage - def
 	if damage_received > 0:
 		emit_signal("attacked", damage_received)
-		pass
-		
+
+
 func player_dead():
 	$disappearTimer.start()
 	$Sprite.animation = "die"
@@ -147,8 +156,23 @@ func _on_disappearTimer_timeout():
 func updateHP(newHP):
 	HP = newHP
 	
+
 #called when level up
-func levelup():
-	HP = maxHP * 3/2
+func levelup(Str, Agi, constitution, Wc):
+	HP = 10 * constitution
 	def = def * 3/2
-	dame = dame + 10
+	WALK_SPEED = WALK_SPEED * ((Agi/10)+1)
+	dmg = (10 * Str) + 60
+	print("damage: ", dmg, " Walk_speed: ", WALK_SPEED, "hp: ", HP)
+
+func _load_stats():
+	var current_line = global._load_player_stats(1)
+	if current_line == null:
+		pass
+	else:
+		Str = current_line["Str"]
+		Agi = current_line["Agi"]
+		constitution = current_line["Const"]
+		Wc = current_line["Wc"]
+		Lvl = global.player_lvl
+		levelup(Str, Agi, constitution, Wc)

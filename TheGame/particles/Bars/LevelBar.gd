@@ -33,10 +33,8 @@ func update_exp(EXP):
 		#new level
 		#set text
 		$Level.set_text(String(currentLV))
-		emit_signal("levelup")
+		emit_signal("levelup", currentLV)
 	else:
 		$Tween.interpolate_property($Gauge, "value", currentEXP, newEXP, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		$Tween.start()
 		currentEXP = newEXP
-		pass
-		

@@ -7,10 +7,7 @@ path="res://.import/Jump (7).png-19d1e9ae2ace890d33b90a9ffb571e10.stex"
 [deps]
 
 source_file="res://assets/characters/knight/Jump (7).png"
-source_md5="948ae733394fe6920c94aac6cd127e91"
-
 dest_files=[ "res://.import/Jump (7).png-19d1e9ae2ace890d33b90a9ffb571e10.stex" ]
-dest_md5="1b40a51bc6101cb2ecb6075aeaa3a56e"
 
 [params]
 

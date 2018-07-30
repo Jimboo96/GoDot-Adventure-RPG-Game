@@ -7,10 +7,7 @@ path="res://.import/Run (8).png-7e77d1ca3ff5ca834735423ee9f7aa7c.stex"
 [deps]
 
 source_file="res://assets/characters/knight/Run (8).png"
-source_md5="a77c641033f635b332a8852b8b4909c7"
-
 dest_files=[ "res://.import/Run (8).png-7e77d1ca3ff5ca834735423ee9f7aa7c.stex" ]
-dest_md5="e9eb01e7570c6d15001c750938b1beb5"
 
 [params]
 

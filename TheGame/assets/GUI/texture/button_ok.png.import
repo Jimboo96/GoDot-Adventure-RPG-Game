@@ -7,10 +7,7 @@ path="res://.import/button_ok.png-a601dec1e903f34991d6bf31ede36820.stex"
 [deps]
 
 source_file="res://assets/GUI/texture/button_ok.png"
-source_md5="8673ade0534439acbb2f9a13ea124b90"
-
 dest_files=[ "res://.import/button_ok.png-a601dec1e903f34991d6bf31ede36820.stex" ]
-dest_md5="bca59b284b98af8e9f0630892adade23"
 
 [params]
 

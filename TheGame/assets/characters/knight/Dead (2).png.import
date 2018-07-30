@@ -7,10 +7,7 @@ path="res://.import/Dead (2).png-7daea393a7ec8521934fa7ce4a1b1cfd.stex"
 [deps]
 
 source_file="res://assets/characters/knight/Dead (2).png"
-source_md5="29d26e51491308a2955f5fe1794866c4"
-
 dest_files=[ "res://.import/Dead (2).png-7daea393a7ec8521934fa7ce4a1b1cfd.stex" ]
-dest_md5="d60a6f9a75596ebf22db8360dd1ad1cf"
 
 [params]
 

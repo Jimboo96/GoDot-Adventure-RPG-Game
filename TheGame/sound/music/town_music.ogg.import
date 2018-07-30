@@ -7,10 +7,7 @@ path="res://.import/town_music.ogg-f8331a706019a37d198071505af68207.oggstr"
 [deps]
 
 source_file="res://sound/music/town_music.ogg"
-source_md5="016e18a82706f7f39680ffdcc88d8c37"
-
 dest_files=[ "res://.import/town_music.ogg-f8331a706019a37d198071505af68207.oggstr" ]
-dest_md5="ada6c54d8bb7db7ba8da148bfd81090c"
 
 [params]
 

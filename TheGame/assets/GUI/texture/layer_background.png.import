@@ -7,10 +7,7 @@ path="res://.import/layer_background.png-5cd7956fa50f8c2460715b568a80df18.stex"
 [deps]
 
 source_file="res://assets/GUI/texture/layer_background.png"
-source_md5="014d56092a181a51e9ee1850dbb7a15b"
-
 dest_files=[ "res://.import/layer_background.png-5cd7956fa50f8c2460715b568a80df18.stex" ]
-dest_md5="81318e85cecceb665f6b924fcc86f010"
 
 [params]
 

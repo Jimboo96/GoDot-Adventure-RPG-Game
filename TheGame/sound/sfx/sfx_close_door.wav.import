@@ -7,10 +7,7 @@ path="res://.import/sfx_close_door.wav-25a82d460547d6cd5f9e21c0446d2072.sample"
 [deps]
 
 source_file="res://sound/sfx/sfx_close_door.wav"
-source_md5="0a8cb63dd634952893a9c75148ec7022"
-
 dest_files=[ "res://.import/sfx_close_door.wav-25a82d460547d6cd5f9e21c0446d2072.sample" ]
-dest_md5="2ae4f1b811b85718352442dc57fd8e4d"
 
 [params]
 

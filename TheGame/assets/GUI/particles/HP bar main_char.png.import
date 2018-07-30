@@ -7,10 +7,7 @@ path="res://.import/HP bar main_char.png-3acb4073203df33e5058b5d33a3f6c12.stex"
 [deps]
 
 source_file="res://assets/GUI/particles/HP bar main_char.png"
-source_md5="aaf202563c1d5da8de78bda4420d71f4"
-
 dest_files=[ "res://.import/HP bar main_char.png-3acb4073203df33e5058b5d33a3f6c12.stex" ]
-dest_md5="a7b877697b46241ef4b08ab1cb8b0886"
 
 [params]
 

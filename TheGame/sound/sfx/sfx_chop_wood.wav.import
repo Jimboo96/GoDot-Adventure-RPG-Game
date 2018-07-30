@@ -7,10 +7,7 @@ path="res://.import/sfx_chop_wood.wav-2a264726a09ebba98373cb517d8ff9a3.sample"
 [deps]
 
 source_file="res://sound/sfx/sfx_chop_wood.wav"
-source_md5="29f2ef06c47b35bdd5aba6ba62d3511e"
-
 dest_files=[ "res://.import/sfx_chop_wood.wav-2a264726a09ebba98373cb517d8ff9a3.sample" ]
-dest_md5="5080960e7e766123614a5b0c59bd62ae"
 
 [params]
 

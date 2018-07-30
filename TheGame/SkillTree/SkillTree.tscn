@@ -1,0 +1,444 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://SkillTree/SkillTree.gd" type="Script" id=1]
+[ext_resource path="res://SkillTree/Sprites/backgroun.jpeg" type="Texture" id=2]
+[ext_resource path="res://SkillTree/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://SkillTree/Sprites/Line.png" type="Texture" id=4]
+[ext_resource path="res://SkillTree/Sprites/Rip_Dark.png" type="Texture" id=5]
+[ext_resource path="res://SkillTree/Sprites/Rip_hover.png" type="Texture" id=6]
+[ext_resource path="res://SkillTree/Sprites/Rip.png" type="Texture" id=7]
+[ext_resource path="res://SkillTree/Sprites/upgrade_rip_normal.png" type="Texture" id=8]
+[ext_resource path="res://SkillTree/Sprites/upgrade_Rip_hover.png" type="Texture" id=9]
+[ext_resource path="res://SkillTree/Sprites/Rip_sacrifice_dark.png" type="Texture" id=10]
+[ext_resource path="res://SkillTree/Sprites/Rip_sacrifice_hover.png" type="Texture" id=11]
+[ext_resource path="res://SkillTree/Sprites/Reset.png" type="Texture" id=12]
+[ext_resource path="res://SkillTree/Sprites/Reset_click.png" type="Texture" id=13]
+[ext_resource path="res://SkillTree/Sprites/Reset_hover.png" type="Texture" id=14]
+[ext_resource path="res://SkillTree/Sprites/Return.png" type="Texture" id=15]
+[ext_resource path="res://SkillTree/Sprites/Return_click.png" type="Texture" id=16]
+[ext_resource path="res://SkillTree/Sprites/Return_hover.png" type="Texture" id=17]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 25
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="SkillTree" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="backgroun" type="Sprite" parent="." index="0"]
+
+position = Vector2( 375.863, 224.896 )
+texture = ExtResource( 2 )
+
+[node name="Header" type="Label" parent="backgroun" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -214.0
+margin_top = -192.0
+margin_right = -34.0
+margin_bottom = -132.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.6875, 0.134277, 0.134277, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Skills"
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Rect", "custom_colors" ]
+
+[node name="Line" type="Sprite" parent="backgroun" index="1"]
+
+position = Vector2( 88.235, 5.29308 )
+scale = Vector2( 2.96467, 1 )
+texture = ExtResource( 4 )
+
+[node name="Line2" type="Sprite" parent="backgroun" index="2"]
+
+position = Vector2( -155.327, 4.47824 )
+scale = Vector2( 2.85945, 1 )
+texture = ExtResource( 4 )
+
+[node name="RipSkillButton" type="TextureButton" parent="." index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 58.0
+margin_top = 185.0
+margin_right = 138.0
+margin_bottom = 265.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="WindowDialog" type="PopupDialog" parent="RipSkillButton" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -25.0
+margin_top = 30.0
+margin_right = 67.0
+margin_bottom = 125.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="PopUpText" type="RichTextLabel" parent="RipSkillButton/WindowDialog" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 91.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Rip deals tons of damage to area around you"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="RipSkillUpgrade" type="TextureButton" parent="." index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 297.0
+margin_top = 189.0
+margin_right = 377.0
+margin_bottom = 269.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="UpgradeInfo" type="PopupDialog" parent="RipSkillUpgrade" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 272.0
+margin_top = 48.0
+margin_right = 364.0
+margin_bottom = 143.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="PopUpText" type="RichTextLabel" parent="RipSkillUpgrade/UpgradeInfo" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Rip deals 10% increased damage per level"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="RipSkillSacrifice" type="TextureButton" parent="." index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 550.0
+margin_top = 187.0
+margin_right = 630.0
+margin_bottom = 267.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 10 )
+expand = true
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="UpgradeInfo" type="PopupDialog" parent="RipSkillSacrifice" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 272.0
+margin_top = 48.0
+margin_right = 371.0
+margin_bottom = 153.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="PopUpText" type="RichTextLabel" parent="RipSkillSacrifice/UpgradeInfo" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 8.0
+margin_right = 91.0
+margin_bottom = 105.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Sacrifice 10% of your life to make Rip deal 50% more dmg "
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="Reset" type="TextureButton" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 573.0
+margin_top = 371.0
+margin_right = 734.0
+margin_bottom = 437.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
+_sections_unfolded = [ "Textures", "custom_fonts" ]
+
+[node name="Return" type="TextureButton" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 21.0
+margin_top = 366.0
+margin_right = 182.0
+margin_bottom = 432.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 17 )
+_sections_unfolded = [ "Rect", "Textures", "custom_fonts" ]
+
+[node name="Level" type="Label" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 369.0
+margin_top = 10.0
+margin_right = 457.0
+margin_bottom = 45.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.686275, 0.133333, 0.133333, 1 )
+text = "Level:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="PointsAvailable" type="Label" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 367.0
+margin_top = 49.0
+margin_right = 584.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.686275, 0.133333, 0.133333, 1 )
+text = "Points available:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="mouse_entered" from="RipSkillButton" to="." method="_on_RipSkillButton_mouse_entered"]
+
+[connection signal="mouse_exited" from="RipSkillButton" to="." method="_on_RipSkillButton_mouse_exited"]
+
+[connection signal="pressed" from="RipSkillButton" to="." method="_on_RipSkillButton_pressed"]
+
+[connection signal="mouse_entered" from="RipSkillUpgrade" to="." method="_on_RipSkillUpgrade_mouse_entered"]
+
+[connection signal="mouse_exited" from="RipSkillUpgrade" to="." method="_on_RipSkillUpgrade_mouse_exited"]
+
+[connection signal="pressed" from="RipSkillUpgrade" to="." method="_on_RipSkillUpgrade_pressed"]
+
+[connection signal="mouse_entered" from="RipSkillSacrifice" to="." method="_on_RipSkillSacrifice_mouse_entered"]
+
+[connection signal="mouse_exited" from="RipSkillSacrifice" to="." method="_on_RipSkillSacrifice_mouse_exited"]
+
+[connection signal="pressed" from="RipSkillSacrifice" to="." method="_on_RipSkillSacrifice_pressed"]
+
+[connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
+
+[connection signal="pressed" from="Return" to="." method="_on_Return_pressed"]
+
+

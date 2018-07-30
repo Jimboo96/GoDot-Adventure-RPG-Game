@@ -57,3 +57,36 @@ func goto_scene(path):
 func cartesian_to_isometric(cartesian):
 	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y)/2)
 	
+
+
+#skill and statTree vars
+var Str
+var Agi
+var Const
+var player_lvl
+
+const SAVE_PATH = "user://statFile.json"
+const LOAD_PATH = "user://skillFile.json"
+var PATH_TO_FILE 
+
+var skill_enabled
+var skill_upgrade
+var skill_upgrade_2
+
+func _load_player_stats(PATH):
+	var load_file = File.new()
+	
+	if PATH == 1:
+		PATH_TO_FILE = SAVE_PATH
+	elif PATH == 2:
+		PATH_TO_FILE = LOAD_PATH
+	
+	if not load_file.file_exists(PATH_TO_FILE):
+		print("File does not exist")
+		return
+	
+	var err = load_file.open_encrypted_with_pass(PATH_TO_FILE, load_file.READ, "mypass")
+	var current_line = {}
+	current_line = parse_json(load_file.get_line())
+	return current_line
+	load_file.close()

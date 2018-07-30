@@ -7,10 +7,7 @@ path="res://.import/sfx_malevoice1.wav-d46b4946be163140ae4ca0109832741e.sample"
 [deps]
 
 source_file="res://sound/NPC_voice/sfx_malevoice1.wav"
-source_md5="24b1d49a560a31618ef2de71e531a905"
-
 dest_files=[ "res://.import/sfx_malevoice1.wav-d46b4946be163140ae4ca0109832741e.sample" ]
-dest_md5="4385d367c855ef85c4df19fe21234fe8"
 
 [params]
 

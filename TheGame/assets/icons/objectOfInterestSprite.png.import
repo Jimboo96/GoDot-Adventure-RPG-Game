@@ -7,10 +7,7 @@ path="res://.import/objectOfInterestSprite.png-1da3ab86ba45d51b16efae8fd0aecfa4.
 [deps]
 
 source_file="res://assets/icons/objectOfInterestSprite.png"
-source_md5="79c98d7cf81daaa0d8c5f4a65d459827"
-
 dest_files=[ "res://.import/objectOfInterestSprite.png-1da3ab86ba45d51b16efae8fd0aecfa4.stex" ]
-dest_md5="9b78519762e99d23329c74d6cf15740f"
 
 [params]
 

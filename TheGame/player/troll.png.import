@@ -7,10 +7,7 @@ path="res://.import/troll.png-959779265fba65c44838c68a74812a60.stex"
 [deps]
 
 source_file="res://player/troll.png"
-source_md5="76a37c47b1f09115f714d6635ab50fb4"
-
 dest_files=[ "res://.import/troll.png-959779265fba65c44838c68a74812a60.stex" ]
-dest_md5="aded3a6d7973cb880144e84f0b3ec505"
 
 [params]
 

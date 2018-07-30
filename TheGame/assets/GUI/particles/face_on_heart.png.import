@@ -7,10 +7,7 @@ path="res://.import/face_on_heart.png-20986810029d632becc27679cb96b884.stex"
 [deps]
 
 source_file="res://assets/GUI/particles/face_on_heart.png"
-source_md5="9836c8bf804a99c928bd404ba3fe892d"
-
 dest_files=[ "res://.import/face_on_heart.png-20986810029d632becc27679cb96b884.stex" ]
-dest_md5="0522f8bff18495b8bd630c3837619b94"
 
 [params]
 

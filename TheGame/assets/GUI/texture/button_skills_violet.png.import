@@ -7,10 +7,7 @@ path="res://.import/button_skills_violet.png-84bd1b710ccb8ad596de5c1b2cbf50e6.st
 [deps]
 
 source_file="res://assets/GUI/texture/button_skills_violet.png"
-source_md5="5a30f36c5ea1a4ebf85d19c42746ab67"
-
 dest_files=[ "res://.import/button_skills_violet.png-84bd1b710ccb8ad596de5c1b2cbf50e6.stex" ]
-dest_md5="a8af3275d08a7f88d756ca3cb4f0f448"
 
 [params]
 

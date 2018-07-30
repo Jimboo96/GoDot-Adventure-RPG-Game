@@ -7,10 +7,7 @@ path="res://.import/sfx_pick_up.wav-e70f05046cc1bbcfa7b63cc7ecdb33a5.sample"
 [deps]
 
 source_file="res://sound/sfx/sfx_pick_up.wav"
-source_md5="104ce780f238603b460f2dca39fc26a9"
-
 dest_files=[ "res://.import/sfx_pick_up.wav-e70f05046cc1bbcfa7b63cc7ecdb33a5.sample" ]
-dest_md5="a2dfccadc711311c6ec7a81d8b160450"
 
 [params]
 

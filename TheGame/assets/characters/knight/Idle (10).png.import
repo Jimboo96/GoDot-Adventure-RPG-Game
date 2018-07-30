@@ -7,10 +7,7 @@ path="res://.import/Idle (10).png-df562c36556f04297b66cc3c634294e5.stex"
 [deps]
 
 source_file="res://assets/characters/knight/Idle (10).png"
-source_md5="cf44e88df1e3a0d071295c63698a7413"
-
 dest_files=[ "res://.import/Idle (10).png-df562c36556f04297b66cc3c634294e5.stex" ]
-dest_md5="bb99071fd364d709596b8a7035e09101"
 
 [params]
 

@@ -4,7 +4,7 @@ signal gainEXP
 signal levelup
 signal player_dead
 
-
+var curLvl
 export (int) var enemies = 3
 
 func _ready():
@@ -24,18 +24,18 @@ func conn_signals():
 
 func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)
-	pass
+
+func attacked(dmg):
+	$InfoContainer/MainBox/HPBar.attacked(dmg)
 	
-func attacked(dame):
-	$InfoContainer/MainBox/HPBar.attacked(dame)
-	
+
 #Level up
-func level_up():
+func level_up(cur_lvl):
 	$MainText.set_text("LEVEL UP")
 	$MainText.show()
 	$TextDisappearTimer.set("wait_time", 1)
 	$TextDisappearTimer.start()
-	emit_signal("levelup")
+	emit_signal("levelup", cur_lvl)
 	#reset HP for HP Bar
 	$InfoContainer/MainBox/HPBar.levelup()
 	

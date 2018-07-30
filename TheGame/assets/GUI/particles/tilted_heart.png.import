@@ -7,10 +7,7 @@ path="res://.import/tilted_heart.png-7de8143c7b382075b42dff2e786c1866.stex"
 [deps]
 
 source_file="res://assets/GUI/particles/tilted_heart.png"
-source_md5="ac28e0432511cbeb84f4532937f8669e"
-
 dest_files=[ "res://.import/tilted_heart.png-7de8143c7b382075b42dff2e786c1866.stex" ]
-dest_md5="88686136a4874b370021bace65a06a08"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/Attack (8).png-2e12f7ae44e743f12b58805307b2f192.stex"
 [deps]
 
 source_file="res://assets/characters/zombie/Attack (8).png"
-source_md5="b51d4c051f74f69d43dd49840c59e217"
-
 dest_files=[ "res://.import/Attack (8).png-2e12f7ae44e743f12b58805307b2f192.stex" ]
-dest_md5="fe5cc8a800e8f44f63891779e5e64e9f"
 
 [params]
 

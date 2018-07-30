@@ -7,10 +7,7 @@ path="res://.import/IDLE_002.png-ed5dea2dcae4c7b77ad2fea5af1b3132.stex"
 [deps]
 
 source_file="res://assets/characters/troll/IDLE_002.png"
-source_md5="0e71963cf369b679dec481079b2fe5c8"
-
 dest_files=[ "res://.import/IDLE_002.png-ed5dea2dcae4c7b77ad2fea5af1b3132.stex" ]
-dest_md5="ba79a10ea9b6c6b2ccd9419b94b07be1"
 
 [params]
 

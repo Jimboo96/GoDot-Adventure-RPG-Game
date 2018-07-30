@@ -7,10 +7,7 @@ path="res://.import/sfx_locked.wav-b8ca1ec25892926eca0be4a233f42d5d.sample"
 [deps]
 
 source_file="res://sound/sfx/sfx_locked.wav"
-source_md5="d99b0ccf870df8aba4027b1d0ebc15ea"
-
 dest_files=[ "res://.import/sfx_locked.wav-b8ca1ec25892926eca0be4a233f42d5d.sample" ]
-dest_md5="9664642d80d37bbccf148980fda8d485"
 
 [params]
 

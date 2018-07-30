@@ -12,7 +12,10 @@ func _ready():
 	get_parent().get_node("HUD").connect("levelup",self,"emit_lvl")
 
 func _process(delta):
-	position = get_tree().get_root().get_child(1).get_node("Area/area/walls/YSort/player").get_child(1).get_camera_screen_center()
+	if get_tree().get_root().get_child(1).has_node("Area/area/walls/YSort/player") == false:
+		pass
+	else:
+		position = get_tree().get_root().get_child(1).get_node("Area/area/walls/YSort/player").get_child(1).get_camera_screen_center()
 
 
 func _open_skilltree():

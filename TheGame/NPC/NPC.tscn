@@ -163,6 +163,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus" ]
 __meta__ = {
 "_edit_lock_": true
 }

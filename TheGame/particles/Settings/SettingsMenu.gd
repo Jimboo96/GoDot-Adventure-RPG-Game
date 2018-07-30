@@ -1,51 +1,77 @@
 extends Container
 
-var fullscreen = ProjectSettings.get_setting("display/window/size/fullscreen")
-var music
-var sound
+onready var fullscreen = Settings.get_setting("display", "fullscreen")
+onready var music = Settings.get_setting("audio", "music")
+onready var sound = Settings.get_setting("audio", "sound")
 
 func _ready():
 	hide()
 	self.connect("resized", self, "menu_holder_resize")
 	$Menu/ConfirmContainer/OKBtn/OK.connect("pressed", self, "save")
 	$Menu/ConfirmContainer/CancelBtn/Cancel.connect("pressed", self, "cancel")
-	$Menu/MenuContainer/MenuLines/FullScreen/FullScreenToggle.connect("toggled", self, "fullscreen")
+	$Menu/MenuContainer/MenuLines/FullScreen/FullScreenToggle.connect("toggled", self, "fullscreen_tog")
+	$Menu/MenuContainer/MenuLines/Music/MusicToggle.connect("toggled", self, "music_tog")
+	$Menu/MenuContainer/MenuLines/Sound/SoundToggle.connect("toggled", self, "sound_tog")
+	"""TODO changing input keys
+	$Menu/MenuContainer/MenuLines/Attack/AttackOpt.connect("item_selected", self, "attack_tog")
+	$Menu/MenuContainer/MenuLines/Moving/MoveOpt.connect("item_selected", self, "move_tog")"""
+	#open_menu() #for test/debug only
+	init()
 	
 func menu_holder_resize():
 	var current_size = self.get("rect_size")
 	$Background.set_region_rect(Rect2(Vector2(0,0), current_size))
 	
-func init():
-	var screen_size = OS.get_real_window_size()
-	print(screen_size)
-	var new_pos = Vector2(screen_size.x/2 - 150, screen_size.y/2 -250)
-	print(new_pos)
-	self.set("rect_position", new_pos )
+func init(): #call during open animation
+	$Menu/MenuContainer/MenuLines/FullScreen/FullScreenToggle.set("pressed", fullscreen)
+	$Menu/MenuContainer/MenuLines/Music/MusicToggle.set("pressed", music)
+	$Menu/MenuContainer/MenuLines/Sound/SoundToggle.set("pressed", sound)
 	pass
 	
 func save():
 	#save scripts to Settings.gd (global)
-	close_settings()
+	Settings.set_setting("audio", "music", music)
+	Settings.set_setting("audio", "sound", sound)
+	Settings.set_setting("display", "fullscreen", fullscreen)
+	Settings.save_settings()
+	Settings.load_settings()
+	#close
+	close_menu()
+	if get_parent().get_name() == "PauseMenu":
+		get_parent().open_menu() #open pause menu again
 	
 func cancel():
-	close_settings()
+	close_menu()
+	if get_parent().get_name() == "PauseMenu":
+		get_parent().open_menu() #open pause menu again
 	
-func open_settings():
-	$AnimationPlayer.play("open_settings_menu")
+func open_menu():
+	$SettingsMenuAnim.play("open_settings_menu")
 	self.show()
 	
-func close_settings():
-	$AnimationPlayer.play("close_settings_menu")
-	
-func reset_state():
-	get_tree().paused = false
+func close_menu():
+	$SettingsMenuAnim.play("close_settings_menu")
 	self.hide()
 
-func fullscreen(if_toggled):
-	fullscreen = if_toggled
+func fullscreen_tog(if_toggled):
+	fullscreen = if_toggled	
 	
-func music(if_toggled):
+func music_tog(if_toggled):
 	music = if_toggled
+	print(if_toggled)
 	
-func sound(if_toggled):
+func sound_tog(if_toggled):
 	sound = if_toggled
+	print(if_toggled)
+"""TODO changing input keys
+	
+func attack_tog(id):
+	var selected_val = $Menu/MenuContainer/MenuLines/Attack/AttackOpt.get_item_text(id)
+	#attack = selected_val
+	
+func move_tog(id):
+	var selected_val = $Menu/MenuContainer/MenuLines/Moving/MoveOpt
+	#move = selected_val"""
+	
+
+	

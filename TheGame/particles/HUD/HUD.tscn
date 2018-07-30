@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://particles/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/GUI/font/videophreak/VIDEOPHREAK.ttf" type="DynamicFontData" id=2]
@@ -8,10 +8,11 @@
 [ext_resource path="res://assets/GUI/texture/button_skills.png" type="Texture" id=6]
 [ext_resource path="res://assets/GUI/texture/button_skills_blue.png" type="Texture" id=7]
 [ext_resource path="res://assets/GUI/texture/button_skills_violet.png" type="Texture" id=8]
-[ext_resource path="res://assets/GUI/font/subjectivity/Subjectivity-Black.otf" type="DynamicFontData" id=9]
-[ext_resource path="res://particles/Transition/Transition.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/GUI/texture/imageedit_20_5323798492.png" type="Texture" id=11]
-[ext_resource path="res://particles/Settings/SettingsMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/GUI/texture/pauseBtn.png" type="Texture" id=9]
+[ext_resource path="res://assets/GUI/texture/playBtn.png" type="Texture" id=10]
+[ext_resource path="res://assets/GUI/font/subjectivity/Subjectivity-Black.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://particles/Transition/Transition.tscn" type="PackedScene" id=12]
+[ext_resource path="res://particles/Pause/PauseMenu.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -26,10 +27,10 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 9 )
+font_data = ExtResource( 11 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[node name="HUD" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -61,7 +62,7 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
 
 [node name="InfoContainer" type="MarginContainer" parent="." index="1"]
 
@@ -158,7 +159,35 @@ texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="SkillMenu" type="WindowDialog" parent="." index="5"]
+[node name="PauseButton" type="TextureButton" parent="." index="5"]
+
+modulate = Color( 0.832031, 0.481018, 0.505699, 1 )
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -60.0
+margin_top = 50.0
+margin_right = 452.0
+margin_bottom = 562.0
+rect_min_size = Vector2( 40, 40 )
+rect_scale = Vector2( 0.085, 0.085 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 9 )
+texture_focused = ExtResource( 10 )
+_sections_unfolded = [ "Margin", "Rect", "Textures", "Visibility" ]
+
+[node name="SkillMenu" type="WindowDialog" parent="." index="6"]
 
 visible = false
 anchor_left = 0.5
@@ -183,42 +212,16 @@ window_title = "Skills"
 resizable = true
 _sections_unfolded = [ "Focus", "Popup", "Rect", "Size Flags", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="WaitTimer" type="Timer" parent="." index="6"]
+[node name="WaitTimer" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 1.5
 one_shot = true
 autostart = false
 
-[node name="Transition" parent="." index="7" instance=ExtResource( 10 )]
+[node name="Transition" parent="." index="8" instance=ExtResource( 12 )]
 
-[node name="SettingsButton" type="TextureButton" parent="." index="8"]
-
-anchor_left = 1.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-margin_left = -50.0
-margin_top = 50.0
-margin_right = 500.0
-margin_bottom = 562.0
-rect_min_size = Vector2( 40, 40 )
-rect_scale = Vector2( 0.08, 0.08 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 11 )
-_sections_unfolded = [ "Mouse" ]
-
-[node name="SettingsMenu" parent="." index="9" instance=ExtResource( 12 )]
+[node name="PauseMenu" parent="." index="9" instance=ExtResource( 13 )]
 
 visible = false
 

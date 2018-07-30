@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://particles/Settings/SettingsMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/GUI/texture/layer_background.png" type="Texture" id=2]
@@ -16,7 +16,7 @@ extra_spacing_top = 10
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 
 size = 26
 use_mipmaps = true
@@ -24,9 +24,32 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="DynamicFont" id=3]
 
-resource_name = "close_settings_menu"
+size = 26
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 18
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 18
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Animation" id=6]
+
 length = 1.0
 loop = false
 step = 0.1
@@ -42,24 +65,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "reset_state"
-} ]
-}
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=7]
 
-resource_name = "open_settings_menu"
 length = 1.0
 loop = false
 step = 0.1
@@ -80,7 +88,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -90,16 +98,16 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="SettingsMenu" type="Container"]
+[node name="SettingsMenu" type="Container" index="0"]
 
 pause_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -152.0
+margin_left = -150.0
 margin_top = -250.0
-margin_right = 148.0
+margin_right = 150.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 300, 500 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -116,12 +124,13 @@ __meta__ = {
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
-modulate = Color( 0.222656, 0.20874, 0.20874, 0.204392 )
+pause_mode = 2
+modulate = Color( 0.222656, 0.20874, 0.20874, 0.486196 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 300, 500 )
-_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
+_sections_unfolded = [ "Animation", "Offset", "Pause", "Region", "Transform", "Visibility" ]
 
 [node name="Menu" type="VBoxContainer" parent="." index="1"]
 
@@ -210,9 +219,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 165.0
+margin_top = 121.0
 margin_right = 300.0
-margin_bottom = 205.0
+margin_bottom = 249.0
 rect_min_size = Vector2( 300, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -257,7 +266,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
@@ -266,6 +275,290 @@ text = "Full screen"
 flat = false
 align = 0
 _sections_unfolded = [ "Margin", "custom_fonts" ]
+
+[node name="Music" type="Container" parent="Menu/MenuContainer/MenuLines" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 44.0
+margin_right = 300.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 300, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="MusicToggle" type="CheckButton" parent="Menu/MenuContainer/MenuLines/Music" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -129.5
+margin_top = -24.0
+margin_right = 129.5
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Music"
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "custom_fonts" ]
+
+[node name="Sound" type="Container" parent="Menu/MenuContainer/MenuLines" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 88.0
+margin_right = 300.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 300, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="SoundToggle" type="CheckButton" parent="Menu/MenuContainer/MenuLines/Sound" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -129.5
+margin_top = -24.0
+margin_right = 129.5
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Sound"
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "custom_fonts" ]
+
+[node name="Volume" type="Container" parent="Menu/MenuContainer/MenuLines" index="3"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 132.0
+margin_right = 300.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 300, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="VolumeRange" type="SpinBox" parent="Menu/MenuContainer/MenuLines/Volume" index="0"]
+
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -259.0
+margin_top = -24.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = "Volume"
+suffix = ""
+_sections_unfolded = [ "Margin", "custom_fonts" ]
+
+[node name="Attack" type="Container" parent="Menu/MenuContainer/MenuLines" index="4"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 132.0
+margin_right = 300.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 300, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Attack" type="Label" parent="Menu/MenuContainer/MenuLines/Attack" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 30.0
+margin_top = -10.0
+margin_right = 88.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Attack"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_fonts" ]
+
+[node name="AttackOpt" type="OptionButton" parent="Menu/MenuContainer/MenuLines/Attack" index="1"]
+
+modulate = Color( 0.999664, 1, 0.957031, 1 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -149.0
+margin_top = -20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Shift Button"
+flat = false
+align = 2
+items = [ "Left Mouse", null, false, 0, null, "Shift Button", null, false, -1, null ]
+selected = 1
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Visibility", "custom_fonts" ]
+
+[node name="Moving" type="Container" parent="Menu/MenuContainer/MenuLines" index="5"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 132.0
+margin_right = 300.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 300, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Moving" type="Label" parent="Menu/MenuContainer/MenuLines/Moving" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 30.0
+margin_top = -10.0
+margin_right = 88.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Move"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_fonts" ]
+
+[node name="MoveOpt" type="OptionButton" parent="Menu/MenuContainer/MenuLines/Moving" index="1"]
+
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -134.0
+margin_top = -20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Arrow Key"
+flat = false
+align = 2
+items = [ "WASD", null, false, 0, null, "Arrow Key", null, false, -1, null ]
+selected = 1
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
 [node name="ConfirmContainer" type="HBoxContainer" parent="Menu" index="2"]
 
@@ -368,7 +661,7 @@ group = null
 texture_normal = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Rect", "Textures", "Transform" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="SettingsMenuAnim" type="AnimationPlayer" parent="." index="2"]
 
 pause_mode = 2
 root_node = NodePath("..")
@@ -376,8 +669,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/close_settings_menu = SubResource( 2 )
-anims/open_settings_menu = SubResource( 3 )
+anims/close_settings_menu = SubResource( 6 )
+anims/open_settings_menu = SubResource( 7 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause" ]
 

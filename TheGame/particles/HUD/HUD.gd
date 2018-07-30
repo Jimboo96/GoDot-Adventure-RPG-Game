@@ -18,7 +18,7 @@ func conn_signals():
 	#skill menu
 	$SkillButton.connect("pressed", self, "open_popup")
 	#settings buttons
-	$SettingsButton.connect("pressed", self, "settings_menu")
+	$PauseButton.connect("pressed", self, "pause_game")
 
 func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)
@@ -52,6 +52,10 @@ func hide_text():
 	if $MainText.is_visible_in_tree():
 		$MainText.hide()
 		
+	if $MainText.text == "GAME OVER":
+		#TODO Handle game over, back to main menu scene, reset stages
+		pass
+		
 func get_prize(type, value):
 	match type:
 		"COIN":
@@ -65,9 +69,9 @@ func open_popup():
 	$SkillMenu.popup()
 	pass
 
-func settings_menu():
+func pause_game():
 	#open popup settings
-	$SettingsMenu.open_settings()
+	$PauseMenu.open_menu()
 	#pause game
 	get_tree().paused = true
 	pass

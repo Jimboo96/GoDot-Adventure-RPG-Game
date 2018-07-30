@@ -42,7 +42,6 @@ func _input(event):
 	if Input.is_action_just_pressed("attack"):
 		if can_attack == true and detected_target:
 			detected_target.attacked(DAME)
-			
 	
 func _physics_process(delta):
 	update()
@@ -121,10 +120,6 @@ func flip_coin():
 # Stops player from moving when transistioning between areas.
 func _on_MoveAreas_halt_player():
 	playerMovable = false
-	
-# Return player position.
-func get_player_pos():
-	return position
 	
 #attacked by enemy
 func attacked(damage):

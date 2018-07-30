@@ -28,16 +28,14 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sound" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
 
 stream = ExtResource( 2 )
-volume_db = 10.0
+volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="CloseDoor" type="AudioStreamPlayer2D" parent="Sound" index="1"]
@@ -47,7 +45,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="CoinFlip" type="AudioStreamPlayer2D" parent="Sound" index="2"]
@@ -57,7 +55,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="Switch" type="AudioStreamPlayer2D" parent="Sound" index="3"]
@@ -67,7 +65,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 _sections_unfolded = [ "Transform" ]
 
@@ -79,7 +77,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="ChopWood" type="AudioStreamPlayer2D" parent="Sound" index="5"]
@@ -89,7 +87,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="ItemFound" type="AudioStreamPlayer2D" parent="Sound" index="6"]
@@ -99,7 +97,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="OpenChest" type="AudioStreamPlayer2D" parent="Sound" index="7"]
@@ -109,7 +107,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="LockedDoor" type="AudioStreamPlayer2D" parent="Sound" index="8"]
@@ -119,7 +117,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="PickUp" type="AudioStreamPlayer2D" parent="Sound" index="9"]
@@ -129,7 +127,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="Scream" type="AudioStreamPlayer2D" parent="Sound" index="10"]
@@ -139,7 +137,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="WalkingOnLeaves" type="AudioStreamPlayer2D" parent="Sound" index="11"]
@@ -149,16 +147,18 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
-[node name="SwordSwing" type="AudioStreamPlayer" parent="Sound" index="12"]
+[node name="SwordSwing" type="AudioStreamPlayer2D" parent="Sound" index="12"]
 
 stream = ExtResource( 14 )
 volume_db = 24.0
 autoplay = false
-mix_target = 0
-bus = "Master"
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Sound"
+area_mask = 1
 
 [node name="SceneManager" type="Node" parent="." index="2"]
 
@@ -169,8 +169,6 @@ script = ExtResource( 15 )
 [node name="player" parent="." index="4" instance=ExtResource( 17 )]
 
 position = Vector2( 514.558, 299.008 )
-DEF = 10
-DAME = 60
 
 [node name="WaitTimeTimer" type="Timer" parent="." index="5"]
 

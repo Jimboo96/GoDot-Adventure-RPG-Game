@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="Isometric Game"
+config/name="Godot Adventure Game"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 

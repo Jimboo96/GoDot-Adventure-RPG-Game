@@ -7,10 +7,7 @@ path="res://.import/hoe_iron.png-ba7f1be4e9fd6873cb1783573325937d.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/hoe_iron.png"
-source_md5="9115ed26ffac3b3f75cd6f2b441b1826"
-
 dest_files=[ "res://.import/hoe_iron.png-ba7f1be4e9fd6873cb1783573325937d.stex" ]
-dest_md5="6ce4673c4d108c8199471ccd76da4e5a"
 
 [params]
 

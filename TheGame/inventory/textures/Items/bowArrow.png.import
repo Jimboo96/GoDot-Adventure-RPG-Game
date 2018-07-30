@@ -7,10 +7,7 @@ path="res://.import/bowArrow.png-c68bc78e061c0ca31b556cb32de07b49.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/bowArrow.png"
-source_md5="21010e8d036f435c5645791d752564ba"
-
 dest_files=[ "res://.import/bowArrow.png-c68bc78e061c0ca31b556cb32de07b49.stex" ]
-dest_md5="60956267421711679fb3cd4014af3628"
 
 [params]
 

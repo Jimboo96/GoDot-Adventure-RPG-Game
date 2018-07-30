@@ -7,10 +7,7 @@ path="res://.import/ore_coal.png-4ddadd0d9cf957f1e5f883baeb62d6db.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/ore_coal.png"
-source_md5="4799b4522a60edb63d317f281fa051bb"
-
 dest_files=[ "res://.import/ore_coal.png-4ddadd0d9cf957f1e5f883baeb62d6db.stex" ]
-dest_md5="d878fad318637b0df720931445ecb9f1"
 
 [params]
 

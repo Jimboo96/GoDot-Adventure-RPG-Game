@@ -7,10 +7,7 @@ path="res://.import/flail_gold.png-dc71e89ceae862d3675c96ba26659aec.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/flail_gold.png"
-source_md5="155fb2f3ce5f0d649c1b75350cad1aac"
-
 dest_files=[ "res://.import/flail_gold.png-dc71e89ceae862d3675c96ba26659aec.stex" ]
-dest_md5="97deb494d25359599c974d6748a2f7f1"
 
 [params]
 

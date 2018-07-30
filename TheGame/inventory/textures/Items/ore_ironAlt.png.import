@@ -7,10 +7,7 @@ path="res://.import/ore_ironAlt.png-d92aa2f55139c94a02a199ede188b32f.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/ore_ironAlt.png"
-source_md5="bce6fa9c5ba3b824e538b6ed4d6f1faf"
-
 dest_files=[ "res://.import/ore_ironAlt.png-d92aa2f55139c94a02a199ede188b32f.stex" ]
-dest_md5="3f5ca5e92778fcc035859228087c6447"
 
 [params]
 

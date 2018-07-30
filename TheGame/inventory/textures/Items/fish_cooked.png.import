@@ -7,10 +7,7 @@ path="res://.import/fish_cooked.png-89ac9e2a475efa6779a20981f53cfcae.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/fish_cooked.png"
-source_md5="7713087abc4920b579ee62562e5a4ff9"
-
 dest_files=[ "res://.import/fish_cooked.png-89ac9e2a475efa6779a20981f53cfcae.stex" ]
-dest_md5="b874e65074d42748e29e5386355b6ccc"
 
 [params]
 

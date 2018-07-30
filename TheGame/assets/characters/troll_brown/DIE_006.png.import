@@ -7,10 +7,7 @@ path="res://.import/DIE_006.png-acdf2db00dcf24c200d192fb0e62ec1b.stex"
 [deps]
 
 source_file="res://assets/characters/troll_brown/DIE_006.png"
-source_md5="cb433134db8d110b6073418d0acc492d"
-
 dest_files=[ "res://.import/DIE_006.png-acdf2db00dcf24c200d192fb0e62ec1b.stex" ]
-dest_md5="d6261c1b908e45fa807fc7c0b098dd99"
 
 [params]
 

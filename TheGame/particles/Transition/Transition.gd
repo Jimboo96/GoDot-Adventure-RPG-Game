@@ -26,7 +26,7 @@ func _physics_process(delta):
 		self.path = ""
 		
 func goto_area(path):
-	get_tree().get_root().get_child(1).goto_area(path)
+	get_tree().get_root().get_child(4).goto_area(path)
 	can_trans = false
 	set_physics_process(false)
 	

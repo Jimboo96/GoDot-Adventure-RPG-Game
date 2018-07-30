@@ -7,10 +7,7 @@ path="res://.import/empty_slot_gloves.png-e504ae8add4b20af5ceb1390a60d6662.stex"
 [deps]
 
 source_file="res://inventory/textures/Item_Icons/empty_slot_gloves.png"
-source_md5="de62052600399eb9fc8884f2eb41109a"
-
 dest_files=[ "res://.import/empty_slot_gloves.png-e504ae8add4b20af5ceb1390a60d6662.stex" ]
-dest_md5="0bbd270ce37b23e3283719d6b01f603f"
 
 [params]
 

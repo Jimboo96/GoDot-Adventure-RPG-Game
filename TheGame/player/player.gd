@@ -36,18 +36,14 @@ func _ready():
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
 	$AttackRay.connect("body_exited", self, "enemy_out_zone")
-<<<<<<< HEAD
 
 
-func appear(): #appear when added to area
-=======
-	
 func appear(anim): #appear when added to area
 	print("appear")
->>>>>>> master
 	show()
 	playerMovable = true
-	
+
+
 func _input(event):
 	if event.is_action_pressed("space"):
 		flip_coin()
@@ -56,7 +52,6 @@ func _input(event):
 		if can_attack == true and detected_target:
 			detected_target.attacked(dame)
 			
-<<<<<<< HEAD
 	if(event.is_action_pressed("inv_key")):
 		get_tree().call_group("room","inventory_open")
 		if playerMovable:
@@ -65,13 +60,11 @@ func _input(event):
 			playerMovable = true
 
 
-=======
-	
->>>>>>> master
 func _physics_process(delta):
 	update()
 	move_and_animation(delta)
-	
+
+
 func move_and_animation(delta):
 	var motion = Vector2()
 
@@ -100,12 +93,18 @@ func move_and_animation(delta):
 			$Sprite.flip_h = false
 			$AttackRay.position = Vector2(30,0)
 			
-		elif Input.is_action_pressed("attack"):
+		elif Input.is_action_pressed("asdattack"):
 			$Sprite.animation = "attack"
-			get_tree().get_root().get_child(1).get_node("Sound/SwordSwing").play()
+			
+			var sound = global.find_node_by_name(get_tree().get_root(), "Sound")
+			var swing = sound.get_node("SwordSwing")
+			
+			swing.play()
+			#get_tree().get_root().get_child(4).get_node("Sound/SwordSwing").play()
 			
 		else:
 			$Sprite.animation = "idle"
+			printt("playerMovable", playerMovable)
 			pass
 			
 	else:

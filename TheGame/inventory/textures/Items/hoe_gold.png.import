@@ -7,10 +7,7 @@ path="res://.import/hoe_gold.png-095a9f8c0632b4a134573d606261e22d.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/hoe_gold.png"
-source_md5="96f394bbfc484973ac3c1f697a3fa5bc"
-
 dest_files=[ "res://.import/hoe_gold.png-095a9f8c0632b4a134573d606261e22d.stex" ]
-dest_md5="2e3f1bdc1a4d5fc6650393d59a9f428a"
 
 [params]
 

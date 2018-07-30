@@ -13,12 +13,8 @@ const MAX_CHEST_NUMBER = 5
 var chestSound
 var axeSound
 
-<<<<<<< HEAD
+
 func _ready():
-	chestsReseted = false
-	chestOpenable = false
-	chestNum = 0
-	
 	#wow such nice recursive function wow
 	var sound = global.find_node_by_name(get_tree().get_root(), "Sound")
 	if(sound): printt(sound, sound.get_name())
@@ -28,8 +24,6 @@ func _ready():
 	axeSound = sound.get_node("PickUp")
 
 
-=======
->>>>>>> master
 func _process(delta):
 	if !chestsReseted: reset_chests()
 	chest_icon_handler()
@@ -41,35 +35,32 @@ func _input(event):
 			# Set horizontal closed chest sprite to open.
 			if get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 2:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,0)
-<<<<<<< HEAD
 				#print(get_tree().get_root().get_child(1).get_name())
 				chestSound.play()
-				get_reward()
+				get_reward(chestNum)
 			# Set vertical closed chest sprite to open.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 3:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,1)
 				chestSound.play()
-				get_reward()
+				get_reward(chestNum)
 			# Set tree stump with axe in it to a normal tree stump.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 5:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,4)
 				#get_parent().get_node("Sound/PickUp").play()
 				axeSound.play()
-				get_reward()
-=======
-				get_tree().get_root().get_child(1).get_node("Sound/OpenChest").play()
+				get_reward(chestNum)
+				get_tree().get_root().get_child(4).get_node("Sound/OpenChest").play()
 				get_reward(chestNum)
 			# Set vertical closed chest sprite to open.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 3:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,1)
-				get_tree().get_root().get_child(1).get_node("Sound/OpenChest").play()
+				get_tree().get_root().get_child(4).get_node("Sound/OpenChest").play()
 				get_reward(chestNum)
 			# Set tree stump with axe in it to a normal tree stump.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 5:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,4)
-				get_tree().get_root().get_child(1).get_node("Sound/PickUp").play()
+				get_tree().get_root().get_child(4).get_node("Sound/PickUp").play()
 				get_reward(chestNum)
->>>>>>> master
 			save_chest_states()
 
 func reset_chests():

@@ -7,10 +7,7 @@ path="res://.import/axe_diamond.png-d7b84a7ecb5076c7e19d36449c381154.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/axe_diamond.png"
-source_md5="dd14bbd3e80e878343965928c26b9397"
-
 dest_files=[ "res://.import/axe_diamond.png-d7b84a7ecb5076c7e19d36449c381154.stex" ]
-dest_md5="e9ef212929f3cd1bcaefc51cd1c2859d"
 
 [params]
 

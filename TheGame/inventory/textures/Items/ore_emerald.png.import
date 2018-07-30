@@ -7,10 +7,7 @@ path="res://.import/ore_emerald.png-cfda8c4b125ec5c9f0725d006dd3fbac.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/ore_emerald.png"
-source_md5="1007af5b394eacb77cc01ffe5480a88d"
-
 dest_files=[ "res://.import/ore_emerald.png-cfda8c4b125ec5c9f0725d006dd3fbac.stex" ]
-dest_md5="dd9ddb7f8c27e54e01192e4955eb6eb0"
 
 [params]
 

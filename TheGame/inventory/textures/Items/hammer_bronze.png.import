@@ -7,10 +7,7 @@ path="res://.import/hammer_bronze.png-c6b45992715f9a564461238e643fa1ae.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/hammer_bronze.png"
-source_md5="6a5f1292267df055029fe4323d3ac2cc"
-
 dest_files=[ "res://.import/hammer_bronze.png-c6b45992715f9a564461238e643fa1ae.stex" ]
-dest_md5="d7b4b6a95e32e2d8869001873ceba97d"
 
 [params]
 

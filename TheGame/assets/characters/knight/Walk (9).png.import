@@ -7,10 +7,7 @@ path="res://.import/Walk (9).png-56bee5db10daaa4711ef1841b89d9339.stex"
 [deps]
 
 source_file="res://assets/characters/knight/Walk (9).png"
-source_md5="e8c3a07b16a29fb6de5b41cda0f0d4b5"
-
 dest_files=[ "res://.import/Walk (9).png-56bee5db10daaa4711ef1841b89d9339.stex" ]
-dest_md5="544111548eba13aa596a927e7e879184"
 
 [params]
 

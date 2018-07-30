@@ -7,10 +7,7 @@ path="res://.import/shovel_diamond.png-9a59941933dc893e798ea3703962ecbd.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/shovel_diamond.png"
-source_md5="429bdd3737e5b8b6780fea3571a9759f"
-
 dest_files=[ "res://.import/shovel_diamond.png-9a59941933dc893e798ea3703962ecbd.stex" ]
-dest_md5="a4924838db2791f923723565ebf62d67"
 
 [params]
 

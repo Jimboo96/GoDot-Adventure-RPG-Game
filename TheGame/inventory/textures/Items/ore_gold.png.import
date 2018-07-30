@@ -7,10 +7,7 @@ path="res://.import/ore_gold.png-16635a9c7255dee435c7ae6c430e928c.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/ore_gold.png"
-source_md5="0f06a35c91556e2e100941927795015a"
-
 dest_files=[ "res://.import/ore_gold.png-16635a9c7255dee435c7ae6c430e928c.stex" ]
-dest_md5="30971e57946b4e80d291c2d3f8503706"
 
 [params]
 

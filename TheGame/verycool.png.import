@@ -7,10 +7,7 @@ path="res://.import/verycool.png-1425ee77ccf06607abc945a1988c3430.stex"
 [deps]
 
 source_file="res://verycool.png"
-source_md5="1edbdc07d6f1fda956f75b337fed92d8"
-
 dest_files=[ "res://.import/verycool.png-1425ee77ccf06607abc945a1988c3430.stex" ]
-dest_md5="8bd46ea176e5f189e40476a1500c8488"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/Attack_001.png-7156954888aa30621e24e1de109f01e2.stex"
 [deps]
 
 source_file="res://assets/characters/Troll_big2/Attack_001.png"
-source_md5="9ec31f2ff8c69ea532834976b22eb8a3"
-
 dest_files=[ "res://.import/Attack_001.png-7156954888aa30621e24e1de109f01e2.stex" ]
-dest_md5="0b0c56d7ec17fa07a0dc3aaf308533cf"
 
 [params]
 

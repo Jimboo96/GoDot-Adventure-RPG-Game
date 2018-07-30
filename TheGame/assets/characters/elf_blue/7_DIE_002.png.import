@@ -7,10 +7,7 @@ path="res://.import/7_DIE_002.png-45125bee7d173bbf95a856c71b9acefd.stex"
 [deps]
 
 source_file="res://assets/characters/elf_blue/7_DIE_002.png"
-source_md5="7d1d4f501a0d8c1d25c7dc9aa9d1ee19"
-
 dest_files=[ "res://.import/7_DIE_002.png-45125bee7d173bbf95a856c71b9acefd.stex" ]
-dest_md5="17aaabdd3313ff2ba8e8db2bc44ca33f"
 
 [params]
 

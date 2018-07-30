@@ -7,10 +7,7 @@ path="res://.import/sword_diamond.png-659cfd3251d89c6483ac0cfbb9878b2c.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/sword_diamond.png"
-source_md5="94e776417887d81955465350ccf51e51"
-
 dest_files=[ "res://.import/sword_diamond.png-659cfd3251d89c6483ac0cfbb9878b2c.stex" ]
-dest_md5="2cb3b0f871366865ee3f1b489e95df05"
 
 [params]
 

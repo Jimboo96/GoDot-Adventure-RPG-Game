@@ -7,10 +7,7 @@ path="res://.import/empty_slot_weapon.png-b71359e94b8be513ac3a2ca608a29ce8.stex"
 [deps]
 
 source_file="res://inventory/textures/Item_Icons/empty_slot_weapon.png"
-source_md5="6a55bfbe58250de5cc9429f538eaef54"
-
 dest_files=[ "res://.import/empty_slot_weapon.png-b71359e94b8be513ac3a2ca608a29ce8.stex" ]
-dest_md5="75979d050d68489dcc8ccbfc52bcf7d0"
 
 [params]
 

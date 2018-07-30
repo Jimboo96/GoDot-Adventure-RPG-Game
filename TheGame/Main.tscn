@@ -2,17 +2,17 @@
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://sound/sfx/sfx_open_door.wav" type="AudioStream" id=2]
-[ext_resource path="res://sound/sfx/sfx_close_door.wav" type="AudioStream" id=3]
-[ext_resource path="res://sound/sfx/sfx_coin_flip.wav" type="AudioStream" id=4]
-[ext_resource path="res://sound/sfx/sfx_switch.wav" type="AudioStream" id=5]
-[ext_resource path="res://sound/sfx/sfx_move_block.wav" type="AudioStream" id=6]
-[ext_resource path="res://sound/sfx/sfx_chop_wood.wav" type="AudioStream" id=7]
-[ext_resource path="res://sound/sfx/sfx_pick_up.wav" type="AudioStream" id=8]
+[ext_resource path="res://sound/sfx/sfx_scream.wav" type="AudioStream" id=3]
+[ext_resource path="res://sound/sfx/sfx_close_door.wav" type="AudioStream" id=4]
+[ext_resource path="res://sound/sfx/sfx_coin_flip.wav" type="AudioStream" id=5]
+[ext_resource path="res://sound/sfx/sfx_switch.wav" type="AudioStream" id=6]
+[ext_resource path="res://sound/sfx/sfx_move_block.wav" type="AudioStream" id=7]
+[ext_resource path="res://sound/sfx/sfx_chop_wood.wav" type="AudioStream" id=8]
 [ext_resource path="res://sound/sfx/sfx_open_chest.wav" type="AudioStream" id=9]
 [ext_resource path="res://sound/sfx/sfx_locked.wav" type="AudioStream" id=10]
-[ext_resource path="res://sound/sfx/sfx_scream.wav" type="AudioStream" id=11]
-[ext_resource path="res://sound/sfx/walking-through-leaves.wav" type="AudioStream" id=12]
-[ext_resource path="res://sound/sfx/swords_sound.wav" type="AudioStream" id=13]
+[ext_resource path="res://sound/sfx/sfx_pick_up.wav" type="AudioStream" id=11]
+[ext_resource path="res://sound/sfx/swords_sound.wav" type="AudioStream" id=12]
+[ext_resource path="res://sound/sfx/walking-through-leaves.wav" type="AudioStream" id=13]
 [ext_resource path="res://SceneManager.gd" type="Script" id=14]
 [ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=15]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
@@ -31,68 +31,75 @@ _sections_unfolded = [ "Transform" ]
 
 stream = ExtResource( 2 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="CloseDoor" type="AudioStreamPlayer2D" parent="Sound" index="1"]
+[node name="Scream" type="AudioStreamPlayer2D" parent="Sound" index="1"]
 
 stream = ExtResource( 3 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="CoinFlip" type="AudioStreamPlayer2D" parent="Sound" index="2"]
+[node name="CloseDoor" type="AudioStreamPlayer2D" parent="Sound" index="2"]
 
 stream = ExtResource( 4 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Switch" type="AudioStreamPlayer2D" parent="Sound" index="3"]
+[node name="CoinFlip" type="AudioStreamPlayer2D" parent="Sound" index="3"]
 
 stream = ExtResource( 5 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
-_sections_unfolded = [ "Transform" ]
 
-[node name="MoveBlock" type="AudioStreamPlayer2D" parent="Sound" index="4"]
+[node name="Switch" type="AudioStreamPlayer2D" parent="Sound" index="4"]
 
-position = Vector2( 606.964, 110.73 )
+position = Vector2( 389.605, 139.438 )
 stream = ExtResource( 6 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="ChopWood" type="AudioStreamPlayer2D" parent="Sound" index="5"]
+[node name="MoveBlock" type="AudioStreamPlayer2D" parent="Sound" index="5"]
 
+position = Vector2( 606.964, 110.73 )
 stream = ExtResource( 7 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="ItemFound" type="AudioStreamPlayer2D" parent="Sound" index="6"]
+[node name="ChopWood" type="AudioStreamPlayer2D" parent="Sound" index="6"]
 
 stream = ExtResource( 8 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -103,6 +110,7 @@ area_mask = 1
 
 stream = ExtResource( 9 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -113,6 +121,7 @@ area_mask = 1
 
 stream = ExtResource( 10 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -121,18 +130,20 @@ area_mask = 1
 
 [node name="PickUp" type="AudioStreamPlayer2D" parent="Sound" index="9"]
 
-stream = ExtResource( 8 )
+stream = ExtResource( 11 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Scream" type="AudioStreamPlayer2D" parent="Sound" index="10"]
+[node name="SwordSwing" type="AudioStreamPlayer2D" parent="Sound" index="10"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -141,21 +152,14 @@ area_mask = 1
 
 [node name="WalkingOnLeaves" type="AudioStreamPlayer2D" parent="Sound" index="11"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
-
-[node name="SwordSwing" type="AudioStreamPlayer" parent="Sound" index="12"]
-
-stream = ExtResource( 13 )
-volume_db = 0.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
 [node name="SceneManager" type="Node" parent="." index="2"]
 
@@ -165,7 +169,7 @@ script = ExtResource( 14 )
 
 [node name="player" parent="." index="4" instance=ExtResource( 16 )]
 
-position = Vector2( 514.558, 299.008 )
+position = Vector2( 700, -120 )
 
 [node name="WaitTimeTimer" type="Timer" parent="." index="5"]
 

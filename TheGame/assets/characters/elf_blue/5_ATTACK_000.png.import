@@ -7,10 +7,7 @@ path="res://.import/5_ATTACK_000.png-6ee36f26e94e6673b572478fec4aed20.stex"
 [deps]
 
 source_file="res://assets/characters/elf_blue/5_ATTACK_000.png"
-source_md5="da149aae69721dd9f270703ddcc5be30"
-
 dest_files=[ "res://.import/5_ATTACK_000.png-6ee36f26e94e6673b572478fec4aed20.stex" ]
-dest_md5="46d4db96eab125d5344463df01373d9b"
 
 [params]
 

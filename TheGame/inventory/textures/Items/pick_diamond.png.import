@@ -7,10 +7,7 @@ path="res://.import/pick_diamond.png-5ff2d4d849bd1a39668ba6f7b2fefb5b.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/pick_diamond.png"
-source_md5="0389757c72a84bca989af25f02ee6f64"
-
 dest_files=[ "res://.import/pick_diamond.png-5ff2d4d849bd1a39668ba6f7b2fefb5b.stex" ]
-dest_md5="0200c811982b6b2b5d45da6ba6ac5eca"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/start_normal.png-126bd3e93c749eebaeef78a8dbfdce7d.stex"
 [deps]
 
 source_file="res://inventory/textures/buttons/start_normal.png"
-source_md5="5c044b1314bb4910c2b17fbe6ed00d48"
-
 dest_files=[ "res://.import/start_normal.png-126bd3e93c749eebaeef78a8dbfdce7d.stex" ]
-dest_md5="7dd7cb06e1f3245733ae4fad5d031399"
 
 [params]
 

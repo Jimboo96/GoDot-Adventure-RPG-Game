@@ -4,13 +4,11 @@ var current_scene = null
 var last_area # previous area
 var player
 var current_area #area name from main
-<<<<<<< HEAD
+
 var damageFromWeapons = 0
 var armorFromArmor = 0
 var gear = {}
-=======
 var playerPosSet = false
->>>>>>> master
 
 # area1 variables
 var area1Chest1
@@ -45,15 +43,13 @@ var secretAreaChest1
 var secretAreaKeyFound
 var secretAreaPosition = Vector2()
 
-<<<<<<< HEAD
 var root
-=======
 var playerIsInteracting = false
 var playerMovable = true
 
 # States: NOT_STARTED, STARTED, COMPLETED
 var quest1State = "NOT_STARTED"
->>>>>>> master
+
 
 func _ready():
 	root = get_tree().get_root()
@@ -63,24 +59,25 @@ func _ready():
 	ghetto_gear_data_preloader()
 
 func goto_scene(path):
-<<<<<<< HEAD
 	call_deferred("_deferred_goto_scene",path)
 
 
 func _deferred_goto_scene(path):
 	get_parent().get_child(4).goto_area(path)
+	get_parent().get_child(4).get_node("HUD/Transition").fade(path)
+	playerPosSet = false
 	pass
 
 
-func goto_main():
-	call_deferred("_deferred_main")
+func goto_main(path):
+	call_deferred("_deferred_main",path)
 
 
 #this function actually changes scene to main and not between childs of the main.tscn
-func _deferred_main():
-	#print("path: ", path)
+func _deferred_main(path):
+	printt("path:", path)
 	current_scene.free()
-	var s = ResourceLoader.load("res://main.tscn")
+	var s = ResourceLoader.load(path)
 	current_scene = s.instance()
 	#print("root children: ",root.get_children())
 	#print("current scene: ",current_scene.get_name())
@@ -88,10 +85,6 @@ func _deferred_main():
 	current_scene = root.get_child(4)
 	get_tree().set_current_scene( current_scene )
 	#print("get_children @end of _deferred_main() ) ",root.get_children())
-=======
-	get_parent().get_child(1).get_node("HUD/Transition").fade(path)
-	playerPosSet = false
->>>>>>> master
 	
 
 # math func

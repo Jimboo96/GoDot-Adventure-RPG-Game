@@ -7,10 +7,7 @@ path="res://.import/JumpAttack (3).png-dcc5b42022168e160ceb834b2267e5e0.stex"
 [deps]
 
 source_file="res://assets/characters/knight/JumpAttack (3).png"
-source_md5="734ae6b1c46374f0efd5ed40df70f34b"
-
 dest_files=[ "res://.import/JumpAttack (3).png-dcc5b42022168e160ceb834b2267e5e0.stex" ]
-dest_md5="de2286efc1ceb961c6cba6a87b65c372"
 
 [params]
 

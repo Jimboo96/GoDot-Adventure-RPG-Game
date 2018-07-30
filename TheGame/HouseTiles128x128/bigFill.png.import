@@ -7,10 +7,7 @@ path="res://.import/bigFill.png-845866067fa4e848c33be9bb89b2e103.stex"
 [deps]
 
 source_file="res://HouseTiles128x128/bigFill.png"
-source_md5="b7ba598afa5c6c788b5ff582291ed98b"
-
 dest_files=[ "res://.import/bigFill.png-845866067fa4e848c33be9bb89b2e103.stex" ]
-dest_md5="cbb728af9dfbd2984e6e2abc3b2fa593"
 
 [params]
 

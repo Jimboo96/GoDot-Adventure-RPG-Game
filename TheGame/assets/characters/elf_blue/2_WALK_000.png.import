@@ -7,10 +7,7 @@ path="res://.import/2_WALK_000.png-1eeea40da86e390ad2c0a9ecfee98489.stex"
 [deps]
 
 source_file="res://assets/characters/elf_blue/2_WALK_000.png"
-source_md5="95f99fa5e5c139f2b50e5490cdf4838e"
-
 dest_files=[ "res://.import/2_WALK_000.png-1eeea40da86e390ad2c0a9ecfee98489.stex" ]
-dest_md5="8a138f476ba024aa646105908de26b60"
 
 [params]
 

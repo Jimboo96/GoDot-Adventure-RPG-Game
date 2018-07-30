@@ -7,10 +7,7 @@ path="res://.import/4_JUMP_003.png-c675940aceb0267302a18f63a70fdf7e.stex"
 [deps]
 
 source_file="res://assets/characters/elf_blue/4_JUMP_003.png"
-source_md5="75ff319327fa6bc78972e37e4f350c1a"
-
 dest_files=[ "res://.import/4_JUMP_003.png-c675940aceb0267302a18f63a70fdf7e.stex" ]
-dest_md5="bea54c96df7ecf8a6d421c6f05265c39"
 
 [params]
 

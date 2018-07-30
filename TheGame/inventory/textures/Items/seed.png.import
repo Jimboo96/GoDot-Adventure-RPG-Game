@@ -7,10 +7,7 @@ path="res://.import/seed.png-39ca3c63c39bdf09d3587c09d66c9501.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/seed.png"
-source_md5="bcdcb159268c06d61871142c3666e598"
-
 dest_files=[ "res://.import/seed.png-39ca3c63c39bdf09d3587c09d66c9501.stex" ]
-dest_md5="446a7d713f56950adcf28b6df88f6928"
 
 [params]
 

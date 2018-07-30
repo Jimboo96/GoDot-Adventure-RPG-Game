@@ -7,10 +7,7 @@ path="res://.import/pick_iron.png-23c0f15c9eb508f95b90ebebe4c428ea.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/pick_iron.png"
-source_md5="780a7e207559a0450f1a37b178eb1542"
-
 dest_files=[ "res://.import/pick_iron.png-23c0f15c9eb508f95b90ebebe4c428ea.stex" ]
-dest_md5="aa5af51fe856e9cae22745a9bd688f72"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/flail_diamond.png-b8fea85b4f3bd026417bf5cd38df3377.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/flail_diamond.png"
-source_md5="2c515bfd1b4767f6446588c231e6c746"
-
 dest_files=[ "res://.import/flail_diamond.png-b8fea85b4f3bd026417bf5cd38df3377.stex" ]
-dest_md5="e7807d36c0bbe1af09593d16fcfbc8e2"
 
 [params]
 

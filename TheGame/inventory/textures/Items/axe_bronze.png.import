@@ -7,10 +7,7 @@ path="res://.import/axe_bronze.png-acd0f59db03172d40c61cd0c8f7852c2.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/axe_bronze.png"
-source_md5="4c900d28c3ab3ccbc2dd19f7d502c56c"
-
 dest_files=[ "res://.import/axe_bronze.png-acd0f59db03172d40c61cd0c8f7852c2.stex" ]
-dest_md5="f7cfec8a3681cf406cb363b27278397e"
 
 [params]
 

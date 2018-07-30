@@ -7,10 +7,7 @@ path="res://.import/ore_diamond.png-c6fd866ba475db3eb9ddb1972cf4139d.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/ore_diamond.png"
-source_md5="36cb297d2eb93f91c3911dde258b0962"
-
 dest_files=[ "res://.import/ore_diamond.png-c6fd866ba475db3eb9ddb1972cf4139d.stex" ]
-dest_md5="0d80887ddddd193d9c7ba9a8550b84d7"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/fishingPole.png-13f3f018e1b38afcef0c8fd9ad784331.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/fishingPole.png"
-source_md5="b3a23f47282378dac022513e9552c58f"
-
 dest_files=[ "res://.import/fishingPole.png-13f3f018e1b38afcef0c8fd9ad784331.stex" ]
-dest_md5="0f8320f7ac5ffacd202ac49b7d7296dd"
 
 [params]
 

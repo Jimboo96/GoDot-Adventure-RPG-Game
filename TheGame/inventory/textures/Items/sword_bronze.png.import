@@ -7,10 +7,7 @@ path="res://.import/sword_bronze.png-205d46e357de2031043cf47c8af3eccd.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/sword_bronze.png"
-source_md5="bb8cefe18a9268f982e211c7ba408788"
-
 dest_files=[ "res://.import/sword_bronze.png-205d46e357de2031043cf47c8af3eccd.stex" ]
-dest_md5="c6f2a9cf2998def16d880de435c86631"
 
 [params]
 

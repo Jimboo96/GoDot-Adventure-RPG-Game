@@ -33,6 +33,7 @@ func _ready():
 	
 func appear(anim): #appear when added to area
 	show()
+	$AnimationPlayer.play("spawning")
 	playerMovable = true
 	
 func _input(event):
@@ -145,6 +146,7 @@ func updateHP(newHP):
 	
 #called when level up
 func levelup():
+	$AnimationPlayer.play("spawning")
 	HP = maxHP * 3/2
 	DEF = DEF * 3/2
 	DAME = DAME + 10

@@ -1,24 +1,22 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://areas/house1.gd" type="Script" id=1]
-[ext_resource path="res://HouseTiles128x128/HouseTileset.tres" type="TileSet" id=2]
-[ext_resource path="res://NPC/NPC.tscn" type="PackedScene" id=3]
-[ext_resource path="res://NPC/QuestNPC.tscn" type="PackedScene" id=4]
-[ext_resource path="res://particles/chests/Chests.gd" type="Script" id=5]
-[ext_resource path="res://particles/chests/chest1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=7]
-[ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=8]
-[ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HouseTiles128x128/HouseTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://NPC/NPC.tscn" type="PackedScene" id=2]
+[ext_resource path="res://NPC/QuestNPC.tscn" type="PackedScene" id=3]
+[ext_resource path="res://particles/chests/Chests.gd" type="Script" id=4]
+[ext_resource path="res://particles/chests/chest1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://particles/MoveArea/MoveArea.gd" type="Script" id=6]
+[ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=8]
 
 [node name="house1" type="Node2D" index="0"]
 
-script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="floor" type="TileMap" parent="." index="0"]
 
 mode = 1
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -39,7 +37,7 @@ _sections_unfolded = [ "Cell" ]
 [node name="walls" type="TileMap" parent="." index="1"]
 
 mode = 1
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -70,7 +68,7 @@ __meta__ = {
 [node name="fill" type="TileMap" parent="." index="2"]
 
 mode = 1
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -91,47 +89,47 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="NPC" parent="fill" index="0" instance=ExtResource( 3 )]
+[node name="NPC" parent="fill" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 1356.82, -136.953 )
 
-[node name="NPC2" parent="fill" index="1" instance=ExtResource( 3 )]
+[node name="NPC2" parent="fill" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 1200.31, -202.163 )
 
-[node name="QuestNPC" parent="fill" index="2" instance=ExtResource( 4 )]
+[node name="QuestNPC" parent="fill" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 951.651, -100.689 )
 
 [node name="Chests" type="Node2D" parent="fill" index="3"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="chest1" parent="fill/Chests" index="0" instance=ExtResource( 6 )]
+[node name="chest1" parent="fill/Chests" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 1804.32, -146.505 )
 
-[node name="chest2" parent="fill/Chests" index="1" instance=ExtResource( 6 )]
+[node name="chest2" parent="fill/Chests" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 1963.32, -56.8481 )
 
-[node name="chest3" parent="fill/Chests" index="2" instance=ExtResource( 6 )]
+[node name="chest3" parent="fill/Chests" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 1792.94, 24.6385 )
 
-[node name="chest4" parent="fill/Chests" index="3" instance=ExtResource( 6 )]
+[node name="chest4" parent="fill/Chests" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 1632.92, -79.0891 )
 
 [node name="MoveAreas" type="Node2D" parent="." index="3"]
 
 position = Vector2( 14.3539, -4.1011 )
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
-[node name="DoorArea" parent="MoveAreas" index="0" instance=ExtResource( 8 )]
+[node name="DoorArea" parent="MoveAreas" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 943.51, 256.397 )
 scale = Vector2( 2.27816, 3.05247 )
@@ -147,17 +145,17 @@ autostart = false
 
 position = Vector2( 45.1122, -8.20224 )
 
-[node name="SwitchArea1" parent="SwitchAreas" index="0" instance=ExtResource( 9 )]
+[node name="SwitchArea1" parent="SwitchAreas" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 1016.58, -25.5995 )
 scale = Vector2( 1.48338, 2.02124 )
 
-[node name="SwitchArea2" parent="SwitchAreas" index="1" instance=ExtResource( 9 )]
+[node name="SwitchArea2" parent="SwitchAreas" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 1449.63, -28.1032 )
 scale = Vector2( 1.48338, 2.02124 )
 
-[node name="SwitchArea3" parent="SwitchAreas" index="2" instance=ExtResource( 9 )]
+[node name="SwitchArea3" parent="SwitchAreas" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 817.851, 294.289 )
 scale = Vector2( 1.48338, 2.02124 )

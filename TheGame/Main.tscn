@@ -182,10 +182,10 @@ script = ExtResource( 14 )
 
 [node name="MusicPlayer" parent="HUD" index="8" instance=ExtResource( 16 )]
 
-margin_left = 681.0
-margin_top = 6.0
-margin_right = 781.0
-margin_bottom = 56.0
+margin_left = 750.0
+margin_top = 9.0
+margin_right = 862.0
+margin_bottom = 59.0
 
 [node name="player" parent="." index="4" instance=ExtResource( 17 )]
 

@@ -18,6 +18,11 @@ config/icon="res://icon.png"
 
 global="*res://global.gd"
 
+[display]
+
+window/size/width=1280
+window/size/height=800
+
 [editor_plugins]
 
 enabled=PoolStringArray( "codeandweb.texturepacker" )

@@ -1,6 +1,6 @@
 extends MarginContainer
 
-var song_number = 0
+var song_number = 1
 
 
 func _on_Play_pressed():

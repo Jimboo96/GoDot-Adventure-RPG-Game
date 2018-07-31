@@ -10,13 +10,18 @@ config_version=3
 
 [application]
 
-config/name="Isometric Game"
+config/name="Godot Adventure Game"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 global="*res://global.gd"
+Settings="*res://particles/Settings/Settings.gd"
+
+[display]
+
+window/size/resizable=false
 
 [editor_plugins]
 
@@ -33,6 +38,7 @@ gen_mipmaps=false
 
 [input]
 
+
 move_bottom=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
  ]
 move_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
@@ -40,6 +46,7 @@ move_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name"
 move_right=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
  ]
 move_up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+
  ]
 interact=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
  ]

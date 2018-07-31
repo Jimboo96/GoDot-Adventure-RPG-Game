@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fantasyforest.jpg-f7cf9bbcbeefbd181ccbc7b0c8d8cc79.stex"
+path="res://.import/spacebar.png-1cb6e8c48e5989549175a8b8acb08391.stex"
 
 [deps]
 
-source_file="res://assets/GUI/texture/fantasyforest.jpg"
-source_md5="5227e55b9dc88396396a9f90ddb7fe8f"
+source_file="res://assets/GUI/texture/spacebar.png"
+source_md5="f9509c30e9a0f38ae02b5c0b8bc07af1"
 
-dest_files=[ "res://.import/fantasyforest.jpg-f7cf9bbcbeefbd181ccbc7b0c8d8cc79.stex" ]
-dest_md5="ee8f014956ad6f2e4c893e5c8986f351"
+dest_files=[ "res://.import/spacebar.png-1cb6e8c48e5989549175a8b8acb08391.stex" ]
+dest_md5="b7997897e980a22ce264eb34e9c1f5a4"
 
 [params]
 

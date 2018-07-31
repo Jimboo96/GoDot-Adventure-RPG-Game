@@ -21,18 +21,19 @@ func _input(event):
 			# Set horizontal closed chest sprite to open.
 			if get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 2:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,0)
-				get_tree().get_root().get_child(1).get_node("Sound/OpenChest").play()
+				get_tree().get_root().get_node("Main/Sound/OpenChest").play()
 				get_reward(chestNum)
 			# Set vertical closed chest sprite to open.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 3:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,1)
-				get_tree().get_root().get_child(1).get_node("Sound/OpenChest").play()
+				get_tree().get_root().get_node("Main/Sound/OpenChest").play()
 				get_reward(chestNum)
 			# Set tree stump with axe in it to a normal tree stump.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 5:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,4)
-				get_tree().get_root().get_child(1).get_node("Sound/PickUp").play()
+				get_tree().get_root().get_node("Main/Sound/PickUp").play()
 				get_reward(chestNum)
+
 			save_chest_states()
 
 func reset_chests():
@@ -53,6 +54,7 @@ func reset_chests():
 func get_reward(var chestNum):
 		var chestNode = get_node("chest" + str(chestNum) + "/Dialogue")
 		if chestNode != null:
+      get_tree().get_root().get_node("Main/HUD").gain_exp(60, null)
 			chestNode.start_chest_dialogue(chestNum, global.current_area)
 
 func save_chest_states():

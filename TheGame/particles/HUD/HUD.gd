@@ -4,9 +4,6 @@ signal gainEXP
 signal levelup
 signal player_dead
 
-
-export (int) var enemies = 3
-
 func _ready():
 	#label text
 	$MainText.hide()
@@ -20,7 +17,8 @@ func conn_signals():
 	$WaitTimer.connect("timeout", self, "game_over")
 	#skill menu
 	$SkillButton.connect("pressed", self, "open_popup")
-	$SkillMenu/Cancel.connect("pressed", self, "close_popup")
+	#settings buttons
+	$PauseButton.connect("pressed", self, "pause_game")
 
 func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)
@@ -54,6 +52,10 @@ func hide_text():
 	if $MainText.is_visible_in_tree():
 		$MainText.hide()
 		
+	if $MainText.text == "GAME OVER":
+		#TODO Handle game over, back to main menu scene, reset stages
+		pass
+		
 func get_prize(type, value):
 	match type:
 		"COIN":
@@ -66,7 +68,11 @@ func get_prize(type, value):
 func open_popup():
 	$SkillMenu.popup()
 	pass
+
+func pause_game():
+	#open popup settings
+	$PauseMenu.open_menu()
+	#pause game
+	get_tree().paused = true
+	pass
 	
-func close_popup():
-	$SkillMenu.hide()
-			

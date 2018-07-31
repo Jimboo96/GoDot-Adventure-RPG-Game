@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://particles/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/GUI/font/videophreak/VIDEOPHREAK.ttf" type="DynamicFontData" id=2]
@@ -8,11 +8,11 @@
 [ext_resource path="res://assets/GUI/texture/button_skills.png" type="Texture" id=6]
 [ext_resource path="res://assets/GUI/texture/button_skills_blue.png" type="Texture" id=7]
 [ext_resource path="res://assets/GUI/texture/button_skills_violet.png" type="Texture" id=8]
-[ext_resource path="res://assets/GUI/texture/skill_menu_bg.png" type="Texture" id=9]
-[ext_resource path="res://assets/GUI/texture/button_select-skill.png" type="Texture" id=10]
-[ext_resource path="res://assets/GUI/texture/button_cancel.png" type="Texture" id=11]
-[ext_resource path="res://assets/GUI/texture/button_skill1.png" type="Texture" id=12]
-[ext_resource path="res://particles/Transition/Transition.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/GUI/texture/pauseBtn.png" type="Texture" id=9]
+[ext_resource path="res://assets/GUI/texture/playBtn.png" type="Texture" id=10]
+[ext_resource path="res://assets/GUI/font/subjectivity/Subjectivity-Black.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://particles/Transition/Transition.tscn" type="PackedScene" id=12]
+[ext_resource path="res://particles/Pause/PauseMenu.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -20,6 +20,14 @@ size = 64
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 11 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="HUD" type="CanvasLayer"]
@@ -30,7 +38,6 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
-enemies = 3
 
 [node name="MainText" type="Label" parent="." index="0"]
 
@@ -55,7 +62,7 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
 
 [node name="InfoContainer" type="MarginContainer" parent="." index="1"]
 
@@ -79,7 +86,6 @@ __meta__ = {
 
 [node name="MainBox" type="HBoxContainer" parent="InfoContainer" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -112,6 +118,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags
 
 [node name="CoinCounter" parent="." index="2" instance=ExtResource( 5 )]
 
+modulate = Color( 0.96875, 0.957397, 0.957397, 1 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -108.0
@@ -119,7 +126,7 @@ margin_right = 0.0
 rect_min_size = Vector2( 40, 40 )
 size_flags_horizontal = 8
 size_flags_vertical = 9
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect", "Size Flags" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Rect", "Size Flags", "Theme", "Visibility" ]
 
 [node name="TextDisappearTimer" type="Timer" parent="." index="3"]
 
@@ -140,7 +147,7 @@ rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
@@ -150,84 +157,72 @@ group = null
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 8 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="SkillMenu" type="PopupMenu" parent="." index="5"]
+[node name="PauseButton" type="TextureButton" parent="." index="5"]
 
-editor/display_folded = true
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-items = [  ]
-hide_on_state_item_selection = false
-_sections_unfolded = [ "Focus", "Grow Direction", "Rect", "Size Flags", "custom_styles" ]
-
-[node name="BG" type="Sprite" parent="SkillMenu" index="1"]
-
-texture = ExtResource( 9 )
-
-[node name="SkillTitle" type="Sprite" parent="SkillMenu" index="2"]
-
-position = Vector2( -1.10803, -118.56 )
-scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Cancel" type="TextureButton" parent="SkillMenu" index="3"]
-
-anchor_left = 0.0
+modulate = Color( 0.832031, 0.481018, 0.505699, 1 )
+anchor_left = 1.0
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = -48.0
-margin_top = 100.0
-margin_right = 52.0
-margin_bottom = 140.0
+margin_left = -60.0
+margin_top = 50.0
+margin_right = 452.0
+margin_bottom = 562.0
+rect_min_size = Vector2( 40, 40 )
+rect_scale = Vector2( 0.085, 0.085 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 11 )
-_sections_unfolded = [ "Textures", "Transform" ]
+texture_normal = ExtResource( 9 )
+texture_focused = ExtResource( 10 )
+_sections_unfolded = [ "Margin", "Rect", "Textures", "Visibility" ]
 
-[node name="Skill1" type="Sprite" parent="SkillMenu" index="4"]
+[node name="SkillMenu" type="WindowDialog" parent="." index="6"]
 
-position = Vector2( 2.21606, -37.6731 )
-texture = ExtResource( 12 )
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -264.0
+margin_top = -163.0
+margin_right = 264.0
+margin_bottom = 163.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/title_font = SubResource( 2 )
+custom_colors/title_color = Color( 0.135757, 0.597379, 0.847656, 1 )
+popup_exclusive = false
+window_title = "Skills"
+resizable = true
+_sections_unfolded = [ "Focus", "Popup", "Rect", "Size Flags", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="Skill2" type="Sprite" parent="SkillMenu" index="5"]
-
-position = Vector2( 1.10803, 18.8365 )
-texture = ExtResource( 12 )
-
-[node name="WaitTimer" type="Timer" parent="." index="6"]
+[node name="WaitTimer" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 1.5
 one_shot = true
 autostart = false
 
-[node name="Transition" parent="." index="7" instance=ExtResource( 13 )]
+[node name="Transition" parent="." index="8" instance=ExtResource( 12 )]
+
+[node name="PauseMenu" parent="." index="9" instance=ExtResource( 13 )]
+
+visible = false
 
 

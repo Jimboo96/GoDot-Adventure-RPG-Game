@@ -12,22 +12,23 @@ func _input(event):
 	if(doorOpenable && !global.playerIsInteracting):
 		if event.is_action_pressed("interact"):
 			doorOpenable = false
-			get_tree().get_root().get_child(1).get_node("Sound/OpenDoor").play()
+			get_tree().get_root().get_node("Main/Sound/OpenDoor").play()
 			global.playerMovable = false
 			$DoorArea/DoorTimer.start()
 
 # Normal movement between areas. Move automatically to next scene after a brief delay.
 func _on_MoveArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
+
 		global.playerMovable = false
 		$MoveArea/MoveTimer.start()
-		get_tree().get_root().get_child(1).get_node("Sound/WalkingOnLeaves").play(6)
+		get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
 
 func _on_MoveArea2_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
 		global.playerMovable = false
 		$MoveArea2/MoveTimer2.start()
-		get_tree().get_root().get_child(1).get_node("Sound/WalkingOnLeaves").play(6)
+		get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
 
 # Resets players position according to the coordinates that are saved in global variables.
 #set init pos if null
@@ -35,7 +36,7 @@ func reset_player_pos(var current_scene):
 	if current_scene == "area1":
 		# For playing the door close sound after exiting house to area1.
 		if global.house1Exited:
-			get_tree().get_root().get_child(1).get_node("Sound/CloseDoor").play() #
+			get_tree().get_root().get_node("Main/Sound/CloseDoor").play() #
 			global.house1Exited = false
 		if global.area1Position == Vector2():
 			if global.last_area == "area2":
@@ -66,7 +67,7 @@ func reset_player_pos(var current_scene):
 		global.player.position = global.area3Position
 		#Remove the tree blocking the secret way.
 		if global.area1Switch:
-			get_tree().get_root().get_child(1).get_node("Area/area/walls").set_cell(-19,-5,4)
+			get_tree().get_root().get_node("Main/Area/area/walls").set_cell(-19,-5,4)
 			
 	elif current_scene == "secretArea":
 		if global.secretAreaPosition == Vector2():
@@ -74,7 +75,7 @@ func reset_player_pos(var current_scene):
 		global.player.position = global.secretAreaPosition
 		
 	elif current_scene == "house1":
-		get_tree().get_root().get_child(1).get_node("Sound/CloseDoor").play()
+		get_tree().get_root().get_node("Main/Sound/CloseDoor").play()
 		if global.house1Position == Vector2():
 			global.house1Position = Vector2(864, 135)
 		global.player.position = global.house1Position

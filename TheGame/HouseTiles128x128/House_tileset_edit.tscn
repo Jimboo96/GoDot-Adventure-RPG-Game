@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://HouseTiles128x128/iso-128x128-building.png" type="Texture" id=1]
 [ext_resource path="res://HouseTiles128x128/fill.png" type="Texture" id=2]
+[ext_resource path="res://HouseTiles128x128/bigFill.png" type="Texture" id=3]
 
 [node name="InsideHouse" type="Node2D"]
 
@@ -411,7 +412,7 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wall17/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -0.256706, 0.0294266, 64.1404, 31.7486, 63.003, 8.88358, 4.63449, -19.6931 )
+polygon = PoolVector2Array( -0.256706, 0.0294266, 64.1404, 31.7486, 64.1362, 7.69025, -0.479973, -23.8621 )
 
 [node name="wall18" type="Sprite" parent="." index="17"]
 
@@ -447,8 +448,6 @@ polygon = PoolVector2Array( 1.37785, 0.105103, 64.1404, 31.7486, 63.003, 8.88358
 
 [node name="wall20" type="Sprite" parent="." index="19"]
 
-editor/display_folded = true
-visible = false
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 768, 512, 128, 128 )
@@ -467,7 +466,7 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wall20/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 1.95222, 0.818329, 64.1404, 31.7486, 63.0133, 8.39179, 0.37442, -21.4287 )
+polygon = PoolVector2Array( 1.45223, 0.725266, 62.4588, 32.2724, 62.9228, 6.9883, 0.872318, -22.5871 )
 
 [node name="wall21" type="Sprite" parent="." index="20"]
 
@@ -778,6 +777,13 @@ _sections_unfolded = [ "Region" ]
 visible = false
 texture = ExtResource( 2 )
 region_enabled = true
+region_rect = Rect2( 0, 32, 128, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="bigFill" type="Sprite" parent="." index="39"]
+
+visible = false
+texture = ExtResource( 3 )
 region_rect = Rect2( 0, 32, 128, 64 )
 _sections_unfolded = [ "Region" ]
 

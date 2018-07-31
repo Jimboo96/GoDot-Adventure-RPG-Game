@@ -35,13 +35,7 @@ func conn_scenes_signals():
 				timerPath.disconnect("timeout", $SceneManager, "_on_" + timerName + "_timeout") #call when changing scene
 			else:
 				timerPath.connect("timeout", $SceneManager, "_on_" + timerName + "_timeout")			
-		#add signal connection from MoveArea.gd, SwitchAreas.gd to player and remove when change scene.
-		if MoveAreas.is_connected("halt_player", player, "_on_MoveAreas_halt_player"):
-			MoveAreas.disconnect("halt_player", player, "_on_MoveAreas_halt_player")
-		else:
-			MoveAreas.connect("halt_player", player, "_on_MoveAreas_halt_player")
-		#TODO disconnect signal from move area when player enter
-		
+
 func goto_area(path):
 	$WaitTimeTimer.stop() #called when changing scene
 	conn_scenes_signals() #disconnect signals from old area
@@ -69,7 +63,7 @@ func add_new_scene(s):
 		$Area.add_child(currentArea)
 	#set global area (name)
 	global.current_area = areaName
-	walls = currentArea.get_child(2).get_child(0)
+	walls = currentArea.get_child(1).get_child(0)
 	#reparent player
 	call_deferred("add_player_to_current_scene")
 	#reset when go to new scene:

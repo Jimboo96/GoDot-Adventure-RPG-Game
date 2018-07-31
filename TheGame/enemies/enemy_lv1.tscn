@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://enemies/enemy_lv1.gd" type="Script" id=1]
 [ext_resource path="res://enemies/enemyHP.tscn" type="PackedScene" id=2]
 [ext_resource path="res://particles/Prizes/prize.tscn" type="PackedScene" id=3]
+[ext_resource path="res://particles/Effects/smoke.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -16,10 +17,28 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 radius = 200.0
 
-[node name="enemy_level1" type="KinematicBody2D"]
+[sub_resource type="Animation" id=3]
+
+resource_name = "dead"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[node name="enemy_level1" type="KinematicBody2D" index="0"]
 
 light_mask = 2
-position = Vector2( 370.083, 254.848 )
 input_pickable = false
 collision_layer = 4
 collision_mask = 3
@@ -80,5 +99,21 @@ process_mode = 1
 wait_time = 3.0
 one_shot = false
 autostart = false
+
+[node name="Particles2D" parent="." index="6" instance=ExtResource( 4 )]
+
+visible = false
+position = Vector2( 25, 0 )
+_sections_unfolded = [ "Material", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
+
+[node name="Anim" type="AnimationPlayer" parent="." index="7"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/dead = SubResource( 3 )
+blend_times = [  ]
 
 

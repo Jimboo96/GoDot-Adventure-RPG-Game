@@ -9,7 +9,7 @@
 [ext_resource path="res://particles/MoveArea/MoveArea.tscn" type="PackedScene" id=7]
 [ext_resource path="res://particles/SwitchArea/SwitchArea.tscn" type="PackedScene" id=8]
 
-[node name="house1" type="Node2D" index="0"]
+[node name="house1" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Visibility" ]
 

@@ -16,7 +16,7 @@ func conn_signals():
 	$InfoContainer/MainBox/HPBar.connect("player_dead", self, "player_dead")
 	$WaitTimer.connect("timeout", self, "game_over")
 	#skill menu
-	$SkillButton.connect("pressed", self, "open_popup")
+	#$SkillButton.connect("pressed", self, "open_popup")
 	#settings buttons
 	$PauseButton.connect("pressed", self, "pause_game")
 
@@ -65,9 +65,9 @@ func get_prize(type, value):
 		_:
 			pass
 			
-func open_popup():
+"""func open_popup():
 	$SkillMenu.popup()
-	pass
+	pass"""
 
 func pause_game():
 	#open popup settings

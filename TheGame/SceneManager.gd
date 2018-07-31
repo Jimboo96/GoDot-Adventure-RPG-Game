@@ -54,20 +54,16 @@ func _on_DoorTimer_timeout():
 # Offset player by few pixels, so they dont spawn on the transistion area when changing scenes.
 func north_exit():
 	playerPos = player.get_player_pos()
-	#print(get_parent().get_node("Area/area").get_name())
 	playerPos += Vector2(-40,40)
 
 func south_exit():
-	#print(get_parent().get_node("Area/area").get_name())
 	playerPos = player.get_player_pos()
 	playerPos += Vector2(40,-40)
 
 func west_exit():
-	#print(get_parent().get_node("Area/area").get_name())
 	playerPos = player.get_player_pos()
 	playerPos += Vector2(40,40)
 
 func east_exit():
-	#print(get_parent().get_node("Area/area").get_name())
 	playerPos = player.get_player_pos()
 	playerPos += Vector2(-40,-40)

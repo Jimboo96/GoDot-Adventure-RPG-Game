@@ -13,20 +13,19 @@ func _input(event):
 		if event.is_action_pressed("interact"):
 			doorOpenable = false
 			get_tree().get_root().get_node("Main/Sound/OpenDoor").play()
-			global.playerMovable = false
+			global.player.playerMovable = false
 			$DoorArea/DoorTimer.start()
 
 # Normal movement between areas. Move automatically to next scene after a brief delay.
 func _on_MoveArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
-
-		global.playerMovable = false
+		global.player.playerMovable = false
 		$MoveArea/MoveTimer.start()
 		get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
 
 func _on_MoveArea2_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.get_name() == "player":
-		global.playerMovable = false
+		global.player.playerMovable = false
 		$MoveArea2/MoveTimer2.start()
 		get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
 

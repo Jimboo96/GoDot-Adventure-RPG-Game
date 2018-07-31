@@ -54,7 +54,7 @@ func reset_chests():
 func get_reward(var chestNum):
 		var chestNode = get_node("chest" + str(chestNum) + "/Dialogue")
 		if chestNode != null:
-      get_tree().get_root().get_node("Main/HUD").gain_exp(60, null)
+			get_tree().get_root().get_node("Main/HUD").gain_exp(60, null)
 			chestNode.start_chest_dialogue(chestNum, global.current_area)
 
 func save_chest_states():

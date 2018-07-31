@@ -51,7 +51,6 @@ func _input(event):
 							get_tree().get_root().get_node("Main/Sound/CloseDoor").play()
 							walls.set_cell(10,-15,26)
 					else:
-
 						get_tree().get_root().get_node("Main/Sound/LockedDoor").play()
 						$IconSprite.texture = doorLockedSprite
 

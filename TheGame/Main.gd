@@ -151,4 +151,4 @@ func enemies_dead(EXP, enemy_id):
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_ESCAPE:
-			$HUD/PauseMenu.open_menu()
+			$HUD.pause_game()

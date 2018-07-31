@@ -100,7 +100,6 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
 
 [node name="MoveAreas" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( 14.3539, -4.1011 )
 script = ExtResource( 5 )
 

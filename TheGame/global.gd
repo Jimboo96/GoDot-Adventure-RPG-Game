@@ -17,13 +17,11 @@ var area2Chest1
 var area2Chest2
 var area2Chest3
 var area2Position = Vector2()
-var area2Enemies = 3
 
 # area3 variables
 var area3Chest1
 var area3Chest2
 var area3Position = Vector2()
-var area3Enemies = 3
 
 # house1 variables
 var house1Chest1

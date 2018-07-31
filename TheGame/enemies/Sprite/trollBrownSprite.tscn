@@ -4,9 +4,10 @@
 
 [node name="trollBrownSprite" type="AnimatedSprite"]
 
+modulate = Color( 0.457031, 0.457031, 0.457031, 1 )
 scale = Vector2( 0.18, 0.18 )
 frames = ExtResource( 1 )
 animation = "idle"
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 

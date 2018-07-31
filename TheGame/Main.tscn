@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://sound/sfx/sfx_open_door.wav" type="AudioStream" id=2]
@@ -15,10 +15,11 @@
 [ext_resource path="res://sound/sfx/swords_sound.wav" type="AudioStream" id=13]
 [ext_resource path="res://SceneManager.gd" type="Script" id=14]
 [ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=15]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
-[ext_resource path="res://SkillTree/Control.tscn" type="PackedScene" id=17]
+[ext_resource path="res://particles/Music/MusicPlayer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://SkillTree/Control.tscn" type="PackedScene" id=18]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -179,7 +180,14 @@ script = ExtResource( 14 )
 
 [node name="HUD" parent="." index="3" instance=ExtResource( 15 )]
 
-[node name="player" parent="." index="4" instance=ExtResource( 16 )]
+[node name="MusicPlayer" parent="HUD" index="8" instance=ExtResource( 16 )]
+
+margin_left = 681.0
+margin_top = 6.0
+margin_right = 781.0
+margin_bottom = 56.0
+
+[node name="player" parent="." index="4" instance=ExtResource( 17 )]
 
 position = Vector2( 514.558, 299.008 )
 
@@ -190,6 +198,6 @@ wait_time = 3.0
 one_shot = false
 autostart = false
 
-[node name="Control" parent="." index="6" instance=ExtResource( 17 )]
+[node name="Control" parent="." index="6" instance=ExtResource( 18 )]
 
 

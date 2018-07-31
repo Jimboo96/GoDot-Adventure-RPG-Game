@@ -158,7 +158,7 @@ func updateHP(newHP):
 	
 
 #called when level up
-func levelup(Str, Agi, constitution, Wc):
+func level_up(Str, Agi, constitution, Wc):
 	HP = 10 * constitution
 	def = def * 3/2
 	WALK_SPEED = WALK_SPEED * ((Agi/10)+1)
@@ -175,4 +175,4 @@ func _load_stats():
 		constitution = current_line["Const"]
 		Wc = current_line["Wc"]
 		Lvl = global.player_lvl
-		levelup(Str, Agi, constitution, Wc)
+		level_up(Str, Agi, constitution, Wc)

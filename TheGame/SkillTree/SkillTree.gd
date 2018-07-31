@@ -22,7 +22,7 @@ func _ready():
 	_load_points()
 #	_save_stats()
 	_load_stats()
-	sp = (Lvl/2) - _check_enabled_skills()
+	sp = int((Lvl/2) - _check_enabled_skills())
 	_set_sp()
 	_enable_true_skills()
 	_check_upgrades()

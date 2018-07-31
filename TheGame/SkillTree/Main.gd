@@ -28,7 +28,6 @@ const SAVE_PATH = "user://statFile.json"
 
 func _ready():
 #	_save_stats()
-	get_tree().get_root().get_child(1).get_node("Control").connect("emitLvl", self, "get_lvl")
 	_load_stats()
 	_set_text()
 
@@ -137,6 +136,7 @@ func _save_stats():
 	data.Wc = Wc
 	data.Ap = ap
 	data.Pa = points_allocated
+	data.Lvl = global.player_lvl
 	
 	var save_file = File.new()
 	
@@ -144,23 +144,6 @@ func _save_stats():
 	save_file.store_line(to_json(data))
 	save_file.close()
 
-#func _load_stats():
-#	var load_file = File.new()
-#	if not load_file.file_exists(SAVE_PATH):
-#		print("File does not exist")
-#		return
-#
-#	var err = load_file.open_encrypted_with_pass(SAVE_PATH, load_file.READ, "mypass")
-#	var current_line = {}
-#	current_line = parse_json(load_file.get_line())
-#	print(current_line)
-#	Str = current_line["Str"]
-#	Agi = current_line["Agi"]
-#	constitution = current_line["Const"]
-#	Wc = current_line["Wc"]
-#	ap = current_line["Ap"]
-#	Lvl = current_line["Lvl"]
-#	load_file.close()
 
 func _load_stats():
 	var current_line = global._load_player_stats(1)
@@ -191,8 +174,6 @@ func _exit_tree():
 	_save_stats()
 	print("saved on exit")
 
-func get_lvl(cur_lvl):
-	print("Lvl tuli stat scenee", cur_lvl)
 
 func _set_allocated_points(PoM):
 	if PoM == 1:

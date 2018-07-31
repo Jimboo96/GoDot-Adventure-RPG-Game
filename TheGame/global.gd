@@ -46,8 +46,9 @@ var playerMovable = true
 var quest1State = "NOT_STARTED"
 
 func _ready():
-    var root = get_tree().get_root()
-    current_scene = root.get_child( root.get_child_count() -1 )
+	var root = get_tree().get_root()
+	current_scene = root.get_child( root.get_child_count() -1 )
+	load_level_on_start()
 
 func goto_scene(path):
 	get_parent().get_child(1).get_node("HUD/Transition").fade(path)
@@ -90,3 +91,19 @@ func _load_player_stats(PATH):
 	current_line = parse_json(load_file.get_line())
 	return current_line
 	load_file.close()
+
+func load_level_on_start():
+	var load_file = File.new()
+	
+	if not load_file.file_exists(SAVE_PATH):
+		print("File does not exist")
+		player_lvl = 1
+		return
+	else:
+		var err = load_file.open_encrypted_with_pass(SAVE_PATH, load_file.READ, "mypass")
+		var current_line = {}
+		current_line = parse_json(load_file.get_line())
+		player_lvl = current_line["Lvl"]
+		print("global level loaded")
+	load_file.close()
+

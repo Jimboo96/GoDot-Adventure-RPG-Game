@@ -9,6 +9,7 @@ export (int) var enemies = 3
 
 func _ready():
 	#label text
+	curLvl = global.player_lvl
 	$MainText.hide()
 	#connect signals
 	conn_signals()

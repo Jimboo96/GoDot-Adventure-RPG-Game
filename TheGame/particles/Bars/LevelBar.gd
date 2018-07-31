@@ -4,13 +4,16 @@ signal levelup
 
 var currentEXP
 var maxEXP
-var currentLV
+var currentLV = 2
 
 func _ready():
 	#get values
 	currentEXP = int($Gauge.get_value())
 	maxEXP = int($"Gauge/Bar Value/Total".text)
-	currentLV = int($Level.text)
+	currentLV = global.player_lvl
+	printt("current level set to:", currentLV)
+	$Level.set_text(String(currentLV))
+	
 	#init
 	$"Gauge/Bar Value/Value".set_text(String(currentEXP))
 

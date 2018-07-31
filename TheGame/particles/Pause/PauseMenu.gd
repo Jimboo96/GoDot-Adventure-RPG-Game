@@ -32,14 +32,17 @@ func open_menu():
 		self.show()
 	$Pause.show()
 	
-func continue_game():
+func close_menu():
 	$PauseMenuAnim.play("close_pause_menu")
+	
+func continue_game():
+	close_menu()
 	
 func open_other_menu():
 	$Pause.hide()
 	
 func reset_state(): #call during close animation
-	get_tree().paused = false		
+	get_tree().paused = false
 	self.hide()
 	
 func open_settings():
@@ -48,12 +51,12 @@ func open_settings():
 	
 func open_help():
 	open_other_menu()
+	$HelpWindow.open_window()
 	#open help window
 	pass
 	
 func open_mainMenu():
-	#TODOD
-	#set main scene to Main Menu 
-	#unpaused 
-	#open main menu scene, save stage
+	open_other_menu()
+	#open confirm quit game box
+	$QuitConfirm.open_box()
 	pass

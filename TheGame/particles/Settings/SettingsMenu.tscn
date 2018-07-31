@@ -98,7 +98,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="SettingsMenu" type="Container" index="0"]
+[node name="SettingsMenu" type="Container"]
 
 pause_mode = 2
 anchor_left = 0.5
@@ -562,6 +562,7 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
 [node name="ConfirmContainer" type="HBoxContainer" parent="Menu" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

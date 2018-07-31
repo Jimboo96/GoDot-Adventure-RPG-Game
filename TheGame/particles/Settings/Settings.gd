@@ -47,8 +47,8 @@ func load_settings():
 	for section in _config_file.get_sections():
 		for key in _config_file.get_section_keys(section):
 			var value = _config_file.get_value(section, key)
-			# Printing the values for debug purposes
-			print("%s: %s %s" % [key, value, get_bool_value(value)])
+			#Printing the values for debug purposes
+			#print("%s: %s %s" % [key, value, get_bool_value(value)])
 			#generate settings
 			if key == "fullscreen":
 				OS.window_fullscreen = get_bool_value(value)

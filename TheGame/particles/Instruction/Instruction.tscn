@@ -1,0 +1,372 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://particles/Instruction/Instruction.gd" type="Script" id=1]
+[ext_resource path="res://assets/GUI/texture/layer_background.png" type="Texture" id=2]
+[ext_resource path="res://assets/GUI/font/subjectivity/Subjectivity-ExtraBold.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/GUI/texture/button_ok.png" type="Texture" id=4]
+[ext_resource path="res://assets/GUI/font/Atarian/SF Atarian System.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/GUI/texture/wasd-men.png" type="Texture" id=6]
+[ext_resource path="res://assets/GUI/texture/letterF.png" type="Texture" id=7]
+[ext_resource path="res://assets/GUI/texture/spacebar.png" type="Texture" id=8]
+[ext_resource path="res://assets/GUI/texture/esc.png" type="Texture" id=9]
+[ext_resource path="res://assets/GUI/texture/leftmouse.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+extra_spacing_top = 10
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
+
+[sub_resource type="Animation" id=3]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": ""
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="HelpWindow" type="Container"]
+
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -350.0
+margin_top = -250.0
+margin_right = 350.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 700, 500 )
+rect_pivot_offset = Vector2( 10, 10 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Rect", "Visibility" ]
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.219608, 0.207843, 0.207843, 0.482353 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 700, 500 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
+
+[node name="Menu" type="VBoxContainer" parent="." index="1"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Pause" ]
+
+[node name="LabelContainer" type="Container" parent="Menu" index="0"]
+
+modulate = Color( 0.949768, 0.956364, 0.964844, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 700.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Size Flags", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Menu/LabelContainer" index="0"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -117.0
+margin_top = -40.0
+margin_right = 117.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.933594, 0.900772, 0.900772, 1 )
+custom_colors/font_color_shadow = Color( 0.0585938, 0.0428009, 0.0428009, 1 )
+text = "HOW TO PLAY"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "custom_colors", "custom_fonts" ]
+
+[node name="WindowContainer" type="Container" parent="Menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 64.0
+margin_right = 700.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 300, 370 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 15
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="Container" type="CenterContainer" parent="Menu/WindowContainer" index="0"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -350.0
+margin_top = -70.0
+margin_right = 350.0
+rect_min_size = Vector2( 700, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OKBtn" type="TextureButton" parent="Menu/WindowContainer/Container" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = 15.0
+margin_right = 400.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/WindowContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 40.0
+margin_right = 700.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 700, 300 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Info" type="RichTextLabel" parent="Menu/WindowContainer/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_right = 650.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 600, 300 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/mono_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Your mission is ....
+
+
+Use                          to move. Use                    to attack enemies. 
+
+
+For inspect items, use
+
+
+To flip coins, press
+
+
+To pause game, press
+"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Your mission is ....
+
+
+Use                          to move. Use                    to attack enemies. 
+
+
+For inspect items, use
+
+
+To flip coins, press
+
+
+To pause game, press
+"
+scroll_active = true
+scroll_following = true
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
+
+[node name="HelpWindowAnim" type="AnimationPlayer" parent="." index="2"]
+
+pause_mode = 2
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/close_window = SubResource( 3 )
+anims/open_window = SubResource( 4 )
+blend_times = [  ]
+_sections_unfolded = [ "Pause" ]
+
+[node name="textureGroup" type="Node2D" parent="." index="3"]
+
+position = Vector2( 2.21606, 5.54017 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="WASD" type="Sprite" parent="textureGroup" index="0"]
+
+position = Vector2( 122.956, 150.552 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="F" type="Sprite" parent="textureGroup" index="1"]
+
+position = Vector2( 192.224, 170.232 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 7 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Spacebar" type="Sprite" parent="textureGroup" index="2"]
+
+position = Vector2( 248.424, 243.537 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Esc" type="Sprite" parent="textureGroup" index="3"]
+
+position = Vector2( 216.6, 286.093 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="leftMouse" type="Sprite" parent="textureGroup" index="4"]
+
+modulate = Color( 0.10025, 0.855469, 0.359857, 1 )
+self_modulate = Color( 0.156738, 0.835938, 0.326538, 1 )
+position = Vector2( 304.328, 150.694 )
+scale = Vector2( 0.03, 0.03 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+

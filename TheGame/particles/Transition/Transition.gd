@@ -36,5 +36,9 @@ func trans_finished(anim):
 func window_resize():
 	var current_size = OS.get_window_size()
 	if has_node("Sprite"):
-		$Sprite.set_region_rect(Rect2(Vector2(0,0), current_size))
+		$Sprite.set_region_rect(Rect2(Vector2(0,0), current_size/2))
+		
+	if current_size.x > 2048:
+		$runningCharacter.set("scale", Vector2(0.2,0.2))
+		$runningCharacter.set("position", current_size/2)
 		

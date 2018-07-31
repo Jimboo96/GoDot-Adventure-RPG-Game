@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://particles/Pause/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/GUI/texture/layer_background.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/GUI/texture/button_help.png" type="Texture" id=6]
 [ext_resource path="res://assets/GUI/texture/button_main-menu.png" type="Texture" id=7]
 [ext_resource path="res://particles/Settings/SettingsMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://particles/Instruction/Instruction.tscn" type="PackedScene" id=9]
+[ext_resource path="res://particles/ConfirmBox/ConfirmBox.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -84,7 +86,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="PauseMenu" type="Container"]
+[node name="PauseMenu" type="Container" index="0"]
 
 pause_mode = 2
 anchor_left = 0.5
@@ -215,11 +217,9 @@ _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = -100.0
-margin_top = 30.0
 margin_right = 100.0
-margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -239,11 +239,10 @@ _sections_unfolded = [ "Margin", "Size Flags", "Textures" ]
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = -100.0
-margin_top = 120.0
+margin_top = 90.0
 margin_right = 100.0
-margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -263,11 +262,10 @@ _sections_unfolded = [ "Grow Direction", "Margin", "Offset", "Size Flags", "Text
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = -100.0
-margin_top = 210.0
+margin_top = 180.0
 margin_right = 100.0
-margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -287,11 +285,10 @@ _sections_unfolded = [ "Margin", "Textures" ]
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = -100.0
-margin_top = 300.0
+margin_top = 270.0
 margin_right = 100.0
-margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -320,6 +317,14 @@ blend_times = [  ]
 _sections_unfolded = [ "Pause" ]
 
 [node name="SettingsMenu" parent="." index="2" instance=ExtResource( 8 )]
+
+visible = false
+
+[node name="HelpWindow" parent="." index="3" instance=ExtResource( 9 )]
+
+visible = false
+
+[node name="QuitConfirm" parent="." index="4" instance=ExtResource( 10 )]
 
 visible = false
 

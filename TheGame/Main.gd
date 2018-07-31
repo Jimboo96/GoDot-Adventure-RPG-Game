@@ -153,3 +153,8 @@ func enemies_dead(EXP, enemy_id):
 		if (enemy_id.get_name() in enemies[i].get_name()) or (enemies[i].get_name() in enemy_id.get_name()):
 			enemies.remove(i)
 			break
+			
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_ESCAPE:
+			$HUD/PauseMenu.open_menu()

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/imageedit_20_5323798492.png-dc38412b155fb8948cf00191ce9e1f16.stex"
+path="res://.import/cancel-512.png-25c0e1088ebbc34ded47b2a3e41c3016.stex"
 
 [deps]
 
-source_file="res://assets/GUI/texture/imageedit_20_5323798492.png"
-source_md5="d846d6d077532d5294a1163adf1b460c"
+source_file="res://assets/GUI/texture/cancel-512.png"
+source_md5="6cbf12a6bedc7285c44468e61ca42d2e"
 
-dest_files=[ "res://.import/imageedit_20_5323798492.png-dc38412b155fb8948cf00191ce9e1f16.stex" ]
-dest_md5="703537a899228408e8508eac67b21590"
+dest_files=[ "res://.import/cancel-512.png-25c0e1088ebbc34ded47b2a3e41c3016.stex" ]
+dest_md5="a06d39db9ec6c584d8b784c13a30f38c"
 
 [params]
 

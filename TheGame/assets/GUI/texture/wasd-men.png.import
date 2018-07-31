@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shiftBtn.png-26fdccaf636034386aa168964404e3a0.stex"
+path="res://.import/wasd-men.png-e880288825933fd34f5d1d5ddd27ff6b.stex"
 
 [deps]
 
-source_file="res://assets/GUI/texture/shiftBtn.png"
-source_md5="9491acfbeed8e02714abb41449fc5f61"
+source_file="res://assets/GUI/texture/wasd-men.png"
+source_md5="89d638ab79d1a9995cfc2838a4955a18"
 
-dest_files=[ "res://.import/shiftBtn.png-26fdccaf636034386aa168964404e3a0.stex" ]
-dest_md5="0064bd388f42ec123cd40f0c6d2fcfba"
+dest_files=[ "res://.import/wasd-men.png-e880288825933fd34f5d1d5ddd27ff6b.stex" ]
+dest_md5="c54d1cf00661f621ee715b4d821d5152"
 
 [params]
 

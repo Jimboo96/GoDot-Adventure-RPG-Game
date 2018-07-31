@@ -90,6 +90,9 @@ func move_and_animation():
 	
 	motion = motion.normalized() * WALK_SPEED
 	move_and_slide(motion)
+	
+func get_player_pos():
+	return position
 
 func enemy_in_zone(body):
 	if "enemy" in body.get_name():

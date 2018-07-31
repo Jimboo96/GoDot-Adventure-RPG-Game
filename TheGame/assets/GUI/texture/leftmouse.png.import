@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/imageedit_4_6981925461.jpg-e4dae88981fc4aea14e94a3792c20433.stex"
+path="res://.import/leftmouse.png-fbde14a94c7cda587c01b1cb5244f745.stex"
 
 [deps]
 
-source_file="res://assets/GUI/texture/imageedit_4_6981925461.jpg"
-source_md5="d45d7c00b4208376e3bc41ade28f5df5"
+source_file="res://assets/GUI/texture/leftmouse.png"
+source_md5="26494fccb1522cd9d3eef862660885bc"
 
-dest_files=[ "res://.import/imageedit_4_6981925461.jpg-e4dae88981fc4aea14e94a3792c20433.stex" ]
-dest_md5="726570ed93ee49d2f293fdfb66713dff"
+dest_files=[ "res://.import/leftmouse.png-fbde14a94c7cda587c01b1cb5244f745.stex" ]
+dest_md5="d902d101a4f61f47838cc22aad6a7dd0"
 
 [params]
 

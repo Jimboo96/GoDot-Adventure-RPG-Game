@@ -63,6 +63,7 @@ func music_tog(if_toggled):
 func sound_tog(if_toggled):
 	sound = if_toggled
 	print(if_toggled)
+	
 """TODO changing input keys
 	
 func attack_tog(id):
@@ -72,6 +73,3 @@ func attack_tog(id):
 func move_tog(id):
 	var selected_val = $Menu/MenuContainer/MenuLines/Moving/MoveOpt
 	#move = selected_val"""
-	
-
-	

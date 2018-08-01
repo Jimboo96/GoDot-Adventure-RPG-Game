@@ -1,8 +1,8 @@
-
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/player/player_default.png" type="Texture" id=2]
+[ext_resource path="res://particles/Effects/SpawnEffect.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -65,7 +65,7 @@ tracks/0/keys = {
 
 resource_name = "attackUp"
 length = 0.6
-loop = true
+loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -78,6 +78,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 156, 157, 158, 159, 160, 161 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SpawnEffect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -250,7 +262,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=14]
 
 length = 1.0
-loop = true
+loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -267,7 +279,6 @@ tracks/0/keys = {
 
 [sub_resource type="CircleShape2D" id=15]
 
-
 custom_solver_bias = 0.0
 radius = 10.0
 
@@ -276,26 +287,7 @@ radius = 10.0
 custom_solver_bias = 0.0
 extents = Vector2( 30, 45 )
 
-[sub_resource type="Animation" id=4]
-
-resource_name = "spawning"
-length = 1.0
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("SpawnEffect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
-}
-
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 light_mask = 29
 position = Vector2( 512.621, 301.651 )
@@ -318,7 +310,7 @@ scale = Vector2( 1.6, 1.6 )
 texture = ExtResource( 2 )
 vframes = 21
 hframes = 13
-frame = 143
+frame = 130
 _sections_unfolded = [ "Animation", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -347,7 +339,6 @@ anims/up = SubResource( 13 )
 anims/victory = SubResource( 14 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
-
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
 
@@ -422,7 +413,7 @@ playback_speed = 1.0
 anims/spawning = SubResource( 4 )
 blend_times = [  ]
 
-[node name="SpawnEffect" parent="." index="6" instance=ExtResource( 63 )]
+[node name="SpawnEffect" parent="." index="6" instance=ExtResource( 3 )]
 
 visible = false
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Time", "Transform", "Visibility" ]

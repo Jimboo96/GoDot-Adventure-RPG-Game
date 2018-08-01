@@ -157,6 +157,7 @@ func updateHP(newHP):
 #called when level up
 func levelup():
 	$AnimationPlayer.play("spawning")
+	play_animation("victory")
 	HP = maxHP * 3/2
 	def = def * 3/2
 	dame = dame + 10

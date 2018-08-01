@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://sound/sfx/sfx_open_door.wav" type="AudioStream" id=2]
@@ -13,11 +13,12 @@
 [ext_resource path="res://sound/sfx/sfx_scream.wav" type="AudioStream" id=11]
 [ext_resource path="res://sound/sfx/walking-through-leaves.wav" type="AudioStream" id=12]
 [ext_resource path="res://sound/sfx/swords_sound.wav" type="AudioStream" id=13]
-[ext_resource path="res://SceneManager.gd" type="Script" id=14]
-[ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=15]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://sound/sfx/sfx_falling_tree.wav" type="AudioStream" id=14]
+[ext_resource path="res://SceneManager.gd" type="Script" id=15]
+[ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=16]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -26,8 +27,6 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sound" type="Node2D" parent="." index="1"]
-
-editor/display_folded = true
 
 [node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
 
@@ -161,13 +160,23 @@ attenuation = 1.0
 bus = "Sound"
 area_mask = 1
 
+[node name="FallenTree" type="AudioStreamPlayer2D" parent="Sound" index="13"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Sound"
+area_mask = 1
+
 [node name="SceneManager" type="Node" parent="." index="2"]
 
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 15 )]
+[node name="HUD" parent="." index="3" instance=ExtResource( 16 )]
 
-[node name="player" parent="." index="4" instance=ExtResource( 16 )]
+[node name="player" parent="." index="4" instance=ExtResource( 17 )]
 
 position = Vector2( 514.558, 299.008 )
 

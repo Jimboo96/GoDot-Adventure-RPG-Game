@@ -3,54 +3,59 @@
 "id": 1,
 "area": "area1",
 "text": "1x Health Potion"
-}, 
+},
 "2": {
 "id": 2,
+"area": "area1",
+"text": "1x Thunderbolt"
+}, 
+"3": {
+"id": 3,
 "area": "area2",
 "text": "1x Rusty Axe"
 }, 
-"3": { 
-"id": 3,
+"4": { 
+"id": 4,
 "area": "area2",
 "text": "2x Health Potion"
 },
-"4": { 
-"id": 4,
+"5": { 
+"id": 5,
 "area": "area2", 
 "text": "1x Rope"
-},
-"5": {
-"id": 5,
-"area": "area3", 
-"text": "2x Apples"
 },
 "6": {
 "id": 6,
 "area": "area3", 
+"text": "2x Apples"
+},
+"7": {
+"id": 7,
+"area": "area3", 
 "text": "3x Logs"
 },
-"7": { 
-"id": 7,
+"8": { 
+"id": 8,
 "area": "secretArea", 
 "text": "1x Note"
 },
-"8": {
+"9": {
 "area": "house1",
-"id": 8, 
+"id": 9, 
 "text": "1x Iron Armour"
 },
-"9": {
-"id": 9,
+"10": {
+"id": 10,
 "area": "house1", 
 "text": "1x Iron Gauntlets"
 },
-"10": { 
-"id": 10,
+"11": { 
+"id": 11,
 "area": "house1", 
 "text": "1x Iron Helmet"
 },
-"11": { 
-"id": 11,
+"12": { 
+"id": 12,
 "area": "house1", 
 "text": "1x Iron Shield"
 }

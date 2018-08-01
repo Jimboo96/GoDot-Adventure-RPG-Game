@@ -18,7 +18,7 @@ func _process(delta):
 
 func _input(event):
 	#If player is standing on the switchArea, it can be interacted with.
-	if(switchState && !global.playerIsInteracting):
+	if(switchState && !global.player.isInteracting):
 		if event.is_action_pressed("interact"):
 			# Area1 switches
 			if global.current_area == "area1":
@@ -122,10 +122,12 @@ func load_sprites():
 		objectOfInterestSprite = load(objectOfInterestSpritePath) 
 
 func _on_SwitchArea_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		switchState = true
+	if body != null:
+		if body.get_name() == "player":
+			switchState = true
 
 func _on_SwitchArea_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		switchState = false
-		$IconSprite.texture = doorOpenableSprite
+	if body != null:
+		if body.get_name() == "player":
+			switchState = false
+			$IconSprite.texture = doorOpenableSprite

@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://particles/Trees/Trees.gd" type="Script" id=1]
+[ext_resource path="res://particles/Trees/treeTiles/treeTiles.tres" type="TileSet" id=2]
+[ext_resource path="res://assets/icons/treeSprite.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Tree1" type="Area2D" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 121.973, 227.411 )
+scale = Vector2( 9.1638, 8.02343 )
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0 )
+
+[node name="CutDownTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="GrowTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = true
+autostart = false
+
+[node name="TreeIcon" type="Sprite" parent="." index="4"]
+
+position = Vector2( 113.875, -15.0324 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="body_shape_entered" from="." to="." method="_on_Tree1_body_shape_entered"]
+
+[connection signal="body_shape_exited" from="." to="." method="_on_Tree1_body_shape_exited"]
+
+[connection signal="timeout" from="CutDownTimer" to="." method="_on_CutDownTimer_timeout"]
+
+[connection signal="timeout" from="GrowTimer" to="." method="_on_GrowTimer_timeout"]
+
+

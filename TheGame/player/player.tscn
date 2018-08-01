@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/player/player_default.png" type="Texture" id=2]
@@ -79,18 +79,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 156, 157, 158, 159, 160, 161 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("SpawnEffect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
 
 [sub_resource type="Animation" id=5]
 
@@ -163,6 +151,25 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 143, 144, 145, 146, 147, 148, 149, 150, 151 ]
+}
+
+[sub_resource type="Animation" id=17]
+
+resource_name = "spawning"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SpawnEffect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -276,6 +283,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 26, 27, 29, 30, 31 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../SpawnEffect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="CircleShape2D" id=15]
 
@@ -287,7 +306,7 @@ radius = 10.0
 custom_solver_bias = 0.0
 extents = Vector2( 30, 45 )
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 light_mask = 29
 position = Vector2( 512.621, 301.651 )
@@ -301,8 +320,8 @@ __meta__ = {
 "_edit_group_": true
 }
 HP = 100
-def = 10
-dame = 60
+DEF = 10
+DAME = 60
 
 [node name="PlayerSprite" type="Sprite" parent="." index="0"]
 
@@ -310,7 +329,7 @@ scale = Vector2( 1.6, 1.6 )
 texture = ExtResource( 2 )
 vframes = 21
 hframes = 13
-frame = 130
+frame = 196
 _sections_unfolded = [ "Animation", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -331,6 +350,7 @@ anims/dead = SubResource( 5 )
 anims/down = SubResource( 6 )
 anims/left = SubResource( 7 )
 anims/right = SubResource( 8 )
+anims/spawning = SubResource( 17 )
 anims/standingDown = SubResource( 9 )
 anims/standingLeft = SubResource( 10 )
 anims/standingRight = SubResource( 11 )
@@ -403,17 +423,7 @@ __meta__ = {
 shape = SubResource( 16 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/spawning = SubResource( 4 )
-blend_times = [  ]
-
-[node name="SpawnEffect" parent="." index="6" instance=ExtResource( 3 )]
+[node name="SpawnEffect" parent="." index="5" instance=ExtResource( 3 )]
 
 visible = false
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Time", "Transform", "Visibility" ]

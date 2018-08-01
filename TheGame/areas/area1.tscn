@@ -18,7 +18,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 393.888, -171.018, 0, 0, 0, 0, 445.453, -137.869, 0, 0, 0, 0, 499.474, -109.631, 0, 0, 0, 0, 539.989, -70.3438, 0, 0, 0, 0, 614.881, -6.50165, 0, 0, 0, 0, 571.91, 65.9347, 0, 0, 0, 0, 595.237, 115.044, 0, 0, 0, 0, 654.168, 172.748, 0, 0, 0, 0, 646.802, 282.016, 0, 0, 0, 0, 609.97, 366.729, 0, 0, 0, 0, 532.622, 420.75, 0, 0, 0, 0, 403.71, 441.621, 0, 0, 0, 0, 244.105, 445.304, 0, 0, 0, 0, 179.035, 351.997, 0, 0, 0, 0, 138.52, 288.155, 0, 0, 0, 0, 25.5682, 300.432, 0, 0, 0, 0, -29.6798, 383.918, 0, 0, 0, 0, -105.799, 355.68, 0, 0, 0, 0, -232.256, 283.244, 0, 0, 0, 0, -299.781, 186.253, 0, 0, 0, 0, -335.386, 89.2616, 0, 0, 0, 0, -359.94, -32.2841, 0, 0, 0, 0, -324.336, -164.879, 0, 0, 0, 0, -233.484, -247.138, 0, 0, 0, 0, -113.166, -299.93, 0, 0, 0, 0, -6.35284, -304.841, 0, 0, 0, 0, 79.5885, -329.396, 0, 0, 0, 0, 251.471, -287.653, 0, 0, 0, 0, 390.205, -173.473 )
 }
 
-[node name="area1" type="Node2D"]
+[node name="area1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -46,7 +46,6 @@ _sections_unfolded = [ "Cell", "Collision" ]
 
 [node name="walls" type="TileMap" parent="." index="1"]
 
-editor/display_folded = true
 mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
@@ -108,8 +107,6 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
 position = Vector2( 47.1376, -934.031 )
 
 [node name="Trees" type="Node2D" parent="." index="3"]
-
-editor/display_folded = true
 
 [node name="Tree1" parent="Trees" index="0" instance=ExtResource( 5 )]
 

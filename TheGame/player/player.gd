@@ -61,7 +61,7 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide(motion)
 	update()
-	print(motion)
+	#print(motion)
 
 func get_input():
 	motion = Vector2()
@@ -98,7 +98,8 @@ func get_input():
 				get_tree().get_root().get_child(1).get_node("Sound/SwordSwing").play()
 			elif get_tree().get_root().get_child(1).get_node("Sound/SwordSwing").playing == true:
 				pass
-			
+
+
 		elif motion == Vector2(0,0):
 			$Sprite.animation = "idle"
 			
@@ -163,15 +164,16 @@ func _on_disappearTimer_timeout():
 	
 func updateHP(newHP):
 	HP = newHP
-	
+	print(HP)
 
 #called when level up
 func level_up(Str, Agi, constitution, Wc):
 	HP = 10 * constitution
 	def = def * 3/2
-	WALK_SPEED = WALK_SPEED * ((Agi/10)+1)
+	WALK_SPEED = 400 * ((Agi/10)+1)
 	dmg = (10 * Str) + 60
 	print("damage: ", dmg, " Walk_speed: ", WALK_SPEED, "hp: ", HP)
+	global.player_max_hp = HP
 
 func _load_stats():
 	var current_line = global._load_player_stats(1)

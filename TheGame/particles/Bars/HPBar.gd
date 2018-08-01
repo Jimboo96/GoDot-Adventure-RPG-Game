@@ -4,7 +4,7 @@ extends Container
 signal updateHP 
 signal player_dead
 
-var maxHP = 100
+var maxHP = global.player_max_hp
 var currentHP #get value from WorldUpgraded
 
 func _ready():

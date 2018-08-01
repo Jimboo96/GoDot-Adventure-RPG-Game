@@ -19,7 +19,7 @@
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 [ext_resource path="res://SkillTree/Control.tscn" type="PackedScene" id=18]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -28,6 +28,8 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sound" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
 
@@ -133,7 +135,7 @@ area_mask = 1
 [node name="PickUp" type="AudioStreamPlayer2D" parent="Sound" index="9"]
 
 stream = ExtResource( 8 )
-volume_db = 0.0
+volume_db = 24.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0

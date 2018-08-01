@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/3.wav-dd663f1fdd7d5e6e3b2d1301e5748085.sample"
+
+[deps]
+
+source_file="res://particles/Music/3.wav"
+source_md5="5f4769d9a6aaadade8540c9b16df35e4"
+
+dest_files=[ "res://.import/3.wav-dd663f1fdd7d5e6e3b2d1301e5748085.sample" ]
+dest_md5="0e686ea61651eb492ea053de0b79d9a1"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

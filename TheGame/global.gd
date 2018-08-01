@@ -57,6 +57,7 @@ func _ready():
 	root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 )
 	gear_data_preloader()
+	load_level_on_start()
 
 
 func goto_scene(path):
@@ -147,5 +148,53 @@ func reward(id):
 	Global_Player.inventory_addItem(id)
 	name = item["name"]
 	printt("You  got a reward! It's: a", name)
+
+
+
+#skill and statTree vars
+var Str
+var Agi
+var Const
+var player_lvl
+
+const SAVE_PATH = "user://statFile.json"
+const LOAD_PATH = "user://skillFile.json"
+var PATH_TO_FILE 
+
+var skill_enabled
+var skill_upgrade
+var skill_upgrade_2
+
+func _load_player_stats(PATH):
+	var load_file = File.new()
 	
+	if PATH == 1:
+		PATH_TO_FILE = SAVE_PATH
+	elif PATH == 2:
+		PATH_TO_FILE = LOAD_PATH
 	
+	if not load_file.file_exists(PATH_TO_FILE):
+		print("File does not exist")
+		return
+	
+	var err = load_file.open_encrypted_with_pass(PATH_TO_FILE, load_file.READ, "mypass")
+	var current_line = {}
+	current_line = parse_json(load_file.get_line())
+	return current_line
+	load_file.close()
+
+func load_level_on_start():
+	var load_file = File.new()
+	
+	if not load_file.file_exists(SAVE_PATH):
+		print("File does not exist")
+		player_lvl = 1
+		return
+	else:
+		var err = load_file.open_encrypted_with_pass(SAVE_PATH, load_file.READ, "mypass")
+		var current_line = {}
+		current_line = parse_json(load_file.get_line())
+		player_lvl = current_line["Lvl"]
+		print("global level loaded")
+	load_file.close()
+

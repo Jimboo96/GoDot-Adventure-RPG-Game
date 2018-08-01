@@ -30,9 +30,6 @@ func _enter_tree():
 func _ready():
 	set_process_input(true)
 	set_process(true)
-	#init
-	playerMovable = true
-	DAME = 60
 	#connect signals
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
@@ -49,7 +46,7 @@ func _input(event):
 	if playerMovable:
 		if event.is_action_pressed("space"):
 			flip_coin()
-			random_armour()
+			#random_armour()
 			
 		if Input.is_action_pressed("move_up"):
 			animationToPlay = "up"

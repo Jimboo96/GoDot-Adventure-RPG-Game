@@ -31,7 +31,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
 
 stream = ExtResource( 2 )
-volume_db = 0.0
+volume_db = -3.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -113,7 +113,7 @@ area_mask = 1
 [node name="LockedDoor" type="AudioStreamPlayer2D" parent="Sound" index="8"]
 
 stream = ExtResource( 10 )
-volume_db = 0.0
+volume_db = 5.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -133,7 +133,7 @@ area_mask = 1
 [node name="Scream" type="AudioStreamPlayer2D" parent="Sound" index="10"]
 
 stream = ExtResource( 11 )
-volume_db = 0.0
+volume_db = -5.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -163,7 +163,7 @@ area_mask = 1
 [node name="FallenTree" type="AudioStreamPlayer2D" parent="Sound" index="13"]
 
 stream = ExtResource( 14 )
-volume_db = 0.0
+volume_db = -5.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0

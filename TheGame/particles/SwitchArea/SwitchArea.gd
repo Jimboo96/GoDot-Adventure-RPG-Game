@@ -122,10 +122,12 @@ func load_sprites():
 		objectOfInterestSprite = load(objectOfInterestSpritePath) 
 
 func _on_SwitchArea_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		switchState = true
+	if body != null:
+		if body.get_name() == "player":
+			switchState = true
 
 func _on_SwitchArea_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		switchState = false
-		$IconSprite.texture = doorOpenableSprite
+	if body != null:
+		if body.get_name() == "player":
+			switchState = false
+			$IconSprite.texture = doorOpenableSprite

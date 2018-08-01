@@ -18,16 +18,18 @@ func _input(event):
 
 # Normal movement between areas. Move automatically to next scene after a brief delay.
 func _on_MoveArea_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		global.player.playerMovable = false
-		$MoveArea/MoveTimer.start()
-		get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
+	if body != null:
+		if body.get_name() == "player":
+			global.player.playerMovable = false
+			$MoveArea/MoveTimer.start()
+			get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
 
 func _on_MoveArea2_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		global.player.playerMovable = false
-		$MoveArea2/MoveTimer2.start()
-		get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
+	if body != null:
+		if body.get_name() == "player":
+			global.player.playerMovable = false
+			$MoveArea2/MoveTimer2.start()
+			get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
 
 # Resets players position according to the coordinates that are saved in global variables.
 #set init pos if null
@@ -83,9 +85,11 @@ func reset_player_pos(var current_scene):
 	global.playerPosSet = true
 
 func _on_DoorArea_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		doorOpenable = true
+	if body != null:
+		if body.get_name() == "player":
+			doorOpenable = true
 
 func _on_DoorArea_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		doorOpenable = false
+	if body != null:
+		if body.get_name() == "player":
+			doorOpenable = false

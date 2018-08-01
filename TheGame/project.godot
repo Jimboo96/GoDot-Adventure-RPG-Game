@@ -23,8 +23,6 @@ Settings="*res://particles/Settings/Settings.gd"
 
 window/size/resizable=false
 window/size/borderless=true
-window/size/test_width=4096
-window/size/test_height=1500
 
 [editor_plugins]
 

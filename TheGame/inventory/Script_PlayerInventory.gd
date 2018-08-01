@@ -69,7 +69,6 @@ func _process(delta):
 	if (isDraggingItem):
 		#mouse position of the scene's rootnode;not the viewport
 		draggedItem.global_position = $".".get_global_mouse_position()
-		
 		get_position()
 
 func _input(event):
@@ -211,16 +210,21 @@ func _on_AddItemWindow_Button_AddGear_pressed():
 func _on_ItemList_item_rmb_selected(index, atpos):
 	if (isDraggingItem):
 		return
+	if gearMenu.visible:
+		gearMenu.visible = false
+	
 	
 	dropItemSlot = index
 	var itemData = itemList.get_item_metadata(index)
 	if (int(itemData["id"])) < 10: return
 	var strItemInfo = ""
 	
+	#var position = get_tree().get_root().get_child(4).get_node("Area/area/walls/YSort/player").get_child(1).get_camera_screen_center()
+	#itemMenu.set_position(position + Vector2(-200,-200))
+	
 	itemMenu.set_position($".".get_global_mouse_position() + Vector2(15,15))
 	itemMenu.set_title(itemData["name"])
 	itemMenu_TextureFrame_Icon.set_texture(itemList.get_item_icon(index))
-	
 	strItemInfo = "Name: [color=#00aedb] " + itemData["name"] + "[/color]\n"
 	strItemInfo = strItemInfo + "Type: [color=#f37735] " + itemData["type"] + "[/color]\n"
 	strItemInfo = strItemInfo + "Weight: [color=#00b159] " + String(itemData["weight"]) + "[/color]\n"
@@ -234,20 +238,25 @@ func _on_ItemList_item_rmb_selected(index, atpos):
 	itemMenu_RichTextLabel_ItemInfo.set_bbcode(strItemInfo)
 	itemMenu_Button_DropItem.set_text("(" + String(itemData["amount"]) + ") Drop" )
 	activeItemSlot = index
-	itemMenu.popup()
+	itemMenu.show()
 
 
 #opens an infomenu for the item; you can also drop items there
 func _on_GearList_item_rmb_selected(index, at_position):
 	if (isDraggingItem):
 		return
+	if itemMenu.visible:
+		itemMenu.visible = false
 	
 	dropItemSlot = index
 	var itemData = gearList.get_item_metadata(index)
 	if (int(itemData["id"])) < 10: return
 	var strItemInfo = ""
-	gearMenu.set_position($".".get_global_mouse_position() + Vector2(15,15))
 	
+	#var position = get_tree().get_root().get_child(4).get_node("Area/area/walls/YSort/player").get_child(1).get_camera_screen_center()
+	#gearMenu.set_position(position + Vector2(-200,-200))
+	
+	gearMenu.set_position($".".get_global_mouse_position() + Vector2(15,15))
 	gearMenu.set_title(itemData["name"])
 	gearMenu_TextureFrame_Icon.set_texture(gearList.get_item_icon(index))
 	strItemInfo = "Name: [color=#00aedb] " + itemData["name"] + "[/color]\n"
@@ -256,6 +265,8 @@ func _on_GearList_item_rmb_selected(index, at_position):
 	strItemInfo = strItemInfo + "Sell Price: [color=#ffc425] " + String(itemData["sell_price"]) + "[/color] gold\n"
 	if(itemData.has("damage")):
 		strItemInfo = strItemInfo + "Damage: " + String(itemData["damage"]) + "\n"
+	if(itemData.has("defence")):
+		strItemInfo = strItemInfo + "defence: " + String(itemData["defence"]) + "\n"
 	if(itemData.has("heal")):
 		strItemInfo = strItemInfo + "Heal: " + String(itemData["heal"]) + "\n"
 	strItemInfo = strItemInfo + "\n[color=#b3cde0]" + itemData["description"] + "[/color]"
@@ -264,8 +275,7 @@ func _on_GearList_item_rmb_selected(index, at_position):
 	
 	gearMenu_Button_DropItem.set_text("(" + String(itemData["amount"]) + ") Drop" )
 	activeItemSlot = index
-	gearMenu.popup()
-
+	gearMenu.show()
 
 func _on_ItemMenu_Button_DropItem_pressed():
 	var newAmount = Global_Player.inventory_removeItem(dropItemSlot)
@@ -379,13 +389,9 @@ func move_item(is_gear,to_gear, dragged, whereToSlot,whereFromSlot):
 		whereFromSlot = dropItemSlot #the itemslot the dialog was made from. 
 		if is_gear:
 			whereToSlot = Global_Player.inventory_getEmptySlot()
-		#elif !is_gear:
-			#activeItemSlot is updated before using this function
-			#activeItemSlot = Global_Player.gear_getEmptySlot()
 	
 	var type
 	var type2
-	
 	#actual moving
 	if(!is_gear and to_gear):
 		#print("moved to gear")
@@ -435,7 +441,7 @@ func get_item_type(gear,typeIndex):
 	var itemData = gearList.get_item_metadata(typeIndex)
 	var itemType = "nulll"
 	if gear:
-		if typeIndex >8:
+		if typeIndex > 8:
 			print("oh no the index("+ str(typeIndex) +") is too big for gearlist")
 			return itemType
 	elif !gear:

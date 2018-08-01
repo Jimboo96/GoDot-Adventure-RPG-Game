@@ -28,6 +28,7 @@ func spawn_inventory():
 	inventory = inventoryScene.instance()
 	add_child(inventory)
 	inventory.show()
+	inventory
 	inventory.rect_global_position = inv_location
 
 func del_inventory():

@@ -17,7 +17,7 @@ var axeSound
 func _ready():
 	#wow such nice recursive function wow
 	var sound = global.find_node_by_name(get_tree().get_root(), "Sound")
-	if(sound): printt(sound, sound.get_name())
+	#if(sound): printt(sound, sound.get_name())
 	
 	#now you can do this
 	chestSound = sound.get_node("OpenChest")
@@ -49,17 +49,15 @@ func _input(event):
 				#get_parent().get_node("Sound/PickUp").play()
 				axeSound.play()
 				get_reward(chestNum)
-				get_tree().get_root().get_child(4).get_node("Sound/OpenChest").play()
-				get_reward(chestNum)
 			# Set vertical closed chest sprite to open.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 3:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,1)
-				get_tree().get_root().get_child(4).get_node("Sound/OpenChest").play()
+				chestSound.play()
 				get_reward(chestNum)
 			# Set tree stump with axe in it to a normal tree stump.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 5:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,4)
-				get_tree().get_root().get_child(4).get_node("Sound/PickUp").play()
+				chestSound.play()
 				get_reward(chestNum)
 			save_chest_states()
 
@@ -79,9 +77,10 @@ func reset_chests():
 	chestsReseted = true
 	
 func get_reward(var chestNum):
-		var chestNode = get_node("chest" + str(chestNum) + "/Dialogue")
-		if chestNode != null:
-			chestNode.start_chest_dialogue(chestNum, global.current_area)
+	var chestNode = get_node("chest" + str(chestNum) + "/Dialogue")
+	if chestNode != null:
+		chestNode.start_chest_dialogue(chestNum, global.current_area)
+		#items are actually added in dialogue
 
 func save_chest_states():
 	# Saves chest states into their corresponding global variables.

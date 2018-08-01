@@ -2,56 +2,67 @@
 "1": { 
 "id": 1,
 "area": "area1",
-"text": "1x Health Potion"
+"text": "1x Health Potion",
+"itemId": 14
 }, 
 "2": {
 "id": 2,
 "area": "area2",
-"text": "1x Rusty Axe"
+"text": "1x Rusty Axe",
+"itemId": 21
 }, 
 "3": { 
 "id": 3,
 "area": "area2",
-"text": "2x Health Potion"
+"text": "1x Health Potion",
+"itemId": 14
 },
 "4": { 
 "id": 4,
 "area": "area2", 
-"text": "1x Rope"
+"text": "1x Book of Wisdom",
+"itemId": 12
 },
 "5": {
 "id": 5,
 "area": "area3", 
-"text": "2x Apples"
+"text": "Arrow",
+"itemId": 11
 },
 "6": {
 "id": 6,
 "area": "area3", 
-"text": "3x Logs"
+"text": "Bandage",
+"itemId": 13
 },
 "7": { 
 "id": 7,
 "area": "secretArea", 
-"text": "1x Note"
+"text": "1x Note",
+"itemId": 28
 },
 "8": {
 "area": "house1",
 "id": 8, 
-"text": "1x Iron Armour"
+"text": "1x Iron Armour",
+"itemId": 23
 },
 "9": {
 "id": 9,
 "area": "house1", 
-"text": "1x Iron Gauntlets"
+"text": "1x Iron Gauntlets",
+"itemId": 26
 },
 "10": { 
 "id": 10,
 "area": "house1", 
-"text": "1x Iron Helmet"
+"text": "1x Iron Helmet",
+"itemId": 27
 },
 "11": { 
 "id": 11,
 "area": "house1", 
-"text": "1x Iron Shield"
+"text": "1x Iron Shield",
+"itemId": 20
 }
 }

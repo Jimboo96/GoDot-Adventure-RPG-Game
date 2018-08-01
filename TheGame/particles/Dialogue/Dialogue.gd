@@ -48,6 +48,7 @@ func reset_text(var typeOfReset, var textID = null):
 	elif typeOfReset == "Chest":
 		typeOfDialogue = "Chest"
 		textToPrint = ["You found:\n" + jsonData[str(textID)].text + "!"]
+		get_item(jsonData[str(textID)].itemId)
 	elif typeOfReset == "Other" && textID != null:
 		typeOfDialogue = "Other"
 		textToPrint = [jsonData[str(textID)].text]
@@ -136,3 +137,7 @@ func quest_dialogue(var textID):
 	reset_text("Quest", textID)
 	self.show()
 	printing = true
+	
+func get_item(var id):
+		global.reward(id)
+	

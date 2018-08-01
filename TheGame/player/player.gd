@@ -21,6 +21,9 @@ var Sflip
 
 var inventoryScene
 
+var sound
+var swing
+
 func _enter_tree():
 	pass
 	
@@ -36,6 +39,9 @@ func _ready():
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
 	$AttackRay.connect("body_exited", self, "enemy_out_zone")
+	
+	sound = global.find_node_by_name(get_tree().get_root(), "Sound")
+	swing = sound.get_node("SwordSwing")
 
 
 func appear(anim): #appear when added to area
@@ -95,16 +101,11 @@ func move_and_animation(delta):
 			
 		elif Input.is_action_pressed("asdattack"):
 			$Sprite.animation = "attack"
-			
-			var sound = global.find_node_by_name(get_tree().get_root(), "Sound")
-			var swing = sound.get_node("SwordSwing")
-			
 			swing.play()
 			#get_tree().get_root().get_child(4).get_node("Sound/SwordSwing").play()
 			
 		else:
 			$Sprite.animation = "idle"
-			printt("playerMovable", playerMovable)
 			pass
 			
 	else:
@@ -132,7 +133,7 @@ func enemy_out_zone(body):
 		
 # Flips a coin.
 func flip_coin():
-	get_tree().get_root().get_child(1).get_node("Sound/CoinFlip").play()
+	get_tree().get_root().get_child(4).get_node("Sound/CoinFlip").play()
 	var coinSide = randi()%2
 	if(coinSide == 0):
 		print("Kruuna")

@@ -91,10 +91,7 @@ func add_player_to_current_scene():
 	#player.appear()
 	
 	player = global.find_node_by_name( get_tree().get_root(), "player" )
-	if(player): printt(player, player.get_name(), "####################")
-	
-	#set new NodePath for player, get_child(i) i = global scripts + 1
-	#player = get_tree().get_root().get_child(4).get_node("Area/area/walls/YSort/player") # deprecated
+	#if(player): printt(player, player.get_name())
 	
 	#save to global
 	global.player = player

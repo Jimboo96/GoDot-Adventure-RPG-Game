@@ -126,7 +126,7 @@
 		"type": "consumable",
 		"weight": 0.87,
 		"stackable": true,
-		"description": "A book with an orange hard cover. The title reads as 'The Meaning of Life' by Gregory McDuckleberry",
+		"description": "A book with an orange hard cover. The title reads as 'The Meaning of Life' by Gregory McDuckleberry. It causes the game to crash since you should be doing something productive with your life",
 		"sell_price": 17
 	},
 		
@@ -293,5 +293,17 @@
 		"description": "A steel helmet, it's sturdy but limits your vision",
 		"sell_price": 210,
 		"defence": 15
+	},
+
+	"28": {
+		"name": "A note",
+		"icon": "res://inventory/textures/Item_Icons/genericItem_color_037.png",
+		"type": "quest",
+		"weight": "1",
+		"stackable": false,
+		"description": "Damn i wish i could read",
+		"sell_price": 1
 	}
 }
+
+

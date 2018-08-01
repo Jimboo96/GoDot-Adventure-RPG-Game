@@ -65,7 +65,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Hint", "Pause" ]
+_sections_unfolded = [ "Mouse", "Pause", "Rect", "Size Flags" ]
 
 [node name="Panel" type="Panel" parent="." index="0"]
 
@@ -278,7 +278,12 @@ visible = false
 
 [node name="WindowDialog_ItemMenu" parent="Panel" index="9" instance=ExtResource( 3 )]
 
+editor/display_folded = true
+visible = false
+
 [node name="WindowDialog_GearMenu" parent="Panel" index="10" instance=ExtResource( 3 )]
+
+visible = false
 
 [node name="ItemMenu_Button_UseItem" parent="Panel/WindowDialog_GearMenu" index="4"]
 

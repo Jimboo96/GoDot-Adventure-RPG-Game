@@ -40,7 +40,7 @@ height = 1.0
 ascent = 0.0
 distance_field = false
 
-[node name="Dialogue" type="RichTextLabel" index="0"]
+[node name="Dialogue" type="RichTextLabel"]
 
 anchor_left = 0.0
 anchor_top = 0.0

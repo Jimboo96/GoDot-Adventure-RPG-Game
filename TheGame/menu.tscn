@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ Vector2( 220, -400 ), Vector2( 220, 50 ) ]
 }
 
-[node name="Background" type="TextureRect" index="0"]
+[node name="Background" type="TextureRect"]
 
 anchor_left = 0.0
 anchor_top = 0.0

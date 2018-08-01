@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 36.3133, 12.3092 )
 
-[node name="chest1" type="Area2D" index="0"]
+[node name="chest1" type="Area2D"]
 
 position = Vector2( -187.161, -209.029 )
 input_pickable = true

@@ -7,6 +7,8 @@ var current_area #area name from main
 
 var damageFromWeapons = 0
 var armorFromArmor = 0
+var url_PlayerGear = "user://PlayerGear.bin"
+onready var playerGear = Global_DataParser.load_data(url_PlayerGear)
 var gear = {}
 var playerPosSet = false
 
@@ -54,9 +56,8 @@ var quest1State = "NOT_STARTED"
 func _ready():
 	root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 )
-	#print("get_children @_ready() ",root.get_children())
-	
-	ghetto_gear_data_preloader()
+	gear_data_preloader()
+
 
 func goto_scene(path):
 	call_deferred("_deferred_goto_scene",path)
@@ -75,17 +76,13 @@ func goto_main(path):
 
 #this function actually changes scene to main and not between childs of the main.tscn
 func _deferred_main(path):
-	printt("path:", path)
 	current_scene.free()
 	var s = ResourceLoader.load(path)
 	current_scene = s.instance()
-	#print("root children: ",root.get_children())
-	#print("current scene: ",current_scene.get_name())
 	root.add_child(current_scene)
 	current_scene = root.get_child(4)
 	get_tree().set_current_scene( current_scene )
-	#print("get_children @end of _deferred_main() ) ",root.get_children())
-	
+
 
 # math func
 func cartesian_to_isometric(cartesian):
@@ -114,11 +111,41 @@ func find_node_by_name(root, name):
 		if(found): return found
 	return null
 
-func ghetto_gear_data_preloader():
-	gear = Global_DataParser.load_data("user://PlayerGear.bin")
-	printt(gear,"#######" ,gear.values() )
+
+func gear_data_preloader():
+	var gear = load_gear_data()
+	var data
+	for slot in range(0,gear.size()-1):
+		var item = gear[String(slot)]
+		#printt("item", item)
+		data = Global_ItemDatabase.get_item(item["id"])
+		#printt("data", data)
+		if data.has("damage"):
+			damageFromWeapons += data["damage"]
+		if data.has("defence"):
+			armorFromArmor += data["defence"]
+
+
+func load_gear_data():
+	if (playerGear == null):
+		var dict = {"gear":{}}
+		for slot in range (0, 8):
+			var placeholder = slot+1
+			dict["gear"][String(slot)] = {"id": str(placeholder), "amount": 0}
+		Global_DataParser.write_data(url_PlayerGear, dict)
+		gear = dict["gear"]
+	else:
+		gear = playerGear["gear"]
+	return gear
+
+
+func reward(id):
+	if id < 10:
+		print("ERROR! Trying to get placeholders as a reward. ERROR! ")
+		return
+	var item = Global_ItemDatabase.get_item(id)
+	Global_Player.inventory_addItem(id)
+	name = item["name"]
+	printt("You  got a reward! It's: a", name)
 	
-	#for slot in range (1, 8):
-	#	print(gear[String(slot)]["id"])
-
-
+	

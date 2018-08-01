@@ -25,6 +25,7 @@ func _input(event):
 		if event.is_action_pressed("interact"):
 			# Set tree to tree trump.
 			if $TileMap.get_cell(0,0) == 0 || $TileMap.get_cell(0,0) == 3:
+				get_tree().get_root().get_node("Main/HUD").gain_exp(20, null)
 				$CutDownTimer.start()
 				get_tree().get_root().get_node("Main/Sound/ChopWood").play()
 				global.player.animationToPlay = "attack" + global.player.directionFacing

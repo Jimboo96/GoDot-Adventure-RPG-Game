@@ -42,6 +42,7 @@ func set_prize_type():
 
 func appear():
 	show()
+	$Anim.play("appear")
 	#print(type_r)
 	type_r.play()
 	$hideTimer.start()

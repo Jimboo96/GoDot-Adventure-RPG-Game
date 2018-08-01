@@ -16,6 +16,7 @@ func _input(event):
 			global.player.playerMovable = false
 			$DoorArea/DoorTimer.start()
 
+
 # Resets players position according to the coordinates that are saved in global variables.
 #set init pos if null
 func reset_player_pos(var current_scene):

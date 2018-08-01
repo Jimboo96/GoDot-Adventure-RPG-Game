@@ -18,7 +18,7 @@ func conn_signals():
 	#skill menu
 	#$SkillButton.connect("pressed", self, "open_popup")
 	#settings buttons
-	$PauseButton.connect("pressed", self, "pause_game")
+	$PauseContainer/NinePatchRect/PauseButton.connect("pressed", self, "pause_game")
 
 func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)
@@ -59,9 +59,9 @@ func hide_text():
 func get_prize(type, value):
 	match type:
 		"COIN":
-			var cur_coins = int($CoinCounter/Background/Number.text)
+			var cur_coins = int($InfoContainer/MainBox/Container/CoinCounter/Background/Number.text)
 			cur_coins = cur_coins + value
-			$CoinCounter/Background/Number.set("text", String(cur_coins))
+			$InfoContainer/MainBox/Container/CoinCounter/Background/Number.set("text", String(cur_coins))
 		_:
 			pass
 			

@@ -104,14 +104,14 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=6]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 20.0
 
 [sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="QuestNPC" type="KinematicBody2D" index="0"]
+[node name="QuestNPC" type="KinematicBody2D"]
 
 position = Vector2( 354.975, 228.76 )
 input_pickable = false
@@ -119,7 +119,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
 
 [node name="NPCSprite" type="Sprite" parent="." index="0"]
 
@@ -151,7 +151,7 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0.788788, 23.9971 )
+position = Vector2( 0.190033, 12.6211 )
 scale = Vector2( 1.55649, 1.76062 )
 shape = SubResource( 6 )
 
@@ -186,7 +186,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="Dialogue" parent="." index="4" instance=ExtResource( 4 )]

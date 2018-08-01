@@ -144,8 +144,8 @@ area_mask = 1
 [node name="Scream" type="AudioStreamPlayer2D" parent="Sound" index="10"]
 
 stream = ExtResource( 11 )
-volume_db = 0.0
-pitch_scale = 1.0
+volume_db = -5.0
+pitch_scale = 0.5
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0

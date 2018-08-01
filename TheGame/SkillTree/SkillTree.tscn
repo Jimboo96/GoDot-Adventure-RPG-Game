@@ -274,6 +274,7 @@ _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="UpgradeInfo" type="PopupDialog" parent="RipSkillSacrifice" index="0"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0

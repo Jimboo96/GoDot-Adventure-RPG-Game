@@ -27,7 +27,7 @@ func update_exp(EXP):
 		#set var
 		newEXP = newEXP - maxEXP
 		currentLV += 1
-		maxEXP = maxEXP * 2
+		maxEXP = (maxEXP * currentLV)/2
 		currentEXP = newEXP
 		#set values
 		$Tween.interpolate_property($Gauge, "value", 0, currentEXP, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.5)

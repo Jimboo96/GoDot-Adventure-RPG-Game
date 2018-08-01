@@ -10,6 +10,7 @@ var dmg = 60
 
 var maxHP = 100
 
+var motion = Vector2()
 var WALK_SPEED = 400 # Pixels/second
 
 var can_attack = false
@@ -57,50 +58,57 @@ func _input(event):
 			print("enemy atteacked for: ", dmg, " damge")
 	
 func _physics_process(delta):
+	get_input()
+	move_and_slide(motion)
 	update()
-	move_and_animation(delta)
-	
-func move_and_animation(delta):
-	var motion = Vector2()
+	print(motion)
 
+func get_input():
+	motion = Vector2()
+	
+	
 	if playerMovable:
 		if Input.is_action_pressed("move_up"):
-			motion += Vector2(0, -1)
+			motion.y  -= 1
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = false
 			$AttackRay.position = Vector2(30,0)
 			
-		elif Input.is_action_pressed("move_bottom"):
-			motion += Vector2(0, 1)
+		if Input.is_action_pressed("move_bottom"):
+			motion.y += 1
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = true
 			$AttackRay.position = Vector2(-30,0)
 			
-		elif Input.is_action_pressed("move_left"):
-			motion += Vector2(-1, 0)
+		if Input.is_action_pressed("move_left"):
+			motion.x -=1
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = true
 			$AttackRay.position = Vector2(-30,0)
 			
-		elif Input.is_action_pressed("move_right"): 
-			motion += Vector2(1, 0)
+		if Input.is_action_pressed("move_right"): 
+			motion.x += 1
 			$Sprite.animation = "walk"
 			$Sprite.flip_h = false
 			$AttackRay.position = Vector2(30,0)
 			
 		elif Input.is_action_pressed("attack"):
 			$Sprite.animation = "attack"
-			get_tree().get_root().get_child(1).get_node("Sound/SwordSwing").play()
+			if get_tree().get_root().get_child(1).get_node("Sound/SwordSwing").playing == false:
+				get_tree().get_root().get_child(1).get_node("Sound/SwordSwing").play()
+			elif get_tree().get_root().get_child(1).get_node("Sound/SwordSwing").playing == true:
+				pass
 			
-		else:
+		elif motion == Vector2(0,0):
 			$Sprite.animation = "idle"
-			pass
+			
 			
 	else:
-		$Sprite.animation = "idle"
-	
+		#$Sprite.animation = "idle"
+		pass
 	motion = motion.normalized() * WALK_SPEED
-	move_and_slide(motion)
+	if motion != Vector2(0,0):
+			$Sprite.animation = "walk"
 
 func enemy_in_zone(body):
 	if "enemy" in body.get_name():

@@ -37,7 +37,7 @@ func _on_RipSkillButton_pressed():
 		_save_stats()
 
 func _on_RipSkillButton_mouse_entered():
-	$RipSkillButton/WindowDialog.rect_position = $RipSkillButton.rect_position - Vector2(30,-85)
+	$RipSkillButton/WindowDialog.rect_position = $RipSkillButton.rect_position - Vector2(0,-155)
 	$RipSkillButton/WindowDialog.show()
 
 
@@ -85,7 +85,7 @@ func _enable_true_skills():
 		$RipSkillSacrifice.texture_hover = load("res://SkillTree/Sprites/Rip_sacrifice.png")
 
 func _on_RipSkillUpgrade_mouse_entered():
-	$RipSkillUpgrade/UpgradeInfo.rect_position = $RipSkillUpgrade.rect_position - Vector2(30, -85)
+	$RipSkillUpgrade/UpgradeInfo.rect_position = $RipSkillUpgrade.rect_position - Vector2(0,-155)
 	$RipSkillUpgrade/UpgradeInfo.show()
 
 
@@ -120,7 +120,7 @@ func _check_enabled_skills():
 
 
 func _on_RipSkillSacrifice_mouse_entered():
-	$RipSkillSacrifice/UpgradeInfo.rect_position = $RipSkillSacrifice.rect_position - Vector2(30, -85)
+	$RipSkillSacrifice/UpgradeInfo.rect_position = $RipSkillSacrifice.rect_position -  Vector2(0,-155)
 	$RipSkillSacrifice/UpgradeInfo.show()
 
 

@@ -4,16 +4,16 @@ signal attack
 signal attacked
 
 export (int) var HP = 100
-export (int) var DEF = 10
-export (int) var DAME = 60
+export (int) var def = 10
+export (int) var dame = 60
 
 var maxHP = 100
 
 const WALK_SPEED = 400 # Pixels/second
 
 var can_attack = false
-
 var playerMovable = true
+var cast_length
 var detected_target
 
 var animationToPlay = null
@@ -30,6 +30,9 @@ func _enter_tree():
 func _ready():
 	set_process_input(true)
 	set_process(true)
+	#init
+	cast_length = 60
+	dame = 60
 	#connect signals
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
@@ -39,14 +42,13 @@ func _ready():
 	
 func appear(anim): #appear when added to area
 	show()
-	play_animation("spawning")
 	playerMovable = true
 	
 func _input(event):
 	if playerMovable:
 		if event.is_action_pressed("space"):
 			flip_coin()
-			#random_armour()
+			random_armour()
 			
 		if Input.is_action_pressed("move_up"):
 			animationToPlay = "up"
@@ -70,7 +72,7 @@ func _input(event):
 			
 		elif Input.is_action_pressed("attack"):
 			if can_attack == true and detected_target:
-				detected_target.attacked(DAME)
+				detected_target.attacked(dame)
 				if directionFacing != null:
 					animationToPlay = "attack" + directionFacing
 			get_tree().get_root().get_node("Main/Sound/SwordSwing").play()
@@ -133,7 +135,7 @@ func get_player_pos():
 #attacked by enemy
 func attacked(damage):
 	#animationToPlay = "damaged"
-	var damage_received = damage - DEF
+	var damage_received = damage - def
 	if damage_received > 0:
 		emit_signal("attacked", damage_received)
 		pass
@@ -152,10 +154,9 @@ func updateHP(newHP):
 
 #called when level up
 func levelup():
-	play_animation("victory")
 	HP = maxHP * 3/2
-	DEF = DEF * 3/2
-	DAME = DAME + 10
+	def = def * 3/2
+	dame = dame + 10
 
 func play_animation(var animation):
 	if $PlayerSprite/AnimationPlayer.current_animation.get_basename() != animationToPlay:

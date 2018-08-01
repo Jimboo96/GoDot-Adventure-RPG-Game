@@ -35,7 +35,7 @@ var house1Exited
 
 # secret area variables
 var secretAreaChest1
-var secretAreaKeyFound
+var secretAreaKeyFound = true
 var secretAreaPosition = Vector2()
 
 # States: NOT_STARTED, STARTED, COMPLETED

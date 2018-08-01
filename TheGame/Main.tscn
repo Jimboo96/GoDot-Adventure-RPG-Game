@@ -18,7 +18,7 @@
 [ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=16]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -27,6 +27,8 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sound" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
 

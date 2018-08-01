@@ -44,9 +44,15 @@ func player_dead():
 func game_over():	
 	$MainText.set_text("GAME OVER")
 	$MainText.show()
-	$TextDisappearTimer.set("wait_time", 1)
+	$TextDisappearTimer.set("wait_time", 2)
 	$TextDisappearTimer.start()
 	pass
+	
+func quest_complete():
+	$MainText.set_text("QUEST COMPLETE!")
+	$MainText.show()
+	$TextDisappearTimer.set("wait_time", 3)
+	$TextDisappearTimer.start()
 
 func hide_text():
 	if $MainText.is_visible_in_tree():

@@ -48,7 +48,7 @@ func _input(event):
 	if playerMovable:
 		if event.is_action_pressed("space"):
 			flip_coin()
-			#random_armour()
+			random_armour()
 			
 		if Input.is_action_pressed("move_up"):
 			animationToPlay = "up"
@@ -180,13 +180,13 @@ func set_player_sprite(var armour):
 func random_armour():
 	var randomNum = randi()%4 + 1
 	if randomNum == 1:
-		global.playerArmour = "iron"
+		playerArmour = "iron"
 	elif randomNum == 2:
-		global.playerArmour = "gold"
+		playerArmour = "gold"
 	elif randomNum == 3:
-		global.playerArmour = "chain"
+		playerArmour = "chain"
 	elif randomNum == 4:
-		global.playerArmour = "leather"
+		playerArmour = "leather"
 	else:
-		global.playerArmour = null
-	set_player_sprite(global.playerArmour)
+		playerArmour = null
+	set_player_sprite(playerArmour)

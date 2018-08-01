@@ -7,10 +7,10 @@ path="res://.import/player_iron_armour.png-5be116a79e929b4aa808a11432443efa.stex
 [deps]
 
 source_file="res://assets/characters/player/player_iron_armour.png"
-source_md5="07ac874fa677b620fcc8c55cc05056eb"
+source_md5="89731adabedf040cd8db9b0346328e88"
 
 dest_files=[ "res://.import/player_iron_armour.png-5be116a79e929b4aa808a11432443efa.stex" ]
-dest_md5="081add13a3e1ff4344a52b0f24740ee2"
+dest_md5="2d990b558a48cdc539e690a760cae544"
 
 [params]
 

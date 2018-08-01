@@ -7,10 +7,10 @@ path="res://.import/npc_male1.png-93f08e0d25099716687a3282ebd250c7.stex"
 [deps]
 
 source_file="res://assets/characters/npc_male1/npc_male1.png"
-source_md5="726366b50a8a6d7cb1aeee2d8065b98d"
+source_md5="42f1b5476721b20e2a15e7c8f47467e1"
 
 dest_files=[ "res://.import/npc_male1.png-93f08e0d25099716687a3282ebd250c7.stex" ]
-dest_md5="ff1b5ac2592710a511796ff21205af81"
+dest_md5="507e0d06ce0ae5a67370f524e07b595d"
 
 [params]
 

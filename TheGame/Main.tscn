@@ -181,6 +181,8 @@ script = ExtResource( 15 )
 [node name="player" parent="." index="4" instance=ExtResource( 17 )]
 
 position = Vector2( 514.558, 299.008 )
+DEF = 10
+DAME = 60
 
 [node name="WaitTimeTimer" type="Timer" parent="." index="5"]
 

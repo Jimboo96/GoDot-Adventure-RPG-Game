@@ -7,6 +7,7 @@ var path = ""
 var can_trans = false
 
 func _ready():
+	window_resize()
 	viewport.connect("size_changed", self, "window_resize")
 	pass
 	
@@ -24,7 +25,7 @@ func _physics_process(delta):
 		self.path = ""
 		
 func goto_area(path):
-	get_tree().get_root().get_child(2).goto_area(path)
+	get_tree().get_root().get_node("Main").goto_area(path)
 	can_trans = false
 	set_physics_process(false)
 	
@@ -36,7 +37,7 @@ func trans_finished(anim):
 func window_resize():
 	var current_size = OS.get_window_size()
 	if has_node("Sprite"):
-		$Sprite.set_region_rect(Rect2(Vector2(0,0), current_size/2))
+		$Sprite.set_region_rect(Rect2(Vector2(0,0), current_size))
 		
 	if current_size.x > 2048:
 		$runningCharacter.set("scale", Vector2(0.2,0.2))

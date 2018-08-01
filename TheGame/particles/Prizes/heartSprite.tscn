@@ -2,9 +2,8 @@
 
 [ext_resource path="res://resources/particles/heart.tres" type="SpriteFrames" id=1]
 
-[node name="heartSprite" type="AnimatedSprite" index="0"]
+[node name="heartSprite" type="AnimatedSprite"]
 
-rotation = -1.5708
 scale = Vector2( 0.1, 0.1 )
 frames = ExtResource( 1 )
 animation = "heart"

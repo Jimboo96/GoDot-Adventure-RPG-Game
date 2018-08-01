@@ -184,6 +184,7 @@ func dead():
 	dead = true
 	$FlipTimer.stop()
 	$enemySprite.animation = "die"
+	$Anim.play("dead")
 	if has_node("Area2D/detectZone"):
 		$Area2D/detectZone.disabled = true
 	if has_node("CollisionShape2D"):

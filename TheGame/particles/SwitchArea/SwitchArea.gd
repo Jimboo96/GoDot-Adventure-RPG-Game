@@ -18,7 +18,7 @@ func _process(delta):
 
 func _input(event):
 	#If player is standing on the switchArea, it can be interacted with.
-	if(switchState && !global.playerIsInteracting):
+	if(switchState && !global.player.isInteracting):
 		if event.is_action_pressed("interact"):
 			# Area1 switches
 			if global.current_area == "area1":

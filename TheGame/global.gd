@@ -8,6 +8,7 @@ var playerPosSet = false
 
 # area1 variables
 var area1Chest1
+var area1Chest2
 var area1Position = Vector2()
 # A secret switch behind the grave to open a secret area in area3.
 var area1Switch
@@ -36,9 +37,6 @@ var house1Exited
 var secretAreaChest1
 var secretAreaKeyFound
 var secretAreaPosition = Vector2()
-
-var playerIsInteracting = false
-var playerMovable = true
 
 # States: NOT_STARTED, STARTED, COMPLETED
 var quest1State = "NOT_STARTED"

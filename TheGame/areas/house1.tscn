@@ -36,6 +36,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="walls" type="TileMap" parent="." index="1"]
 
+editor/display_folded = true
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
@@ -67,6 +68,7 @@ __meta__ = {
 
 [node name="fill" type="TileMap" parent="." index="2"]
 
+editor/display_folded = true
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
@@ -126,6 +128,7 @@ position = Vector2( 1632.92, -79.0891 )
 
 [node name="MoveAreas" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 14.3539, -4.1011 )
 script = ExtResource( 6 )
 
@@ -143,6 +146,7 @@ autostart = false
 
 [node name="SwitchAreas" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 45.1122, -8.20224 )
 
 [node name="SwitchArea1" parent="SwitchAreas" index="0" instance=ExtResource( 8 )]

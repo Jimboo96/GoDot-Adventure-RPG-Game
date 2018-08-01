@@ -1,121 +1,277 @@
-[gd_scene load_steps=68 format=2]
+
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
-[ext_resource path="res://player/knightSprite.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/characters/knight/Attack (1).png" type="Texture" id=3]
-[ext_resource path="res://assets/characters/knight/Attack (2).png" type="Texture" id=4]
-[ext_resource path="res://assets/characters/knight/Attack (3).png" type="Texture" id=5]
-[ext_resource path="res://assets/characters/knight/Attack (4).png" type="Texture" id=6]
-[ext_resource path="res://assets/characters/knight/Attack (5).png" type="Texture" id=7]
-[ext_resource path="res://assets/characters/knight/Attack (6).png" type="Texture" id=8]
-[ext_resource path="res://assets/characters/knight/Attack (7).png" type="Texture" id=9]
-[ext_resource path="res://assets/characters/knight/Attack (8).png" type="Texture" id=10]
-[ext_resource path="res://assets/characters/knight/Attack (9).png" type="Texture" id=11]
-[ext_resource path="res://assets/characters/knight/Attack (10).png" type="Texture" id=12]
-[ext_resource path="res://assets/characters/knight/Dead (1).png" type="Texture" id=13]
-[ext_resource path="res://assets/characters/knight/Dead (2).png" type="Texture" id=14]
-[ext_resource path="res://assets/characters/knight/Dead (3).png" type="Texture" id=15]
-[ext_resource path="res://assets/characters/knight/Dead (4).png" type="Texture" id=16]
-[ext_resource path="res://assets/characters/knight/Dead (5).png" type="Texture" id=17]
-[ext_resource path="res://assets/characters/knight/Dead (6).png" type="Texture" id=18]
-[ext_resource path="res://assets/characters/knight/Dead (7).png" type="Texture" id=19]
-[ext_resource path="res://assets/characters/knight/Dead (8).png" type="Texture" id=20]
-[ext_resource path="res://assets/characters/knight/Dead (9).png" type="Texture" id=21]
-[ext_resource path="res://assets/characters/knight/Dead (10).png" type="Texture" id=22]
-[ext_resource path="res://assets/characters/knight/Walk (1).png" type="Texture" id=23]
-[ext_resource path="res://assets/characters/knight/Walk (2).png" type="Texture" id=24]
-[ext_resource path="res://assets/characters/knight/Walk (3).png" type="Texture" id=25]
-[ext_resource path="res://assets/characters/knight/Walk (4).png" type="Texture" id=26]
-[ext_resource path="res://assets/characters/knight/Walk (5).png" type="Texture" id=27]
-[ext_resource path="res://assets/characters/knight/Walk (6).png" type="Texture" id=28]
-[ext_resource path="res://assets/characters/knight/Walk (7).png" type="Texture" id=29]
-[ext_resource path="res://assets/characters/knight/Walk (8).png" type="Texture" id=30]
-[ext_resource path="res://assets/characters/knight/Walk (9).png" type="Texture" id=31]
-[ext_resource path="res://assets/characters/knight/Walk (10).png" type="Texture" id=32]
-[ext_resource path="res://assets/characters/knight/Run (1).png" type="Texture" id=33]
-[ext_resource path="res://assets/characters/knight/Run (2).png" type="Texture" id=34]
-[ext_resource path="res://assets/characters/knight/Run (3).png" type="Texture" id=35]
-[ext_resource path="res://assets/characters/knight/Run (4).png" type="Texture" id=36]
-[ext_resource path="res://assets/characters/knight/Run (5).png" type="Texture" id=37]
-[ext_resource path="res://assets/characters/knight/Run (6).png" type="Texture" id=38]
-[ext_resource path="res://assets/characters/knight/Run (7).png" type="Texture" id=39]
-[ext_resource path="res://assets/characters/knight/Run (8).png" type="Texture" id=40]
-[ext_resource path="res://assets/characters/knight/Run (9).png" type="Texture" id=41]
-[ext_resource path="res://assets/characters/knight/Run (10).png" type="Texture" id=42]
-[ext_resource path="res://assets/characters/knight/JumpAttack (1).png" type="Texture" id=43]
-[ext_resource path="res://assets/characters/knight/JumpAttack (2).png" type="Texture" id=44]
-[ext_resource path="res://assets/characters/knight/JumpAttack (3).png" type="Texture" id=45]
-[ext_resource path="res://assets/characters/knight/JumpAttack (4).png" type="Texture" id=46]
-[ext_resource path="res://assets/characters/knight/JumpAttack (5).png" type="Texture" id=47]
-[ext_resource path="res://assets/characters/knight/JumpAttack (6).png" type="Texture" id=48]
-[ext_resource path="res://assets/characters/knight/JumpAttack (7).png" type="Texture" id=49]
-[ext_resource path="res://assets/characters/knight/JumpAttack (8).png" type="Texture" id=50]
-[ext_resource path="res://assets/characters/knight/JumpAttack (9).png" type="Texture" id=51]
-[ext_resource path="res://assets/characters/knight/JumpAttack (10).png" type="Texture" id=52]
-[ext_resource path="res://assets/characters/knight/Idle (1).png" type="Texture" id=53]
-[ext_resource path="res://assets/characters/knight/Idle (2).png" type="Texture" id=54]
-[ext_resource path="res://assets/characters/knight/Idle (3).png" type="Texture" id=55]
-[ext_resource path="res://assets/characters/knight/Idle (4).png" type="Texture" id=56]
-[ext_resource path="res://assets/characters/knight/Idle (5).png" type="Texture" id=57]
-[ext_resource path="res://assets/characters/knight/Idle (6).png" type="Texture" id=58]
-[ext_resource path="res://assets/characters/knight/Idle (7).png" type="Texture" id=59]
-[ext_resource path="res://assets/characters/knight/Idle (8).png" type="Texture" id=60]
-[ext_resource path="res://assets/characters/knight/Idle (9).png" type="Texture" id=61]
-[ext_resource path="res://assets/characters/knight/Idle (10).png" type="Texture" id=62]
-[ext_resource path="res://particles/Effects/SpawnEffect.tscn" type="PackedScene" id=63]
+[ext_resource path="res://assets/characters/player/player_default.png" type="Texture" id=2]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="Animation" id=1]
 
-resource_local_to_scene = true
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": false,
-"name": "attack",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": false,
-"name": "die",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
-"loop": false,
-"name": "jump",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ],
-"loop": false,
-"name": "jump_attack",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-} ]
-_sections_unfolded = [ "Resource" ]
+resource_name = "attackDown"
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 182, 183, 184, 185, 186, 187 ]
+}
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="Animation" id=2]
+
+resource_name = "attackLeft"
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 169, 170, 171, 172, 173, 174 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "attackRight"
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 195, 196, 197, 198, 199, 200 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "attackUp"
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 156, 157, 158, 159, 160, 161 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "dead"
+length = 3.0
+loop = false
+step = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 260, 261, 262, 263, 264, 265 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 0.9
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 130, 131, 132, 133, 134, 135, 136, 137, 138 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 0.9
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 117, 118, 119, 120, 121, 122, 123, 124, 125 ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 0.9
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 143, 144, 145, 146, 147, 148, 149, 150, 151 ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "standingDown"
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 130, 131 ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "standingLeft"
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 117 ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "standingRight"
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 143 ]
+}
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "standingUp"
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 105, 106 ]
+}
+
+[sub_resource type="Animation" id=13]
+
+length = 0.9
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 104, 105, 106, 107, 108, 109, 110, 111, 112 ]
+}
+
+[sub_resource type="Animation" id=14]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 26, 27, 29, 30, 31 ]
+}
+
+[sub_resource type="CircleShape2D" id=15]
+
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=16]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 45 )
@@ -153,14 +309,45 @@ __meta__ = {
 "_edit_group_": true
 }
 HP = 100
-DEF = 10
-DAME = 60
+def = 10
+dame = 60
 
-[node name="Sprite" parent="." index="0" instance=ExtResource( 2 )]
+[node name="PlayerSprite" type="Sprite" parent="." index="0"]
 
-frames = SubResource( 1 )
-frame = 3
-playing = true
+scale = Vector2( 1.6, 1.6 )
+texture = ExtResource( 2 )
+vframes = 21
+hframes = 13
+frame = 143
+_sections_unfolded = [ "Animation", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSprite" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 0
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/attackDown = SubResource( 1 )
+anims/attackLeft = SubResource( 2 )
+anims/attackRight = SubResource( 3 )
+anims/attackUp = SubResource( 4 )
+anims/dead = SubResource( 5 )
+anims/down = SubResource( 6 )
+anims/left = SubResource( 7 )
+anims/right = SubResource( 8 )
+anims/standingDown = SubResource( 9 )
+anims/standingLeft = SubResource( 10 )
+anims/standingRight = SubResource( 11 )
+anims/standingUp = SubResource( 12 )
+anims/up = SubResource( 13 )
+anims/victory = SubResource( 14 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
 
@@ -192,7 +379,7 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Offset", "Smoothing", "Transfor
 
 position = Vector2( -6.82744, 16.0932 )
 scale = Vector2( 1.2, 1.1 )
-shape = SubResource( 2 )
+shape = SubResource( 15 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="disappearTimer" type="Timer" parent="." index="3"]
@@ -204,7 +391,8 @@ autostart = false
 
 [node name="AttackRay" type="Area2D" parent="." index="4"]
 
-position = Vector2( 30, 0 )
+position = Vector2( 39.7352, 19.8116 )
+scale = Vector2( 1.30422, 1.25133 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -213,15 +401,15 @@ angular_damp = 1.0
 collision_layer = 2
 collision_mask = 4
 audio_bus_override = false
-audio_bus_name = "Sound"
-_sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRay" index="0"]
 
-shape = SubResource( 3 )
+shape = SubResource( 16 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]

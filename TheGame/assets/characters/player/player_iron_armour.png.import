@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/troll.png-959779265fba65c44838c68a74812a60.stex"
+path="res://.import/player_iron_armour.png-5be116a79e929b4aa808a11432443efa.stex"
 
 [deps]
 
-source_file="res://player/troll.png"
-source_md5="76a37c47b1f09115f714d6635ab50fb4"
+source_file="res://assets/characters/player/player_iron_armour.png"
+source_md5="07ac874fa677b620fcc8c55cc05056eb"
 
-dest_files=[ "res://.import/troll.png-959779265fba65c44838c68a74812a60.stex" ]
-dest_md5="aded3a6d7973cb880144e84f0b3ec505"
+dest_files=[ "res://.import/player_iron_armour.png-5be116a79e929b4aa808a11432443efa.stex" ]
+dest_md5="081add13a3e1ff4344a52b0f24740ee2"
 
 [params]
 

@@ -37,7 +37,7 @@ func _ready():
 func _physics_process(delta):
 	var motion = Vector2()
 	# Shows speech bubble, when NPC can be talked to. 
-	if NPCInteractionReady && !NPCInteractionGoingOn && !global.playerIsInteracting:
+	if NPCInteractionReady && !NPCInteractionGoingOn && !global.player.isInteracting:
 		$BubbleSprite.show()
 	else:
 		$BubbleSprite.hide()
@@ -103,15 +103,15 @@ func randomize_way():
 # When player presses the interaction key, the NPC stops
 # and starts the dialogue.
 func _input(event):
-	if NPCInteractionReady && !NPCInteractionGoingOn && !global.playerIsInteracting:
+	if NPCInteractionReady && !NPCInteractionGoingOn && !global.player.isInteracting:
 		if event.is_action_pressed("interact"):
 			global.player.playerMovable = false
+			global.player.isInteracting = true
 			NPCInteractionGoingOn = true
-			global.playerIsInteracting = true
 			$NPCSprite/AnimationPlayer.play("standing")
 			emit_signal("start_dialogue")
 			random_voice_line(gender)
-	elif NPCInteractionGoingOn && NPCInteractionReady && global.playerIsInteracting:
+	elif NPCInteractionGoingOn && NPCInteractionReady && global.player.isInteracting:
 		if event.is_action_pressed("interact"):
 			dialog_proceed()
 
@@ -129,7 +129,7 @@ func _on_DirectionTimer_timeout():
 
 func _on_InteractionEndTimer_timeout():
 	NPCInteractionGoingOn = false
-	global.playerIsInteracting = false
+	global.player.isInteracting = false
 	randomize_way()
 
 # Gets a random voice line to play on the start of the interaction.
@@ -165,9 +165,11 @@ func random_gender():
 	else: return "female"
 
 func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		NPCInteractionReady = true
+	if body != null:
+		if body.get_name() == "player":
+			NPCInteractionReady = true
 
 func _on_Area2D_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		NPCInteractionReady = false
+	if body != null:
+		if body.get_name() == "player":
+			NPCInteractionReady = false

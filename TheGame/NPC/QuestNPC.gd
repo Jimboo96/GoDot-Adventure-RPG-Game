@@ -43,7 +43,7 @@ func _physics_process(delta):
 
 # Set the amount of lines and the index of lines here.
 func _input(event):
-	if NPCInteractionReady && !NPCInteractionGoingOn && !global.playerIsInteracting:
+	if NPCInteractionReady && !NPCInteractionGoingOn && !global.player.isInteracting:
 		if event.is_action_pressed("interact"):
 			random_voice_line()
 			if global.quest1State == "NOT_STARTED":
@@ -60,14 +60,14 @@ func _input(event):
 				numberOfLines = NUMBER_OF_LINES_PRE_QUEST + NUMBER_OF_LINES_DURING_QUEST + NUMBER_OF_LINES_QUEST_COMPLETE + NUMBER_OF_LINES_AFTER_QUEST
 				lineIndex = numberOfLines
 			quest_dialogue_handler()
-	elif NPCInteractionGoingOn && NPCInteractionReady && global.playerIsInteracting:
+	elif NPCInteractionGoingOn && NPCInteractionReady && global.player.isInteracting:
 		if event.is_action_pressed("interact"):
 			quest_dialogue_handler()
 
 func quest_dialogue_handler():
 	global.player.playerMovable = false
 	NPCInteractionGoingOn = true
-	global.playerIsInteracting = true
+	global.player.isInteracting = true
 	if global.quest1State == "NOT_STARTED":
 		if lineIndex <= numberOfLines:
 			$Dialogue.quest_dialogue(lineIndex)
@@ -104,7 +104,7 @@ func dialogue_end(var state):
 	global.player.playerMovable = true
 	$Dialogue.reset_text(null)
 	NPCInteractionGoingOn = false
-	global.playerIsInteracting = false
+	global.player.isInteracting = false
 	lineIndex = 1
 
 # Gets a random voice line to play on the start of the interaction.
@@ -121,12 +121,14 @@ func random_voice_line():
 
 # Gives the quest reward to player after quest completion.
 func get_quest_reward():
-	print("TODO: Gives something like experience for the reward.")
+	get_tree().get_root().get_node("Main/HUD").gain_exp(500, null)
 
 func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player" && !NPCInteractionReady && !NPCInteractionGoingOn:
-		NPCInteractionReady = true
+	if body != null:
+		if body.get_name() == "player" && !NPCInteractionReady && !NPCInteractionGoingOn:
+			NPCInteractionReady = true
 
 func _on_Area2D_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		NPCInteractionReady = false
+	if body != null:
+		if body.get_name() == "player":
+			NPCInteractionReady = false

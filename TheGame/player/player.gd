@@ -12,7 +12,8 @@ var maxHP = 100
 const WALK_SPEED = 400 # Pixels/second
 
 var can_attack = false
-var playerMovable
+
+var playerMovable = true
 var detected_target
 
 var animationToPlay = null
@@ -124,9 +125,9 @@ func flip_coin():
 	get_tree().get_root().get_node("Main/Sound/CoinFlip").play()
 	var coinSide = randi()%2
 	if(coinSide == 0):
-		print("Kruuna")
+		print("Heads")
 	elif(coinSide == 1):
-		print("Klaava")
+		print("Tails")
 
 # Return player position.
 func get_player_pos():

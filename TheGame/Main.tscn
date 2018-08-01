@@ -63,7 +63,7 @@ area_mask = 1
 [node name="Switch" type="AudioStreamPlayer2D" parent="Sound" index="3"]
 
 stream = ExtResource( 5 )
-volume_db = 0.0
+volume_db = 5.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -105,7 +105,7 @@ area_mask = 1
 [node name="OpenChest" type="AudioStreamPlayer2D" parent="Sound" index="7"]
 
 stream = ExtResource( 9 )
-volume_db = 0.0
+volume_db = -5.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -115,7 +115,7 @@ area_mask = 1
 [node name="LockedDoor" type="AudioStreamPlayer2D" parent="Sound" index="8"]
 
 stream = ExtResource( 10 )
-volume_db = 0.0
+volume_db = 5.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -135,7 +135,7 @@ area_mask = 1
 [node name="Scream" type="AudioStreamPlayer2D" parent="Sound" index="10"]
 
 stream = ExtResource( 11 )
-volume_db = 0.0
+volume_db = -10.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -165,7 +165,7 @@ area_mask = 1
 [node name="FallenTree" type="AudioStreamPlayer2D" parent="Sound" index="13"]
 
 stream = ExtResource( 14 )
-volume_db = 0.0
+volume_db = -10.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0

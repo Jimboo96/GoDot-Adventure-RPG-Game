@@ -81,37 +81,45 @@ func chest_icon_handler():
 
 # Set the chest index by checking which area player body entered.
 func _on_chest1_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		chestOpenable = true
-		chestNum = 1
+	if body != null:
+		if body.get_name() == "player":
+			chestOpenable = true
+			chestNum = 1
 
 func _on_chest1_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		chestOpenable = false
+	if body != null:
+		if body.get_name() == "player":
+			chestOpenable = false
 
 func _on_chest2_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		chestOpenable = true
-		chestNum = 2
+	if body != null:
+		if body.get_name() == "player":
+			chestOpenable = true
+			chestNum = 2
 
 func _on_chest2_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		chestOpenable = false
+	if body != null:
+		if body.get_name() == "player":
+			chestOpenable = false
 		
 func _on_chest3_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		chestOpenable = true
-		chestNum = 3
+	if body != null:	
+		if body.get_name() == "player":
+			chestOpenable = true
+			chestNum = 3
 
 func _on_chest3_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		chestOpenable = false
+	if body != null:
+		if body.get_name() == "player":
+			chestOpenable = false
 		
 func _on_chest4_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		chestOpenable = true
-		chestNum = 4
+	if body != null:
+		if body.get_name() == "player":
+			chestOpenable = true
+			chestNum = 4
 
 func _on_chest4_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		chestOpenable = false
+	if body != null:
+		if body.get_name() == "player":
+			chestOpenable = false

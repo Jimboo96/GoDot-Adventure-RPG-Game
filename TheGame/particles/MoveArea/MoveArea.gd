@@ -74,16 +74,16 @@ func reset_player_pos(var current_scene):
 func _on_MoveArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body != null:
 		if body.get_name() == "player":
-			global.player.playerMovable = false
 			$MoveArea/MoveTimer.start()
 			get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
+			global.player.playerMovable = false
 
 func _on_MoveArea2_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body != null:
 		if body.get_name() == "player":
-			global.player.playerMovable = false
 			$MoveArea2/MoveTimer2.start()
 			get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
+			global.player.playerMovable = false
 
 func _on_DoorArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body != null:

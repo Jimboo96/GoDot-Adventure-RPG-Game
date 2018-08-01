@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
@@ -172,6 +171,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 130, 130 ]
+}
 
 [sub_resource type="Animation" id=9]
 
@@ -300,7 +311,7 @@ tracks/1/keys = {
 [sub_resource type="CircleShape2D" id=15]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 12.0
 
 [sub_resource type="RectangleShape2D" id=16]
 
@@ -310,7 +321,7 @@ extents = Vector2( 30, 45 )
 [node name="player" type="KinematicBody2D"]
 
 light_mask = 29
-position = Vector2( 512.621, 301.651 )
+position = Vector2( 512, 300 )
 input_pickable = false
 collision_layer = 2
 collision_mask = 29
@@ -330,7 +341,7 @@ scale = Vector2( 1.6, 1.6 )
 texture = ExtResource( 2 )
 vframes = 21
 hframes = 13
-frame = 196
+frame = 130
 _sections_unfolded = [ "Animation", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -389,10 +400,9 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Offset", "Smoothing", "Transfor
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( -6.82744, 16.0932 )
-scale = Vector2( 1.2, 1.1 )
+position = Vector2( 0, 10 )
 shape = SubResource( 15 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="disappearTimer" type="Timer" parent="." index="3"]
 
@@ -403,6 +413,7 @@ autostart = false
 
 [node name="AttackRay" type="Area2D" parent="." index="4"]
 
+visible = false
 position = Vector2( 39.7352, 19.8116 )
 scale = Vector2( 1.30422, 1.25133 )
 input_pickable = true

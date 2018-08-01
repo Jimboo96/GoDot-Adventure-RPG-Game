@@ -59,15 +59,11 @@ func hide_text():
 func get_prize(type, value):
 	match type:
 		"COIN":
-			var cur_coins = int($InfoContainer/MainBox/Container/CoinCounter/Background/Number.text)
+			var cur_coins = int($CoinCounter/Background/Number.text)
 			cur_coins = cur_coins + value
-			$InfoContainer/MainBox/Container/CoinCounter/Background/Number.set("text", String(cur_coins))
+			$CoinCounter/Background/Number.set("text", String(cur_coins))
 		_:
 			pass
-			
-"""func open_popup():
-	$SkillMenu.popup()
-	pass"""
 
 func pause_game():
 	#open popup settings

@@ -12,7 +12,7 @@ var maxHP = 100
 const WALK_SPEED = 400 # Pixels/second
 
 var can_attack = false
-var playerMovable
+var playerMovable = true
 var cast_length
 var detected_target
 
@@ -31,7 +31,6 @@ func _ready():
 	set_process_input(true)
 	set_process(true)
 	#init
-	playerMovable = true
 	cast_length = 60
 	dame = 60
 	#connect signals
@@ -43,7 +42,6 @@ func _ready():
 	
 func appear(anim): #appear when added to area
 	show()
-	$AnimationPlayer.play("spawning")
 	playerMovable = true
 	
 func _input(event):
@@ -126,9 +124,9 @@ func flip_coin():
 	get_tree().get_root().get_node("Main/Sound/CoinFlip").play()
 	var coinSide = randi()%2
 	if(coinSide == 0):
-		print("Kruuna")
+		print("Heads")
 	elif(coinSide == 1):
-		print("Klaava")
+		print("Tails")
 
 # Return player position.
 func get_player_pos():
@@ -156,7 +154,6 @@ func updateHP(newHP):
 
 #called when level up
 func levelup():
-	$AnimationPlayer.play("spawning")
 	HP = maxHP * 3/2
 	def = def * 3/2
 	dame = dame + 10

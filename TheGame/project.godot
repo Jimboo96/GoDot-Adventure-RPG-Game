@@ -22,7 +22,6 @@ Settings="*res://particles/Settings/Settings.gd"
 [display]
 
 window/size/resizable=false
-window/size/borderless=true
 
 [editor_plugins]
 

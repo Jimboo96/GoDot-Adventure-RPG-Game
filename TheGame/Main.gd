@@ -49,8 +49,7 @@ func deferred_goto_area(path):
 	#remove old area
 	$Area.remove_child(currentArea)
 	add_new_scene(s)
-	pass
-	
+
 func add_new_scene(s):
 	#load area
 	currentArea = s.instance()
@@ -69,16 +68,8 @@ func add_new_scene(s):
 	#reset when go to new scene:
 	enemiesIndex = 0
 	enemies = Array()
-	if areaName == "area1":
+	if "area" in areaName:
 		maxEnemies = 3
-		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
-		enemies_spawning()
-	if areaName == "area2":
-		maxEnemies = 2
-		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
-		enemies_spawning()
-	if areaName == "area3":
-		maxEnemies = 4
 		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
 		enemies_spawning()
 		

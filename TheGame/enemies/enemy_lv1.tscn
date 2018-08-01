@@ -24,19 +24,31 @@ length = 1.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Particles2D:visible")
+tracks/0/path = NodePath("smoke:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("smoke:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
 }
 
-[node name="enemy_level1" type="KinematicBody2D" index="0"]
+[node name="enemy_level1" type="KinematicBody2D"]
 
 light_mask = 2
 input_pickable = false
@@ -100,10 +112,12 @@ wait_time = 3.0
 one_shot = false
 autostart = false
 
-[node name="Particles2D" parent="." index="6" instance=ExtResource( 4 )]
+[node name="smoke" parent="." index="6" instance=ExtResource( 4 )]
 
 visible = false
+modulate = Color( 1, 1, 1, 0.320431 )
 position = Vector2( 25, 0 )
+one_shot = true
 _sections_unfolded = [ "Material", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
 
 [node name="Anim" type="AnimationPlayer" parent="." index="7"]

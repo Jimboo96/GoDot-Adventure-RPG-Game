@@ -119,7 +119,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
 
 [node name="NPCSprite" type="Sprite" parent="." index="0"]
 
@@ -186,7 +186,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="Dialogue" parent="." index="4" instance=ExtResource( 4 )]

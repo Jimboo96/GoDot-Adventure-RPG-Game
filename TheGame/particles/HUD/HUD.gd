@@ -18,7 +18,7 @@ func conn_signals():
 	#skill menu
 	#$SkillButton.connect("pressed", self, "open_popup")
 	#settings buttons
-	$PauseButton.connect("pressed", self, "pause_game")
+	$PauseContainer/NinePatchRect/PauseButton.connect("pressed", self, "pause_game")
 
 func gain_exp(EXP, enemy_id): #called when an enemy killed, from World
 	$InfoContainer/MainBox/LevelBar.update_exp(EXP)

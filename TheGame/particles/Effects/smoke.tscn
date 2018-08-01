@@ -53,8 +53,9 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
-[node name="Particles2D" type="Particles2D"]
+[node name="smoke" type="Particles2D"]
 
+modulate = Color( 1, 1, 1, 0.243098 )
 rotation = -1.39626
 emitting = true
 amount = 200
@@ -74,6 +75,6 @@ texture = ExtResource( 1 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Visibility" ]
 
 

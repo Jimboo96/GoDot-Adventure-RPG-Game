@@ -172,7 +172,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-visible = false
 position = Vector2( 1.62767, -0.573242 )
 scale = Vector2( 2.36835, 2.28293 )
 shape = SubResource( 7 )
@@ -201,7 +200,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="Dialogue" parent="." index="6" instance=ExtResource( 4 )]

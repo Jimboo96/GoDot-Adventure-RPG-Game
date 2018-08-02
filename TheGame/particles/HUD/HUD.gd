@@ -44,7 +44,7 @@ func player_dead():
 	emit_signal("player_dead")
 	$WaitTimer.start()
 	
-func game_over():	
+func game_over():
 	$MainText.set_text("GAME OVER")
 	$MainText.show()
 	$TextDisappearTimer.set("wait_time", 1)

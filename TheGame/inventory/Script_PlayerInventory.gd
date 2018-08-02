@@ -79,7 +79,7 @@ func _input(event):
 		if (event.is_action_released("mouse_leftbtn")):
 			get_position()
 			if draggedItemSlot > -1:
-				print("activeItemSlot:" + str(activeItemSlot) + " draggedItemSlot " +str(draggedItemSlot))
+				print("\nactiveItemSlot:" + str(activeItemSlot) + " draggedItemSlot " +str(draggedItemSlot))
 				move_item(cursor_insideGearList,going_to_gear,true,activeItemSlot,draggedItemSlot)
 			end_drag_item()
 	if (event is InputEventMouseMotion):
@@ -297,7 +297,7 @@ func _on_ItemMenu_Button_UseItem_pressed():
 		print("\n " + str(activeItemSlot))
 		move_item(false,true, false,activeItemSlot,draggedItemSlot)
 	else:
-		#use the item somehow
+		#use the item somehow       ##############################
 		print("USE ITEM")
 	itemMenu.hide()
 
@@ -369,11 +369,11 @@ func end_drag_item():
 
 
 func move_item(is_gear,to_gear, dragged, whereToSlot,whereFromSlot):
-	print("\nis this gear? " + str(is_gear))
-	print("is this going to gear  " + str(to_gear))
-	print("dragged to: " + str(whereToSlot))
-	print("dragged from: " + str(whereFromSlot))
-	print("dragged: " + str(dragged))
+	#print("\nis this gear? " + str(is_gear))
+	#print("is this going to gear  " + str(to_gear))
+	#print("dragged to: " + str(whereToSlot))
+	#print("dragged from: " + str(whereFromSlot))
+	#print("dragged: " + str(dragged))
 	
 	if dragged:
 		#if dragged and the index is invalid just return
@@ -499,4 +499,5 @@ func send_attributes_to_stats():
 		if data.has("defence"):
 			armor  += int(data["defence"])
 	
+	printt("sending dmg and armor", damage, armor)
 	global.update_gear_attributes(damage,armor)

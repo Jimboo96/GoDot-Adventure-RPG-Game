@@ -23,7 +23,7 @@ func _on_Previous_pressed():
 	$MusicPlayer.play()
 
 func _on_Next_pressed():
-	if song_number == 19:
+	if song_number == 9:
 		song_number = 9
 	elif song_number < 9:
 		song_number += 1
@@ -33,4 +33,7 @@ func _on_Next_pressed():
 
 
 func _on_MusicPlayer_finished():
-	_on_Next_pressed()
+	if song_number == 9:
+		song_number = 1
+	else:
+		_on_Next_pressed()

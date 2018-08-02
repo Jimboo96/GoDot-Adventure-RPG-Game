@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://SkillTree/Main.gd" type="Script" id=1]
+[ext_resource path="res://SkillTree/stats.gd" type="Script" id=1]
 [ext_resource path="res://SkillTree/Sprites/stat_background.jpeg" type="Texture" id=2]
 [ext_resource path="res://SkillTree/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://SkillTree/Sprites/plus.png" type="Texture" id=4]
@@ -10,6 +10,7 @@
 [ext_resource path="res://SkillTree/Sprites/Skillsbutton.png" type="Texture" id=8]
 [ext_resource path="res://SkillTree/Sprites/Skillsbutton_click.png" type="Texture" id=9]
 [ext_resource path="res://SkillTree/Sprites/Skillsbutton_hover.png" type="Texture" id=10]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 

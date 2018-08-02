@@ -78,7 +78,7 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide(motion)
 	update()
-	print(motion)
+	#print(motion)
 
 func get_input():
 	motion = Vector2()
@@ -108,7 +108,7 @@ func get_input():
 			$Sprite.flip_h = false
 			$AttackRay.position = Vector2(30,0)
 			
-		elif Input.is_action_pressed("asdattack"):
+		elif Input.is_action_pressed("attack"):
 			$Sprite.animation = "attack"
 			if swing.playing == false:
 				swing.play()
@@ -134,8 +134,7 @@ func enemy_in_zone(body):
 					detected_target = overlap[i]
 					can_attack = true
 					return
-					
-		
+
 func enemy_out_zone(body):
 	var e = 0
 	if "enemy" in body.get_name():
@@ -167,7 +166,6 @@ func attacked(damage):
 	if damage_received > 0:
 		emit_signal("attacked", damage_received)
 
-
 func player_dead():
 	$disappearTimer.start()
 	$Sprite.animation = "die"
@@ -175,28 +173,19 @@ func player_dead():
 func _on_disappearTimer_timeout():
 	queue_free()
 	pass
-	
+
 func updateHP(newHP):
 	HP = newHP
-	
-
-func update_stats():
-	get_armor_armor()
-	get_weapon_dmg()
-	printt("damage and armor are", dame, def)
-
-func get_weapon_dmg():
-	dmg += global.damageFromWeapons
-
-func get_armor_armor():
-	def += global.armorFromArmor
 
 func level_up(Str, Agi, constitution, Wc):
-	HP = 10 * constitution
-	def = def * 3/2
-	WALK_SPEED = WALK_SPEED * ((Agi/10)+1)
+	HP = 10 * constitution 
+	def = 10 * 3/2
+	def += global.armorFromArmor
+	WALK_SPEED = 400 * ((Agi/10)+1)
 	dmg = (10 * Str) + 60
-	print("damage: ", dmg, " Walk_speed: ", WALK_SPEED, "hp: ", HP)
+	dmg += global.damageFromWeapons
+	#printt("damage:", dmg, " Walk_speed:", WALK_SPEED, "hp:", HP)
+
 
 func _load_stats():
 	var current_line = global._load_player_stats(1)
@@ -209,3 +198,5 @@ func _load_stats():
 		Wc = current_line["Wc"]
 		Lvl = global.player_lvl
 		level_up(Str, Agi, constitution, Wc)
+	print("stats are loaded ")
+	printt("damage:", dmg, " Walk_speed:", WALK_SPEED, "hp:", HP)

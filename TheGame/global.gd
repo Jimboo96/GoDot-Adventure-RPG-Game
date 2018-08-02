@@ -99,8 +99,10 @@ func _notification(what):
 func update_gear_attributes(dmgUpdate,armorUpdate):
 	damageFromWeapons = dmgUpdate
 	armorFromArmor = armorUpdate
-	printt("damage from weapons",damageFromWeapons)
-	printt("armor from armor",armorFromArmor)
+	var player = find_node_by_name(get_tree().get_root(), "player")
+	#if(player): printt(player, player.get_name())
+	#else: printt(player, "<- if this is null player is not found")
+	player._load_stats()
 
 
 func find_node_by_name(root, name):
@@ -148,7 +150,6 @@ func reward(id):
 	Global_Player.inventory_addItem(id)
 	name = item["name"]
 	printt("You  got a reward! It's: a", name)
-
 
 
 #skill and statTree vars

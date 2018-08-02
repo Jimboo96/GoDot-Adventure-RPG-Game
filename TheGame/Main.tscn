@@ -19,8 +19,6 @@
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 [ext_resource path="res://SkillTree/Control.tscn" type="PackedScene" id=18]
 
-
-
 [node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
@@ -31,11 +29,12 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sound" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
+
 [node name="OpenDoor" type="AudioStreamPlayer2D" parent="Sound" index="0"]
 
 stream = ExtResource( 2 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -46,7 +45,6 @@ area_mask = 1
 
 stream = ExtResource( 3 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -57,7 +55,6 @@ area_mask = 1
 
 stream = ExtResource( 4 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -68,7 +65,6 @@ area_mask = 1
 
 stream = ExtResource( 5 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -80,7 +76,6 @@ area_mask = 1
 position = Vector2( 389.605, 139.438 )
 stream = ExtResource( 6 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -92,7 +87,6 @@ area_mask = 1
 position = Vector2( 606.964, 110.73 )
 stream = ExtResource( 7 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -103,7 +97,6 @@ area_mask = 1
 
 stream = ExtResource( 8 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -114,7 +107,6 @@ area_mask = 1
 
 stream = ExtResource( 9 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -125,7 +117,6 @@ area_mask = 1
 
 stream = ExtResource( 10 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -136,7 +127,6 @@ area_mask = 1
 
 stream = ExtResource( 11 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -146,8 +136,7 @@ area_mask = 1
 [node name="SwordSwing" type="AudioStreamPlayer2D" parent="Sound" index="10"]
 
 stream = ExtResource( 12 )
-volume_db = -5.0
-pitch_scale = 0.5
+volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -158,25 +147,15 @@ area_mask = 1
 
 stream = ExtResource( 13 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="SwordSwing" type="AudioStreamPlayer" parent="Sound" index="12"]
-
-stream = ExtResource( 14 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
 [node name="SceneManager" type="Node" parent="." index="2"]
 
-script = ExtResource( 15 )
+script = ExtResource( 14 )
 
 [node name="HUD" parent="." index="3" instance=ExtResource( 15 )]
 

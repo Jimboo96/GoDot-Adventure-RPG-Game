@@ -32,7 +32,7 @@ func _ready():
 	_set_text()
 
 func _process(delta):
-	position = get_tree().get_root().get_child(1).get_node("Area/area/walls/YSort/player").get_child(1).get_camera_screen_center()
+	position = get_tree().get_root().get_child(4).get_node("Area/area/walls/YSort/player").get_child(1).get_camera_screen_center()
 
 
 func _lvl_up():

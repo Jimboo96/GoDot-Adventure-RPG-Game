@@ -57,7 +57,7 @@ func _on_Reset_pressed():
 	_save_stats()
 
 func _set_sp():
-	$Level.text = "Levle: " + str(Lvl)
+	$Level.text = "Level: " + str(Lvl)
 	$PointsAvailable.text = "Points available: " + str(sp)
 
 func _check_upgrades():

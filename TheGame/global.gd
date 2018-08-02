@@ -157,6 +157,7 @@ var Str
 var Agi
 var Const
 var player_lvl
+var player_max_hp
 
 const SAVE_PATH = "user://statFile.json"
 const LOAD_PATH = "user://skillFile.json"

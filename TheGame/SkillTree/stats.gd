@@ -28,6 +28,7 @@ const SAVE_PATH = "user://statFile.json"
 
 func _ready():
 #	_save_stats()
+	Lvl = global.player_lvl
 	_load_stats()
 	_set_text()
 
@@ -159,7 +160,6 @@ func _load_stats():
 		if global.player_lvl == null:
 			global.player_lvl = 0
 		ap = (global.player_lvl * 2) - points_allocated
-		Lvl = global.player_lvl
 
 
 func _set_text():

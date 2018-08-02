@@ -19,7 +19,7 @@
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 [ext_resource path="res://SkillTree/Control.tscn" type="PackedScene" id=18]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 

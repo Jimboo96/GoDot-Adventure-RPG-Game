@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/npc_female3.png-1c0397843ae62615f0c91487f3dcc14d.stex"
+path="res://.import/swordSprite.png-cc80c2d223bcc85d0d81b30133f29e15.stex"
 
 [deps]
 
-source_file="res://assets/characters/npc_female3/npc_female3.png"
-source_md5="b9a8d0dd0bf3e66fb15117a1d11ca19d"
+source_file="res://assets/icons/swordSprite.png"
+source_md5="942228bdf50a145224736f36994550d7"
 
-dest_files=[ "res://.import/npc_female3.png-1c0397843ae62615f0c91487f3dcc14d.stex" ]
-dest_md5="0e333eb767c97f76317cf7e0a498b6db"
+dest_files=[ "res://.import/swordSprite.png-cc80c2d223bcc85d0d81b30133f29e15.stex" ]
+dest_md5="87b2c0a38ab0d773413688b7bfb126df"
 
 [params]
 

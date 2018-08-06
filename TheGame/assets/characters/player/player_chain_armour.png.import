@@ -7,10 +7,10 @@ path="res://.import/player_chain_armour.png-70c0425f210551b38fb380f60d3f7903.ste
 [deps]
 
 source_file="res://assets/characters/player/player_chain_armour.png"
-source_md5="55f00d7dcf4a65c527b11c4398e29adb"
+source_md5="4e242d3cb8aed9d68d646de81185025f"
 
 dest_files=[ "res://.import/player_chain_armour.png-70c0425f210551b38fb380f60d3f7903.stex" ]
-dest_md5="2dbb385767fc826e549227d967b90012"
+dest_md5="9180f858fbb87e626d645875ef05b523"
 
 [params]
 

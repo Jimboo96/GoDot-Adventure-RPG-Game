@@ -7,10 +7,10 @@ path="res://.import/player_leather_armour.png-7aed8a62fd1369b151933b92d9ccdc35.s
 [deps]
 
 source_file="res://assets/characters/player/player_leather_armour.png"
-source_md5="bf3aef19bab96d5f87c1c195aa46c72a"
+source_md5="d4958dfbcd4ed3ddc77f8b2ba0c1bbba"
 
 dest_files=[ "res://.import/player_leather_armour.png-7aed8a62fd1369b151933b92d9ccdc35.stex" ]
-dest_md5="1ed803a61d9eb55989e78f67e98dbfab"
+dest_md5="246471f15d5a22f833dca97330280f4f"
 
 [params]
 

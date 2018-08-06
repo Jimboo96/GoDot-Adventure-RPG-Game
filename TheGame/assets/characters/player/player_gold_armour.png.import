@@ -7,10 +7,10 @@ path="res://.import/player_gold_armour.png-38fbc74d96a18a33f9a6eaade5235aeb.stex
 [deps]
 
 source_file="res://assets/characters/player/player_gold_armour.png"
-source_md5="6d329a1bf946b3729625a737b458fa48"
+source_md5="e252ccbbac39e9571edc89fa341b7f30"
 
 dest_files=[ "res://.import/player_gold_armour.png-38fbc74d96a18a33f9a6eaade5235aeb.stex" ]
-dest_md5="d72b6b755e46e4ebcea9544299e4cc92"
+dest_md5="9c11c663ef67341d3334c4f5406b3ca2"
 
 [params]
 

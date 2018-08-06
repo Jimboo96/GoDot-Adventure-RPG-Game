@@ -121,6 +121,7 @@ func random_voice_line():
 
 # Gives the quest reward to player after quest completion.
 func get_quest_reward():
+	get_tree().get_root().get_node("Main/HUD").quest_complete()
 	get_tree().get_root().get_node("Main/HUD").gain_exp(500, null)
 
 func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):

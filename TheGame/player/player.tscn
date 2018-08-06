@@ -1,8 +1,9 @@
+
 [gd_scene load_steps=21 format=2]
+
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/player/player_default.png" type="Texture" id=2]
-[ext_resource path="res://particles/Effects/SpawnEffect.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -65,7 +66,7 @@ tracks/0/keys = {
 
 resource_name = "attackUp"
 length = 0.6
-loop = false
+loop = true
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -155,6 +156,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=9]
 
+
 resource_name = "spawning"
 length = 1.0
 loop = false
@@ -185,6 +187,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=10]
+
 
 length = 2.0
 loop = true
@@ -277,7 +280,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=15]
 
 length = 1.0
-loop = false
+loop = true
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -291,6 +294,7 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 26, 27, 29, 30, 31 ]
 }
+
 tracks/1/type = "value"
 tracks/1/path = NodePath("../SpawnEffect:visible")
 tracks/1/interp = 1
@@ -303,6 +307,7 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false, false ]
 }
+
 
 [sub_resource type="CircleShape2D" id=16]
 
@@ -328,13 +333,14 @@ __meta__ = {
 "_edit_group_": true
 }
 
+
 [node name="PlayerSprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 1.6, 1.6 )
 texture = ExtResource( 2 )
 vframes = 21
 hframes = 13
-frame = 31
+frame = 143
 _sections_unfolded = [ "Animation", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -362,6 +368,7 @@ anims/standingRight = SubResource( 12 )
 anims/standingUp = SubResource( 13 )
 anims/up = SubResource( 14 )
 anims/victory = SubResource( 15 )
+
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -426,10 +433,5 @@ __meta__ = {
 
 shape = SubResource( 17 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="SpawnEffect" parent="." index="5" instance=ExtResource( 3 )]
-
-visible = false
-_sections_unfolded = [ "Drawing", "Material", "Process Material", "Time", "Transform", "Visibility" ]
 
 

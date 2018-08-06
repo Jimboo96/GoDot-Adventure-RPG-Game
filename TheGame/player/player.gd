@@ -8,7 +8,6 @@ var HP = 100
 var DEF = 10
 var DAME = 60
 
-
 var maxHP = 100
 
 const WALK_SPEED = 400 # Pixels/second
@@ -34,7 +33,6 @@ func _ready():
 	set_process(true)
 	#init
 	cast_length = 60
-	dame = 60
 	#connect signals
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
@@ -45,7 +43,6 @@ func _ready():
 func appear(anim): #appear when added to area
 	playerMovable = true
 	show()
-
 	play_animation("spawning")
 	if $CollisionShape2D.disabled == true:
 		$CollisionShape2D.disabled = false
@@ -89,9 +86,9 @@ func _input(event):
 			
 		elif Input.is_action_pressed("attack"):
 			if can_attack == true and detected_target:
-				detected_target.attacked(dame)
-				if directionFacing != null:
-					animationToPlay = "attack" + directionFacing
+				detected_target.attacked(DAME)
+			if directionFacing != null:
+				animationToPlay = "attack" + directionFacing
 			get_tree().get_root().get_node("Main/Sound/SwordSwing").play()
 			
 		else:
@@ -152,7 +149,7 @@ func get_player_pos():
 #attacked by enemy
 func attacked(damage):
 	#animationToPlay = "damaged"
-	var damage_received = damage - def
+	var damage_received = damage - DEF
 	if damage_received > 0:
 		emit_signal("attacked", damage_received)
 		pass
@@ -172,8 +169,8 @@ func updateHP(newHP):
 #called when level up
 func levelup():
 	HP = maxHP * 3/2
-	def = def * 3/2
-	dame = dame + 10
+	DEF = DEF * 3/2
+	DAME = DAME + 10
 
 func play_animation(var animation):
 	if $PlayerSprite/AnimationPlayer.current_animation.get_basename() != animationToPlay:

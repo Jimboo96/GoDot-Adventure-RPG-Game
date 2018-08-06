@@ -18,7 +18,7 @@
 [ext_resource path="res://particles/HUD/HUD.tscn" type="PackedScene" id=16]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 

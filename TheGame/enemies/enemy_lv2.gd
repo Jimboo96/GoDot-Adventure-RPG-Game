@@ -191,6 +191,7 @@ func dead():
 	pass
 	
 func enemy_disable():
+	$Anim.play("dead")
 	if $enemySprite.is_inside_tree():
 		$enemySprite.hide()
 	$lifeBarContainer.hide()

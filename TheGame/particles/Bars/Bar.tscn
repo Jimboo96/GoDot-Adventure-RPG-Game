@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/font/Atarian/SF Atarian System Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/GUI/font/alphabetized-cassette-tapes/alphabetized cassette tapes.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/GUI/particles/levelBar_bg.png" type="Texture" id=2]
 [ext_resource path="res://assets/GUI/particles/levelBar.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 30
+size = 40
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 1 )

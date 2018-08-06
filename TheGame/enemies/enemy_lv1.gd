@@ -187,7 +187,6 @@ func dead():
 	dead = true
 	$FlipTimer.stop()
 	$enemySprite.animation = "die"
-	$Anim.play("dead")
 	if has_node("Area2D/detectZone"):
 		$Area2D/detectZone.disabled = true
 	if has_node("CollisionShape2D"):
@@ -196,6 +195,7 @@ func dead():
 	pass
 	
 func enemy_disable():
+	$Anim.play("dead")
 	if $enemySprite.is_inside_tree():
 		$enemySprite.hide()
 	$lifeBarContainer.hide()

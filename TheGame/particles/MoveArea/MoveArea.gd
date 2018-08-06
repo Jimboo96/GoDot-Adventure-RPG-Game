@@ -13,10 +13,9 @@ func _input(event):
 		if event.is_action_pressed("interact"):
 			doorOpenable = false
 			get_tree().get_root().get_node("Main/Sound/OpenDoor").play()
-			global.player.playerMovable = false
+			global.player.temp_disable()
 			$DoorArea/DoorTimer.start()
-
-
+			
 # Resets players position according to the coordinates that are saved in global variables.
 #set init pos if null
 func reset_player_pos(var current_scene):
@@ -74,16 +73,16 @@ func reset_player_pos(var current_scene):
 func _on_MoveArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body != null:
 		if body.get_name() == "player":
-			global.player.playerMovable = false
 			$MoveArea/MoveTimer.start()
 			get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
+			global.player.temp_disable()
 
 func _on_MoveArea2_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body != null:
 		if body.get_name() == "player":
-			global.player.playerMovable = false
 			$MoveArea2/MoveTimer2.start()
 			get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").play()
+			global.player.temp_disable()
 
 func _on_DoorArea_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body != null:

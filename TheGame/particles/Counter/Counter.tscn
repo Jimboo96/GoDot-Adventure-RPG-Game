@@ -2,11 +2,11 @@
 
 [ext_resource path="res://assets/GUI/texture/label_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/GUI/particles/coins0.png" type="Texture" id=2]
-[ext_resource path="res://assets/font/Atarian/SF Atarian System Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/GUI/font/videophreak/VIDEOPHREAK.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 40
+size = 30
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )

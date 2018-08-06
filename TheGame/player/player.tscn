@@ -302,10 +302,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true, false, false ]
 }
 
 [sub_resource type="CircleShape2D" id=15]
@@ -318,7 +318,7 @@ radius = 12.0
 custom_solver_bias = 0.0
 extents = Vector2( 30, 45 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 light_mask = 29
 position = Vector2( 512, 300 )
@@ -327,7 +327,7 @@ collision_layer = 2
 collision_mask = 29
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -341,7 +341,7 @@ scale = Vector2( 1.6, 1.6 )
 texture = ExtResource( 2 )
 vframes = 21
 hframes = 13
-frame = 130
+frame = 31
 _sections_unfolded = [ "Animation", "Transform" ]
 __meta__ = {
 "_edit_lock_": true

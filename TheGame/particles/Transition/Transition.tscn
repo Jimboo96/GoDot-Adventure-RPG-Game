@@ -65,7 +65,7 @@ tracks/3/keys = {
 "values": [ Vector2( 2, 2 ), Vector2( 2, 2 ) ]
 }
 
-[node name="Transition" type="Control" index="0"]
+[node name="Transition" type="Control"]
 
 anchor_left = 0.5
 anchor_top = 0.5

@@ -41,9 +41,23 @@ func _ready():
 	set_player_sprite(playerArmour)
 	
 func appear(anim): #appear when added to area
+	playerMovable = true
 	show()
 	play_animation("spawning")
-	playerMovable = true
+	if $CollisionShape2D.disabled == true:
+		$CollisionShape2D.disabled = false
+		$AttackRay/CollisionShape2D.disabled = false
+	$AttackRay.set("monitoring", true)
+	$AttackRay.set("monitorable", true)
+	
+func temp_disable():
+	playerMovable = false
+	$CollisionShape2D.disabled = true
+	$AttackRay/CollisionShape2D.disabled = true
+	hide()
+	self.set("monitoring", false)
+	$AttackRay.set("monitoring", false)
+	$AttackRay.set("monitorable", false)
 	
 func _input(event):
 	if playerMovable:

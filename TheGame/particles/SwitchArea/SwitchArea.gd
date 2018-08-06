@@ -9,13 +9,9 @@ var doorOpenableSprite
 var objectOfInterestSprite
 
 func _ready():
-	walls = get_tree().get_root().get_child(4).get_node("Area/area/walls")
-	#print(get_tree())
-	switchState = false
+	walls = get_tree().get_root().get_child(5).get_node("Area/area/walls")
 	load_sprites()
 	$IconSprite.hide()
-	#walls = get_tree().get_root().get_child(1).get_node("Area/area/walls")
-
 
 func _process(delta):
 	examine_icon_handler()
@@ -23,7 +19,7 @@ func _process(delta):
 
 func _input(event):
 	#If player is standing on the switchArea, it can be interacted with.
-	if(switchState && !global.playerIsInteracting):
+	if(switchState && !global.player.isInteracting):
 		if event.is_action_pressed("interact"):
 			# Area1 switches
 			if global.current_area == "area1":
@@ -32,31 +28,33 @@ func _input(event):
 				if self.get_name() == "SwitchArea":
 					# Secret switch behind the grave.
 					if !global.area1Switch:
-						get_tree().get_root().get_child(4).get_node("Sound/MoveBlock").play()
+						get_tree().get_root().get_node("Main/Sound/MoveBlock").play()
 						global.area1Switch = true
+						get_tree().get_root().get_node("Main/HUD").gain_exp(60, null)
 						emit_signal("start_dialogue")
 			# House1 switches
 			elif(global.current_area == "house1"):
 				# Door 1. Opens and closes it.
 				if self.get_name() == "SwitchArea1":
 					if walls.get_cell(6,-11) == 22:
-						get_tree().get_root().get_child(4).get_node("Sound/OpenDoor").play()
+						get_tree().get_root().get_node("Main/Sound/OpenDoor").play()
 						walls.set_cell(6,-11,37)
 					elif walls.get_cell(6,-11) == 37:
-						get_tree().get_root().get_child(4).get_node("Sound/CloseDoor").play()
+						get_tree().get_root().get_node("Main/Sound/CloseDoor").play()
 						walls.set_cell(6,-11,22)
 					# Door 2. Opens and closes it, if the secret key has been found.
 				elif self.get_name() == "SwitchArea2":
 					if global.secretAreaKeyFound:
 						if walls.get_cell(10,-15) == 26:
-							get_tree().get_root().get_child(4).get_node("Sound/OpenDoor").play()
+							get_tree().get_root().get_node("Main/Sound/OpenDoor").play()
 							walls.set_cell(10,-15,38)
 						elif walls.get_cell(10,-15) == 38:
-							get_tree().get_root().get_child(4).get_node("Sound/CloseDoor").play()
+							get_tree().get_root().get_node("Main/Sound/CloseDoor").play()
 							walls.set_cell(10,-15,26)
 					else:
-						get_tree().get_root().get_child(4).get_node("Sound/LockedDoor").play()
+						get_tree().get_root().get_node("Main/Sound/LockedDoor").play()
 						$IconSprite.texture = doorLockedSprite
+
 			# Secret area switches.
 			elif(global.current_area == "secretArea"):
 				# Set switchState to false so action can only be done once per entering area.
@@ -64,7 +62,8 @@ func _input(event):
 				if self.get_name() == "SwitchArea":
 					# Key buried under the flower.
 					if !global.secretAreaKeyFound:
-						get_tree().get_root().get_child(4).get_node("Sound/PickUp").play()
+						get_tree().get_root().get_node("Main/Sound/PickUp").play()						
+						get_tree().get_root().get_node("Main/HUD").gain_exp(60, null)
 						global.secretAreaKeyFound = true
 						emit_signal("start_dialogue")
 			elif(global.current_area == "area2"):
@@ -124,10 +123,12 @@ func load_sprites():
 		objectOfInterestSprite = load(objectOfInterestSpritePath) 
 
 func _on_SwitchArea_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		switchState = true
+	if body != null:
+		if body.get_name() == "player":
+			switchState = true
 
 func _on_SwitchArea_body_shape_exited(body_id, body, body_shape, area_shape):
-	if body.get_name() == "player":
-		switchState = false
-		$IconSprite.texture = doorOpenableSprite
+	if body != null:
+		if body.get_name() == "player":
+			switchState = false
+			$IconSprite.texture = doorOpenableSprite

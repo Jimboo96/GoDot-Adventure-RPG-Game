@@ -89,10 +89,10 @@ func start_chest_dialogue(var chestNum, var areaName):
 	json_line_reader("Chest")
 	var chestID
 	if areaName == "area1": chestID = 0
-	elif areaName == "area2": chestID = 1
-	elif areaName == "area3": chestID = 4
-	elif areaName == "secretArea": chestID = 6
-	elif areaName == "house1": chestID = 7
+	elif areaName == "area2": chestID = 2
+	elif areaName == "area3": chestID = 5
+	elif areaName == "secretArea": chestID = 7
+	elif areaName == "house1": chestID = 8
 	chestID += chestNum
 	reset_text("Chest", chestID)
 	self.show()

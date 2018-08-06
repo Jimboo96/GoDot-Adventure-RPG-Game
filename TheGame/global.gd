@@ -14,6 +14,7 @@ var playerPosSet = false
 
 # area1 variables
 var area1Chest1
+var area1Chest2
 var area1Position = Vector2()
 # A secret switch behind the grave to open a secret area in area3.
 var area1Switch
@@ -23,13 +24,11 @@ var area2Chest1
 var area2Chest2
 var area2Chest3
 var area2Position = Vector2()
-var area2Enemies = 3
 
 # area3 variables
 var area3Chest1
 var area3Chest2
 var area3Position = Vector2()
-var area3Enemies = 3
 
 # house1 variables
 var house1Chest1
@@ -52,6 +51,7 @@ var playerMovable = true
 # States: NOT_STARTED, STARTED, COMPLETED
 var quest1State = "NOT_STARTED"
 
+var restartBool = false
 
 func _ready():
 	root = get_tree().get_root()
@@ -65,25 +65,39 @@ func goto_scene(path):
 
 
 func _deferred_goto_scene(path):
-	get_parent().get_child(4).goto_area(path)
-	get_parent().get_child(4).get_node("HUD/Transition").fade(path)
+	get_parent().get_child(5).goto_area(path)
+	get_parent().get_child(5).get_node("HUD/Transition").fade(path)
 	playerPosSet = false
 	pass
 
 
-func goto_main(path):
+func goto_main(path):	
 	call_deferred("_deferred_main",path)
 
+func back_to_menu():
+	var main = find_node_by_name(get_tree().get_root(), "Main")
+	if main != null:
+		main.queue_free()
+	call_deferred("_deferred_menu","res://menu.tscn")
+	_ready() #reloads stuff
+	restartBool = true
 
 #this function actually changes scene to main and not between childs of the main.tscn
 func _deferred_main(path):
+	printt("current scene",current_scene)
 	current_scene.free()
 	var s = ResourceLoader.load(path)
 	current_scene = s.instance()
 	root.add_child(current_scene)
-	current_scene = root.get_child(4)
+	current_scene = root.get_child(5)
 	get_tree().set_current_scene( current_scene )
 
+func _deferred_menu(path):
+	var s = ResourceLoader.load(path)
+	current_scene = s.instance()
+	root.add_child(current_scene)
+
+	get_tree().set_current_scene( current_scene )
 
 # math func
 func cartesian_to_isometric(cartesian):

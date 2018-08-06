@@ -15,10 +15,10 @@ func _ready():
 	player = global.find_node_by_name(get_tree().get_root(), "player")
 
 func _process(delta):
-	if get_tree().get_root().get_child(4).has_node("Area/area/walls/YSort/player") == false:
+	if get_tree().get_root().get_child(5).has_node("Area/area/walls/YSort/player") == false:
 		pass
 	else:
-		position = get_tree().get_root().get_child(4).get_node("Area/area/walls/YSort/player").get_child(1).get_camera_screen_center()
+		position = get_tree().get_root().get_child(5).get_node("Area/area/walls/YSort/player").get_child(1).get_camera_screen_center()
 
 
 func _open_skilltree():

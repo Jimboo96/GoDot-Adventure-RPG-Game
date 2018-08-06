@@ -14,12 +14,17 @@ var motion = Vector2()
 var WALK_SPEED = 400 # Pixels/second
 
 var can_attack = false
-var playerMovable
+var playerMovable = true
 var cast_length
 var detected_target
 
-var SAnim 
-var Sflip
+var animationToPlay = null
+var directionFacing = null
+
+var playerArmour = null
+var isInteracting = false
+var isCuttingWood = false
+var ownsAxe = true
 
 var inventoryScene
 
@@ -33,26 +38,32 @@ var Wc
 var Lvl
 
 func _enter_tree():
+	if global.restartBool:
+		printt("position is",position)
+		position = Vector2(0,0)
+		printt("and now it is",position)
 	pass
 	
 func _ready():
+	print(transform)
+	
 	set_process_input(true)
 	set_process(true)
 	_load_stats()
 	#init
-	playerMovable = true
 	cast_length = 60
 	#connect signals
 	$disappearTimer.connect("timeout", self, "_on_disappearTimer_timeout")
 	$AttackRay.connect("body_entered", self, "enemy_in_zone")
 	$AttackRay.connect("body_exited", self, "enemy_out_zone")
+	#set player sprite
+	set_player_sprite(playerArmour)
 	
 	sound = global.find_node_by_name(get_tree().get_root(), "Sound")
 	swing = sound.get_node("SwordSwing")
 
 
 func appear(anim): #appear when added to area
-	print("appear")
 	show()
 	playerMovable = true
 
@@ -60,6 +71,7 @@ func appear(anim): #appear when added to area
 func _input(event):
 	if event.is_action_pressed("space"):
 		flip_coin()
+		random_armour()
 		
 	if Input.is_action_pressed("attack"):
 		if can_attack == true and detected_target:
@@ -86,44 +98,48 @@ func get_input():
 	if playerMovable:
 		if Input.is_action_pressed("move_up"):
 			motion.y  -= 1
-			$Sprite.animation = "walk"
-			$Sprite.flip_h = false
+			animationToPlay = "up"
+			directionFacing = "Up"
 			$AttackRay.position = Vector2(30,0)
 			
 		if Input.is_action_pressed("move_bottom"):
 			motion.y += 1
-			$Sprite.animation = "walk"
-			$Sprite.flip_h = true
+			animationToPlay = "down"
+			directionFacing = "Down"
 			$AttackRay.position = Vector2(-30,0)
 			
 		if Input.is_action_pressed("move_left"):
 			motion.x -=1
-			$Sprite.animation = "walk"
-			$Sprite.flip_h = true
+			animationToPlay = "left"
+			directionFacing = "Left"
 			$AttackRay.position = Vector2(-30,0)
 			
 		if Input.is_action_pressed("move_right"): 
 			motion.x += 1
-			$Sprite.animation = "walk"
-			$Sprite.flip_h = false
+			animationToPlay = "right"
+			directionFacing = "Right"
 			$AttackRay.position = Vector2(30,0)
 			
 		elif Input.is_action_pressed("attack"):
-			$Sprite.animation = "attack"
-			if swing.playing == false:
-				swing.play()
-			elif swing.playing == true:
-				pass
-
+			if can_attack == true and detected_target:
+				detected_target.attacked(dmg)
+				if directionFacing != null:
+					animationToPlay = "attack" + directionFacing
+					if swing.playing == false:
+						swing.play()
+					elif swing.playing == true:
+						pass
+				
 		elif motion == Vector2(0,0):
-			$Sprite.animation = "idle"
-			
+			if directionFacing != null:
+				animationToPlay = "standing" + directionFacing
+		# play the animation
+		play_animation(animationToPlay)
 	else:
-		#$Sprite.animation = "idle"
-		pass
+		pass #if player is not movable
 	motion = motion.normalized() * WALK_SPEED
-	if motion != Vector2(0,0):
-			$Sprite.animation = "walk"
+	#if motion != Vector2(0,0):
+	#		$Sprite.animation = "walk"
 
 func enemy_in_zone(body):
 	if "enemy" in body.get_name():
@@ -140,35 +156,33 @@ func enemy_out_zone(body):
 	if "enemy" in body.get_name():
 		detected_target = null
 		can_attack = false
-		
+
 # Flips a coin.
 func flip_coin():
-	get_tree().get_root().get_child(4).get_node("Sound/CoinFlip").play()
+	get_tree().get_root().get_node("Main/Sound/CoinFlip").play()
 	_load_stats()
 	var coinSide = randi()%2
 	if(coinSide == 0):
-		print("Kruuna")
+		print("Heads")
 	elif(coinSide == 1):
-		print("Klaava")
-		
-# Stops player from moving when transistioning between areas.
-func _on_MoveAreas_halt_player():
-	playerMovable = false
-	
+		print("Tails")
+
 # Return player position.
 func get_player_pos():
 	return position
-	
+
 #attacked by enemy
 func attacked(damage):
-	$Sprite.animation = "hurt"
+	#animationToPlay = "damaged"
 	var damage_received = damage - def
 	if damage_received > 0:
 		emit_signal("attacked", damage_received)
 
 func player_dead():
 	$disappearTimer.start()
-	$Sprite.animation = "die"
+	animationToPlay = "dead"
+	play_animation(animationToPlay)
+
 
 func _on_disappearTimer_timeout():
 	queue_free()
@@ -200,3 +214,36 @@ func _load_stats():
 		level_up(Str, Agi, constitution, Wc)
 	print("stats are loaded ")
 	printt("damage:", dmg, " Walk_speed:", WALK_SPEED, "hp:", HP)
+
+func play_animation(var animation):
+	if $PlayerSprite/AnimationPlayer.current_animation.get_basename() != animationToPlay:
+		if animation != null:
+			$PlayerSprite/AnimationPlayer.play(animation)
+		
+func stop_animation():
+	if animationToPlay != null && $PlayerSprite/AnimationPlayer.is_playing():
+		$PlayerSprite/AnimationPlayer.stop()
+
+#set the player sprite according to the armour they are wearing.
+func set_player_sprite(var armour):
+	if armour != null:
+		var fileName = "player_" + armour + "_armour"
+		var playerSprite = $PlayerSprite
+		var spriteFile = "res://assets/characters/player/" + fileName + ".png"
+		if File.new().file_exists(spriteFile):
+			var sprite = load(spriteFile) 
+			playerSprite.texture = sprite
+			
+func random_armour():
+	var randomNum = randi()%4 + 1
+	if randomNum == 1:
+		playerArmour = "iron"
+	elif randomNum == 2:
+		playerArmour = "gold"
+	elif randomNum == 3:
+		playerArmour = "chain"
+	elif randomNum == 4:
+		playerArmour = "leather"
+	else:
+		playerArmour = null
+	set_player_sprite(playerArmour)

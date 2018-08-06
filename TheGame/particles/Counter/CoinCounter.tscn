@@ -13,6 +13,8 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="CoinCounter" instance=ExtResource( 1 )]
 
+_sections_unfolded = [ "Material", "Theme", "Visibility" ]
+
 [node name="Background" parent="." index="0"]
 
 modulate = Color( 0.933594, 0.902681, 0.142227, 0.817686 )

@@ -4,6 +4,7 @@
 
 [node name="trollSprite" type="AnimatedSprite"]
 
+modulate = Color( 0.652344, 0.637054, 0.637054, 1 )
 scale = Vector2( 0.18, 0.18 )
 frames = ExtResource( 1 )
 animation = "attack"

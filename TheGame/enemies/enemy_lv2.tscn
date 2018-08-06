@@ -16,7 +16,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 radius = 350.0
 
-[node name="enemy_level2" type="KinematicBody2D"]
+[node name="enemy_level2" type="KinematicBody2D" index="0"]
 
 light_mask = 2
 input_pickable = false

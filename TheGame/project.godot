@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="Isometric Game"
+config/name="Godot Adventure Game"
 run/main_scene="res://menu.tscn"
 boot_splash/image="res://verycool.png"
 config/icon="res://icon.png"
@@ -21,11 +21,13 @@ Global_DataParser="*res://inventory/Global_DataParser.gd"
 Global_ItemDatabase="*res://inventory/Global_ItemDatabase.gd"
 Global_Player="*res://inventory/Global_Player.gd"
 global="*res://global.gd"
+Settings="*res://particles/Settings/Settings.gd"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
+window/size/resizable=false
 
 [editor_plugins]
 

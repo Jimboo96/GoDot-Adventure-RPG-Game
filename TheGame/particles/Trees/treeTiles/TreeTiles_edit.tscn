@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ForestTiles128x128/isometric128x64.png" type="Texture" id=1]
+
+[node name="TreeTiles_edit" type="Node2D" index="0"]
+
+[node name="Tree1" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1544, 2402, 258, 258 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tree1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -28.3502, 112.767, -17.4678, 134.032, 1.29723, 133.709, 10.6797, 111.708, 11.3268, 97.4728, 0.326614, 85.8256, -21.6737, 86.1491, -31.3797, 98.4434 )
+
+[node name="Tree2" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1852, 1924, 160, 404 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tree2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -28.6585, 196.547, -17.9296, 217.03, -0.373306, 211.665, 8.89253, 190.208, 8.40486, 178.991, -3.29936, 159.484, -20.368, 160.459, -30.1215, 176.065 )
+
+[node name="Tree3" type="Sprite" parent="." index="2"]
+
+texture = ExtResource( 1 )
+offset = Vector2( 0, -10 )
+region_enabled = true
+region_rect = Rect2( 800, 2332, 228, 336 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tree3" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree3/StaticBody2D" index="0"]
+
+position = Vector2( -9.63991, -57.9444 )
+build_mode = 0
+polygon = PoolVector2Array( -16.2915, 201.908, 2.62117, 202.988, 0.459734, 160.3, 58.9868, 153.69, 80.6013, 135.858, 74.6573, 73.1763, 38.2456, -95.4394, -17.2615, -116.721, -56.7632, -81.6084, -98.7987, 82.9028, -102.605, 145.649, -75.5631, 168.28, -23.3162, 164.623 )
+
+[node name="TreeCut" type="Sprite" parent="." index="3"]
+
+editor/display_folded = true
+visible = false
+texture = ExtResource( 1 )
+offset = Vector2( 50, 155 )
+region_enabled = true
+region_rect = Rect2( 1024, 832, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TreeCut" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TreeCut/StaticBody2D" index="0"]
+
+position = Vector2( 52.9431, 153.128 )
+build_mode = 0
+polygon = PoolVector2Array( -40.7452, 46.8669, -7.7356, 54.3491, 9.42937, 56.5497, 22.6332, 49.9478, 45.5198, 30.1421, 24.8338, -5.06814, -10.8165, -6.82865, -27.9815, 1.9739 )
+
+

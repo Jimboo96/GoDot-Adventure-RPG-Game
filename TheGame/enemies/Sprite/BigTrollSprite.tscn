@@ -4,9 +4,10 @@
 
 [node name="BigTrollSprite" type="AnimatedSprite"]
 
+modulate = Color( 0.5, 0.46875, 0.46875, 0.906078 )
 scale = Vector2( 0.2, 0.2 )
 frames = ExtResource( 1 )
 animation = "idle"
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 

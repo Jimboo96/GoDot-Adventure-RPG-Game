@@ -49,8 +49,7 @@ func deferred_goto_area(path):
 	#remove old area
 	$Area.remove_child(currentArea)
 	add_new_scene(s)
-	pass
-	
+
 func add_new_scene(s):
 	#load area
 	currentArea = s.instance()
@@ -69,16 +68,8 @@ func add_new_scene(s):
 	#reset when go to new scene:
 	enemiesIndex = 0
 	enemies = Array()
-	if areaName == "area1":
+	if "area" in areaName:
 		maxEnemies = 3
-		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
-		enemies_spawning()
-	if areaName == "area2":
-		maxEnemies = 2
-		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
-		enemies_spawning()
-	if areaName == "area3":
-		maxEnemies = 4
 		$WaitTimeTimer.start() #start timer as soon as the scene is added to world
 		enemies_spawning()
 		
@@ -86,18 +77,14 @@ func add_player_to_current_scene():
 	player = $player
 	self.remove_child(player)
 	walls.add_child(player)
-	
-	#walls.set_owner(player)
-	#player.appear()
-	
 	player = global.find_node_by_name( get_tree().get_root(), "player" )
-	#if(player): printt(player, player.get_name())
 	
 	#save to global
 	global.player = player
 	#connect timer and move areas' signals
 	call_deferred("conn_scenes_signals")
 	if addedFirstArea == false:
+		player.appear(null)
 		addedFirstArea = true
 		#connect signal for player
 		player.connect("attacked", $HUD, "attacked")
@@ -107,7 +94,6 @@ func add_player_to_current_scene():
 		#connect player w HUD
 		$HUD/InfoContainer/MainBox/HPBar.currentHP = player.HP
 		$HUD/InfoContainer/MainBox/HPBar.connect("updateHP", player, "updateHP")
-		print("1st %s"%$HUD/Transition/TransitionEffect.is_connected("animation_finished", player, "appear"))
 	
 func remove_player_from_current_scene():
 	#reparent player
@@ -153,3 +139,8 @@ func enemies_dead(EXP, enemy_id):
 		if (enemy_id.get_name() in enemies[i].get_name()) or (enemies[i].get_name() in enemy_id.get_name()):
 			enemies.remove(i)
 			break
+			
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_ESCAPE:
+			$HUD.pause_game()

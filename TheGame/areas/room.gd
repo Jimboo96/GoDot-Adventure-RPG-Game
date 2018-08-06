@@ -23,7 +23,7 @@ func inventory_open():
 
 
 func spawn_inventory():
-	player = get_tree().get_root().get_child(4).get_node("Area/area/walls/YSort/player")
+	player = get_tree().get_root().get_child(5).get_node("Area/area/walls/YSort/player")
 	inv_location = player.global_position
 	inventory = inventoryScene.instance()
 	add_child(inventory)

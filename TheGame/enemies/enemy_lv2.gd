@@ -4,9 +4,11 @@ signal attacked
 signal dead
 signal prize
 
-var enemies_type = ["trollBrown", "troll", "zombie"]
+var enemies_type = ["trollBrown", "troll", "bigTroll"]
 var type 
 var attackable = false
+var dogdeable 
+
 var enemySprite
 var target
 #enemy index
@@ -46,7 +48,7 @@ func init():
 			DAME = 20
 			SPEED = 140
 			attackable = true
-			#enemySprite = troll
+			dogdeable = true
 			pass
 		"troll": 
 			var troll = preload("res://enemies/Sprite/trollSprite.tscn").instance()
@@ -54,21 +56,21 @@ func init():
 			troll.set_name("enemySprite")
 			HP = 100
 			DEF = 0
-			DAME = 30
+			DAME = 20
 			SPEED = 180
 			attackable = true
-			#enemySprite = elf
+			dogdeable = true
 			pass
-		"zombie": 
-			var zombie = preload("res://enemies/Sprite/zombieSprite.tscn").instance()
-			add_child(zombie)
-			zombie.set_name("enemySprite")
+		"bigTroll": 
+			var bigTroll = preload("res://enemies/Sprite/BigTrollSprite.tscn").instance()
+			add_child(bigTroll)
+			bigTroll.set_name("enemySprite")
 			HP = 100
 			DEF = 5
-			DAME = 15
+			DAME = 30
 			SPEED = 100
+			dogdeable = false
 			attackable = true
-			#enemySprite = zombie #set name for sprite
 			pass
 	pass
 	
@@ -202,7 +204,9 @@ func attacked(dame):
 	#emit only when dame_received > 0
 	attacked = true
 	$lifeBarContainer.attacked(dame_received)
-	get_tree().get_root().get_child(4).get_node("Sound/Scream").play()
+	if get_tree().get_root().get_node("Main/Sound/Scream").playing:
+		return
+	get_tree().get_root().get_node("Main/Sound/Scream").play()
 	pass
 
 func prize(prize_type, value):

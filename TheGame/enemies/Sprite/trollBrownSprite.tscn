@@ -2,11 +2,13 @@
 
 [ext_resource path="res://resources/animated characters/brown_troll.tres" type="SpriteFrames" id=1]
 
-[node name="trollBrownSprite" type="AnimatedSprite"]
+[node name="trollBrownSprite" type="AnimatedSprite" index="0"]
 
+modulate = Color( 0.457031, 0.457031, 0.457031, 1 )
 scale = Vector2( 0.18, 0.18 )
 frames = ExtResource( 1 )
-animation = "idle"
-_sections_unfolded = [ "Transform" ]
+animation = "jump"
+frame = 3
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemies/enemy_lv2.gd" type="Script" id=1]
 [ext_resource path="res://enemies/enemyHP.tscn" type="PackedScene" id=2]
 [ext_resource path="res://particles/Prizes/prize.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/icons/dangerSprite.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -25,9 +26,6 @@ collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "collision" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -79,5 +77,12 @@ process_mode = 1
 wait_time = 3.0
 one_shot = false
 autostart = false
+
+[node name="AttackIcon" type="Sprite" parent="." index="6"]
+
+position = Vector2( 4.87677, -77.5407 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 

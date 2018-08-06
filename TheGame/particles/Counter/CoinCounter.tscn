@@ -11,7 +11,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="CoinCounter" instance=ExtResource( 1 )]
+[node name="CoinCounter" index="0" instance=ExtResource( 1 )]
 
 _sections_unfolded = [ "Material", "Theme", "Visibility" ]
 

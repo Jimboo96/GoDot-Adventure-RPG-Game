@@ -31,7 +31,7 @@ func open_menu():
 	if not self.is_visible_in_tree():
 		self.show()
 	$Pause.show()
-	
+
 func close_menu():
 	$PauseMenuAnim.play("close_pause_menu")
 	

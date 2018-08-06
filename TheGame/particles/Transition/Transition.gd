@@ -18,6 +18,7 @@ func fade(path):
 	self.path = path
 	can_trans = true
 	set_physics_process(true)
+	get_parent().get_node("PauseContainer").hide()
 	
 func _physics_process(delta):
 	if can_trans == true:
@@ -33,6 +34,7 @@ func trans_finished(anim):
 	if anim == "fadeEffect":
 		if get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").playing: 
 			get_tree().get_root().get_node("Main/Sound/WalkingOnLeaves").stop()
+	get_parent().get_node("PauseContainer").show()
 	
 func window_resize():
 	var current_size = OS.get_window_size()

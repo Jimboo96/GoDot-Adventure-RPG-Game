@@ -15,6 +15,7 @@ func _ready():
 	$"Gauge/Bar Value/Value".set_text(String(currentEXP))
 
 func update_exp(EXP):
+	EXP_drop(int(EXP))
 	var newEXP = currentEXP + int(EXP)
 	#set values
 	if (newEXP >= maxEXP):
@@ -39,4 +40,16 @@ func update_exp(EXP):
 		$Tween.start()
 		currentEXP = newEXP
 		pass
-		
+
+func EXP_drop(var EXP):
+	var startPos = Vector2(get_viewport_rect().end.x / 2, get_viewport_rect().end.y / 2)
+	$EXPDrop.rect_global_position = startPos
+	$EXPDrop.text = "+" + str(EXP) + " XP"
+	$EXPDrop.show()
+
+func _physics_process(delta):
+	if $EXPDrop.is_visible_in_tree():
+		$EXPDrop.rect_global_position.y -= 2
+	if $EXPDrop.rect_global_position.y == 0:
+		$EXPDrop.hide()
+	

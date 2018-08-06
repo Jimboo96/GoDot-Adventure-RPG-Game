@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://enemies/enemy_lv2.gd" type="Script" id=1]
 [ext_resource path="res://enemies/enemyHP.tscn" type="PackedScene" id=2]
 [ext_resource path="res://particles/Prizes/prize.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/icons/dangerSprite.png" type="Texture" id=4]
+[ext_resource path="res://particles/Effects/smoke.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -17,7 +18,38 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 radius = 350.0
 
-[node name="enemy_level2" type="KinematicBody2D" index="0"]
+[sub_resource type="Animation" id=3]
+
+resource_name = "dead"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("smoke:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("smoke:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[node name="enemy_level2" type="KinematicBody2D"]
 
 light_mask = 2
 input_pickable = false
@@ -85,4 +117,19 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="smoke" parent="." index="7" instance=ExtResource( 5 )]
+
+visible = false
+emitting = false
+one_shot = true
+
+[node name="Anim" type="AnimationPlayer" parent="." index="8"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/dead = SubResource( 3 )
+blend_times = [  ]
 

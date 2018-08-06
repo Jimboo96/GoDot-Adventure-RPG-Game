@@ -288,17 +288,21 @@ func _on_ItemMenu_Button_DropItem_pressed():
 
 func _on_ItemMenu_Button_UseItem_pressed():
 	var itemData = itemList.get_item_metadata(dropItemSlot)
-	var itemType = get_item_type(false,dropItemSlot)
+	#printt("itemType", itemData)
+	var itemType = itemData["type"]
+	#var itemType = get_item_type(false,dropItemSlot)
 	#check if equipment or consumable
 	print("item type: " + itemType)
-	if itemType != "consumable" or itemType != "quest":
+	if itemType == "consumable" or itemType == "quest":
+		#use the item somehow       ##############################
+		Global_Player.inventory_removeItem(dropItemSlot)
+		load_items()
+		print("USE ITEM")
+	else:
 		print("EQUIP ITEM")
 		activeItemSlot = getSlotByGearType(itemType)
 		print("\n " + str(activeItemSlot))
 		move_item(false,true, false,activeItemSlot,draggedItemSlot)
-	else:
-		#use the item somehow       ##############################
-		print("USE ITEM")
 	itemMenu.hide()
 
 
@@ -438,9 +442,10 @@ func move_item(is_gear,to_gear, dragged, whereToSlot,whereFromSlot):
 
 #returns the type(weapon,boots,etc) as a string
 func get_item_type(gear,typeIndex):
-	var itemData = gearList.get_item_metadata(typeIndex)
+	var itemData 
 	var itemType = "nulll"
 	if gear:
+		itemData = gearList.get_item_metadata(typeIndex)
 		if typeIndex > 8:
 			print("oh no the index("+ str(typeIndex) +") is too big for gearlist")
 			return itemType

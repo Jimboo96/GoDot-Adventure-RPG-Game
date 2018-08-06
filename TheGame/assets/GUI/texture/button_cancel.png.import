@@ -7,7 +7,10 @@ path="res://.import/button_cancel.png-2c166ab5a74a478c204dfec5e272f977.stex"
 [deps]
 
 source_file="res://assets/GUI/texture/button_cancel.png"
+source_md5="64df7a5da0ea91f4adff09f17174da2c"
+
 dest_files=[ "res://.import/button_cancel.png-2c166ab5a74a478c204dfec5e272f977.stex" ]
+dest_md5="967ec61447caa2bd897ef790d3645a4c"
 
 [params]
 

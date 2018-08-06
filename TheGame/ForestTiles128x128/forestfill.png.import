@@ -7,7 +7,10 @@ path="res://.import/forestfill.png-c961cb3e1b474029cbba363cb77c6295.stex"
 [deps]
 
 source_file="res://ForestTiles128x128/forestfill.png"
+source_md5="7d98475e5ace3303e3c5e7f65753dd05"
+
 dest_files=[ "res://.import/forestfill.png-c961cb3e1b474029cbba363cb77c6295.stex" ]
+dest_md5="21011660e8c86650966bb399fcdf36f8"
 
 [params]
 

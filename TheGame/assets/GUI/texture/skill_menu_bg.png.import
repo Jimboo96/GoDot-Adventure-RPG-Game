@@ -7,7 +7,10 @@ path="res://.import/skill_menu_bg.png-29c56d54b72ae3a6fd2d9b9ac0eca467.stex"
 [deps]
 
 source_file="res://assets/GUI/texture/skill_menu_bg.png"
+source_md5="23fb178dc9425f0aa14ed92b22af0eff"
+
 dest_files=[ "res://.import/skill_menu_bg.png-29c56d54b72ae3a6fd2d9b9ac0eca467.stex" ]
+dest_md5="6746d9c2e8a7f85fb657a15a6b06be2b"
 
 [params]
 

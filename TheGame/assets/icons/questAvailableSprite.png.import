@@ -7,7 +7,10 @@ path="res://.import/questAvailableSprite.png-5f565b6c8c8632e4500d267c97bf8aec.st
 [deps]
 
 source_file="res://assets/icons/questAvailableSprite.png"
+source_md5="0e5e5d3775d27e0bd55ef4a65dab7bc1"
+
 dest_files=[ "res://.import/questAvailableSprite.png-5f565b6c8c8632e4500d267c97bf8aec.stex" ]
+dest_md5="296d76cf3562f7b2a3006aa8cd56294f"
 
 [params]
 

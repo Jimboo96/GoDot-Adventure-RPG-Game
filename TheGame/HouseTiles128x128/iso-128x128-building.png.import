@@ -7,7 +7,10 @@ path="res://.import/iso-128x128-building.png-4b5305e3375690dec1abec8ab081f969.st
 [deps]
 
 source_file="res://HouseTiles128x128/iso-128x128-building.png"
+source_md5="14149bd69bed60e325fd3eaf00b1841a"
+
 dest_files=[ "res://.import/iso-128x128-building.png-4b5305e3375690dec1abec8ab081f969.stex" ]
+dest_md5="7f76a1ebcc5053c8cc7e2d6581e397f6"
 
 [params]
 

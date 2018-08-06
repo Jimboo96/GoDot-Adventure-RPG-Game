@@ -7,7 +7,10 @@ path="res://.import/doorLockedSprite.png-1add8b212c6e4aa7c56fc86beb9b5842.stex"
 [deps]
 
 source_file="res://assets/icons/doorLockedSprite.png"
+source_md5="d4072c86f4326d663de46dee813d6984"
+
 dest_files=[ "res://.import/doorLockedSprite.png-1add8b212c6e4aa7c56fc86beb9b5842.stex" ]
+dest_md5="362464675d15be75be9f0186aad63c1e"
 
 [params]
 

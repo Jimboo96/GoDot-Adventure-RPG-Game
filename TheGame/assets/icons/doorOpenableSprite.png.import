@@ -7,7 +7,10 @@ path="res://.import/doorOpenableSprite.png-b4154e2515b508fbfd2ba547d8067e19.stex
 [deps]
 
 source_file="res://assets/icons/doorOpenableSprite.png"
+source_md5="16c216f66149c0a4c3082451f5af1b74"
+
 dest_files=[ "res://.import/doorOpenableSprite.png-b4154e2515b508fbfd2ba547d8067e19.stex" ]
+dest_md5="370fd25919bb1284af255d15454a1db0"
 
 [params]
 

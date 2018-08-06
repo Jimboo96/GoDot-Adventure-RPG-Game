@@ -7,7 +7,10 @@ path="res://.import/Hurt_004.png-919fd46aa4c077e96a046759a6746044.stex"
 [deps]
 
 source_file="res://assets/characters/Troll_big1/Hurt_004.png"
+source_md5="a9a18aa79766259273ee34584f9e2154"
+
 dest_files=[ "res://.import/Hurt_004.png-919fd46aa4c077e96a046759a6746044.stex" ]
+dest_md5="6644c44fe1f064b65b200542f793f7ce"
 
 [params]
 

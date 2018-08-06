@@ -7,7 +7,10 @@ path="res://.import/sfx_switch.wav-2bd19448006aa5ccac0d33f71d49ab32.sample"
 [deps]
 
 source_file="res://sound/sfx/sfx_switch.wav"
+source_md5="66fcfffe433296cccc5db389ac1160ec"
+
 dest_files=[ "res://.import/sfx_switch.wav-2bd19448006aa5ccac0d33f71d49ab32.sample" ]
+dest_md5="0319f43f8b71bf6bbeee484ce77e7abd"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/sword-draw.wav-5c5c96e2e1de6de24266b537f50fff3a.sample"
 [deps]
 
 source_file="res://sound/sfx/sword-draw.wav"
+source_md5="1fface340ad855a477ceb448d428192d"
+
 dest_files=[ "res://.import/sword-draw.wav-5c5c96e2e1de6de24266b537f50fff3a.sample" ]
+dest_md5="2063a2c826a9720eb31906925276eae2"
 
 [params]
 

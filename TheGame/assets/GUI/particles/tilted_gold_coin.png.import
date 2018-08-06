@@ -7,7 +7,10 @@ path="res://.import/tilted_gold_coin.png-5f9ad8535b7e7e18c8e7edea1a75eaa2.stex"
 [deps]
 
 source_file="res://assets/GUI/particles/tilted_gold_coin.png"
+source_md5="f144604c0c26467c644c8fdfc7887453"
+
 dest_files=[ "res://.import/tilted_gold_coin.png-5f9ad8535b7e7e18c8e7edea1a75eaa2.stex" ]
+dest_md5="4b71aa0dcf53674430ab03dc692e7cfe"
 
 [params]
 

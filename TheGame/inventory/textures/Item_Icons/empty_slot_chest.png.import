@@ -7,7 +7,10 @@ path="res://.import/empty_slot_chest.png-b8f8ddf383ff643e335be2d1c64802aa.stex"
 [deps]
 
 source_file="res://inventory/textures/Item_Icons/empty_slot_chest.png"
+source_md5="f701228b1290a64d7c35aee733eedce1"
+
 dest_files=[ "res://.import/empty_slot_chest.png-b8f8ddf383ff643e335be2d1c64802aa.stex" ]
+dest_md5="d017d98f1ead68ff4bad6778d2ca47af"
 
 [params]
 

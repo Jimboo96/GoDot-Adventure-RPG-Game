@@ -7,7 +7,10 @@ path="res://.import/stew.png-e4cddd82e5157b9fb293c850c65b7434.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/stew.png"
+source_md5="69340b2a82b8ffb54104c0f78b8a8f2b"
+
 dest_files=[ "res://.import/stew.png-e4cddd82e5157b9fb293c850c65b7434.stex" ]
+dest_md5="cafa898ff8cb13984c52b1c487df5ece"
 
 [params]
 

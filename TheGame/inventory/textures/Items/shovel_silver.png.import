@@ -7,7 +7,10 @@ path="res://.import/shovel_silver.png-13ba7d1d164f201435626f49a4627569.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/shovel_silver.png"
+source_md5="bb52e36d2519c9e487576c5c734124f9"
+
 dest_files=[ "res://.import/shovel_silver.png-13ba7d1d164f201435626f49a4627569.stex" ]
+dest_md5="a337fcf54dc40102cb0484e673689f64"
 
 [params]
 

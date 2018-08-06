@@ -7,7 +7,10 @@ path="res://.import/fish.png-13f86aa9abe03c36239c1cec3683ca70.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/fish.png"
+source_md5="1f1e8dec8e6d2981987562e2eaa52f34"
+
 dest_files=[ "res://.import/fish.png-13f86aa9abe03c36239c1cec3683ca70.stex" ]
+dest_md5="46ac049d7c8fe4e6b3841c849e56096b"
 
 [params]
 

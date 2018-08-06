@@ -7,7 +7,10 @@ path="res://.import/Run (6).png-484cbe6ba458428d5dde91f72ccb1dc1.stex"
 [deps]
 
 source_file="res://assets/characters/robot/Run (6).png"
+source_md5="bf38c42aed7d0ad28c8ef95a95559b89"
+
 dest_files=[ "res://.import/Run (6).png-484cbe6ba458428d5dde91f72ccb1dc1.stex" ]
+dest_md5="4848f5ab04d8e50e2a8f6c78323dc84f"
 
 [params]
 

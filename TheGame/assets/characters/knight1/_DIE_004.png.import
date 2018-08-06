@@ -7,7 +7,10 @@ path="res://.import/_DIE_004.png-5a40e51c4c9c180031eb5c1ed8b48c8f.stex"
 [deps]
 
 source_file="res://assets/characters/knight1/_DIE_004.png"
+source_md5="850f3d93c08dccba51c8693ab24c1759"
+
 dest_files=[ "res://.import/_DIE_004.png-5a40e51c4c9c180031eb5c1ed8b48c8f.stex" ]
+dest_md5="f162b21187d7351eba38f563ddc82a15"
 
 [params]
 

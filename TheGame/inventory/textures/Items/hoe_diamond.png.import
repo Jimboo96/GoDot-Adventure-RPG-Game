@@ -7,7 +7,10 @@ path="res://.import/hoe_diamond.png-faafebd0feff9952b07b93110e018d2e.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/hoe_diamond.png"
+source_md5="8581b98295eb1979d3f522a5e7fce93a"
+
 dest_files=[ "res://.import/hoe_diamond.png-faafebd0feff9952b07b93110e018d2e.stex" ]
+dest_md5="3485806d5f0a13d9bfd41fad2a186399"
 
 [params]
 

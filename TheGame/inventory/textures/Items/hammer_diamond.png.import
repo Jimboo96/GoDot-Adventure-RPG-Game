@@ -7,7 +7,10 @@ path="res://.import/hammer_diamond.png-f9701015a07903cf030054e1c7a6ed56.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/hammer_diamond.png"
+source_md5="1d0676b670163ebfcaa4e263f6bf112d"
+
 dest_files=[ "res://.import/hammer_diamond.png-f9701015a07903cf030054e1c7a6ed56.stex" ]
+dest_md5="6f60a86e3d1d355744a7b908b159332e"
 
 [params]
 

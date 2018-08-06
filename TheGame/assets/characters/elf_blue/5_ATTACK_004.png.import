@@ -7,7 +7,10 @@ path="res://.import/5_ATTACK_004.png-e45a221aa08767f6be5017cef9eb7dff.stex"
 [deps]
 
 source_file="res://assets/characters/elf_blue/5_ATTACK_004.png"
+source_md5="342c15454355c2839372f538d83a49b9"
+
 dest_files=[ "res://.import/5_ATTACK_004.png-e45a221aa08767f6be5017cef9eb7dff.stex" ]
+dest_md5="052233c69945281b7bc75710315e23b4"
 
 [params]
 

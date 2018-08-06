@@ -7,7 +7,10 @@ path="res://.import/chestOpenableSprite.png-442a3133f09782d7c1022c94f435a4fb.ste
 [deps]
 
 source_file="res://assets/icons/chestOpenableSprite.png"
+source_md5="2362673c35d10114bb61d1d1b438f612"
+
 dest_files=[ "res://.import/chestOpenableSprite.png-442a3133f09782d7c1022c94f435a4fb.stex" ]
+dest_md5="cb98a88a482cd1ed3397956da0706fe9"
 
 [params]
 

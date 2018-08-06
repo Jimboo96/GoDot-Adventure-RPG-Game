@@ -7,7 +7,10 @@ path="res://.import/apple.png-abcf5408f06e76384e9152e92d18b3a3.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/apple.png"
+source_md5="69ff65ffb268b4b1496a7353e76f71fe"
+
 dest_files=[ "res://.import/apple.png-abcf5408f06e76384e9152e92d18b3a3.stex" ]
+dest_md5="927209cf4ecd9281f604b0c3639668e5"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/5_ATTACK_002.png-fd6a9bc01e29615b7b885e4ef08e1c97.stex"
 [deps]
 
 source_file="res://assets/characters/elf_purple/5_ATTACK_002.png"
+source_md5="0180cae2003cfaa206ae1f9d56d5e772"
+
 dest_files=[ "res://.import/5_ATTACK_002.png-fd6a9bc01e29615b7b885e4ef08e1c97.stex" ]
+dest_md5="b984178ac49caec383ae1e4d997d95e3"
 
 [params]
 

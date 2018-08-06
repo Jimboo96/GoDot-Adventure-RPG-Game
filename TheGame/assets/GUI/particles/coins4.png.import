@@ -7,7 +7,10 @@ path="res://.import/coins4.png-c361b5f7d3adab3a8eb0ed4cc6b69330.stex"
 [deps]
 
 source_file="res://assets/GUI/particles/coins4.png"
+source_md5="81999ab14c210cf8707c1b4d792db88b"
+
 dest_files=[ "res://.import/coins4.png-c361b5f7d3adab3a8eb0ed4cc6b69330.stex" ]
+dest_md5="d6c4d4b1ec07db6a81dd09eac9ce57cf"
 
 [params]
 

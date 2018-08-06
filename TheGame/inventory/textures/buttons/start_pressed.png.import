@@ -7,7 +7,10 @@ path="res://.import/start_pressed.png-e683264821b9ae295caaae2797df937a.stex"
 [deps]
 
 source_file="res://inventory/textures/buttons/start_pressed.png"
+source_md5="a90da5d2787d3ddfda242573911f2295"
+
 dest_files=[ "res://.import/start_pressed.png-e683264821b9ae295caaae2797df937a.stex" ]
+dest_md5="3c4f2b9395e68228d2c08d54b0074386"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/Dead_007.png-5a149d3c3edf532a82c677d55ff1211d.stex"
 [deps]
 
 source_file="res://assets/characters/Troll_big2/Dead_007.png"
+source_md5="b86ee4425df7e9b8bc23cc9a759df4f2"
+
 dest_files=[ "res://.import/Dead_007.png-5a149d3c3edf532a82c677d55ff1211d.stex" ]
+dest_md5="7f751670431b11ae635e90d57e9ec2b8"
 
 [params]
 

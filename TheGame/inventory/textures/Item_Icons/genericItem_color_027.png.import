@@ -7,7 +7,10 @@ path="res://.import/genericItem_color_027.png-9fb1b3be99d63da255776db26820bbc1.s
 [deps]
 
 source_file="res://inventory/textures/Item_Icons/genericItem_color_027.png"
+source_md5="d3a2f836ace9d55341b19e4f0bcd3ebf"
+
 dest_files=[ "res://.import/genericItem_color_027.png-9fb1b3be99d63da255776db26820bbc1.stex" ]
+dest_md5="acacfccd0681e6f7fa0687ebcdd4da77"
 
 [params]
 

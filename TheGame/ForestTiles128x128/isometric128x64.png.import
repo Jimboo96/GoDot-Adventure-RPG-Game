@@ -7,7 +7,10 @@ path="res://.import/isometric128x64.png-3c35fd56aa6330405782812b94b3acc4.stex"
 [deps]
 
 source_file="res://ForestTiles128x128/isometric128x64.png"
+source_md5="356f1bf0c75b2b6c89dcbc7e7b30d699"
+
 dest_files=[ "res://.import/isometric128x64.png-3c35fd56aa6330405782812b94b3acc4.stex" ]
+dest_md5="b4a3a083862e5181d4bbb23fbba223ea"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/ATTACK_002.png-2609f3b8933cfbac0d948a5ce24044fe.stex"
 [deps]
 
 source_file="res://assets/characters/knight1/ATTACK_002.png"
+source_md5="7d545f34ec185b93799b51e3fed821ad"
+
 dest_files=[ "res://.import/ATTACK_002.png-2609f3b8933cfbac0d948a5ce24044fe.stex" ]
+dest_md5="5cb9533b64069e835fb2f6993fac5b8b"
 
 [params]
 

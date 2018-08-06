@@ -7,7 +7,10 @@ path="res://.import/empty_slot_shield.png-2956f710d3f5ba98fdbef82822087da3.stex"
 [deps]
 
 source_file="res://inventory/textures/Item_Icons/empty_slot_shield.png"
+source_md5="113c1697b9390c47bb0033b51c7aa034"
+
 dest_files=[ "res://.import/empty_slot_shield.png-2956f710d3f5ba98fdbef82822087da3.stex" ]
+dest_md5="e073220b1f0af6670ad3e16174ec96f3"
 
 [params]
 

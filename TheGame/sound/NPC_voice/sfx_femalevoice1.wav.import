@@ -7,7 +7,10 @@ path="res://.import/sfx_femalevoice1.wav-6b8f509be51cbd90604bae04f247387a.sample
 [deps]
 
 source_file="res://sound/NPC_voice/sfx_femalevoice1.wav"
+source_md5="4f1662e12b4e3c8b7048bf110b5a8a5b"
+
 dest_files=[ "res://.import/sfx_femalevoice1.wav-6b8f509be51cbd90604bae04f247387a.sample" ]
+dest_md5="3d6cfd49b4d4043ca949c5311e843232"
 
 [params]
 

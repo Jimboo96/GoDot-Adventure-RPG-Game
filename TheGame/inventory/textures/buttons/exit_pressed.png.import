@@ -7,7 +7,10 @@ path="res://.import/exit_pressed.png-ba772b96f8b4dfb04088af1c1ad823d3.stex"
 [deps]
 
 source_file="res://inventory/textures/buttons/exit_pressed.png"
+source_md5="c9dfba2f6cd21428dca66b3ff8bc48fc"
+
 dest_files=[ "res://.import/exit_pressed.png-ba772b96f8b4dfb04088af1c1ad823d3.stex" ]
+dest_md5="6b312ded21836498acc547e7fa900b92"
 
 [params]
 

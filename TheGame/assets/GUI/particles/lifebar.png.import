@@ -7,7 +7,10 @@ path="res://.import/lifebar.png-37453df2bd14d3893be486d9df4b28ca.stex"
 [deps]
 
 source_file="res://assets/GUI/particles/lifebar.png"
+source_md5="f4a5f1861ab61bd2ea408ec7b29c35e8"
+
 dest_files=[ "res://.import/lifebar.png-37453df2bd14d3893be486d9df4b28ca.stex" ]
+dest_md5="5c8828b3343671d3d6367434363d98e9"
 
 [params]
 

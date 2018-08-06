@@ -7,7 +7,10 @@ path="res://.import/Idle (10).png-dd7994d39ea5dae4bdf3075c3d07042f.stex"
 [deps]
 
 source_file="res://assets/characters/zombie/Idle (10).png"
+source_md5="642e2d410210e351b70298d2f3faa0f8"
+
 dest_files=[ "res://.import/Idle (10).png-dd7994d39ea5dae4bdf3075c3d07042f.stex" ]
+dest_md5="88d1b786a2a6e52e29ea5cf693891596"
 
 [params]
 

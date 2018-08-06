@@ -7,7 +7,10 @@ path="res://.import/3_RUN_001.png-1643370d930529976e5ce96b3a18777d.stex"
 [deps]
 
 source_file="res://assets/characters/elf_purple/3_RUN_001.png"
+source_md5="b6c1eb8ce8acdf80532e0086f28248dc"
+
 dest_files=[ "res://.import/3_RUN_001.png-1643370d930529976e5ce96b3a18777d.stex" ]
+dest_md5="adc9cfb103043344e4b0d8126fc432b3"
 
 [params]
 

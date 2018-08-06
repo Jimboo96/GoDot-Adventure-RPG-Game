@@ -7,7 +7,10 @@ path="res://.import/label_bg.png-4a6780396c063508706076800717a80d.stex"
 [deps]
 
 source_file="res://assets/GUI/texture/label_bg.png"
+source_md5="7eee3747bf3d410a21bf88caa82b4ab4"
+
 dest_files=[ "res://.import/label_bg.png-4a6780396c063508706076800717a80d.stex" ]
+dest_md5="0de92b8c6458f2c82208e574e3235e90"
 
 [params]
 

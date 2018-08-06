@@ -7,7 +7,10 @@ path="res://.import/Dead (2).png-46189da2d21749bc21b94bf754193e08.stex"
 [deps]
 
 source_file="res://assets/characters/zombie/Dead (2).png"
+source_md5="1d9477ac3a1582c1ea3874fb737974f6"
+
 dest_files=[ "res://.import/Dead (2).png-46189da2d21749bc21b94bf754193e08.stex" ]
+dest_md5="4d2a148d4bd1faf736cbb11790c0e044"
 
 [params]
 

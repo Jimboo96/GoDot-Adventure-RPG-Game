@@ -7,7 +7,10 @@ path="res://.import/empty_slot_ring.png-3380f1ad2b0e895351e994e9ee242881.stex"
 [deps]
 
 source_file="res://inventory/textures/Item_Icons/empty_slot_ring.png"
+source_md5="37d79021e936910f16e8b686f9fe0f92"
+
 dest_files=[ "res://.import/empty_slot_ring.png-3380f1ad2b0e895351e994e9ee242881.stex" ]
+dest_md5="ff390de83c7449328d4a246dcaed865b"
 
 [params]
 

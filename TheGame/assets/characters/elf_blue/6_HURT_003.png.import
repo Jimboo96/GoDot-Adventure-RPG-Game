@@ -7,7 +7,10 @@ path="res://.import/6_HURT_003.png-6f002f06214ba49775abd4adbc6b105f.stex"
 [deps]
 
 source_file="res://assets/characters/elf_blue/6_HURT_003.png"
+source_md5="dbb249c42f51f2ee1563136419f5dd3e"
+
 dest_files=[ "res://.import/6_HURT_003.png-6f002f06214ba49775abd4adbc6b105f.stex" ]
+dest_md5="a33c8bb6c6f17395d655b358eaf04cf4"
 
 [params]
 

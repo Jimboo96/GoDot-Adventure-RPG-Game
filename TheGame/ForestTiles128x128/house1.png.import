@@ -7,7 +7,10 @@ path="res://.import/house1.png-134ab33b958d1dfcb20b214c049167e1.stex"
 [deps]
 
 source_file="res://ForestTiles128x128/house1.png"
+source_md5="75c6c1a447699cf1644df2a078b36b0f"
+
 dest_files=[ "res://.import/house1.png-134ab33b958d1dfcb20b214c049167e1.stex" ]
+dest_md5="27b5a629458f850df14ff18bc4d1e9d9"
 
 [params]
 

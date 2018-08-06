@@ -7,7 +7,10 @@ path="res://.import/empty_slot_boots.png-61f5045ace16ba322694b28cc2f69582.stex"
 [deps]
 
 source_file="res://inventory/textures/Item_Icons/empty_slot_boots.png"
+source_md5="1221f4ed0ff4df895f83713074d9da95"
+
 dest_files=[ "res://.import/empty_slot_boots.png-61f5045ace16ba322694b28cc2f69582.stex" ]
+dest_md5="2b50acff2236603e032e14f49bd46bf4"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/arrow.png-1339ac98093fc96caea43301d01a677d.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/arrow.png"
+source_md5="95decc5c83ea89ebe2b4321a457a68c4"
+
 dest_files=[ "res://.import/arrow.png-1339ac98093fc96caea43301d01a677d.stex" ]
+dest_md5="8d74b0eba530e0c306ee0609e62be527"
 
 [params]
 

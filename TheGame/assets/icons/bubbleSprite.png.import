@@ -7,7 +7,10 @@ path="res://.import/bubbleSprite.png-4a13c997f26b121c2f8213a16164270d.stex"
 [deps]
 
 source_file="res://assets/icons/bubbleSprite.png"
+source_md5="5b7ad1fd9edafa8ddc44fe4ece5d395d"
+
 dest_files=[ "res://.import/bubbleSprite.png-4a13c997f26b121c2f8213a16164270d.stex" ]
+dest_md5="dc717ecae45f3f0be708636485a2ad84"
 
 [params]
 

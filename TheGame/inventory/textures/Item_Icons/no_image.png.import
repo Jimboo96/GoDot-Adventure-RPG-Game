@@ -7,7 +7,10 @@ path="res://.import/no_image.png-efb31b67ffa55edc9b6e5a7e3511b446.stex"
 [deps]
 
 source_file="res://inventory/textures/Item_Icons/no_image.png"
+source_md5="2a418ccecff37349146f03bb0b141b2b"
+
 dest_files=[ "res://.import/no_image.png-efb31b67ffa55edc9b6e5a7e3511b446.stex" ]
+dest_md5="e3b3f361599c7d64e10e6f66b8a93e3a"
 
 [params]
 

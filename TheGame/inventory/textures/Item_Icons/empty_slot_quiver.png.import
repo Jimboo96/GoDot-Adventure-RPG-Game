@@ -7,7 +7,10 @@ path="res://.import/empty_slot_quiver.png-28b1ee793bb45eed3cf9e7ee6e306090.stex"
 [deps]
 
 source_file="res://inventory/textures/Item_Icons/empty_slot_quiver.png"
+source_md5="5d3cad1ef5ecc7f750d464cc461510e7"
+
 dest_files=[ "res://.import/empty_slot_quiver.png-28b1ee793bb45eed3cf9e7ee6e306090.stex" ]
+dest_md5="7fa6b9011872e6c59a743b9e4c8400f0"
 
 [params]
 

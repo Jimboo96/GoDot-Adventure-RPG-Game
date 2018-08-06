@@ -7,7 +7,10 @@ path="res://.import/axe_silver.png-e4f0a4ba7664023dc7bae423856c96ae.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/axe_silver.png"
+source_md5="df3d2b2f7b50626658fe7c07d904716c"
+
 dest_files=[ "res://.import/axe_silver.png-e4f0a4ba7664023dc7bae423856c96ae.stex" ]
+dest_md5="958b9b245868020283bcad25f3073cc4"
 
 [params]
 

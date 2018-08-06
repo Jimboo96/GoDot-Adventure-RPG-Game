@@ -7,7 +7,10 @@ path="res://.import/pick_silver.png-85fa6b60f9f329cefbc071295370df90.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/pick_silver.png"
+source_md5="c1369e3a85537a68382fd8dc23552a7a"
+
 dest_files=[ "res://.import/pick_silver.png-85fa6b60f9f329cefbc071295370df90.stex" ]
+dest_md5="80b14d6d96d17c29a651f88ae6abd55a"
 
 [params]
 

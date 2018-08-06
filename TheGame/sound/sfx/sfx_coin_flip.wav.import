@@ -7,7 +7,10 @@ path="res://.import/sfx_coin_flip.wav-472979bc49590b39bf407f8074dc4e10.sample"
 [deps]
 
 source_file="res://sound/sfx/sfx_coin_flip.wav"
+source_md5="dd7b9f429375d534edb20c09850dd0c4"
+
 dest_files=[ "res://.import/sfx_coin_flip.wav-472979bc49590b39bf407f8074dc4e10.sample" ]
+dest_md5="e7062b6e4f7778491faad656fba0c7c0"
 
 [params]
 

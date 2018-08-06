@@ -7,7 +7,10 @@ path="res://.import/minecart.png-3c3ea40f877a2d2e645c7c927a119365.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/minecart.png"
+source_md5="6b9898b5e77d7dc83e644c14833373e9"
+
 dest_files=[ "res://.import/minecart.png-3c3ea40f877a2d2e645c7c927a119365.stex" ]
+dest_md5="dfdb2d703eb8d2a43dd7e4f253c46bfe"
 
 [params]
 

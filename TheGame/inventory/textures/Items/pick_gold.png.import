@@ -7,7 +7,10 @@ path="res://.import/pick_gold.png-8955649216f5b083fb7a366ae4c6d0e4.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/pick_gold.png"
+source_md5="d30b3fe7820ee1c464e770463443c354"
+
 dest_files=[ "res://.import/pick_gold.png-8955649216f5b083fb7a366ae4c6d0e4.stex" ]
+dest_md5="0e7d3c2ab7aab8b33cbb4f65f380f9cb"
 
 [params]
 

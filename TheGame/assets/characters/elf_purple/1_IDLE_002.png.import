@@ -7,7 +7,10 @@ path="res://.import/1_IDLE_002.png-280a17c8be3985c8188b170f2be40e19.stex"
 [deps]
 
 source_file="res://assets/characters/elf_purple/1_IDLE_002.png"
+source_md5="614b4f2d209ef2323e3a98eff0e75961"
+
 dest_files=[ "res://.import/1_IDLE_002.png-280a17c8be3985c8188b170f2be40e19.stex" ]
+dest_md5="aea19c653b5b9a7614a734623ae370b6"
 
 [params]
 

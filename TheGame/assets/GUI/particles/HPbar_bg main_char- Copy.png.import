@@ -7,7 +7,10 @@ path="res://.import/HPbar_bg main_char- Copy.png-9fb2f312bf1ad48cf41ff3196f2016b
 [deps]
 
 source_file="res://assets/GUI/particles/HPbar_bg main_char- Copy.png"
+source_md5="91adaa353ca2f5f82859a9f189a65907"
+
 dest_files=[ "res://.import/HPbar_bg main_char- Copy.png-9fb2f312bf1ad48cf41ff3196f2016bc.stex" ]
+dest_md5="aae1e4819c7f2afda181ebec189bf792"
 
 [params]
 

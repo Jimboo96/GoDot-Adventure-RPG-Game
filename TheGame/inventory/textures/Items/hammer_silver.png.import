@@ -7,7 +7,10 @@ path="res://.import/hammer_silver.png-fc42482a7cd2f4fd649fda5df63ce6d6.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/hammer_silver.png"
+source_md5="8bf12424bb8b9af824aab2f16715d198"
+
 dest_files=[ "res://.import/hammer_silver.png-fc42482a7cd2f4fd649fda5df63ce6d6.stex" ]
+dest_md5="74d6142575b47106508d776e1fa59d6f"
 
 [params]
 

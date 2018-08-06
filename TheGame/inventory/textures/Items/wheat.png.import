@@ -7,7 +7,10 @@ path="res://.import/wheat.png-378131b16297b832608280fdd5e6bbd5.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/wheat.png"
+source_md5="c7dd1401fa80278fe265d1fa29443172"
+
 dest_files=[ "res://.import/wheat.png-378131b16297b832608280fdd5e6bbd5.stex" ]
+dest_md5="ab6dfeddb694abc5216d03cffd7f2357"
 
 [params]
 

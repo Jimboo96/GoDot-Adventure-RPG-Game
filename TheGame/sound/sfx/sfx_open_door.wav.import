@@ -7,7 +7,10 @@ path="res://.import/sfx_open_door.wav-77f1dc2f87a7d92380b265ddd446ae86.sample"
 [deps]
 
 source_file="res://sound/sfx/sfx_open_door.wav"
+source_md5="24ef69fda801651408af9b729d3e6d05"
+
 dest_files=[ "res://.import/sfx_open_door.wav-77f1dc2f87a7d92380b265ddd446ae86.sample" ]
+dest_md5="2a4fa73253b730e1dc600acf6a0532a6"
 
 [params]
 

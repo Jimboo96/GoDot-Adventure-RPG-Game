@@ -7,7 +7,10 @@ path="res://.import/ATTAK_003.png-590e89cfad6744be2cd6a378d90a5a26.stex"
 [deps]
 
 source_file="res://assets/characters/troll/ATTAK_003.png"
+source_md5="58d0f050076c446a7bd8b761046a7187"
+
 dest_files=[ "res://.import/ATTAK_003.png-590e89cfad6744be2cd6a378d90a5a26.stex" ]
+dest_md5="a0b120eca16c0a87840824cfeb203ad1"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/WALK_002.png-ab152646be2839e28209ddcf1cb8dea4.stex"
 [deps]
 
 source_file="res://assets/characters/troll_brown/WALK_002.png"
+source_md5="141d75eb6644ae66bb56e0489e47e7fa"
+
 dest_files=[ "res://.import/WALK_002.png-ab152646be2839e28209ddcf1cb8dea4.stex" ]
+dest_md5="66f06c983c7f12db9f1e0c52cd6aeecf"
 
 [params]
 

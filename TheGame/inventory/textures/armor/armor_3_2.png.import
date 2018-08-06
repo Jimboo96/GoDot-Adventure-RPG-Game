@@ -7,7 +7,10 @@ path="res://.import/armor_3_2.png-6d95c9cb48cf3219d8d154d6b293a37d.stex"
 [deps]
 
 source_file="res://inventory/textures/armor/armor_3_2.png"
+source_md5="1c126b394ab160669f26976116041612"
+
 dest_files=[ "res://.import/armor_3_2.png-6d95c9cb48cf3219d8d154d6b293a37d.stex" ]
+dest_md5="65a452090c53d4451b9762bc8ad4af31"
 
 [params]
 

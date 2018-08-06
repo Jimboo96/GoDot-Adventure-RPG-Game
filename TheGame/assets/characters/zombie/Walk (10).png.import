@@ -7,7 +7,10 @@ path="res://.import/Walk (10).png-8fead3b159973ddb44cce40aeba5f3e7.stex"
 [deps]
 
 source_file="res://assets/characters/zombie/Walk (10).png"
+source_md5="c54481155b6e26d09abc8bb29bd311f3"
+
 dest_files=[ "res://.import/Walk (10).png-8fead3b159973ddb44cce40aeba5f3e7.stex" ]
+dest_md5="149dbe8dbc04a95e28d0d468f50f1d86"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/sword_iron.png-6ab989720963870bc3edf64bb3d94ce3.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/sword_iron.png"
+source_md5="f6507d85f574dad262ecb38aecdd06a9"
+
 dest_files=[ "res://.import/sword_iron.png-6ab989720963870bc3edf64bb3d94ce3.stex" ]
+dest_md5="7ddbe44ba4dcddf26dfe68e7514d80cb"
 
 [params]
 

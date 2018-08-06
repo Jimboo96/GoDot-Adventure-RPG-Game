@@ -7,7 +7,10 @@ path="res://.import/hammer_iron.png-dda20d872072a912a864529d40296551.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/hammer_iron.png"
+source_md5="1cc24c5cf498092de96f314bf547bdf9"
+
 dest_files=[ "res://.import/hammer_iron.png-dda20d872072a912a864529d40296551.stex" ]
+dest_md5="b94c00a1e2dbc1f2ed7af28cb7e4ecdf"
 
 [params]
 

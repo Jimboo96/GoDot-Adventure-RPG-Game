@@ -7,7 +7,10 @@ path="res://.import/axe_iron.png-15aff4d744bb665de1c8aed0c211e07e.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/axe_iron.png"
+source_md5="e1398b766e9efe911e6a5b76e758f525"
+
 dest_files=[ "res://.import/axe_iron.png-15aff4d744bb665de1c8aed0c211e07e.stex" ]
+dest_md5="6abbe3606d1b257b5c7e94c506649e4a"
 
 [params]
 

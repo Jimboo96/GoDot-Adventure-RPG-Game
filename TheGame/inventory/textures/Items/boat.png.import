@@ -7,7 +7,10 @@ path="res://.import/boat.png-6ac3eec24f5d1a364d285a9ab6af8c0d.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/boat.png"
+source_md5="9521277a7018b20194e259e6f727dcc1"
+
 dest_files=[ "res://.import/boat.png-6ac3eec24f5d1a364d285a9ab6af8c0d.stex" ]
+dest_md5="75b3870c8e5e7d7f11e9e65d1fa78171"
 
 [params]
 

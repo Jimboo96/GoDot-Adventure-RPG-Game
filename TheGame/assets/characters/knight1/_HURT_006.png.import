@@ -7,7 +7,10 @@ path="res://.import/_HURT_006.png-1bb543db048a4e54112bdef10b3ec7df.stex"
 [deps]
 
 source_file="res://assets/characters/knight1/_HURT_006.png"
+source_md5="33b476d5ad0860cb59ef440ab777ce17"
+
 dest_files=[ "res://.import/_HURT_006.png-1bb543db048a4e54112bdef10b3ec7df.stex" ]
+dest_md5="0d11f03222d537759301f2a9d517a2f4"
 
 [params]
 

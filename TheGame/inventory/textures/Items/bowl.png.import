@@ -7,7 +7,10 @@ path="res://.import/bowl.png-f17f876a71bdce7b73d5fe104090d9e9.stex"
 [deps]
 
 source_file="res://inventory/textures/Items/bowl.png"
+source_md5="25cfaf7b69c3d0008235e6aeed932f8a"
+
 dest_files=[ "res://.import/bowl.png-f17f876a71bdce7b73d5fe104090d9e9.stex" ]
+dest_md5="7894cf2e1bcef5a48f0d6848a4456c36"
 
 [params]
 

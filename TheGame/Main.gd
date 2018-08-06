@@ -39,7 +39,7 @@ func conn_scenes_signals():
 func goto_area(path):
 	$WaitTimeTimer.stop() #called when changing scene
 	conn_scenes_signals() #disconnect signals from old area
-	remove_player_from_current_scene()
+	call_deferred("remove_player_from_current_scene")
 	call_deferred("deferred_goto_area", path)
 	
 func deferred_goto_area(path):

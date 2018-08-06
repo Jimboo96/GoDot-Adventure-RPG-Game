@@ -116,7 +116,7 @@ extents = Vector2( 10, 10 )
 position = Vector2( 354.975, 228.76 )
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
@@ -164,8 +164,10 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_mask = 3
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
 }

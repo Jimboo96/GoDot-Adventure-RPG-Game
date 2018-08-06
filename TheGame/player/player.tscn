@@ -1,4 +1,6 @@
-[gd_scene load_steps=19 format=2]
+
+[gd_scene load_steps=21 format=2]
+
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/player/player_default.png" type="Texture" id=2]
@@ -154,7 +156,39 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=9]
 
-resource_name = "standingDown"
+
+resource_name = "spawning"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SpawnEffect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 130, 130 ]
+}
+
+[sub_resource type="Animation" id=10]
+
+
 length = 2.0
 loop = true
 step = 1.0
@@ -171,9 +205,8 @@ tracks/0/keys = {
 "values": [ 130, 131 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
-resource_name = "standingLeft"
 length = 2.0
 loop = true
 step = 1.0
@@ -190,9 +223,8 @@ tracks/0/keys = {
 "values": [ 117 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
-resource_name = "standingRight"
 length = 2.0
 loop = true
 step = 1.0
@@ -209,9 +241,8 @@ tracks/0/keys = {
 "values": [ 143 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 
-resource_name = "standingUp"
 length = 2.0
 loop = true
 step = 1.0
@@ -228,7 +259,7 @@ tracks/0/keys = {
 "values": [ 105, 106 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 
 length = 0.9
 loop = true
@@ -246,7 +277,7 @@ tracks/0/keys = {
 "values": [ 104, 105, 106, 107, 108, 109, 110, 111, 112 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 
 length = 1.0
 loop = true
@@ -264,12 +295,26 @@ tracks/0/keys = {
 "values": [ 26, 27, 29, 30, 31 ]
 }
 
-[sub_resource type="CircleShape2D" id=15]
+tracks/1/type = "value"
+tracks/1/path = NodePath("../SpawnEffect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false ]
+}
+
+
+[sub_resource type="CircleShape2D" id=16]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 12.0
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=17]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 45 )
@@ -277,19 +322,17 @@ extents = Vector2( 30, 45 )
 [node name="player" type="KinematicBody2D"]
 
 light_mask = 29
-position = Vector2( 512.621, 301.651 )
+position = Vector2( 512, 300 )
 input_pickable = false
 collision_layer = 2
 collision_mask = 29
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
-HP = 100
-def = 10
-dame = 60
+
 
 [node name="PlayerSprite" type="Sprite" parent="." index="0"]
 
@@ -318,12 +361,14 @@ anims/dead = SubResource( 5 )
 anims/down = SubResource( 6 )
 anims/left = SubResource( 7 )
 anims/right = SubResource( 8 )
-anims/standingDown = SubResource( 9 )
-anims/standingLeft = SubResource( 10 )
-anims/standingRight = SubResource( 11 )
-anims/standingUp = SubResource( 12 )
-anims/up = SubResource( 13 )
-anims/victory = SubResource( 14 )
+anims/spawning = SubResource( 9 )
+anims/standingDown = SubResource( 10 )
+anims/standingLeft = SubResource( 11 )
+anims/standingRight = SubResource( 12 )
+anims/standingUp = SubResource( 13 )
+anims/up = SubResource( 14 )
+anims/victory = SubResource( 15 )
+
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -355,10 +400,9 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Offset", "Smoothing", "Transfor
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( -6.82744, 16.0932 )
-scale = Vector2( 1.2, 1.1 )
-shape = SubResource( 15 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 0, 10 )
+shape = SubResource( 16 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="disappearTimer" type="Timer" parent="." index="3"]
 
@@ -387,7 +431,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRay" index="0"]
 
-shape = SubResource( 16 )
+shape = SubResource( 17 )
 _sections_unfolded = [ "Transform" ]
 
 

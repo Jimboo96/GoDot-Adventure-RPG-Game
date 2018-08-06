@@ -49,7 +49,3 @@ func goto_scene(path):
 	get_parent().get_node("Main/HUD/Transition").fade(path)
 	playerPosSet = false
 	
-# math func
-func cartesian_to_isometric(cartesian):
-	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y)/2)
-	

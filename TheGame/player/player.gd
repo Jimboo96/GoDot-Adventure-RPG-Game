@@ -3,9 +3,9 @@ extends KinematicBody2D
 signal attack 
 signal attacked
 
-export (int) var HP = 100
-export (int) var DEF = 10
-export (int) var DAME = 60
+var HP = 100
+var DEF = 10
+var DAME = 60
 
 var maxHP = 100
 
@@ -48,16 +48,15 @@ func appear(anim): #appear when added to area
 		$CollisionShape2D.disabled = false
 		$AttackRay/CollisionShape2D.disabled = false
 	$AttackRay.set("monitoring", true)
-	$AttackRay.set("monitorable", true)
+	set_collision_layer_bit(2, true)
 	
 func temp_disable():
 	playerMovable = false
 	$CollisionShape2D.disabled = true
 	$AttackRay/CollisionShape2D.disabled = true
 	hide()
-	self.set("monitoring", false)
 	$AttackRay.set("monitoring", false)
-	$AttackRay.set("monitorable", false)
+	set_collision_layer_bit(2, false)
 	
 func _input(event):
 	if playerMovable:

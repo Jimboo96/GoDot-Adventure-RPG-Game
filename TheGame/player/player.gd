@@ -186,7 +186,7 @@ func get_player_pos():
 #attacked by enemy
 func attacked(damage):
 	#animationToPlay = "damaged"
-	var damage_received = damage - DEF
+	var damage_received = damage - def
 	if damage_received > 0:
 		emit_signal("attacked", damage_received)
 

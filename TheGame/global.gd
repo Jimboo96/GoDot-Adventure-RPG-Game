@@ -68,9 +68,6 @@ func _deferred_goto_scene(path):
 	get_parent().get_child(5).goto_area(path)
 	get_parent().get_child(5).get_node("HUD/Transition").fade(path)
 	playerPosSet = false
-<<<<<<< HEAD
-	
-=======
 	pass
 
 
@@ -217,4 +214,3 @@ func load_level_on_start():
 		print("global level loaded")
 	load_file.close()
 
->>>>>>> inventory&master_merge_branch

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://particles/Pause/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/GUI/texture/layer_background.png" type="Texture" id=2]
@@ -86,9 +86,44 @@ tracks/1/keys = {
 } ]
 }
 
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends Container
+
+func _ready():
+	hide()
+	#open_box()
+	$CancelBtn.connect(\"pressed\", self, \"close_box\")
+	$BtnContainer/Confirm.connect(\"pressed\", self, \"confirm\")
+	$BtnContainer/Cancel.connect(\"pressed\", self, \"close_box\")
+	
+func open_box():
+	$BoxAnim.play(\"open_box\")
+	self.show()
+	pass
+	
+func confirm():
+	$BoxAnim.play(\"close_box\")
+	get_tree().paused = false
+	self.hide()
+	#TODO
+	#go to main menu
+	#save game
+	pass
+	
+func close_box():
+	$BoxAnim.play(\"close_box\")
+	global.player.playerMovable = true
+	get_tree().paused = false
+	self.hide()
+	pass
+
+"
+
 [node name="PauseMenu" type="Container" index="0"]
 
 pause_mode = 2
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -196,6 +231,7 @@ _sections_unfolded = [ "Margin", "Size Flags", "custom_colors", "custom_fonts" ]
 
 [node name="MenuContainer" type="Container" parent="Pause/Menu" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -326,6 +362,9 @@ visible = false
 
 [node name="QuitConfirm" parent="." index="4" instance=ExtResource( 10 )]
 
-visible = false
+script = SubResource( 4 )
+
+[connection signal="pressed" from="QuitConfirm/BtnContainer/Confirm" to="." method="_on_Confirm_pressed"]
 
 
+[editable path="QuitConfirm"]

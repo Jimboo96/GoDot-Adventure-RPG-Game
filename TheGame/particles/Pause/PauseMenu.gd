@@ -16,10 +16,11 @@ func menu_holder_resize():
 	$Background.set_region_rect(Rect2(Vector2(0,0), current_size))
 	
 func init(): #call during open animation
+	global.player.playerMovable = false
 	var screen_size = OS.get_real_window_size()
 	var new_pos = Vector2(screen_size.x/2 - 150, screen_size.y/2 -250)
 	self.set("rect_position", new_pos )
-	pass	
+	pass
 	
 func cancel():
 	close_settings()
@@ -36,6 +37,7 @@ func close_menu():
 	$PauseMenuAnim.play("close_pause_menu")
 	
 func continue_game():
+	global.player.playerMovable = true
 	close_menu()
 	
 func open_other_menu():
@@ -60,3 +62,6 @@ func open_mainMenu():
 	#open confirm quit game box
 	$QuitConfirm.open_box()
 	pass
+
+func _on_Confirm_pressed():
+	global.back_to_menu()

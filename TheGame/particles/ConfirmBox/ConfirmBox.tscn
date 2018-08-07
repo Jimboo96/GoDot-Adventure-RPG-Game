@@ -39,7 +39,7 @@ use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 resource_name = "close_box"
 length = 1.0
@@ -58,9 +58,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource_name = "open_box"
 length = 1.0
 loop = false
 step = 0.1
@@ -293,8 +292,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/close_box = SubResource( 6 )
-anims/open_box = SubResource( 5 )
+anims/close_box = SubResource( 5 )
+anims/open_box = SubResource( 6 )
 blend_times = [  ]
 
 

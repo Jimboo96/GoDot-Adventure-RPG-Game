@@ -6,7 +6,7 @@ var treeCuttable = false
 var treeIsCut = false
 var typeOfTree = ""
 
-# Cutdown speed scales with players WC level.
+# Cutdown speed scales with players WC level. TODO get WC level from skills.
 var playerWoodCuttingLevel = 20
 const CUT_DOWN_SCALER = 0.1
 
@@ -71,7 +71,7 @@ func set_cutdown_time(var WCLevel):
 
 #Get some experience after cutting down a tree.
 func get_experience():
-	get_tree().get_root().get_node("Main/HUD").gain_exp(50, null)
+	get_tree().get_root().get_node("Main/HUD").gain_exp(30, null)
 
 func _on_Tree1_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body != null:

@@ -36,6 +36,7 @@ func _ready():
 	
 #set init value for enemyp
 func init():
+	$AttackIcon.hide()
 	var random_index = floor(rand_range(0, 3))
 	type = enemies_type[random_index]
 	match type:
@@ -98,6 +99,7 @@ func conn_signals():
 	
 func target_enter(body):
 	if "player" in body.get_name():
+		$AttackIcon.show()
 		target = body
 		$FlipTimer.set_paused(true)
 		$lifeBarContainer.show_bar()
@@ -106,6 +108,7 @@ func target_enter(body):
 		
 func target_exit(body):
 	if "player" in body.get_name():
+		$AttackIcon.hide()
 		target = null		
 		$lifeBarContainer.hide_bar()		
 		if $FlipTimer.is_paused():

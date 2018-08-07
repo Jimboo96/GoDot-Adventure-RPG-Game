@@ -3,7 +3,8 @@
 [ext_resource path="res://enemies/enemy_lv2.gd" type="Script" id=1]
 [ext_resource path="res://enemies/enemyHP.tscn" type="PackedScene" id=2]
 [ext_resource path="res://particles/Prizes/prize.tscn" type="PackedScene" id=3]
-[ext_resource path="res://particles/Effects/smoke.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/icons/dangerSprite.png" type="Texture" id=4]
+[ext_resource path="res://particles/Effects/smoke.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -57,9 +58,6 @@ collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "collision" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -112,13 +110,20 @@ wait_time = 3.0
 one_shot = false
 autostart = false
 
-[node name="smoke" parent="." index="6" instance=ExtResource( 4 )]
+[node name="AttackIcon" type="Sprite" parent="." index="6"]
+
+position = Vector2( 4.87677, -77.5407 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="smoke" parent="." index="7" instance=ExtResource( 5 )]
 
 visible = false
 emitting = false
 one_shot = true
 
-[node name="Anim" type="AnimationPlayer" parent="." index="7"]
+[node name="Anim" type="AnimationPlayer" parent="." index="8"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -127,5 +132,4 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/dead = SubResource( 3 )
 blend_times = [  ]
-
 

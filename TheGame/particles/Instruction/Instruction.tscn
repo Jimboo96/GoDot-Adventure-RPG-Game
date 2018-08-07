@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://particles/Instruction/Instruction.gd" type="Script" id=1]
 [ext_resource path="res://assets/GUI/texture/layer_background.png" type="Texture" id=2]
@@ -10,6 +10,14 @@
 [ext_resource path="res://assets/GUI/texture/spacebar.png" type="Texture" id=8]
 [ext_resource path="res://assets/GUI/texture/esc.png" type="Texture" id=9]
 [ext_resource path="res://assets/GUI/texture/leftmouse.png" type="Texture" id=10]
+[ext_resource path="res://assets/icons/bubbleSprite.png" type="Texture" id=11]
+[ext_resource path="res://assets/icons/doorOpenableSprite.png" type="Texture" id=12]
+[ext_resource path="res://assets/icons/doorLockedSprite.png" type="Texture" id=13]
+[ext_resource path="res://assets/icons/chestOpenableSprite.png" type="Texture" id=14]
+[ext_resource path="res://assets/icons/treeSprite.png" type="Texture" id=15]
+[ext_resource path="res://assets/icons/questAvailableSprite.png" type="Texture" id=16]
+[ext_resource path="res://assets/icons/objectOfInterestSprite.png" type="Texture" id=17]
+[ext_resource path="res://assets/icons/dangerSprite.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -78,7 +86,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="HelpWindow" type="Container"]
+[node name="HelpWindow" type="Container" index="0"]
 
 pause_mode = 2
 anchor_left = 0.5
@@ -102,6 +110,7 @@ _sections_unfolded = [ "Pause", "Rect", "Visibility" ]
 [node name="Background" type="Sprite" parent="." index="0"]
 
 modulate = Color( 0.219608, 0.207843, 0.207843, 0.482353 )
+scale = Vector2( 1, 1.07596 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
@@ -218,10 +227,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 300.0
-margin_top = 15.0
-margin_right = 400.0
-margin_bottom = 55.0
+margin_left = 304.0
+margin_top = 45.0
+margin_right = 404.0
+margin_bottom = 85.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -242,9 +251,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 40.0
+margin_top = 27.0
 margin_right = 700.0
-margin_bottom = 340.0
+margin_bottom = 360.0
 rect_min_size = Vector2( 700, 300 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -262,8 +271,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 50.0
+margin_top = 16.0
 margin_right = 650.0
-margin_bottom = 300.0
+margin_bottom = 316.0
 rect_min_size = Vector2( 600, 300 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -273,40 +283,54 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/mono_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "Your mission is ....
-
-
-Use                          to move. Use                    to attack enemies. 
-
+bbcode_text = "Use                          to move. Use                to attack enemies. 
 
 For inspect items, use
 
-
 To flip coins, press
 
-
 To pause game, press
+
+To interact with NPCs/objects:             
+
+To open/close a door, if the door isn't locked:
+
+To open a chest or treasure:
+
+To start a quest:
+
+To cut a tree, when the tree is cuttable:
+
+To see, when enemy is starting to become aggressive towards you:
+
 "
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "Your mission is ....
-
-
-Use                          to move. Use                    to attack enemies. 
-
+text = "Use                          to move. Use                to attack enemies. 
 
 For inspect items, use
 
-
 To flip coins, press
 
-
 To pause game, press
+
+To interact with NPCs/objects:             
+
+To open/close a door, if the door isn't locked:
+
+To open a chest or treasure:
+
+To start a quest:
+
+To cut a tree, when the tree is cuttable:
+
+To see, when enemy is starting to become aggressive towards you:
+
 "
-scroll_active = true
-scroll_following = true
+scroll_active = false
+scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
@@ -327,20 +351,17 @@ _sections_unfolded = [ "Pause" ]
 [node name="textureGroup" type="Node2D" parent="." index="3"]
 
 position = Vector2( 2.21606, 5.54017 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="WASD" type="Sprite" parent="textureGroup" index="0"]
 
-position = Vector2( 122.956, 150.552 )
+position = Vector2( 124.491, 89.9874 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="F" type="Sprite" parent="textureGroup" index="1"]
 
-position = Vector2( 192.224, 170.232 )
+position = Vector2( 191.25, 108.334 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 7 )
 centered = false
@@ -348,14 +369,14 @@ _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Spacebar" type="Sprite" parent="textureGroup" index="2"]
 
-position = Vector2( 248.424, 243.537 )
+position = Vector2( 248.381, 166.21 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Esc" type="Sprite" parent="textureGroup" index="3"]
 
-position = Vector2( 216.6, 286.093 )
+position = Vector2( 205.092, 196.441 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
@@ -364,9 +385,65 @@ _sections_unfolded = [ "Transform" ]
 
 modulate = Color( 0.10025, 0.855469, 0.359857, 1 )
 self_modulate = Color( 0.156738, 0.835938, 0.326538, 1 )
-position = Vector2( 304.328, 150.694 )
+position = Vector2( 292.478, 102.221 )
 scale = Vector2( 0.03, 0.03 )
 texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Icon1" type="Sprite" parent="textureGroup" index="5"]
+
+position = Vector2( 261.556, 227.479 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Icon2" type="Sprite" parent="textureGroup" index="6"]
+
+position = Vector2( 356.457, 257.396 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Icon3" type="Sprite" parent="textureGroup" index="7"]
+
+position = Vector2( 393.334, 257.351 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Icon4" type="Sprite" parent="textureGroup" index="8"]
+
+position = Vector2( 248.803, 288.568 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Icon5" type="Sprite" parent="textureGroup" index="9"]
+
+position = Vector2( 321.166, 348.81 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Icon6" type="Sprite" parent="textureGroup" index="10"]
+
+position = Vector2( 169.149, 316.266 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 16 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Icon7" type="Sprite" parent="textureGroup" index="11"]
+
+position = Vector2( 298.215, 226.829 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 17 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Icon8" type="Sprite" parent="textureGroup" index="12"]
+
+position = Vector2( 497.935, 378.948 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 18 )
+_sections_unfolded = [ "Transform" ]
 
 

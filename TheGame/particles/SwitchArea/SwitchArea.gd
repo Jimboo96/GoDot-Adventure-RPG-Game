@@ -9,12 +9,13 @@ var doorOpenableSprite
 var objectOfInterestSprite
 
 func _ready():
-	walls = get_tree().get_root().get_child(2).get_node("Area/area/walls")
+	walls = get_tree().get_root().get_child(5).get_node("Area/area/walls")
 	load_sprites()
 	$IconSprite.hide()
-	
+
 func _process(delta):
 	examine_icon_handler()
+
 
 func _input(event):
 	#If player is standing on the switchArea, it can be interacted with.

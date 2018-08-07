@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 extends Node2D
+=======
+#area1.gd
+#spawn at random location at different time
+#able to leave only if there is no enemies left
+extends "room.gd"
+>>>>>>> inventory&master_merge_branch
 
 var ENEMIES = preload("res://enemies/enemy_lv1.tscn")
 

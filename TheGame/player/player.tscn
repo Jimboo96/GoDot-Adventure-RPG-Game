@@ -326,10 +326,10 @@ radius = 12.0
 custom_solver_bias = 0.0
 extents = Vector2( 30, 45 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
+pause_mode = 2
 light_mask = 29
-position = Vector2( 512, 300 )
 input_pickable = false
 collision_layer = 2
 collision_mask = 29
@@ -409,14 +409,25 @@ position = Vector2( 0, 10 )
 shape = SubResource( 16 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="disappearTimer" type="Timer" parent="." index="3"]
+[node name="playerRayCast" type="RayCast2D" parent="." index="3"]
+
+visible = false
+light_mask = 4
+scale = Vector2( 1, 25 )
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 60, 0 )
+collision_mask = 4
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="disappearTimer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="AttackRay" type="Area2D" parent="." index="4"]
+[node name="AttackRay" type="Area2D" parent="." index="5"]
 
 position = Vector2( 39.7352, 19.8116 )
 scale = Vector2( 1.30422, 1.25133 )

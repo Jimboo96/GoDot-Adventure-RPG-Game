@@ -11,10 +11,24 @@ var iconsReseted = false
 # Minimum and maximum number of chests per room.
 const MIN_CHEST_NUMBER = 1
 const MAX_CHEST_NUMBER = 5
+var chestSound
+var axeSound
+
+
+func _ready():
+	#wow such nice recursive function wow
+	var sound = global.find_node_by_name(get_tree().get_root(), "Sound")
+	#if(sound): printt(sound, sound.get_name())
+	
+	#now you can do this
+	chestSound = sound.get_node("OpenChest")
+	axeSound = sound.get_node("PickUp")
+
 
 func _process(delta):
 	if !chestsReseted: reset_chests()
 	chest_icon_handler()
+
 
 func _input(event):
 	if(chestOpenable):
@@ -22,17 +36,17 @@ func _input(event):
 			# Set horizontal closed chest sprite to open.
 			if get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 2:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,0)
-				get_tree().get_root().get_node("Main/Sound/OpenChest").play()
+				chestSound.play()
 				get_reward(chestNum)
 			# Set vertical closed chest sprite to open.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 3:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,1)
-				get_tree().get_root().get_node("Main/Sound/OpenChest").play()
+				chestSound.play()
 				get_reward(chestNum)
 			# Set tree stump with axe in it to a normal tree stump.
 			elif get_node("chest" + str(chestNum) + "/TileMap").get_cell(0,0) == 5:
 				get_node("chest" + str(chestNum) + "/TileMap").set_cell(0,0,4)
-				get_tree().get_root().get_node("Main/Sound/PickUp").play()
+				axeSound.play()
 				get_reward(chestNum)
 			save_chest_states()
 
@@ -50,10 +64,11 @@ func reset_chests():
 	chestsReseted = true
 	
 func get_reward(var chestNum):
-		var chestNode = get_node("chest" + str(chestNum) + "/Dialogue")
-		if chestNode != null:
-			get_tree().get_root().get_node("Main/HUD").gain_exp(60, null)
-			chestNode.start_chest_dialogue(chestNum, global.current_area)
+	var chestNode = get_node("chest" + str(chestNum) + "/Dialogue")
+	if chestNode != null:
+		chestNode.start_chest_dialogue(chestNum, global.current_area)
+		get_tree().get_root().get_node("Main/HUD").gain_exp(60, null)
+		#items are actually added in dialogue
 
 func save_chest_states():
 	# Saves chest states into their corresponding global variables.

@@ -4,13 +4,16 @@ signal levelup
 
 var currentEXP
 var maxEXP
-var currentLV
+var currentLV = 2
 
 func _ready():
 	#get values
 	currentEXP = int($Gauge.get_value())
 	maxEXP = int($"Gauge/Bar Value/Total".text)
-	currentLV = int($Level.text)
+	currentLV = global.player_lvl
+	printt("current level set to:", currentLV)
+	$Level.set_text(String(currentLV))
+	
 	#init
 	$"Gauge/Bar Value/Value".set_text(String(currentEXP))
 
@@ -24,7 +27,7 @@ func update_exp(EXP):
 		#set var
 		newEXP = newEXP - maxEXP
 		currentLV += 1
-		maxEXP = maxEXP * 2
+		maxEXP = (maxEXP * currentLV)/2
 		currentEXP = newEXP
 		#set values
 		$Tween.interpolate_property($Gauge, "value", 0, currentEXP, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.5)
@@ -33,10 +36,8 @@ func update_exp(EXP):
 		#new level
 		#set text
 		$Level.set_text(String(currentLV))
-		emit_signal("levelup")
+		emit_signal("levelup", currentLV)
 	else:
 		$Tween.interpolate_property($Gauge, "value", currentEXP, newEXP, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		$Tween.start()
 		currentEXP = newEXP
-		pass
-		

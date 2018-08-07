@@ -7,10 +7,10 @@ path="res://.import/swords_sound.wav-09fdededf539c51b126916d12d3abfc6.sample"
 [deps]
 
 source_file="res://sound/sfx/swords_sound.wav"
-source_md5="d7976c129ce33f55fa6183c62f1e2d70"
+source_md5="64ced42b9f21b3e12e51c1f28dbb9c20"
 
 dest_files=[ "res://.import/swords_sound.wav-09fdededf539c51b126916d12d3abfc6.sample" ]
-dest_md5="6cfd52760200e3c56db9d17f3a717a9b"
+dest_md5="186198f41972c8e9c17ed351af8251d4"
 
 [params]
 

@@ -1,4 +1,4 @@
-extends Node2D
+extends "room.gd"
 
 func _ready():
 	pass

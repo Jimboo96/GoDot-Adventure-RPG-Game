@@ -3,14 +3,14 @@ extends KinematicBody2D
 signal attack 
 signal attacked
 
-
 var HP = 100
-var DEF = 10
-var DAME = 60
+var def = 10
+var dmg = 60
 
 var maxHP = 100
 
-const WALK_SPEED = 400 # Pixels/second
+var motion = Vector2()
+var WALK_SPEED = 400 # Pixels/second
 
 var can_attack = false
 var playerMovable = true
@@ -25,12 +25,30 @@ var isInteracting = false
 var isCuttingWood = false
 var ownsAxe = true
 
+var inventoryScene
+
+var sound
+var swing
+#stat vars
+var Str
+var Agi
+var constitution
+var Wc
+var Lvl
+
 func _enter_tree():
+	if global.restartBool:
+		printt("position is",position)
+		position = Vector2(0,0)
+		printt("and now it is",position)
 	pass
 	
 func _ready():
+	print(transform)
+	
 	set_process_input(true)
 	set_process(true)
+	_load_stats()
 	#init
 	cast_length = 60
 	#connect signals
@@ -40,6 +58,10 @@ func _ready():
 	#set player sprite
 	set_player_sprite(playerArmour)
 	
+	sound = global.find_node_by_name(get_tree().get_root(), "Sound")
+	swing = sound.get_node("SwordSwing")
+
+
 func appear(anim): #appear when added to area
 	playerMovable = true
 	show()
@@ -59,63 +81,77 @@ func temp_disable():
 	set_collision_layer_bit(2, false)
 	
 func _input(event):
-	if playerMovable:
-		if event.is_action_pressed("space"):
-			flip_coin()
-			random_armour()
+	if event.is_action_pressed("space"):
+		flip_coin()
+		random_armour()
+		
+	if Input.is_action_pressed("attack"):
+		if can_attack == true and detected_target:
+			detected_target.attacked(dmg)
+			print("enemy atteacked for: ", dmg, " damge")
 			
+	if(event.is_action_pressed("inv_key")):
+		get_tree().call_group("room","inventory_open")
+		if playerMovable:
+			playerMovable = false
+		elif !playerMovable:
+			playerMovable = true
+
+	
+func _physics_process(delta):
+	get_input()
+	move_and_slide(motion)
+	update()
+	#print(motion)
+
+func get_input():
+	motion = Vector2()
+	
+	if playerMovable:
 		if Input.is_action_pressed("move_up"):
+			motion.y  -= 1
 			animationToPlay = "up"
 			directionFacing = "Up"
 			$AttackRay.position = Vector2(30,0)
 			
-		elif Input.is_action_pressed("move_bottom"):
+		if Input.is_action_pressed("move_bottom"):
+			motion.y += 1
 			animationToPlay = "down"
 			directionFacing = "Down"
 			$AttackRay.position = Vector2(-30,0)
 			
-		elif Input.is_action_pressed("move_left"):
+		if Input.is_action_pressed("move_left"):
+			motion.x -=1
 			animationToPlay = "left"
 			directionFacing = "Left"
 			$AttackRay.position = Vector2(-30,0)
 			
-		elif Input.is_action_pressed("move_right"): 
+		if Input.is_action_pressed("move_right"): 
+			motion.x += 1
 			animationToPlay = "right"
 			directionFacing = "Right"
 			$AttackRay.position = Vector2(30,0)
 			
 		elif Input.is_action_pressed("attack"):
 			if can_attack == true and detected_target:
-				detected_target.attacked(DAME)
-			if directionFacing != null:
-				animationToPlay = "attack" + directionFacing
-			get_tree().get_root().get_node("Main/Sound/SwordSwing").play()
-			
-		else:
+				detected_target.attacked(dmg)
+				if directionFacing != null:
+					animationToPlay = "attack" + directionFacing
+					if swing.playing == false:
+						swing.play()
+					elif swing.playing == true:
+						pass
+				
+		elif motion == Vector2(0,0):
 			if directionFacing != null:
 				animationToPlay = "standing" + directionFacing
+		# play the animation
 		play_animation(animationToPlay)
 	else:
-		if directionFacing != null && !isCuttingWood:
-			animationToPlay = "standing" + directionFacing
-		play_animation(animationToPlay)
-
-func _physics_process(delta):
-	if playerMovable:
-		var motion = Vector2()
-		if Input.is_action_pressed("move_up"):
-			motion += Vector2(0,-1)
-		elif Input.is_action_pressed("move_bottom"):
-			motion += Vector2(0,1)
-		elif Input.is_action_pressed("move_left"):
-			motion += Vector2(-1,0)
-		elif Input.is_action_pressed("move_right"): 
-			motion += Vector2(1,0)
-		else:
-			motion = Vector2(0,0)
-			
-		motion = motion.normalized() * WALK_SPEED
-		move_and_slide(motion)
+		pass #if player is not movable
+	motion = motion.normalized() * WALK_SPEED
+	#if motion != Vector2(0,0):
+	#		$Sprite.animation = "walk"
 
 func enemy_in_zone(body):
 	if "enemy" in body.get_name():
@@ -136,6 +172,7 @@ func enemy_out_zone(body):
 # Flips a coin.
 func flip_coin():
 	get_tree().get_root().get_node("Main/Sound/CoinFlip").play()
+	_load_stats()
 	var coinSide = randi()%2
 	if(coinSide == 0):
 		print("Heads")
@@ -152,12 +189,12 @@ func attacked(damage):
 	var damage_received = damage - DEF
 	if damage_received > 0:
 		emit_signal("attacked", damage_received)
-		pass
 
 func player_dead():
 	$disappearTimer.start()
 	animationToPlay = "dead"
 	play_animation(animationToPlay)
+
 
 func _on_disappearTimer_timeout():
 	queue_free()
@@ -166,11 +203,29 @@ func _on_disappearTimer_timeout():
 func updateHP(newHP):
 	HP = newHP
 
-#called when level up
-func levelup():
-	HP = maxHP * 3/2
-	DEF = DEF * 3/2
-	DAME = DAME + 10
+func level_up(Str, Agi, constitution, Wc):
+	HP = 10 * constitution 
+	def = 10 * 3/2
+	def += global.armorFromArmor
+	WALK_SPEED = 400 * ((Agi/10)+1)
+	dmg = (10 * Str) + 60
+	dmg += global.damageFromWeapons
+	#printt("damage:", dmg, " Walk_speed:", WALK_SPEED, "hp:", HP)
+
+
+func _load_stats():
+	var current_line = global._load_player_stats(1)
+	if current_line == null:
+		pass
+	else:
+		Str = current_line["Str"]
+		Agi = current_line["Agi"]
+		constitution = current_line["Const"]
+		Wc = current_line["Wc"]
+		Lvl = global.player_lvl
+		level_up(Str, Agi, constitution, Wc)
+	print("stats are loaded ")
+	printt("damage:", dmg, " Walk_speed:", WALK_SPEED, "hp:", HP)
 
 func play_animation(var animation):
 	if $PlayerSprite/AnimationPlayer.current_animation.get_basename() != animationToPlay:

@@ -3,6 +3,12 @@ extends Node2D
 var doorOpenable = false
 var playerPosReseted  = false
 var player
+var openDoor
+
+func _ready():
+	var sound = global.find_node_by_name(get_tree().get_root(), "Sound")
+	openDoor = sound.get_node("OpenDoor")
+	
 
 func _process(delta):
 	if !playerPosReseted:
@@ -12,7 +18,7 @@ func _input(event):
 	if(doorOpenable && !global.player.isInteracting):
 		if event.is_action_pressed("interact"):
 			doorOpenable = false
-			get_tree().get_root().get_node("Main/Sound/OpenDoor").play()
+			openDoor.play()
 			global.player.temp_disable()
 			$DoorArea/DoorTimer.start()
 			
